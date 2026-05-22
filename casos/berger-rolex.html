@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berger × Rolex — CoreLab</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    body { padding-top: 64px; }
+
+    /* ── SCROLL WINDOW ── */
+    .site-scroll-window {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      background: #080808;
+      cursor: crosshair;
+    }
+    .site-scroll-window img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(0);
+      transition: transform 16s cubic-bezier(0.25, 0.05, 0.1, 1); /* fallback; JS overrides */
+      will-change: transform;
+    }
+    .site-scroll-window:hover img {
+      transform: translateY(calc(-100% + 540px));
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 28px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .scroll-hint .sh-label {
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+    .scroll-hint .sh-cta {
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .site-scroll-window:hover .scroll-hint { opacity: 0; }
+    .site-scroll-window::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold, #EBB22C);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+    .site-scroll-window:hover::before { transform: scaleX(1); }
+  </style>
+  <script>window.__LOGO_SRC__='../logos/corelab.png'; window.__ROOT__='../';</script>
+</head>
+<body>
+
+<div class="cs-hero">
+  <div class="breadcrumb">
+    <a href="../index.html#casos">← Casos de éxito</a>
+    <span>·</span> Berger × Rolex
+  </div>
+  <div class="cs-hero-grid">
+    <div>
+      <h1>Un micrositio bespoke aprobado directamente por Rolex International.</h1>
+      <p class="cs-tagline">"Cada pixel revisado y aprobado por los equipos globales de Rolex. El sitio más exigente que hemos construido."</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Bespoke Web Development</span>
+        <span class="cs-tag">UI/UX Design</span>
+        <span class="cs-tag">Brand Compliance</span>
+        <span class="cs-tag">Rolex International</span>
+        <span class="cs-tag">Luxury Digital Experience</span>
+      </div>
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="label">Cliente</div><div class="value">Berger Joyeros</div></div>
+      <div class="cs-meta-item"><div class="label">Alianza</div><div class="value">Rolex International</div></div>
+      <div class="cs-meta-item"><div class="label">Tipo</div><div class="value">Micrositio bespoke certificado</div></div>
+      <div class="cs-meta-item"><div class="label">Sitio</div><div class="value"><a href="https://berger.com.mx/rolex/" target="_blank" style="color:var(--gold);text-decoration:none;">berger.com.mx/rolex ↗</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-featured" style="background:#080808;padding:0;overflow:hidden;">
+  <img src="../img/casos/berger-rolex-1.jpg" alt="Berger × Rolex" style="opacity:0.95;" />
+</div>
+
+<div class="cs-body">
+  <div class="cs-intro">
+    <p class="cs-lead">Rolex no es solo una marca de relojes — es una de las identidades de lujo más controladas y protegidas del mundo. Cuando Berger Joyeros, distribuidor oficial en México, necesitó un micrositio dedicado, el proyecto no era simplemente "hacer un sitio web". Era desarrollar una experiencia digital bajo mandatos visuales estrictos de Rolex International, con aprobación directa de sus equipos globales en cada etapa.</p>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="num"><span>✓</span></div><div class="lbl">Aprobado por Rolex International</div></div>
+      <div class="cs-stat"><div class="num">100<span>%</span></div><div class="lbl">Brand compliance</div></div>
+      <div class="cs-stat"><div class="num">2026</div><div class="lbl">Colecciones actualizadas</div></div>
+    </div>
+  </div>
+
+  <div class="cs-blocks">
+    <div class="cs-block">
+      <div class="cs-block-label">El reto</div>
+      <h2>Construir bajo los mandatos más exigentes del mundo del lujo.</h2>
+      <p>Rolex tiene lineamientos de marca entre los más precisos y restrictivos de la industria del lujo global. Tipografía, paleta de color, tratamiento de imágenes de producto, jerarquía de marca, tono de voz — cada elemento está definido al milímetro y requiere aprobación formal de sus equipos internacionales antes de publicarse.</p>
+      <p>El reto técnico fue igualmente complejo: integrar el ecosistema de producto de Rolex dentro de la arquitectura de Berger, garantizar tiempos de carga acordes al estándar de lujo, y crear una navegación que se sienta como un espacio Rolex dentro del mundo Berger — sin que ninguna de las dos identidades comprometa a la otra.</p>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-label">La solución</div>
+      <h2>Una experiencia digital que Rolex aprobó. Un sitio que Berger opera.</h2>
+      <p>Desarrollamos el micrositio desde cero con un proceso de aprobación iterativo directamente con los equipos de Rolex International. Cada entregable — wireframes, maquetas, prototipo, staging — pasó por revisión formal antes de avanzar. El resultado es un espacio digital que lleva la "Placa Rolex" de distribuidor oficial, cumple cada mandato visual de la marca y funciona como herramienta de venta real para Berger.</p>
+      <p>El sitio incluye navegación dedicada con "Rolex en Berger", catálogo de colecciones actualizado con los modelos 2026, sección educativa "Rolex Watchmaking" con el enfoque savoir-faire de la marca, servicio de mantenimiento certificado y concierge para asistencia personalizada.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Secciones del micrositio</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:16px;">
+      <div style="background:var(--surface);padding:28px 24px;border-top:2px solid var(--gold);">
+        <div style="font-size:13px;font-weight:400;color:var(--text);margin-bottom:8px;">Rolex en Berger</div>
+        <div style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.7;">Historia y credenciales como distribuidor oficial en México.</div>
+      </div>
+      <div style="background:var(--surface);padding:28px 24px;border-top:2px solid var(--border);">
+        <div style="font-size:13px;font-weight:400;color:var(--text);margin-bottom:8px;">Colección Rolex</div>
+        <div style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.7;">Catálogo completo por familia: Oyster Perpetual, Professional, Cellini.</div>
+      </div>
+      <div style="background:var(--surface);padding:28px 24px;border-top:2px solid var(--border);">
+        <div style="font-size:13px;font-weight:400;color:var(--text);margin-bottom:8px;">Nuevos Modelos 2026</div>
+        <div style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.7;">Lanzamientos del año con ficha técnica y disponibilidad.</div>
+      </div>
+      <div style="background:var(--surface);padding:28px 24px;border-top:2px solid var(--border);">
+        <div style="font-size:13px;font-weight:400;color:var(--text);margin-bottom:8px;">Rolex Watchmaking</div>
+        <div style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.7;">Savoir-faire: historia, manufactura y filosofía de relojería.</div>
+      </div>
+      <div style="background:var(--surface);padding:28px 24px;border-top:2px solid var(--border);">
+        <div style="font-size:13px;font-weight:400;color:var(--text);margin-bottom:8px;">World of Rolex</div>
+        <div style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.7;">Universo de patrocinios y herencia de la marca.</div>
+      </div>
+      <div style="background:var(--surface);padding:28px 24px;border-top:2px solid var(--border);">
+        <div style="font-size:13px;font-weight:400;color:var(--text);margin-bottom:8px;">Servicio & Concierge</div>
+        <div style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.7;">Mantenimiento certificado y atención personalizada.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERÍA DE PANTALLAS -->
+  <div style="margin-top:80px;">
+    <div class="cs-block-label">El micrositio — Explora cada sección</div>
+    <p style="font-size:13px;font-weight:300;color:var(--hint);margin-top:8px;margin-bottom:24px;letter-spacing:0.02em;">Pasa el cursor sobre cada pantalla para recorrerla.</p>
+
+    <!-- Homepage — full width -->
+    <div class="site-scroll-window">
+      <img src="../img/casos/berger-rolex-2.jpg" alt="Homepage — Berger × Rolex" />
+      <div class="scroll-hint">
+        <span class="sh-label">Homepage</span>
+        <span class="sh-cta">Hover para explorar ↓</span>
+      </div>
+    </div>
+
+    <!-- Colección — full width -->
+    <div class="site-scroll-window" style="margin-top:2px;">
+      <img src="../img/casos/berger-rolex-3.jpg" alt="Colección — Berger × Rolex" />
+      <div class="scroll-hint">
+        <span class="sh-label">Colección</span>
+        <span class="sh-cta">Hover para explorar ↓</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Servicios aplicados</div>
+    <div class="cs-services-grid">
+      <div class="cs-svc"><div class="sn">01</div><div class="sv">Bespoke Web Development</div></div>
+      <div class="cs-svc"><div class="sn">02</div><div class="sv">UI/UX Design</div></div>
+      <div class="cs-svc"><div class="sn">03</div><div class="sv">Brand Compliance Management</div></div>
+      <div class="cs-svc"><div class="sn">04</div><div class="sv">Proceso de Aprobación Internacional</div></div>
+      <div class="cs-svc"><div class="sn">05</div><div class="sv">Gestión de Catálogo de Producto</div></div>
+      <div class="cs-svc"><div class="sn">06</div><div class="sv">Mantenimiento & Actualizaciones</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-related">
+  <div class="rel-label">Más casos de éxito</div>
+  <div class="cs-related-grid">
+    <a href="berger.html" class="cs-rel-card"><div class="rt">Brand Strategy · Web · Media</div><h3>Berger Joyeros — 100 años</h3></a>
+    <a href="pyl-studios.html" class="cs-rel-card"><div class="rt">Identidad Digital · UI/UX</div><h3>PYL Studios</h3></a>
+    <a href="arquitectoma.html" class="cs-rel-card"><div class="rt">Real Estate · Media</div><h3>Arquitectoma</h3></a>
+  </div>
+</div>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

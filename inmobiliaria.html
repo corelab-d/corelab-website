@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Inmobiliario — CoreLab</title>
+  <meta name="description" content="Estrategia de medios y ecosistema digital para desarrollos inmobiliarios. Lead acquisition, Google Ads, Meta Ads y optimización mensual." />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    body { padding-top: 64px; }
+
+    /* HERO */
+    .inmo-hero {
+      min-height: 90vh;
+      background: var(--dark);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 96px;
+      position: relative; overflow: hidden;
+    }
+    .inmo-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 30%, rgba(235,178,44,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .inmo-hero::after {
+      content: 'REAL ESTATE';
+      white-space: nowrap;
+      position: absolute;
+      right: -40px; top: 50%; transform: translateY(-50%);
+      font-size: clamp(100px, 16vw, 200px);
+      font-weight: 300; letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.02);
+      line-height: 0.9;
+      pointer-events: none;
+    }
+    .inmo-hero .eyebrow {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    .inmo-hero h1 {
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 300; color: #FFF;
+      letter-spacing: 0.01em; line-height: 1.1;
+      max-width: 820px; margin-bottom: 32px;
+    }
+    .inmo-hero p {
+      font-size: 15px; font-weight: 300; color: #999;
+      max-width: 520px; line-height: 1.8; margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 28px; }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: #111;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid #1A1A1A;
+    }
+    .stat-cell {
+      padding: 36px 32px;
+      border-right: 1px solid #1A1A1A;
+      transition: background 0.2s;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:hover { background: #141414; }
+    .stat-cell .n {
+      font-size: 40px; font-weight: 300; color: #FFF; line-height: 1; margin-bottom: 8px;
+    }
+    .stat-cell .n span { color: var(--gold); }
+    .stat-cell .l {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #777;
+    }
+
+    /* METODOLOGÍA */
+    .metodologia { background: var(--bg); padding: 96px 48px; }
+    .met-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 56px;
+    }
+    .met-step {
+      background: var(--surface); padding: 40px 36px;
+      border-top: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .met-step:hover { border-top-color: var(--gold); }
+    .met-step .step-n {
+      font-size: 10px; letter-spacing: 0.14em; color: var(--hint); margin-bottom: 16px;
+    }
+    .met-step h3 { font-size: 17px; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+    .met-step p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+    /* PROYECTOS */
+    .proyectos { background: var(--surface); padding: 96px 48px; }
+    .proy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+    .proy-card {
+      background: var(--bg); padding: 32px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .proy-card:hover { border-left-color: var(--gold); background: var(--gold-faint); }
+    .proy-card .loc { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .proy-card h3 { font-size: 15px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+    .proy-card .tipo { font-size: 11px; font-weight: 300; color: var(--hint); }
+    .proy-card .cliente { font-size: 10px; letter-spacing: 0.08em; color: var(--border); margin-top: 16px; text-transform: uppercase; }
+
+    /* SERVICIOS */
+    .inmo-servicios { background: var(--dark); padding: 96px 48px; }
+    .inmo-servicios .section-title { color: #FFF; }
+    .inmo-servicios .section-label { color: var(--gold); }
+    .isvc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 56px; }
+    .isvc-card {
+      background: #111; padding: 44px 40px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .isvc-card:hover { border-left-color: var(--gold); background: #141414; }
+    .isvc-card .sn { font-size: 10px; letter-spacing: 0.14em; color: #444; margin-bottom: 18px; }
+    .isvc-card h3 { font-size: 17px; font-weight: 400; color: #CCC; margin-bottom: 12px; }
+    .isvc-card p { font-size: 13px; font-weight: 300; color: #555; line-height: 1.8; }
+
+    /* CONTACTO INMOBILIARIA */
+    .inmo-contacto { background: var(--bg); padding: 96px 48px; }
+    .ic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hint); margin-bottom: 8px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      padding: 12px 16px; font-family: 'Roboto', sans-serif; font-weight: 300;
+      font-size: 14px; color: var(--text); outline: none;
+      transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    #inmo-success { display: none; margin-top: 16px; font-size: 13px; color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .inmo-hero { padding: 0 24px 64px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .met-grid { grid-template-columns: 1fr; }
+      .proy-grid { grid-template-columns: 1fr 1fr; }
+      .isvc-grid { grid-template-columns: 1fr; }
+      .ic-grid { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .metodologia, .proyectos, .inmo-servicios, .inmo-contacto { padding: 64px 24px; }
+    }
+  </style>
+  <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="inmo-hero">
+  <p class="eyebrow">Especialidad CoreLab — Real Estate</p>
+  <h1>El ecosistema digital que vende tu desarrollo.</h1>
+  <p>Llevamos más de 8 años construyendo estrategias de medios y adquisición de leads para los desarrollos inmobiliarios más importantes de México. No hacemos publicidad — construimos la máquina de ventas digital de tu proyecto.</p>
+  <div class="hero-actions">
+    <a href="#inmo-contacto" class="btn-primary">Iniciar proyecto</a>
+    <a href="#proyectos" class="btn-ghost" style="color:#888;">Ver desarrollos →</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-cell"><div class="n"><span>+</span>20</div><div class="l">Desarrollos</div></div>
+  <div class="stat-cell"><div class="n"><span>+</span>8</div><div class="l">Años en el sector</div></div>
+  <div class="stat-cell"><div class="n">360<span>°</span></div><div class="l">Ecosistema digital de ventas</div></div>
+</div>
+
+<hr class="divider" />
+
+<!-- METODOLOGÍA -->
+<section class="metodologia">
+  <p class="section-label">Cómo trabajamos</p>
+  <h2 class="section-title">Un ecosistema de ventas construido<br/>para traer leads calificados.</h2>
+  <div class="met-grid">
+    <div class="met-step">
+      <div class="step-n">01 — Diagnóstico</div>
+      <h3>Estrategia y definición de buyer persona</h3>
+      <p>Analizamos el mercado, definimos el perfil del comprador, establecemos objetivos de CPL y ROAS, y diseñamos la arquitectura de la campaña antes de invertir un peso.</p>
+    </div>
+    <div class="met-step">
+      <div class="step-n">02 — Activación</div>
+      <h3>Ecosistema digital y campañas</h3>
+      <p>Landing de alta conversión, configuración de Pixel y eventos, campañas en Google Ads y Meta Ads, segmentación de audiencias, creativos y copys de conversión.</p>
+    </div>
+    <div class="met-step">
+      <div class="step-n">03 — Operación mensual</div>
+      <h3>Optimización continua y reportería</h3>
+      <p>Auditamos y optimizamos cada mes: audiencias, creativos, pujas, CPL, tasa de conversión. Dashboard en tiempo real para el equipo de ventas. Sin sorpresas.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROYECTOS -->
+<section class="proyectos" id="proyectos">
+  <p class="section-label">Desarrollos con los que hemos trabajado</p>
+  <div class="proy-grid">
+    <div class="proy-card">
+      <div class="loc">CDMX · Av. Reforma</div>
+      <h3>Chapultepec Uno</h3>
+      <div class="tipo">Mixto · Ultra lujo · Ritz Carlton</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX · Reforma</div>
+      <h3>Forma Reforma</h3>
+      <div class="tipo">Residencial Premium</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX · Condesa</div>
+      <h3>Taman Condesa</h3>
+      <div class="tipo">Lifestyle · Urbano</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX · Condesa</div>
+      <h3>Sepia Condesa</h3>
+      <div class="tipo">Lifestyle · Urbano</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">Puebla</div>
+      <h3>HighTowers Puebla</h3>
+      <div class="tipo">Mixto · Regional</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX</div>
+      <h3>Torres Bioparque Residencial</h3>
+      <div class="tipo">Residencial</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX</div>
+      <h3>Torres Bioparque Oficinas</h3>
+      <div class="tipo">Oficinas corporativas</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX</div>
+      <h3>Máxica</h3>
+      <div class="tipo">Residencial</div>
+      <div class="cliente">Grupo Arquitectoma</div>
+    </div>
+    <div class="proy-card">
+      <div class="loc">CDMX · Centro Histórico</div>
+      <h3>Edificio Apantla</h3>
+      <div class="tipo">Rehabilitación patrimonial</div>
+      <div class="cliente">ACHA</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SERVICIOS -->
+<section class="inmo-servicios">
+  <p class="section-label">Servicios inmobiliarios</p>
+  <h2 class="section-title">Agencia digital para desarrollos inmobiliarios.</h2>
+  <div class="isvc-grid">
+    <div class="isvc-card">
+      <div class="sn">01</div>
+      <h3>Ecosistema Digital de Ventas</h3>
+      <p>Diagnóstico completo, definición de buyer persona, arquitectura de la estrategia digital y plan de medios. El mapa completo antes de activar cualquier campaña.</p>
+    </div>
+    <div class="isvc-card">
+      <div class="sn">02</div>
+      <h3>Google Ads & Meta Ads</h3>
+      <p>Campañas de Search, Display, Performance Max en Google. Facebook e Instagram Ads con segmentación por comportamiento, intereses y audiencias similares a tus compradores actuales.</p>
+    </div>
+    <div class="isvc-card">
+      <div class="sn">03</div>
+      <h3>Landing Pages de Alta Conversión</h3>
+      <p>Diseño y desarrollo de micrositios del desarrollo: renders, planos, tabla de precios, formulario de contacto y configuración completa de eventos de conversión.</p>
+    </div>
+    <div class="isvc-card">
+      <div class="sn">04</div>
+      <h3>Lead Acquisition & CRM</h3>
+      <p>Flujos de nutrición de leads, scoring automático y alertas para el equipo de ventas. Cada lead calificado en el momento correcto. Menos leads perdidos, más cierres.</p>
+    </div>
+    <div class="isvc-card">
+      <div class="sn">05</div>
+      <h3>Tracking & Pixel Setup</h3>
+      <p>Configuración técnica de Pixel de Meta, Google Tag Manager, eventos personalizados y verificación de conversiones. La base de datos de todo lo que sigue.</p>
+    </div>
+    <div class="isvc-card">
+      <div class="sn">06</div>
+      <h3>Optimización Mensual</h3>
+      <p>Auditoría mensual de campañas, ajuste de audiencias, rotación de creativos y reporte ejecutivo en Looker Studio. Tu equipo de ventas siempre tiene el contexto completo.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACTO -->
+<section class="inmo-contacto" id="inmo-contacto">
+  <div class="ic-grid">
+    <div>
+      <p class="section-label">Hablemos de tu desarrollo</p>
+      <h2 class="section-title">¿Cuándo lanzas?<br/>Escríbenos ahora.</h2>
+      <p class="section-body">Entre más pronto iniciemos la estrategia, más datos tendremos antes del lanzamiento. Respondemos en menos de 24 horas.</p>
+      <div style="margin-top:40px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="width:1px;height:36px;background:var(--gold);flex-shrink:0;margin-top:4px;"></div>
+          <div>
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);margin-bottom:5px;">Email</div>
+            <a href="mailto:hola@corelab.mx" style="font-size:14px;font-weight:300;color:var(--text);text-decoration:none;">hola@corelab.mx</a>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <div style="width:1px;height:36px;background:var(--border);flex-shrink:0;margin-top:4px;"></div>
+          <div>
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--hint);margin-bottom:5px;">Especialidad</div>
+            <span style="font-size:14px;font-weight:300;color:var(--text);">Marketing Digital Inmobiliario</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
+        <div class="form-group"><label>Empresa / Desarrolladora</label><input type="text" placeholder="Nombre" /></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="correo@empresa.com" /></div>
+      <div class="form-group"><label>Nombre del desarrollo</label><input type="text" placeholder="¿Cómo se llama tu proyecto?" /></div>
+      <div class="form-group">
+        <label>Etapa del proyecto</label>
+        <select>
+          <option value="" disabled selected>Selecciona la etapa</option>
+          <option>Pre-lanzamiento (planeando campaña)</option>
+          <option>En preventa activa</option>
+          <option>Lanzado, quiero mejorar resultados</option>
+          <option>Aún en exploración</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea placeholder="¿Cuántas unidades? ¿En qué ciudad? ¿Cuál es el ticket promedio?"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar</button>
+      <p id="inmo-success">¡Listo! Te contactamos en menos de 24 horas.</p>
+    </form>
+  </div>
+</section>
+
+<script src="js/site.js"></script>
+<script>
+  document.querySelector('form.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('inmo-success').style.display = 'block';
+    this.reset();
+  });
+</script>
+</body>
+</html>

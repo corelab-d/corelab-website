@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #F4F3F0;
+  --surface:    #FFFFFF;
+  --border:     #E5E2DA;
+  --text:       #1A1A1A;
+  --muted:      #555555;
+  --hint:       #999999;
+  --dark:       #1A1A1A;
+  --gold:       #EBB22C;
+  --gold-h:     #F5C842;
+  --gold-faint: #FBF0D0;
+  --warm:       #FAF8F4;
+  --warm-mid:   #F0EDE6;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--dark);
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo img { height: 28px; display: block; }
+nav ul { list-style: none; display: flex; gap: 32px; }
+nav ul a {
+  color: var(--hint);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav ul a:hover { color: var(--gold); }
+.nav-cta {
+  background: transparent;
+  border: 1px solid #444;
+  color: #CCC;
+  padding: 8px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.nav-cta:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── SECTION COMMONS ── */
+section { padding: 104px 48px; }
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin-bottom: 24px;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold);
+}
+.section-title .light {
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+.section-body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 540px;
+}
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 0 48px; }
+
+/* editorial decorative number */
+.ed-num {
+  font-size: clamp(140px, 22vw, 280px);
+  font-weight: 700;
+  color: rgba(0,0,0,0.04);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+}
+.ed-num.right { right: -20px; bottom: -20px; }
+.ed-num.left  { left: -20px;  bottom: -20px; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 14px 32px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--gold-h); }
+.btn-ghost {
+  color: var(--hint);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--text); }
+
+/* ── FOOTER ── */
+footer { background: var(--dark); padding: 64px 48px 40px; }
+footer .footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #1E1E1E;
+}
+footer .footer-brand img { height: 24px; }
+footer .footer-brand p {
+  font-size: 12px; font-weight: 300; color: #888;
+  margin-top: 20px; max-width: 300px; line-height: 1.75;
+}
+footer .footer-links { display: flex; gap: 64px; }
+footer .footer-col h5 {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #777; margin-bottom: 20px;
+}
+footer .footer-col ul { list-style: none; }
+footer .footer-col ul li { margin-bottom: 10px; }
+footer .footer-col ul a {
+  font-size: 13px; font-weight: 300; color: #999;
+  text-decoration: none; transition: color 0.2s;
+}
+footer .footer-col ul a:hover { color: var(--gold); }
+footer .footer-bottom {
+  margin-top: 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+footer .footer-bottom p { font-size: 11px; color: #666; letter-spacing: 0.04em; }
+footer .footer-bottom a {
+  font-size: 11px; color: #666; text-decoration: none; transition: color 0.2s;
+}
+footer .footer-bottom a:hover { color: var(--gold); }
+
+/* ── CASE STUDY PAGES ── */
+.cs-hero {
+  background: var(--dark);
+  padding: 96px 48px 64px;
+  margin-top: 64px;
+}
+.breadcrumb {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #777; margin-bottom: 40px;
+}
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+.breadcrumb span { margin: 0 8px; }
+.cs-hero-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.cs-hero h1 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  color: #FFF;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+.cs-tagline { font-size: 13px; font-weight: 300; color: #888; font-style: italic; margin-bottom: 28px; }
+.cs-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.cs-tag {
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--hint); border: 1px solid #2A2A2A; padding: 5px 12px;
+}
+.cs-meta { display: flex; flex-direction: column; gap: 24px; }
+.cs-meta-item .label {
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #777; margin-bottom: 6px;
+}
+.cs-meta-item .value { font-size: 13px; font-weight: 300; color: #888; }
+.cs-meta-item .value.gold { color: var(--gold); }
+
+.cs-featured {
+  background: #111;
+  overflow: hidden;
+  line-height: 0;
+}
+.cs-featured img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.95;
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.25, 0.05, 0.1, 1);
+}
+.cs-featured:hover img { transform: scale(1.03); }
+.cs-featured .placeholder {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #333;
+}
+
+.cs-body { max-width: 1200px; margin: 0 auto; padding: 80px 48px; }
+.cs-intro {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 96px;
+  margin-bottom: 80px; padding-bottom: 80px;
+  border-bottom: 1px solid var(--border);
+}
+.cs-lead {
+  font-size: 19px; font-weight: 300; color: var(--text);
+  line-height: 1.65; letter-spacing: 0.01em;
+}
+.cs-stats { display: flex; flex-direction: column; gap: 28px; }
+.cs-stat .num {
+  font-size: 38px; font-weight: 300; color: var(--text); line-height: 1;
+}
+.cs-stat .num span { color: var(--gold); }
+.cs-stat .lbl {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--hint); margin-top: 6px;
+}
+
+.cs-blocks { display: flex; flex-direction: column; gap: 64px; }
+.cs-block-label {
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--hint); margin-bottom: 14px;
+}
+.cs-block h2 { font-size: 24px; font-weight: 300; color: var(--text); margin-bottom: 20px; }
+.cs-block p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.85; max-width: 740px; }
+.cs-block p + p { margin-top: 16px; }
+
+.cs-services-grid {
+  background: var(--surface);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.cs-svc {
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+  transition: border-color 0.2s;
+}
+.cs-svc:hover { border-left-color: var(--gold); }
+.cs-svc .sn { font-size: 9px; letter-spacing: 0.12em; color: var(--hint); margin-bottom: 8px; }
+.cs-svc .sv { font-size: 13px; font-weight: 400; color: var(--text); }
+
+.cs-screens { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 64px; }
+.cs-screen {
+  background: #E4E4E4;
+  aspect-ratio: 16/10;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.cs-screen img { width: 100%; height: 100%; object-fit: cover; }
+.cs-screen .ph {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hint);
+  position: absolute;
+}
+.cs-screen:first-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
+
+.cs-related { background: var(--dark); padding: 64px 48px; }
+.cs-related .rel-label {
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #777; margin-bottom: 40px;
+}
+.cs-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.cs-rel-card {
+  background: #0D0D0D;
+  padding: 32px; cursor: pointer; transition: background 0.2s;
+  text-decoration: none; display: block;
+}
+.cs-rel-card:hover { background: #141414; }
+.cs-rel-card .rt {
+  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.cs-rel-card h3 { font-size: 15px; font-weight: 300; color: #888; transition: color 0.2s; }
+.cs-rel-card:hover h3 { color: #CCC; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  nav ul { display: none; }
+  section { padding: 72px 24px; }
+  hr.divider { margin: 0 24px; }
+  .cs-hero { padding: 80px 24px 48px; }
+  .cs-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .cs-body { padding: 56px 24px; }
+  .cs-intro { grid-template-columns: 1fr; gap: 48px; }
+  .cs-services-grid { grid-template-columns: 1fr; padding: 32px 24px; }
+  .cs-screens { grid-template-columns: 1fr; }
+  .cs-screen:first-child { grid-column: auto; aspect-ratio: 16/10; }
+  .cs-related { padding: 48px 24px; }
+  .cs-related-grid { grid-template-columns: 1fr; }
+  footer .footer-top { flex-direction: column; gap: 40px; }
+  footer .footer-links { flex-wrap: wrap; gap: 32px; }
+  footer .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}

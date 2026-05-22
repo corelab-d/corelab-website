@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACHA — CoreLab</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    body { padding-top: 64px; }
+
+    /* ── SCROLL WINDOW ── */
+    .site-scroll-window {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      background: #111416;
+      cursor: crosshair;
+    }
+    .site-scroll-window img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(0);
+      transition: transform 18s cubic-bezier(0.25, 0.05, 0.1, 1); /* fallback; JS overrides per-image */
+      will-change: transform;
+    }
+    .site-scroll-window:hover img {
+      transform: translateY(calc(-100% + 540px));
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 28px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .scroll-hint .sh-label {
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+    .scroll-hint .sh-cta {
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+    }
+    .site-scroll-window:hover .scroll-hint { opacity: 0; }
+
+    /* top border accent on hover */
+    .site-scroll-window::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold, #EBB22C);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+    .site-scroll-window:hover::before { transform: scaleX(1); }
+  </style>
+  <script>window.__LOGO_SRC__='../logos/corelab.png'; window.__ROOT__='../';</script>
+</head>
+<body>
+
+<div class="cs-hero">
+  <div class="breadcrumb">
+    <a href="../index.html#casos">← Casos de éxito</a>
+    <span>·</span> ACHA
+  </div>
+  <div class="cs-hero-grid">
+    <div>
+      <h1>Identidad digital y performance para la firma que rehabilita el patrimonio de CDMX.</h1>
+      <p class="cs-tagline">"Con ACHA hacemos de todo: imagen de marca en digital, marketing de performance y adquisición de leads para sus desarrollos activos."</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Identidad Digital</span>
+        <span class="cs-tag">UI/UX · Diseño Web</span>
+        <span class="cs-tag">SEO / AIO</span>
+        <span class="cs-tag">Digital Media Strategy</span>
+        <span class="cs-tag">Lead Acquisition</span>
+        <span class="cs-tag">Optimización Mensual</span>
+      </div>
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="label">Cliente</div><div class="value">Somos ACHA</div></div>
+      <div class="cs-meta-item"><div class="label">Industria</div><div class="value">Real Estate · Arquitectura patrimonial</div></div>
+      <div class="cs-meta-item"><div class="label">Relación</div><div class="value gold">Ongoing · Continua</div></div>
+      <div class="cs-meta-item"><div class="label">Sitio</div><div class="value"><a href="https://acha.tv" target="_blank" style="color:var(--gold);text-decoration:none;">acha.tv ↗</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-featured" style="background:#111416;padding:0;overflow:hidden;">
+  <img src="../img/casos/acha-1.jpg" alt="ACHA — acha.tv" style="opacity:0.92;" />
+</div>
+
+<div class="cs-body">
+  <div class="cs-intro">
+    <p class="cs-lead">ACHA es una firma de arquitectura y desarrollo inmobiliario enfocada en la rehabilitación de inmuebles históricos en el centro de CDMX. Su propuesta — Arquitectura + Rehabilitación + Sustentabilidad + Conservación — es única en su mercado. CoreLab lleva su imagen digital completa y opera su estrategia de medios y adquisición de leads de forma continua.</p>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="num">1,034<span>m²</span></div><div class="lbl">Rehabilitados</div></div>
+      <div class="cs-stat"><div class="num">12<span>+</span></div><div class="lbl">Residencias creadas</div></div>
+      <div class="cs-stat"><div class="num">2</div><div class="lbl">Desarrollos en preventa activa</div></div>
+    </div>
+  </div>
+
+  <div class="cs-blocks">
+    <div class="cs-block">
+      <div class="cs-block-label">El reto</div>
+      <h2>Comunicar una propuesta única en un mercado que no la conocía.</h2>
+      <p>La rehabilitación de patrimonio arquitectónico es un nicho poco comunicado en el mercado inmobiliario mexicano. Los compradores potenciales — perfil lifestyle, conciencia ambiental, apreciación por lo histórico — no están buscando "departamentos en el centro" sino algo mucho más específico: vivir en un edificio con historia, restaurado con criterio.</p>
+      <p>ACHA necesitaba una identidad digital que tradujera su filosofía en una experiencia de usuario coherente, y una estrategia de medios que encontrara a ese comprador específico en el ecosistema digital — con presupuestos eficientes y métricas claras.</p>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-label">La solución</div>
+      <h2>Imagen de marca integral y máquina de adquisición de leads en operación continua.</h2>
+      <p>Construimos la identidad digital de ACHA desde los cimientos: estrategia de contenido que muestra el antes y después de cada rehabilitación, UI/UX del sitio bilingüe con sliders de transformación, y optimización SEO orientada a perfiles de comprador calificado. El trabajo de imagen incluye la presencia en medios especializados como ArchDaily.</p>
+      <p>En paralelo, operamos la estrategia de medios pagados para los desarrollos activos — actualmente Edificio Apantla y Casa González Obregón — con campañas en Google Ads y Meta Ads, segmentación por intereses arquitectónicos y lifestyle, landing pages de alta conversión y optimización mensual de resultados. El ciclo de venta en este segmento es largo; nuestra labor es mantener el pipeline activo y calificado.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Proyectos destacados</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:16px;">
+      <div style="background:#fff;padding:28px 24px;">
+        <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Completado</div>
+        <div style="font-size:14px;font-weight:400;color:var(--text);">Revillagigedo 75</div>
+      </div>
+      <div style="background:#fff;padding:28px 24px;">
+        <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Completado</div>
+        <div style="font-size:14px;font-weight:400;color:var(--text);">Casa Emilio Dondé 7</div>
+      </div>
+      <div style="background:#fff;padding:28px 24px;">
+        <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Completado</div>
+        <div style="font-size:14px;font-weight:400;color:var(--text);">Barrio Alameda</div>
+      </div>
+      <div style="background:#fff;padding:28px 24px;">
+        <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:8px;">Preventa activa</div>
+        <div style="font-size:14px;font-weight:400;color:var(--text);">Edificio Apantla</div>
+      </div>
+      <div style="background:#fff;padding:28px 24px;">
+        <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:8px;">Preventa activa</div>
+        <div style="font-size:14px;font-weight:400;color:var(--text);">Casa González Obregón</div>
+      </div>
+      <div style="background:#fff;padding:28px 24px;">
+        <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--hint);margin-bottom:8px;">Completado</div>
+        <div style="font-size:14px;font-weight:400;color:var(--text);">Casa Pétrea</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERÍA DE PANTALLAS -->
+  <div style="margin-top:80px;">
+    <div class="cs-block-label">El sitio — Explora cada sección</div>
+    <p style="font-size:13px;font-weight:300;color:var(--hint);margin-top:8px;margin-bottom:24px;letter-spacing:0.02em;">Pasa el cursor sobre cada pantalla para recorrerla.</p>
+
+    <!-- Homepage — full width -->
+    <div class="site-scroll-window">
+      <img src="../img/casos/acha-2.jpg" alt="Homepage — ACHA" />
+      <div class="scroll-hint">
+        <span class="sh-label">Homepage</span>
+        <span class="sh-cta">Hover para explorar ↓</span>
+      </div>
+    </div>
+
+    <!-- Edificio Apantla + Nosotros — dos columnas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+      <div class="site-scroll-window">
+        <img src="../img/casos/acha-3.jpg" alt="Edificio Apantla — ACHA" />
+        <div class="scroll-hint">
+          <span class="sh-label">Edificio Apantla</span>
+          <span class="sh-cta">Hover para explorar ↓</span>
+        </div>
+      </div>
+      <div class="site-scroll-window">
+        <img src="../img/casos/acha-5.jpg" alt="Nosotros — ACHA" />
+        <div class="scroll-hint">
+          <span class="sh-label">Nosotros</span>
+          <span class="sh-cta">Hover para explorar ↓</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Servicios aplicados</div>
+    <div class="cs-services-grid">
+      <div class="cs-svc"><div class="sn">01</div><div class="sv">Identidad Digital</div></div>
+      <div class="cs-svc"><div class="sn">02</div><div class="sv">UI/UX · Diseño Web</div></div>
+      <div class="cs-svc"><div class="sn">03</div><div class="sv">SEO / AIO</div></div>
+      <div class="cs-svc"><div class="sn">04</div><div class="sv">Digital Media Strategy</div></div>
+      <div class="cs-svc"><div class="sn">05</div><div class="sv">Lead Acquisition</div></div>
+      <div class="cs-svc"><div class="sn">06</div><div class="sv">Optimización Mensual</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-related">
+  <div class="rel-label">Más casos de éxito</div>
+  <div class="cs-related-grid">
+    <a href="arquitectoma.html" class="cs-rel-card"><div class="rt">Real Estate · Media Strategy</div><h3>Arquitectoma — 9 desarrollos</h3></a>
+    <a href="berger.html" class="cs-rel-card"><div class="rt">Brand Strategy · Web</div><h3>Berger Joyeros</h3></a>
+    <a href="ediciones-castillo.html" class="cs-rel-card"><div class="rt">Plataforma · UI/UX</div><h3>Ediciones Castillo</h3></a>
+  </div>
+</div>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

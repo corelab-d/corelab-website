@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berger Joyeros — CoreLab</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    body { padding-top: 64px; }
+
+    /* ── SCROLL WINDOW ── */
+    .site-scroll-window {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      background: #0F0C09;
+      cursor: crosshair;
+    }
+    .site-scroll-window img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(0);
+      transition: transform 14s cubic-bezier(0.25, 0.05, 0.1, 1); /* fallback; JS overrides */
+      will-change: transform;
+    }
+    .site-scroll-window:hover img {
+      transform: translateY(calc(-100% + 540px));
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 28px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .scroll-hint .sh-label {
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+    .scroll-hint .sh-cta {
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .site-scroll-window:hover .scroll-hint { opacity: 0; }
+    .site-scroll-window::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold, #EBB22C);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+    .site-scroll-window:hover::before { transform: scaleX(1); }
+  </style>
+  <script>window.__LOGO_SRC__='../logos/corelab.png'; window.__ROOT__='../';</script>
+</head>
+<body>
+
+<div class="cs-hero">
+  <div class="breadcrumb">
+    <a href="../index.html#casos">← Casos de éxito</a>
+    <span>·</span> Berger Joyeros
+  </div>
+  <div class="cs-hero-grid">
+    <div>
+      <h1>100 años de elegancia — construidos para el mundo digital.</h1>
+      <p class="cs-tagline">"No es solo una joyería. Es el hub de las marcas de lujo más importantes del mundo en México."</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Brand Strategy</span>
+        <span class="cs-tag">Web Design & Development</span>
+        <span class="cs-tag">Digital Media Strategy</span>
+        <span class="cs-tag">Media Optimization</span>
+        <span class="cs-tag">B2B Digital Channels</span>
+      </div>
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="label">Cliente</div><div class="value">Berger Joyeros</div></div>
+      <div class="cs-meta-item"><div class="label">Industria</div><div class="value">Joyería & Relojería de lujo</div></div>
+      <div class="cs-meta-item"><div class="label">Relación</div><div class="value gold">+5 años</div></div>
+      <div class="cs-meta-item"><div class="label">Sitio</div><div class="value"><a href="https://berger.com.mx" target="_blank" style="color:var(--gold);text-decoration:none;">berger.com.mx ↗</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-featured" style="background:#0F0C09;padding:0;overflow:hidden;">
+  <img src="../img/casos/berger-1.jpg" alt="Berger Joyeros" style="opacity:0.95;" />
+</div>
+
+<div class="cs-body">
+  <div class="cs-intro">
+    <p class="cs-lead">Berger Joyeros es el destino de alta joyería y relojería más reconocido de México. Con más de 100 años de historia y una cartera que incluye Rolex, Patek Philippe, Cartier y Audemars Piguet, el desafío era construir una presencia digital que estuviera al nivel de las marcas que representa — sin comprometer ni un solo estándar de ninguna de ellas.</p>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="num">40<span>+</span></div><div class="lbl">Marcas en plataforma</div></div>
+      <div class="cs-stat"><div class="num"><span>+</span>5</div><div class="lbl">Años de colaboración</div></div>
+      <div class="cs-stat"><div class="num">1<span>°</span></div><div class="lbl">Catálogo de joyería en MX</div></div>
+    </div>
+  </div>
+
+  <div class="cs-blocks">
+    <div class="cs-block">
+      <div class="cs-block-label">El reto</div>
+      <h2>Crear una plataforma que funcione como catálogo, como canal de venta y como embajador de marca.</h2>
+      <p>Berger no es una tienda — es un ecosistema. Cada una de las 40+ marcas que representa tiene lineamientos visuales, tonos de comunicación y expectativas propias. Rolex tiene equipos internacionales que aprueban cada pixel. Patek Philippe exige discretion en el tratamiento de precios. Audemars Piguet tiene su propio lenguaje visual de lujo.</p>
+      <p>El sitio tenía que ser, simultáneamente, una herramienta de ventas directa, un catálogo de marca de nivel mundial, un canal B2B para distribuidores y socios, y una pieza de comunicación capaz de sostener el peso de un siglo de reputación.</p>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-label">La solución</div>
+      <h2>Una plataforma de miles de productos con la arquitectura de un solo mundo cohesivo.</h2>
+      <p>Diseñamos y desarrollamos la plataforma completa de Berger: catálogo con más de 40 marcas y miles de productos, arquitectura de información que permite a cada marca mantener su identidad dentro del ecosistema Berger, y un sistema de navegación que guía al usuario desde el descubrimiento hasta la intención de compra.</p>
+      <p>La estrategia digital cubre medios pagados orientados a audiencias de alto poder adquisitivo, canales B2B para el segmento corporativo y coleccionistas, y optimización mensual continua. Llevar más de 5 años trabajando juntos nos ha dado un entendimiento profundo del comprador de lujo en México.</p>
+    </div>
+  </div>
+
+  <!-- GALERÍA DE PANTALLAS -->
+  <div style="margin-top:80px;">
+    <div class="cs-block-label">El sitio — Explora cada sección</div>
+    <p style="font-size:13px;font-weight:300;color:var(--hint);margin-top:8px;margin-bottom:24px;letter-spacing:0.02em;">Pasa el cursor sobre cada pantalla para recorrerla.</p>
+
+    <!-- Homepage — full width -->
+    <div class="site-scroll-window">
+      <img src="../img/casos/berger-2.jpg" alt="Homepage — Berger Joyeros" />
+      <div class="scroll-hint">
+        <span class="sh-label">Homepage</span>
+        <span class="sh-cta">Hover para explorar ↓</span>
+      </div>
+    </div>
+
+    <!-- Interior — full width -->
+    <div class="site-scroll-window" style="margin-top:2px;">
+      <img src="../img/casos/berger-4.jpg" alt="Colección — Berger Joyeros" />
+      <div class="scroll-hint">
+        <span class="sh-label">Colección</span>
+        <span class="sh-cta">Hover para explorar ↓</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Marcas destacadas en plataforma</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Rolex</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Patek Philippe</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Cartier</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Audemars Piguet</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Panerai</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">IWC</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Breitling</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Chopard</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Marco Bicego</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Montblanc</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Hublot</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Tudor</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Omega</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Pomellato</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">Roberto Coin</span>
+      <span style="border:1px solid var(--border);padding:8px 16px;font-size:11px;color:var(--hint);letter-spacing:0.06em;">+25 más</span>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Servicios aplicados</div>
+    <div class="cs-services-grid">
+      <div class="cs-svc"><div class="sn">01</div><div class="sv">Brand Strategy</div></div>
+      <div class="cs-svc"><div class="sn">02</div><div class="sv">Web Design & Development</div></div>
+      <div class="cs-svc"><div class="sn">03</div><div class="sv">Digital Media Strategy</div></div>
+      <div class="cs-svc"><div class="sn">04</div><div class="sv">Media Optimization</div></div>
+      <div class="cs-svc"><div class="sn">05</div><div class="sv">B2B Digital Channels</div></div>
+      <div class="cs-svc"><div class="sn">06</div><div class="sv">Ongoing Consulting</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-related">
+  <div class="rel-label">Más casos de éxito</div>
+  <div class="cs-related-grid">
+    <a href="berger-rolex.html" class="cs-rel-card"><div class="rt">Bespoke · Rolex International</div><h3>Berger × Rolex</h3></a>
+    <a href="arquitectoma.html" class="cs-rel-card"><div class="rt">Real Estate · Media</div><h3>Arquitectoma</h3></a>
+    <a href="pyl-studios.html" class="cs-rel-card"><div class="rt">Identidad Digital · UI/UX</div><h3>PYL Studios</h3></a>
+  </div>
+</div>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

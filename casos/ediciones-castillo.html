@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ediciones Castillo — CoreLab</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    body { padding-top: 64px; }
+
+    /* ── SCROLL WINDOW ── */
+    .site-scroll-window {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      background: #EDE9E2;
+      cursor: crosshair;
+    }
+    .site-scroll-window img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(0);
+      transition: transform 12s cubic-bezier(0.25, 0.05, 0.1, 1); /* fallback; JS overrides per-image */
+      will-change: transform;
+    }
+    .site-scroll-window:hover img {
+      transform: translateY(calc(-100% + 540px));
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 28px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.55));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .scroll-hint .sh-label {
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+    .scroll-hint .sh-cta {
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+    }
+    .site-scroll-window:hover .scroll-hint { opacity: 0; }
+
+    /* top border accent on hover */
+    .site-scroll-window::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold, #EBB22C);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+    .site-scroll-window:hover::before { transform: scaleX(1); }
+  </style>
+  <script>window.__LOGO_SRC__='../logos/corelab.png'; window.__ROOT__='../';</script>
+</head>
+<body>
+
+<div class="cs-hero">
+  <div class="breadcrumb">
+    <a href="../index.html#casos">← Casos de éxito</a>
+    <span>·</span> Ediciones Castillo / Macmillan Education
+  </div>
+  <div class="cs-hero-grid">
+    <div>
+      <h1>La plataforma educativa de uno de los publishers más importantes de Latinoamérica.</h1>
+      <p class="cs-tagline">"Arquitectura de contenido, diseño y desarrollo completo para Ediciones Castillo — parte de la red global de Macmillan Education."</p>
+      <div class="cs-tags">
+        <span class="cs-tag">Arquitectura de Contenido</span>
+        <span class="cs-tag">UI/UX Design</span>
+        <span class="cs-tag">Desarrollo Web</span>
+        <span class="cs-tag">Adaptación de Diseño</span>
+        <span class="cs-tag">Plataforma Educativa</span>
+      </div>
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="label">Cliente</div><div class="value">Ediciones Castillo</div></div>
+      <div class="cs-meta-item"><div class="label">Red</div><div class="value">Macmillan Education</div></div>
+      <div class="cs-meta-item"><div class="label">Industria</div><div class="value">Educación · Editorial</div></div>
+      <div class="cs-meta-item"><div class="label">Sitio</div><div class="value"><a href="https://www.edicionescastillo.com" target="_blank" style="color:var(--gold);text-decoration:none;">edicionescastillo.com ↗</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-featured" style="background:#0E1520;padding:0;overflow:hidden;">
+  <img src="../img/casos/ediciones-castillo-1.jpg" alt="Ediciones Castillo" style="opacity:0.92;" />
+</div>
+
+<div class="cs-body">
+  <div class="cs-intro">
+    <p class="cs-lead">Ediciones Castillo, parte de la red global de Macmillan Education, necesitaba una plataforma digital que reflejara la profundidad y diversidad de su catálogo educativo para México: materiales para preescolar, primaria y secundaria, desarrollo profesional docente, propuestas curriculares y una plataforma de educación continua en línea. Un proyecto de arquitectura de contenido compleja, diseño funcional y desarrollo robusto.</p>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="num">4<span>+</span></div><div class="lbl">Líneas de producto</div></div>
+      <div class="cs-stat"><div class="num">3</div><div class="lbl">Niveles educativos</div></div>
+      <div class="cs-stat"><div class="num">360<span>°</span></div><div class="lbl">Ecosistema digital</div></div>
+    </div>
+  </div>
+
+  <div class="cs-blocks">
+    <div class="cs-block">
+      <div class="cs-block-label">El reto</div>
+      <h2>Estructurar y comunicar un catálogo educativo complejo para múltiples audiencias.</h2>
+      <p>Ediciones Castillo no tiene un solo público — tiene varios: docentes que buscan materiales pedagógicos por nivel y asignatura, directores escolares evaluando propuestas curriculares, padres de familia explorando lecturas complementarias, y profesionales de educación inscritos en programas de desarrollo continuo.</p>
+      <p>Cada audiencia necesita un recorrido distinto dentro del mismo sitio. La arquitectura de contenido tenía que resolver esa complejidad de forma intuitiva, sin fricciones y alineada a los estándares visuales de la red global Macmillan.</p>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-label">La solución</div>
+      <h2>Estructura de contenido, diseño adaptado y plataforma de desarrollo profesional en línea.</h2>
+      <p>Diseñamos la arquitectura completa del sitio: jerarquía de navegación por nivel educativo y tipo de producto, páginas de propuesta curricular, sección de lecturas complementarias y un hub de desarrollo profesional docente — Castillo-Macmillan 360 — con acceso a webinars, conferencias y materiales de formación continua.</p>
+      <p>El diseño respeta la identidad global de Macmillan Education mientras adapta el tono y la estética al contexto mexicano. El desarrollo integra registro de usuarios, sistema de newsletter, gestión de eventos educativos y puntos de contacto para asesores comerciales en cada nivel del sitio.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Líneas de producto integradas</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:16px;">
+      <div style="background:var(--surface);padding:32px 28px;border-left:2px solid var(--border);">
+        <div style="font-size:18px;font-weight:400;color:var(--text);margin-bottom:10px;">Imagina</div>
+        <div style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;">Libros de texto para educación básica. Propuesta pedagógica completa por nivel y asignatura.</div>
+      </div>
+      <div style="background:var(--surface);padding:32px 28px;border-left:2px solid var(--border);">
+        <div style="font-size:18px;font-weight:400;color:var(--text);margin-bottom:10px;">Integra</div>
+        <div style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;">Guías didácticas para docentes, complementarias al currículo SEP. Apoyo pedagógico estructurado.</div>
+      </div>
+      <div style="background:var(--surface);padding:32px 28px;border-left:2px solid var(--border);">
+        <div style="font-size:18px;font-weight:400;color:var(--text);margin-bottom:10px;">Castillo-Macmillan 360</div>
+        <div style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;">Plataforma de desarrollo profesional docente en línea: webinars, conferencias y formación continua.</div>
+      </div>
+      <div style="background:var(--surface);padding:32px 28px;border-left:2px solid var(--border);">
+        <div style="font-size:18px;font-weight:400;color:var(--text);margin-bottom:10px;">Planes de Lectura</div>
+        <div style="font-size:13px;font-weight:300;color:var(--muted);line-height:1.7;">Literatura y lectura complementaria. Programa "Construimos Futuro" con enfoque en ciudadanía y sustentabilidad.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERÍA DE PANTALLAS -->
+  <div style="margin-top:80px;">
+    <div class="cs-block-label">El sitio — Explora cada sección</div>
+    <p style="font-size:13px;font-weight:300;color:var(--hint);margin-top:8px;margin-bottom:24px;letter-spacing:0.02em;">Pasa el cursor sobre cada pantalla para recorrerla.</p>
+
+    <!-- Imagen 2: Homepage completo — full width -->
+    <div class="site-scroll-window">
+      <img src="../img/casos/ediciones-castillo-2.jpg" alt="Homepage — Ediciones Castillo" />
+      <div class="scroll-hint">
+        <span class="sh-label">Homepage</span>
+        <span class="sh-cta">Hover para explorar ↓</span>
+      </div>
+    </div>
+
+    <!-- Imágenes 3 y 4: Secundaria y Primaria — dos columnas -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+      <div class="site-scroll-window">
+        <img src="../img/casos/ediciones-castillo-3.png" alt="Secundaria — Ediciones Castillo" />
+        <div class="scroll-hint">
+          <span class="sh-label">Secundaria</span>
+          <span class="sh-cta">Hover para explorar ↓</span>
+        </div>
+      </div>
+      <div class="site-scroll-window">
+        <img src="../img/casos/ediciones-castillo-4.png" alt="Primaria — Ediciones Castillo" />
+        <div class="scroll-hint">
+          <span class="sh-label">Primaria</span>
+          <span class="sh-cta">Hover para explorar ↓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Servicios aplicados</div>
+    <div class="cs-services-grid">
+      <div class="cs-svc"><div class="sn">01</div><div class="sv">Arquitectura de Contenido</div></div>
+      <div class="cs-svc"><div class="sn">02</div><div class="sv">UI/UX — Diseño de Experiencia</div></div>
+      <div class="cs-svc"><div class="sn">03</div><div class="sv">Desarrollo Web</div></div>
+      <div class="cs-svc"><div class="sn">04</div><div class="sv">Adaptación de Diseño (Macmillan)</div></div>
+      <div class="cs-svc"><div class="sn">05</div><div class="sv">Plataforma de Educación Continua</div></div>
+      <div class="cs-svc"><div class="sn">06</div><div class="sv">Integración de Eventos & Newsletter</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-related">
+  <div class="rel-label">Más casos de éxito</div>
+  <div class="cs-related-grid">
+    <a href="pyl-studios.html" class="cs-rel-card"><div class="rt">Identidad Digital · UI/UX</div><h3>PYL Studios + Pedro y el Lobo</h3></a>
+    <a href="berger-rolex.html" class="cs-rel-card"><div class="rt">Bespoke · Rolex International</div><h3>Berger × Rolex</h3></a>
+    <a href="acha.html" class="cs-rel-card"><div class="rt">Real Estate · Performance</div><h3>ACHA</h3></a>
+  </div>
+</div>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

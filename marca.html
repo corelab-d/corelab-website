@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estrategia de Marca — CoreLab</title>
+  <meta name="description" content="Construimos marcas desde el núcleo. Investigación de mercado, análisis de usuarios, arquitectura de marca e identidad visual. Encontramos el Core Benefit que diferencia a tu empresa." />
+  <link rel="stylesheet" href="css/main.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Estrategia y Arquitectura de Marca",
+    "provider": { "@type": "Organization", "name": "CoreLab", "url": "https://corelab.mx" },
+    "description": "Servicio de consultoría de marca que incluye investigación de mercado, análisis de usuarios, definición del Core Benefit, arquitectura de marca e identidad visual.",
+    "areaServed": "México",
+    "serviceType": "Brand Strategy Consulting"
+  }
+  </script>
+  <style>
+    body { padding-top: 64px; }
+
+    /* ── HERO ── */
+    #mhero {
+      background: var(--dark);
+      padding: 96px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    #mhero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(235,178,44,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .mhero-inner {
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px;
+      align-items: end; position: relative; z-index: 1;
+    }
+    .mhero-eyebrow {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    #mhero h1 {
+      font-size: clamp(32px, 4.8vw, 64px);
+      font-weight: 300; color: #FFF;
+      letter-spacing: 0.01em; line-height: 1.1; margin-bottom: 28px;
+    }
+    #mhero h1 em { color: var(--gold); font-style: normal; }
+    .mhero-sub {
+      font-size: 15px; font-weight: 300; color: #999; line-height: 1.8; margin-bottom: 40px; max-width: 480px;
+    }
+    .mhero-meta { display: flex; flex-direction: column; gap: 28px; }
+    .mhero-stat .n { font-size: 42px; font-weight: 300; color: #FFF; line-height: 1; }
+    .mhero-stat .n span { color: var(--gold); }
+    .mhero-stat .l { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #444; margin-top: 6px; }
+
+    /* ── INTRO ── */
+    #mintro { background: var(--surface); padding: 80px 48px; }
+    .mintro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .mintro-lead {
+      font-size: 22px; font-weight: 300; color: var(--text);
+      line-height: 1.6; letter-spacing: 0.01em;
+    }
+    .mintro-lead strong { font-weight: 400; }
+    .mintro-right { padding-top: 8px; }
+    .core-box {
+      background: var(--dark); padding: 40px 36px; position: relative; overflow: hidden;
+    }
+    .core-box::before {
+      content: 'CORE';
+      position: absolute; bottom: -10px; right: -8px;
+      font-size: 80px; font-weight: 300; color: rgba(255,255,255,0.03);
+      letter-spacing: 0.06em; line-height: 1;
+    }
+    .core-box-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .core-box p {
+      font-size: 14px; font-weight: 300; color: #888; line-height: 1.85;
+    }
+    .core-box strong { color: #BBB; font-weight: 400; }
+
+    /* ── METODOLOGÍA ── */
+    #metodologia { background: var(--bg); padding: 96px 48px; }
+    .met-header { max-width: 680px; margin-bottom: 64px; }
+    .met-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .met-step {
+      background: var(--surface); padding: 40px 32px;
+      border-top: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .met-step:hover { border-top-color: var(--gold); }
+    .met-n { font-size: 11px; letter-spacing: 0.14em; color: var(--hint); margin-bottom: 20px; }
+    .met-step h3 { font-size: 16px; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+    .met-step p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+    .met-step ul { margin-top: 16px; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .met-step ul li {
+      font-size: 12px; font-weight: 300; color: var(--hint);
+      padding-left: 14px; position: relative;
+    }
+    .met-step ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+
+    /* ── CORE BENEFIT ── */
+    #core-benefit { background: var(--dark); padding: 96px 48px; position: relative; overflow: hidden; }
+    #core-benefit::before {
+      content: 'CORE BENEFIT';
+      position: absolute; bottom: -20px; left: 48px;
+      font-size: clamp(60px, 10vw, 140px); font-weight: 300;
+      color: rgba(255,255,255,0.025); letter-spacing: 0.04em; white-space: nowrap; pointer-events: none;
+    }
+    .cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; position: relative; z-index: 1; }
+    #core-benefit h2 { font-size: clamp(26px, 3.5vw, 46px); font-weight: 300; color: #FFF; line-height: 1.2; margin-bottom: 24px; }
+    #core-benefit h2 em { color: var(--gold); font-style: normal; }
+    #core-benefit p { font-size: 15px; font-weight: 300; color: #999; line-height: 1.85; }
+    #core-benefit p + p { margin-top: 16px; }
+    .cb-pillars { display: flex; flex-direction: column; gap: 2px; }
+    .cb-pillar {
+      background: #0D0D0D; padding: 28px 32px;
+      border-left: 2px solid #1A1A1A;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cb-pillar:hover { border-left-color: var(--gold); background: #111; }
+    .cb-pillar h4 { font-size: 13px; font-weight: 400; color: #CCC; margin-bottom: 6px; }
+    .cb-pillar p { font-size: 12px; font-weight: 300; color: #888; line-height: 1.7; margin: 0; }
+
+    /* ── SERVICIOS ── */
+    #mservicios { background: var(--surface); padding: 96px 48px; }
+    .msvc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+    .msvc-card {
+      background: var(--bg); padding: 40px 36px;
+      border-top: 2px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .msvc-card:hover { border-top-color: var(--gold); background: var(--gold-faint); }
+    .msvc-n { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hint); margin-bottom: 16px; }
+    .msvc-card h3 { font-size: 16px; font-weight: 400; color: var(--text); margin-bottom: 12px; }
+    .msvc-card p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+    /* ── DIFERENCIADORES ── */
+    #diferenciadores { background: var(--bg); padding: 80px 48px; }
+    .dif-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 96px; align-items: start; margin-top: 48px; }
+    .dif-list { display: flex; flex-direction: column; }
+    .dif-item {
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: baseline;
+    }
+    .dif-item:first-child { border-top: 1px solid var(--border); }
+    .dif-num { font-size: 11px; letter-spacing: 0.1em; color: var(--gold); }
+    .dif-item h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 4px; }
+    .dif-item p { font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.7; }
+
+    /* ── CASOS ── */
+    #mcasos { background: var(--surface); padding: 80px 48px; }
+    .mcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px; }
+    .mcase-card {
+      background: var(--bg); padding: 36px 32px;
+      border-top: 2px solid var(--border);
+      transition: border-color 0.2s; text-decoration: none; display: block;
+    }
+    .mcase-card:hover { border-top-color: var(--gold); }
+    .mcase-rt { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .mcase-card h3 { font-size: 16px; font-weight: 300; color: var(--text); margin-bottom: 8px; }
+    .mcase-card p { font-size: 13px; font-weight: 300; color: var(--hint); line-height: 1.7; }
+
+    /* ── CONTACTO CTA ── */
+    #mcta { background: var(--dark); padding: 96px 48px; text-align: center; position: relative; overflow: hidden; }
+    #mcta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(235,178,44,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #mcta h2 {
+      font-size: clamp(28px, 4vw, 52px); font-weight: 300; color: #FFF;
+      line-height: 1.2; margin-bottom: 20px; position: relative; z-index: 1;
+    }
+    #mcta p { font-size: 15px; font-weight: 300; color: #555; max-width: 480px; margin: 0 auto 40px; line-height: 1.8; position: relative; z-index: 1; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 28px; position: relative; z-index: 1; }
+
+    @media (max-width: 900px) {
+      .mhero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .mintro-grid { grid-template-columns: 1fr; gap: 48px; }
+      .met-steps { grid-template-columns: 1fr 1fr; }
+      .cb-grid { grid-template-columns: 1fr; gap: 48px; }
+      .msvc-grid { grid-template-columns: 1fr; }
+      .dif-grid { grid-template-columns: 1fr; gap: 48px; }
+      .mcase-grid { grid-template-columns: 1fr; }
+      #mhero, #mintro, #metodologia, #core-benefit, #mservicios, #diferenciadores, #mcasos, #mcta { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+  <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="mhero">
+  <div class="mhero-inner">
+    <div>
+      <p class="mhero-eyebrow">CoreLab — Consultoría de Marca</p>
+      <h1>Marcas que duran empiezan con un <em>diagnóstico riguroso.</em></h1>
+      <p class="mhero-sub">Investigamos tu mercado, entendemos a tus usuarios y encontramos el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="#metodologia" class="btn-primary">Ver metodología</a>
+        <a href="index.html#contacto" class="btn-ghost" style="color:#888;">Agendar diagnóstico →</a>
+      </div>
+    </div>
+    <div class="mhero-meta">
+      <div class="mhero-stat">
+        <div class="n">+20<span>.</span></div>
+        <div class="l">Marcas construidas</div>
+      </div>
+      <div class="mhero-stat">
+        <div class="n">8<span>+</span></div>
+        <div class="l">Años de experiencia</div>
+      </div>
+      <div class="mhero-stat">
+        <div class="n">360<span>°</span></div>
+        <div class="l">Estrategia a ejecución</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INTRO / CORE BENEFIT CONCEPT -->
+<section id="mintro">
+  <div class="mintro-grid">
+    <div>
+      <p class="section-label">El problema con el branding tradicional</p>
+      <p class="mintro-lead">La mayoría de los proyectos de marca fallan porque empiezan por lo visual. <strong>El logo es lo último que se diseña</strong> — no lo primero.</p>
+      <p class="section-body" style="margin-top:24px;">Una identidad construida sin estrategia es solo estética. Puede verse bien y no vender nada. En CoreLab partimos del análisis: quién es tu usuario, qué espacio existe en el mercado y cuál es el beneficio único que tu marca puede reclamar. A eso le llamamos el <strong>Core Benefit</strong>.</p>
+      <p class="section-body" style="margin-top:16px;">Todo lo que viene después — nombre, tono de voz, identidad visual, arquitectura de contenido — se construye sobre esa base. Así es como se crean marcas que perduran.</p>
+    </div>
+    <div class="mintro-right">
+      <div class="core-box">
+        <div class="core-box-label">Core Benefit</div>
+        <p>El <strong>Core Benefit</strong> es el beneficio central, profundo y diferencial que solo tu marca puede ofrecer. No es un slogan. No es un atributo de producto. Es la razón de fondo por la que alguien elige tu marca sobre cualquier alternativa — y la razón por la que vuelve.</p>
+        <p style="margin-top:16px;color:#888;">Encontrarlo requiere investigación, no intuición.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- METODOLOGÍA -->
+<section id="metodologia">
+  <div class="met-header">
+    <p class="section-label">Metodología</p>
+    <h2 class="section-title">Cuatro fases para construir una marca con raíces.</h2>
+    <p class="section-body">Un proceso estructurado que va del diagnóstico profundo a la identidad ejecutable. Cada fase alimenta a la siguiente.</p>
+  </div>
+  <div class="met-steps">
+    <div class="met-step">
+      <div class="met-n">01 — Diagnóstico</div>
+      <h3>Research & Análisis</h3>
+      <p>Entendemos el mercado, la competencia y el usuario antes de diseñar nada.</p>
+      <ul>
+        <li>Estudio de mercado</li>
+        <li>Análisis de competencia</li>
+        <li>Entrevistas con usuarios</li>
+        <li>Customer journey mapping</li>
+        <li>Análisis de percepción actual</li>
+      </ul>
+    </div>
+    <div class="met-step">
+      <div class="met-n">02 — Estrategia</div>
+      <h3>Core Benefit Discovery</h3>
+      <p>Identificamos el espacio que la marca puede reclamar con legitimidad y ventaja.</p>
+      <ul>
+        <li>Definición de audiencias</li>
+        <li>Mapa de posicionamiento</li>
+        <li>Core Benefit statement</li>
+        <li>Propuesta de valor</li>
+        <li>Promesa de marca</li>
+      </ul>
+    </div>
+    <div class="met-step">
+      <div class="met-n">03 — Arquitectura</div>
+      <h3>Brand Architecture</h3>
+      <p>Construimos la estructura completa que da coherencia a todos los puntos de contacto.</p>
+      <ul>
+        <li>Naming y tagline</li>
+        <li>Personalidad y tono de voz</li>
+        <li>Atributos y valores</li>
+        <li>Mensajes por audiencia</li>
+        <li>Guía de uso de marca</li>
+      </ul>
+    </div>
+    <div class="met-step">
+      <div class="met-n">04 — Identidad</div>
+      <h3>Visual Identity System</h3>
+      <p>Traducimos la estrategia en un sistema visual coherente y profesional.</p>
+      <ul>
+        <li>Concepto creativo</li>
+        <li>Diseño de logotipo</li>
+        <li>Paleta y tipografía</li>
+        <li>Sistema de diseño</li>
+        <li>Brand guidelines</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- CORE BENEFIT SECTION -->
+<section id="core-benefit">
+  <div class="cb-grid">
+    <div>
+      <h2>La diferencia entre una marca que <em>se ve bien</em> y una que <em>vende bien</em>.</h2>
+      <p>El Core Benefit no lo inventamos nosotros — lo descubrimos junto con tu equipo. Está en la intersección de tres preguntas: qué es lo que tu empresa hace mejor que nadie, qué es lo que tus usuarios realmente necesitan (no lo que dicen que necesitan), y qué espacio dejó libre la competencia.</p>
+      <p>Cuando esas tres respuestas convergen, encontramos el núcleo. Desde ahí se construye todo lo demás.</p>
+      <div style="margin-top:36px;">
+        <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico de marca</a>
+      </div>
+    </div>
+    <div class="cb-pillars">
+      <div class="cb-pillar">
+        <h4>Ventaja competitiva real</h4>
+        <p>Identificamos qué hace tu empresa mejor que cualquier alternativa en tu mercado.</p>
+      </div>
+      <div class="cb-pillar">
+        <h4>Necesidad latente del usuario</h4>
+        <p>Lo que los usuarios realmente quieren rara vez es lo que dicen querer. Lo encontramos con metodología.</p>
+      </div>
+      <div class="cb-pillar">
+        <h4>Espacio en el mercado</h4>
+        <p>Mapeamos la competencia para encontrar el territorio que nadie ha reclamado todavía.</p>
+      </div>
+      <div class="cb-pillar">
+        <h4>Core Benefit statement</h4>
+        <p>Una declaración clara, interna y poderosa que guía cada decisión de marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICIOS -->
+<section id="mservicios">
+  <p class="section-label">Servicios de consultoría</p>
+  <h2 class="section-title">Lo que construimos juntos.</h2>
+  <p class="section-body">Cada proyecto es a la medida. Podemos acompañarte en una fase específica o en el proceso completo, desde el diagnóstico hasta la activación.</p>
+  <div class="msvc-grid">
+    <div class="msvc-card">
+      <div class="msvc-n">01</div>
+      <h3>Consultoría de Posicionamiento</h3>
+      <p>Diagnóstico estratégico, análisis de mercado y definición del Core Benefit. Para marcas que quieren entender dónde están y a dónde pueden ir.</p>
+    </div>
+    <div class="msvc-card">
+      <div class="msvc-n">02</div>
+      <h3>Arquitectura de Marca Completa</h3>
+      <p>Construcción del sistema de marca desde cero: propósito, promesa, personalidad, tono de voz, mensajes y guía de uso.</p>
+    </div>
+    <div class="msvc-card">
+      <div class="msvc-n">03</div>
+      <h3>Identidad Visual & Sistema</h3>
+      <p>Diseño del sistema visual completo: logo, tipografía, paleta, iconografía y brand guidelines ejecutables.</p>
+    </div>
+    <div class="msvc-card">
+      <div class="msvc-n">04</div>
+      <h3>Investigación de Usuarios</h3>
+      <p>Entrevistas en profundidad, encuestas, análisis de comportamiento y customer journey mapping para entender a tu audiencia real.</p>
+    </div>
+    <div class="msvc-card">
+      <div class="msvc-n">05</div>
+      <h3>Naming & Conceptualización</h3>
+      <p>Desarrollo de nombre de marca, tagline y concepto creativo. Desde la exploración estratégica hasta la ejecución verbal.</p>
+    </div>
+    <div class="msvc-card">
+      <div class="msvc-n">06</div>
+      <h3>Activación Digital de Marca</h3>
+      <p>Una vez construida la marca, la llevamos al ecosistema digital: sitio web, estrategia de contenido y presencia en canales clave.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- DIFERENCIADORES -->
+<section id="diferenciadores">
+  <div style="max-width:720px;">
+    <p class="section-label">Por qué CoreLab</p>
+    <h2 class="section-title">Estrategia que no se queda en el PDF.</h2>
+    <p class="section-body">Muchas consultoras entregan la estrategia y desaparecen. Nosotros nos quedamos hasta que la marca vive en el mundo real.</p>
+  </div>
+  <div class="dif-grid" style="margin-top:56px;">
+    <div></div>
+    <div class="dif-list">
+      <div class="dif-item">
+        <div class="dif-num">01</div>
+        <div>
+          <h4>Investigación real, no supuestos</h4>
+          <p>Usamos metodología probada: entrevistas en profundidad, análisis de mercado y datos para tomar decisiones. No trabajamos con intuición.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-num">02</div>
+        <div>
+          <h4>Estrategia + Ejecución en un solo equipo</h4>
+          <p>No hay brecha entre el estratega y el diseñador. El mismo equipo que define el Core Benefit construye la identidad visual y el sitio web.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-num">03</div>
+        <div>
+          <h4>Marcas que perduran, no tendencias</h4>
+          <p>Diseñamos para que la marca sea relevante en cinco años, no solo en la presentación. La solidez estratégica es lo que hace que el diseño envejezca bien.</p>
+        </div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-num">04</div>
+        <div>
+          <h4>Contexto latinoamericano</h4>
+          <p>Conocemos el mercado mexicano y latinoamericano desde adentro. Los matices culturales no se aprenden en un manual.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CASOS RELACIONADOS -->
+<section id="mcasos">
+  <p class="section-label">Trabajo relevante</p>
+  <h2 class="section-title">Marcas que construimos.</h2>
+  <div class="mcase-grid">
+    <a href="casos/berger.html" class="mcase-card">
+      <div class="mcase-rt">Brand Strategy · Web · Media</div>
+      <h3>Berger Joyeros — 100 años de elegancia</h3>
+      <p>La plataforma de joyería y relojería de lujo más completa de México. Estrategia de marca, presencia digital y relación de más de 5 años.</p>
+    </a>
+    <a href="casos/acha.html" class="mcase-card">
+      <div class="mcase-rt">Identidad Digital · UI/UX · SEO</div>
+      <h3>ACHA — Rehabilitación patrimonial</h3>
+      <p>Identidad digital completa para la firma que rehabilita el patrimonio arquitectónico de CDMX. De cero a presencia nacional.</p>
+    </a>
+    <a href="casos/pyl-studios.html" class="mcase-card">
+      <div class="mcase-rt">Identidad Digital · Marcas Hermanas</div>
+      <h3>PYL Studios + Pedro y el Lobo</h3>
+      <p>Dos marcas, un universo compartido. Identidad diferenciada para dos públicos distintos que comparten el mismo ADN.</p>
+    </a>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section id="mcta">
+  <h2>¿Listo para construir tu marca desde el núcleo?</h2>
+  <p>La primera consulta es sin costo. Platicamos de tu proyecto y evaluamos honestamente si podemos ayudarte.</p>
+  <div class="cta-actions">
+    <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico</a>
+    <a href="index.html#casos" class="btn-ghost" style="color:#777;">Ver casos de éxito →</a>
+  </div>
+</section>
+
+
+<script src="js/site.js"></script>
+</body>
+</html>

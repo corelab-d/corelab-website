@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreLab — Ayudamos a las empresas a crear mejores marcas</title>
+  <meta name="description" content="Consultora de marca y crecimiento digital. Estrategia, branding, marketing digital y desarrollo web desde CDMX." />
+  <link rel="stylesheet" href="css/main.css" />
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CoreLab",
+      "alternateName": "CoreLab México",
+      "url": "https://corelab.mx",
+      "logo": "https://corelab.mx/logos/corelab.png",
+      "description": "Consultora de marca y crecimiento digital con sede en Ciudad de México. Especialistas en estrategia de marca, identidad visual, marketing de performance, desarrollo web y ecosistemas digitales para el sector inmobiliario.",
+      "foundingDate": "2016",
+      "address": { "@type": "PostalAddress", "streetAddress": "Gob. Protasio Tagle 41", "addressLocality": "San Miguel Chapultepec", "addressRegion": "Ciudad de México", "addressCountry": "MX" },
+      "contactPoint": { "@type": "ContactPoint", "email": "hola@corelab.mx", "contactType": "customer service", "availableLanguage": ["Spanish","English"] },
+      "areaServed": ["México","Latinoamérica","Estados Unidos"],
+      "serviceType": ["Consultoría de Marca","Estrategia Digital","Branding","Desarrollo Web","Marketing Inmobiliario","Lead Generation","SEO"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Trabajan con empresas de cualquier tamaño?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajamos con startups en etapa temprana, empresas en crecimiento y organizaciones consolidadas. El tamaño importa menos que la disposición a construir bien." } },
+        { "@type": "Question", "name": "¿Cuánto dura un proyecto de branding con CoreLab?", "acceptedAnswer": { "@type": "Answer", "text": "Un proyecto de branding completo toma entre 6 y 12 semanas. Una estrategia digital con implementación puede extenderse varios meses." } },
+        { "@type": "Question", "name": "¿CoreLab tiene experiencia en marketing inmobiliario?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Somos especialistas en estrategia de medios y adquisición de leads para el sector inmobiliario en México. Más de 8 años construyendo ecosistemas digitales de venta para desarrollos residenciales y comerciales." } },
+        { "@type": "Question", "name": "¿Qué hace diferente a CoreLab de otras agencias digitales?", "acceptedAnswer": { "@type": "Answer", "text": "Integramos estrategia de marca, marketing digital y desarrollo tecnológico en un solo equipo. Sin fricción entre agencias, coherencia total en cada punto de contacto." } }
+      ]
+    }
+  ]
+  </script>
+  <style>
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 96px;
+      position: relative; overflow: hidden;
+      background: #0A0A0A;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      z-index: 0; pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.52);
+      z-index: 1; pointer-events: none;
+    }
+    #hero > *:not(.hero-video):not(.hero-overlay) { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    #hero h1 {
+      font-size: clamp(40px, 6vw, 84px);
+      font-weight: 700; color: #FFF;
+      letter-spacing: -0.025em; line-height: 1.04;
+      max-width: 900px; margin-bottom: 28px;
+    }
+    #hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 16px; font-weight: 300; color: #AAA;
+      max-width: 520px; line-height: 1.75; margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 28px; }
+    .hero-scroll {
+      position: absolute; bottom: 48px; right: 48px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .hero-scroll span { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #444; writing-mode: vertical-rl; }
+    .hero-scroll .line { width: 1px; height: 52px; background: linear-gradient(to bottom, #444, transparent); animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+
+    /* ── NOSOTROS ── */
+    #nosotros { background: var(--warm); position: relative; overflow: hidden; padding: 0 !important; }
+    .nosotros-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      min-height: 560px;
+    }
+    /* Left panel — manifiesto */
+    .nos-left {
+      padding: 80px 64px 80px 48px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      border-right: 1px solid var(--warm-mid);
+      position: relative;
+    }
+    .nos-manifesto {
+      font-size: clamp(30px, 3.6vw, 52px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      max-width: 560px;
+      margin-top: 32px;
+    }
+    .nos-manifesto em { font-style: italic; color: var(--gold); }
+    .nos-body {
+      font-size: 14px; font-weight: 300; color: var(--muted);
+      line-height: 1.8; max-width: 480px; margin-top: 28px;
+    }
+    .nos-footer {
+      margin-top: 64px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .nos-footer .nos-year {
+      font-size: clamp(42px, 5vw, 64px); font-weight: 700;
+      color: rgba(0,0,0,0.07); letter-spacing: -0.04em; line-height: 1;
+    }
+    .nos-footer .nos-detail {
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--hint); line-height: 1.8;
+    }
+    .nos-footer .nos-detail span { color: var(--gold); display: block; }
+
+    /* Right panel — valores */
+    .nos-right {
+      padding: 80px 48px 80px 64px;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .nos-right-num {
+      font-size: clamp(100px, 14vw, 180px); font-weight: 700;
+      color: rgba(0,0,0,0.04); letter-spacing: -0.05em; line-height: 0.85;
+      position: absolute; right: -10px; top: 24px;
+      pointer-events: none; user-select: none;
+    }
+    .nos-right .section-label { margin-bottom: 40px; position: relative; }
+    .valores { position: relative; }
+    .valor-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--warm-mid);
+      border-left: 2px solid transparent;
+      padding-left: 16px;
+      transition: border-color 0.2s ease, padding-left 0.2s ease;
+      cursor: default;
+    }
+    .valor-item:first-child { border-top: 1px solid var(--warm-mid); }
+    .valor-item:hover { border-left-color: var(--gold); padding-left: 22px; }
+    .valor-num { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; font-weight: 400; }
+    .valor-item h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .valor-item p { font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.6; }
+
+    /* ── SERVICIOS ── */
+    #servicios { background: var(--warm); position: relative; overflow: hidden; }
+    .servicios-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 72px; }
+    .servicios-statement {
+      font-size: clamp(22px, 2.8vw, 38px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      border-left: 3px solid var(--gold);
+      padding-left: 28px;
+    }
+    .servicios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: -1px; }
+    .servicio-card { background: var(--warm); padding: 48px 44px; border: 1px solid var(--border); border-left: 3px solid transparent; transition: border-color 0.2s, background 0.2s; position: relative; overflow: hidden; }
+    .servicio-card:hover { border-color: var(--border); border-left-color: var(--gold); background: var(--warm-mid); }
+    .svc-num { font-size: clamp(64px,8vw,100px); font-weight: 700; color: rgba(0,0,0,0.05); letter-spacing: -0.04em; line-height: 1; margin-bottom: 24px; }
+    .servicio-card h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 14px; letter-spacing: -0.01em; }
+    .servicio-card p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
+    .svc-items { display: flex; flex-direction: column; gap: 8px; }
+    .svc-items span { font-size: 11px; font-weight: 300; color: var(--hint); letter-spacing: 0.04em; padding-left: 16px; position: relative; }
+    .svc-items span::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+    /* ── ESPECIALIDADES (INMO + MARCA) ── */
+    .esp-band {
+      background: var(--dark);
+      padding: 104px 48px;
+      position: relative; overflow: hidden;
+    }
+    .esp-band + .esp-band { border-top: 1px solid #111; }
+    .esp-band::before {
+      content: attr(data-bg);
+      position: absolute;
+      right: -20px; top: 50%; transform: translateY(-50%);
+      font-size: clamp(90px, 14vw, 180px);
+      font-weight: 700; letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.025);
+      pointer-events: none; white-space: nowrap;
+    }
+    .esp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .esp-grid .section-label { color: var(--gold); }
+    .esp-grid .section-label::before { background: rgba(255,255,255,0.15); }
+    .esp-grid .section-title { color: #FFF; }
+    .esp-grid .section-title em { color: var(--gold); }
+    .esp-grid .section-body { color: #999; max-width: 480px; }
+    .esp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .esp-stat {
+      background: #111; padding: 40px 36px;
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .esp-stat:hover { border-left-color: var(--gold); background: #141414; }
+    .esp-stat .n { font-size: 52px; font-weight: 700; color: #FFF; line-height: 1; margin-bottom: 10px; letter-spacing: -0.03em; }
+    .esp-stat .n span { color: var(--gold); }
+    .esp-stat .l { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #777; }
+    .esp-cta { margin-top: 44px; display: flex; gap: 24px; align-items: center; }
+    .btn-outline-gold { border: 1px solid var(--gold); color: var(--gold); padding: 13px 28px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+    .btn-outline-gold:hover { background: var(--gold); color: #000; }
+
+    /* ── LOGOS ── */
+    #clientes { background: var(--surface); padding: 80px 0 0; }
+    #clientes .cl-header { padding: 0 48px 48px; }
+    .logo-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--border); }
+    .logo-cell {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 28px 36px;
+      overflow: hidden;
+    }
+    .logo-cell:nth-child(5n) { border-right: none; }
+    .logo-cell img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%); opacity: 0.55;
+      transition: filter 0.35s ease, opacity 0.35s ease, transform 0.4s ease;
+    }
+    .logo-cell:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.14);
+    }
+    .logo-cell .logo-txt { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; color: #BBBBBB; text-align: center; transition: color 0.3s; }
+    .logo-cell:hover .logo-txt { color: var(--text); }
+
+    /* ── CASOS CARRUSEL ── */
+    #casos { background: var(--bg); overflow: hidden; }
+    .casos-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
+
+    /* Carrusel — sangra hasta los bordes de la ventana */
+    .casos-carousel-outer {
+      margin: 0 -48px;
+      overflow: hidden;
+    }
+    .casos-carousel-track {
+      display: flex;
+      gap: 3px;
+      width: max-content;
+      animation: casos-scroll 60s linear infinite;
+    }
+    .casos-carousel-outer:hover .casos-carousel-track {
+      animation-play-state: paused;
+    }
+    @keyframes casos-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Card — imagen llena todo, texto encima en hover */
+    .caso-card {
+      width: 640px;
+      height: 460px;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Imagen ocupa todo el card */
+    .caso-thumb {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .caso-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.06);
+      transition: transform 0.7s cubic-bezier(0.25, 0.05, 0.1, 1);
+    }
+    .caso-card:hover .caso-thumb img { transform: scale(1); }
+
+    /* Vignette permanente abajo — solo para la flecha */
+    .caso-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Overlay completo en hover — para leer el texto */
+    .caso-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 55%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .caso-card:hover .caso-thumb::after { opacity: 1; }
+
+    /* Ocultar elementos heredados */
+    .caso-thumb-placeholder { display: none; }
+    .caso-logo-overlay { display: none; }
+
+    /* Flecha — siempre visible abajo a la derecha */
+    .caso-arrow {
+      position: absolute;
+      bottom: 20px; right: 24px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.5);
+      z-index: 3;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .caso-card:hover .caso-arrow { color: var(--gold); transform: translate(3px,-3px); }
+
+    /* Texto — aparece en hover desde abajo */
+    .caso-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 28px 52px;
+      z-index: 3;
+      transform: translateY(12px);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .caso-card:hover .caso-info { opacity: 1; transform: translateY(0); }
+
+    .caso-tag {
+      font-size: 9px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px; display: block;
+    }
+    .caso-card h3 {
+      font-size: 17px; font-weight: 300;
+      color: #fff; line-height: 1.3;
+      margin: 0;
+    }
+    .caso-card p { display: none; } /* descripción oculta — la imagen lo dice todo */
+
+    /* ── CONTACTO ── */
+    #contacto { background: var(--surface); }
+    .contacto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
+    .contact-items { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-item .ln { width: 1px; height: 36px; background: var(--border); flex-shrink: 0; margin-top: 4px; }
+    .contact-item .ln.g { background: var(--gold); }
+    .contact-item .lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hint); margin-bottom: 5px; }
+    .contact-item a, .contact-item span { font-size: 14px; font-weight: 300; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .contact-item a:hover { color: var(--gold); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hint); margin-bottom: 8px; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; background: var(--bg); border: 1px solid var(--border); padding: 12px 16px; font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 14px; color: var(--text); outline: none; transition: border-color 0.2s; -webkit-appearance: none; border-radius: 0; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    #form-success { display: none; margin-top: 16px; font-size: 13px; color: var(--gold); letter-spacing: 0.04em; }
+
+    /* ── FAQ hidden / SEO only ── */
+    #faq { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { padding: 0 24px 72px; }
+      .hero-scroll { display: none; }
+      .logo-grid { grid-template-columns: repeat(3, 1fr); }
+      .logo-cell:nth-child(5n) { border-right: 1px solid var(--border); }
+      .logo-cell:nth-child(3n) { border-right: none; }
+      .esp-grid { grid-template-columns: 1fr; gap: 48px; }
+      .esp-stats { grid-template-columns: 1fr 1fr; }
+      .servicios-intro { grid-template-columns: 1fr; gap: 32px; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .casos-grid { grid-template-columns: 1fr; }
+      .nosotros-grid { grid-template-columns: 1fr; }
+      .nos-left { padding: 56px 28px; border-right: none; border-bottom: 1px solid var(--warm-mid); }
+      .nos-right { padding: 56px 28px; }
+      .nos-right-num { font-size: 120px; }
+      .contacto-inner { grid-template-columns: 1fr; gap: 48px; }
+      .form-row { grid-template-columns: 1fr; }
+      .esp-band { padding: 64px 24px; }
+      #clientes .cl-header { padding: 0 24px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="logos/corelab.png" alt="CoreLab" style="height:34px;display:block;" /></a>
+  </div>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#casos">Casos</a></li>
+    <li><a href="inmobiliaria.html">Inmobiliaria</a></li>
+    <li><a href="marca.html">Marca</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Escríbenos</a>
+</nav>
+
+
+<!-- HERO -->
+<section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <p class="hero-eyebrow">CoreLab — Ciudad de México · Desde 2016</p>
+  <h1>Ayudamos a las empresas<br/>a crear <em>mejores marcas.</em></h1>
+  <p class="hero-sub">Soluciones a la medida en estrategia de marca, crecimiento digital, marketing y desarrollo.</p>
+  <div class="hero-actions">
+    <a href="#servicios" class="btn-primary">Conocer servicios</a>
+    <a href="#casos" class="btn-ghost" style="color:#888;">Ver casos de éxito →</a>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+
+<!-- NOSOTROS — 2do fold -->
+<section id="nosotros">
+  <div class="nosotros-grid">
+
+    <!-- Panel izquierdo — manifiesto -->
+    <div class="nos-left">
+      <div>
+        <p class="section-label">Quiénes somos</p>
+        <h2 class="nos-manifesto">Construimos marcas que duran<br/>y negocios que <em>crecen.</em></h2>
+        <p class="nos-body">CoreLab es una consultora de marca y crecimiento digital con base en CDMX. Trabajamos con empresas que entienden que una buena marca no es un gasto — es la ventaja competitiva más duradera que existe.</p>
+      </div>
+      <div class="nos-footer">
+        <div class="nos-year">2016</div>
+        <div class="nos-detail">
+          <span>CoreLab</span>
+          Ciudad de México<br/>Desde 2016
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel derecho — valores -->
+    <div class="nos-right">
+      <div class="nos-right-num">CL</div>
+      <p class="section-label">Nuestra forma</p>
+      <div class="valores">
+        <div class="valor-item">
+          <div class="valor-num">01</div>
+          <h4>Estrategia primero</h4>
+          <p>El diseño más hermoso falla sin dirección clara.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-num">02</div>
+          <h4>Soluciones a la medida</h4>
+          <p>No hay plantillas. Cada proyecto empieza desde cero.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-num">03</div>
+          <h4>Resultados medibles</h4>
+          <p>Cada decisión tiene un propósito y un indicador.</p>
+        </div>
+        <div class="valor-item">
+          <div class="valor-num">04</div>
+          <h4>Relaciones de largo plazo</h4>
+          <p>Crecemos con nuestros clientes, no solo por proyecto.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div style="margin-bottom:48px;">
+    <p class="section-label">Lo que hacemos</p>
+  </div>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="svc-num">01</div>
+      <h3>Consultoría <em style="font-style:italic;color:var(--gold);">de Marca</em></h3>
+      <p>Definimos y articulamos quién eres, a dónde vas y cómo te diferencias. Desde la arquitectura hasta el posicionamiento competitivo.</p>
+      <div class="svc-items">
+        <span>Arquitectura de Marca</span>
+        <span>Core Benefit Discovery</span>
+        <span>Estudios de Mercado</span>
+        <span>Posicionamiento de Marca</span>
+        <span>Análisis de Usuarios</span>
+        <span>Consultoría Startups</span>
+      </div>
+    </div>
+    <div class="servicio-card">
+      <div class="svc-num">02</div>
+      <h3>Estrategia & <em style="font-style:italic;color:var(--gold);">Marketing Digital</em></h3>
+      <p>Construimos y operamos ecosistemas de marketing orientados a resultados. Performance medible, audiencias calificadas, KPIs claros.</p>
+      <div class="svc-items">
+        <span>Estrategia de Medios</span>
+        <span>Creación de Concepto y Campaña</span>
+        <span>Lead Generation</span>
+        <span>Diseño de Segmentos</span>
+        <span>Tracking y Conversiones</span>
+        <span>Performance y KPIs</span>
+      </div>
+    </div>
+    <div class="servicio-card">
+      <div class="svc-num">03</div>
+      <h3>Branding & <em style="font-style:italic;color:var(--gold);">Diseño de Marca</em></h3>
+      <p>Traducimos la estrategia en identidad visual. Sistemas de diseño coherentes que funcionan en todos los puntos de contacto.</p>
+      <div class="svc-items">
+        <span>Workshop Naming y Creatividad</span>
+        <span>Concepto de Marca</span>
+        <span>Diseño de Logotipo y Retícula</span>
+        <span>Tipografías y Colores Corporativos</span>
+        <span>Brandbook</span>
+        <span>Aplicaciones de Diseño</span>
+      </div>
+    </div>
+    <div class="servicio-card">
+      <div class="svc-num">04</div>
+      <h3>Diseño Web <em style="font-style:italic;color:var(--gold);">& Software</em></h3>
+      <p>Desarrollamos productos digitales que convierten. Desde la experiencia de usuario hasta el código — todo en un solo equipo.</p>
+      <div class="svc-items">
+        <span>UI/UX — Diseño de Experiencia</span>
+        <span>SEO / AIO</span>
+        <span>Desarrollo Web y Mobile</span>
+        <span>Desarrollo de Apps</span>
+        <span>Software a Medida</span>
+        <span>Front-end / Back-end</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ESPECIALIDADES -->
+<section id="marca-highlight" class="esp-band" data-bg="BRAND">
+  <div class="esp-grid">
+    <div>
+      <p class="section-label">Especialidad — Estrategia de Marca</p>
+      <h2 class="section-title" style="color:#FFF;">Marcas que duran empiezan con un <em>diagnóstico riguroso.</em></h2>
+      <p class="section-body">Investigamos tu mercado, entendemos a tus usuarios y encontramos el Core Benefit — el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
+      <div class="esp-cta">
+        <a href="marca.html" class="btn-primary">Ver metodología</a>
+        <a href="index.html#contacto" class="btn-ghost" style="color:#555;">Agendar diagnóstico →</a>
+      </div>
+    </div>
+    <div class="esp-stats">
+      <div class="esp-stat"><div class="n"><span>+</span>20</div><div class="l">Marcas construidas</div></div>
+      <div class="esp-stat"><div class="n"><span>4</span></div><div class="l">Fases de metodología</div></div>
+      <div class="esp-stat"><div class="n">8<span>+</span></div><div class="l">Años de experiencia</div></div>
+      <div class="esp-stat"><div class="n">100<span>%</span></div><div class="l">A la medida</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="inmobiliaria-highlight" class="esp-band" data-bg="REAL ESTATE">
+  <div class="esp-grid">
+    <div>
+      <p class="section-label">Especialidad — Real Estate</p>
+      <h2 class="section-title" style="color:#FFF;">Expertos en <em>marketing de performance</em> para el sector inmobiliario.</h2>
+      <p class="section-body">Más de 8 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México.</p>
+      <div class="esp-cta">
+        <a href="inmobiliaria.html" class="btn-primary">Ver especialidad</a>
+        <a href="#casos" class="btn-ghost" style="color:#888;">Ver casos →</a>
+      </div>
+    </div>
+    <div class="esp-stats">
+      <div class="esp-stat"><div class="n"><span>+</span>20</div><div class="l">Desarrollos</div></div>
+      <div class="esp-stat"><div class="n"><span>+</span>8</div><div class="l">Años en el sector</div></div>
+      <div class="esp-stat"><div class="n">360<span>°</span></div><div class="l">Ecosistema digital</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <div class="cl-header">
+    <p class="section-label">Marcas que han confiado en nosotros</p>
+  </div>
+  <div class="logo-grid">
+    <div class="logo-cell"><img src="logos/Arquitectoma.jpeg" alt="Arquitectoma" /></div>
+    <div class="logo-cell"><img src="logos/Inmobiliare.jpeg" alt="Inmobiliare" /></div>
+    <div class="logo-cell"><img src="logos/Somos ACHA.jpeg" alt="ACHA" /></div>
+    <div class="logo-cell"><img src="logos/Berger.jpeg" alt="Berger" /></div>
+    <div class="logo-cell"><img src="logos/Macmillan Education.jpeg" alt="Macmillan Education" /></div>
+    <div class="logo-cell"><img src="logos/Capitel.jpeg" alt="Capitel" /></div>
+    <div class="logo-cell"><img src="logos/Papalote Museo del Niño.jpeg" alt="Papalote" /></div>
+    <div class="logo-cell"><img src="logos/CuraDeuda.jpeg" alt="CuraDeuda" /></div>
+    <div class="logo-cell"><img src="logos/FertilidadIntegral.jpeg" alt="Fertilidad Integral" /></div>
+    <div class="logo-cell"><img src="logos/ISP Internationl School Partnership.jpeg" alt="ISP" /></div>
+    <div class="logo-cell"><img src="logos/Colchones America.jpeg" alt="Colchones América" /></div>
+    <div class="logo-cell"><img src="logos/ExpoPublicitas.jpeg" alt="Expo Publicitas" /></div>
+    <div class="logo-cell"><img src="logos/NirYu.jpeg" alt="NIRYU" /></div>
+    <div class="logo-cell"><img src="logos/XoloPlastics.jpeg" alt="Xolo Plastics" /></div>
+    <div class="logo-cell"><img src="logos/Moshi Moshi.jpeg" alt="Moshi Moshi" /></div>
+    <div class="logo-cell"><img src="logos/Avast.jpeg" alt="Avast" /></div>
+    <div class="logo-cell"><span class="logo-txt">TANE</span></div>
+    <div class="logo-cell"><span class="logo-txt">Terral</span></div>
+    <div class="logo-cell"><span class="logo-txt">PYL Studios</span></div>
+    <div class="logo-cell"><span class="logo-txt">Sucroliq</span></div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CASOS -->
+<section id="casos">
+  <div class="casos-header">
+    <div>
+      <p class="section-label">Trabajo seleccionado</p>
+      <h2 class="section-title">Casos de éxito</h2>
+    </div>
+    <a href="#contacto" class="btn-ghost">Iniciar un proyecto →</a>
+  </div>
+  <!-- Carrusel infinito: 6 cards × 2 duplicadas = loop sin saltos -->
+  <div class="casos-carousel-outer">
+    <div class="casos-carousel-track">
+
+      <!-- ── SET 1 ── -->
+      <a href="casos/arquitectoma.html" class="caso-card">
+        <div class="caso-thumb" style="background:#0D1117;">
+          <img src="img/casos/arquitectoma-1.jpg" alt="Arquitectoma" onerror="this.style.display='none'" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Real Estate · Media Strategy · Lead Gen</div>
+          <h3>Arquitectoma — Ecosistema digital inmobiliario</h3>
+          <p>+13 proyectos desde Chapultepec Uno con Ritz Carlton. Estrategia de medios, lead acquisition y optimización mensual.</p>
+        </div>
+      </a>
+      <a href="casos/berger.html" class="caso-card">
+        <div class="caso-thumb" style="background:#0A0A09;">
+          <img src="img/casos/berger-1.jpg" alt="Berger Joyeros" onerror="this.style.display='none'" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Brand Strategy · Web · Media</div>
+          <h3>Berger Joyeros — 100 años de elegancia</h3>
+          <p>La plataforma de joyería y relojería de lujo más completa de México. 40+ marcas, 5+ años de relación.</p>
+        </div>
+      </a>
+      <a href="casos/acha.html" class="caso-card">
+        <div class="caso-thumb" style="background:#111416;">
+          <img src="img/casos/acha-1.jpg" alt="ACHA" onerror="this.style.display='none'" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Real Estate · Digital Identity · SEO</div>
+          <h3>ACHA — Rehabilitación patrimonial en CDMX</h3>
+          <p>Identidad digital, desarrollo web, SEO y medios para la firma líder en rehabilitación arquitectónica histórica.</p>
+        </div>
+      </a>
+      <a href="casos/ediciones-castillo.html" class="caso-card">
+        <div class="caso-thumb" style="background:#0E1520;">
+          <img src="img/casos/ediciones-castillo-1.jpg" alt="Ediciones Castillo" onerror="this.style.display='none'" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">UI/UX · Plataforma · Arquitectura de Contenido</div>
+          <h3>Ediciones Castillo — Macmillan Education</h3>
+          <p>Plataforma educativa completa para uno de los publishers más importantes de Latinoamérica.</p>
+        </div>
+      </a>
+      <a href="casos/berger-rolex.html" class="caso-card">
+        <div class="caso-thumb" style="background:#080808;">
+          <img src="img/casos/berger-rolex-1.jpg" alt="Berger × Rolex" onerror="this.style.display='none'" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Bespoke Web · Rolex International</div>
+          <h3>Berger × Rolex — Micrositio certificado</h3>
+          <p>Micrositio bespoke bajo mandatos visuales de Rolex International, aprobado por sus equipos globales.</p>
+        </div>
+      </a>
+      <a href="casos/pyl-studios.html" class="caso-card">
+        <div class="caso-thumb" style="background:#111213;">
+          <img src="img/casos/pyl-studios-1.webp" alt="PYL Studios" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Identidad Digital · UI/UX · Marcas Hermanas</div>
+          <h3>PYL Studios + Pedro y el Lobo</h3>
+          <p>Dos marcas, un mismo universo. Identidad digital y desarrollo para el estudio de audio más destacado de CDMX.</p>
+        </div>
+      </a>
+
+      <!-- ── SET 2 (duplicado para loop infinito) ── -->
+      <a href="casos/arquitectoma.html" class="caso-card" aria-hidden="true" tabindex="-1">
+        <div class="caso-thumb" style="background:#0D1117;">
+          <img src="img/casos/arquitectoma-1.jpg" alt="" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Real Estate · Media Strategy · Lead Gen</div>
+          <h3>Arquitectoma — Ecosistema digital inmobiliario</h3>
+          <p>+13 proyectos desde Chapultepec Uno con Ritz Carlton. Estrategia de medios, lead acquisition y optimización mensual.</p>
+        </div>
+      </a>
+      <a href="casos/berger.html" class="caso-card" aria-hidden="true" tabindex="-1">
+        <div class="caso-thumb" style="background:#0A0A09;">
+          <img src="img/casos/berger-1.jpg" alt="" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Brand Strategy · Web · Media</div>
+          <h3>Berger Joyeros — 100 años de elegancia</h3>
+          <p>La plataforma de joyería y relojería de lujo más completa de México. 40+ marcas, 5+ años de relación.</p>
+        </div>
+      </a>
+      <a href="casos/acha.html" class="caso-card" aria-hidden="true" tabindex="-1">
+        <div class="caso-thumb" style="background:#111416;">
+          <img src="img/casos/acha-1.jpg" alt="" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Real Estate · Digital Identity · SEO</div>
+          <h3>ACHA — Rehabilitación patrimonial en CDMX</h3>
+          <p>Identidad digital, desarrollo web, SEO y medios para la firma líder en rehabilitación arquitectónica histórica.</p>
+        </div>
+      </a>
+      <a href="casos/ediciones-castillo.html" class="caso-card" aria-hidden="true" tabindex="-1">
+        <div class="caso-thumb" style="background:#0E1520;">
+          <img src="img/casos/ediciones-castillo-1.jpg" alt="" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">UI/UX · Plataforma · Arquitectura de Contenido</div>
+          <h3>Ediciones Castillo — Macmillan Education</h3>
+          <p>Plataforma educativa completa para uno de los publishers más importantes de Latinoamérica.</p>
+        </div>
+      </a>
+      <a href="casos/berger-rolex.html" class="caso-card" aria-hidden="true" tabindex="-1">
+        <div class="caso-thumb" style="background:#080808;">
+          <img src="img/casos/berger-rolex-1.jpg" alt="" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Bespoke Web · Rolex International</div>
+          <h3>Berger × Rolex — Micrositio certificado</h3>
+          <p>Micrositio bespoke bajo mandatos visuales de Rolex International, aprobado por sus equipos globales.</p>
+        </div>
+      </a>
+      <a href="casos/pyl-studios.html" class="caso-card" aria-hidden="true" tabindex="-1">
+        <div class="caso-thumb" style="background:#111213;">
+          <img src="img/casos/pyl-studios-1.webp" alt="" />
+        </div>
+        <div class="caso-info">
+          <span class="caso-arrow">↗</span>
+          <div class="caso-tag">Identidad Digital · UI/UX · Marcas Hermanas</div>
+          <h3>PYL Studios + Pedro y el Lobo</h3>
+          <p>Dos marcas, un mismo universo. Identidad digital y desarrollo para el estudio de audio más destacado de CDMX.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contacto-inner">
+    <div>
+      <p class="section-label">Hablemos</p>
+      <h2 class="section-title">¿Tienes un proyecto?<br/>Escríbenos.</h2>
+      <p class="section-body">Respondemos en menos de 24 horas. La primera consulta es sin costo — platicamos sobre tu proyecto y te decimos honestamente cómo podemos ayudarte.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="ln g"></div>
+          <div><div class="lbl">Email</div><a href="mailto:hola@corelab.mx">hola@corelab.mx</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="ln"></div>
+          <div><div class="lbl">Dirección</div><span>Gob. Protasio Tagle 41<br/>San Miguel Chapultepec, CDMX</span></div>
+        </div>
+      </div>
+    </div>
+    <form onsubmit="handleForm(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
+        <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nombre de tu empresa" /></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="correo@empresa.com" /></div>
+      <div class="form-group">
+        <label>¿En qué podemos ayudarte?</label>
+        <select>
+          <option value="" disabled selected>Selecciona un servicio</option>
+          <option>Consultoría de Marca</option>
+          <option>Estrategia & Marketing Digital</option>
+          <option>Branding & Diseño de Marca</option>
+          <option>Diseño Web & Software</option>
+          <option>Marketing Inmobiliario</option>
+          <option>No sé todavía, quiero platicar</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea placeholder="¿Qué estás construyendo? ¿Qué problema quieres resolver?"></textarea></div>
+      <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar mensaje</button>
+      <p id="form-success">¡Listo! Te contactamos en menos de 24 horas.</p>
+    </form>
+  </div>
+</section>
+
+
+<!-- FAQ — oculto, solo para SEO/indexación -->
+<section id="faq" aria-hidden="true">
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-q"><h4>¿Trabajan con empresas de cualquier tamaño?</h4></div><div class="faq-ans"><p>Sí. Trabajamos con startups en etapa temprana, empresas en crecimiento y organizaciones consolidadas. El tamaño importa menos que la disposición a construir bien.</p></div></div>
+    <div class="faq-item"><div class="faq-q"><h4>¿Cuánto dura un proyecto típico?</h4></div><div class="faq-ans"><p>Un proyecto de branding completo toma entre 6 y 12 semanas. Una estrategia digital con implementación puede extenderse varios meses.</p></div></div>
+    <div class="faq-item"><div class="faq-q"><h4>¿CoreLab tiene experiencia en marketing inmobiliario?</h4></div><div class="faq-ans"><p>Sí. Somos especialistas en estrategia de medios y adquisición de leads para el sector inmobiliario en México, con más de 8 años de experiencia.</p></div></div>
+    <div class="faq-item"><div class="faq-q"><h4>¿Qué hace diferente a CoreLab?</h4></div><div class="faq-ans"><p>Integramos estrategia de marca, marketing digital y desarrollo tecnológico en un solo equipo. Sin fricción entre agencias, coherencia total en cada punto de contacto.</p></div></div>
+  </div>
+</section>
+
+
+<script>
+function handleForm(e) {
+  e.preventDefault();
+  var s = document.getElementById('form-success');
+  if (s) s.style.display = 'block';
+  e.target.reset();
+}
+</script>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,3 +1,14 @@
-# Archivos de video grandes
+# Videos grandes
 video/hero.mp4
 img/casos/pyl-studios-2.mov
+
+# Mac
+.DS_Store
+**/.DS_Store
+
+# Claude
+.claude/
+
+# Archivos de trabajo
+_mockup-casestudy.html
+casos-options.html

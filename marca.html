@@ -164,17 +164,57 @@
     .dif-item p { font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.7; }
 
     /* ── CASOS ── */
-    #mcasos { background: var(--surface); padding: 80px 48px; }
-    .mcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px; }
+    #mcasos { background: var(--surface); padding: 80px 48px 0; }
+    .mcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 40px; }
     .mcase-card {
-      background: var(--bg); padding: 36px 32px;
-      border-top: 2px solid var(--border);
-      transition: border-color 0.2s; text-decoration: none; display: block;
+      position: relative; height: 420px; overflow: hidden;
+      text-decoration: none; display: block;
     }
-    .mcase-card:hover { border-top-color: var(--gold); }
-    .mcase-rt { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .mcase-card h3 { font-size: 16px; font-weight: 300; color: var(--text); margin-bottom: 8px; }
-    .mcase-card p { font-size: 13px; font-weight: 300; color: var(--hint); line-height: 1.7; }
+    .mcase-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.65s cubic-bezier(0.25,0.05,0.1,1);
+    }
+    .mcase-card:hover img { transform: scale(1.05); }
+    .mcase-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 100%);
+      transition: background 0.45s ease;
+    }
+    .mcase-card:hover .mcase-overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.78) 100%);
+    }
+    .mcase-rt {
+      position: absolute; top: 28px; left: 28px;
+      font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); transition: color 0.3s;
+    }
+    .mcase-card:hover .mcase-rt { color: var(--gold); }
+    .mcase-body {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 28px;
+    }
+    .mcase-body h3 {
+      font-size: clamp(16px, 1.6vw, 22px); font-weight: 300; color: #fff;
+      line-height: 1.2; margin-bottom: 0; transition: margin-bottom 0.3s;
+    }
+    .mcase-body p {
+      font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.75);
+      line-height: 1.65; margin-top: 10px;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.35s ease;
+    }
+    .mcase-card:hover .mcase-body p { max-height: 100px; opacity: 1; }
+    .mcase-cta {
+      display: inline-block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-top: 16px;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+    }
+    .mcase-card:hover .mcase-cta { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .mcase-grid { grid-template-columns: 1fr; }
+      .mcase-card { height: 340px; }
+    }
 
     /* ── CONTACTO CTA ── */
     #mcta { background: var(--dark); padding: 96px 48px; text-align: center; position: relative; overflow: hidden; }
@@ -439,19 +479,34 @@
   <h2 class="section-title">Marcas que construimos.</h2>
   <div class="mcase-grid">
     <a href="casos/berger.html" class="mcase-card">
+      <img src="img/casos/berger-1.jpg" alt="Berger Joyeros" />
+      <div class="mcase-overlay"></div>
       <div class="mcase-rt">Brand Strategy · Web · Media</div>
-      <h3>Berger Joyeros — 100 años de elegancia</h3>
-      <p>La plataforma de joyería y relojería de lujo más completa de México. Estrategia de marca, presencia digital y relación de más de 5 años.</p>
-    </a>
-    <a href="casos/acha.html" class="mcase-card">
-      <div class="mcase-rt">Identidad Digital · UI/UX · SEO</div>
-      <h3>ACHA — Rehabilitación patrimonial</h3>
-      <p>Identidad digital completa para la firma que rehabilita el patrimonio arquitectónico de CDMX. De cero a presencia nacional.</p>
+      <div class="mcase-body">
+        <h3>Berger Joyeros</h3>
+        <p>La plataforma de joyería y relojería de lujo más completa de México. Estrategia de marca, presencia digital y relación de más de 5 años.</p>
+        <span class="mcase-cta">Ver caso →</span>
+      </div>
     </a>
     <a href="casos/pyl-studios.html" class="mcase-card">
+      <img src="img/casos/pyl-studios-1.webp" alt="PYL Studios" />
+      <div class="mcase-overlay"></div>
       <div class="mcase-rt">Identidad Digital · Marcas Hermanas</div>
-      <h3>PYL Studios + Pedro y el Lobo</h3>
-      <p>Dos marcas, un universo compartido. Identidad diferenciada para dos públicos distintos que comparten el mismo ADN.</p>
+      <div class="mcase-body">
+        <h3>PYL Studios + Pedro y el Lobo</h3>
+        <p>Dos marcas, un universo compartido. Identidad diferenciada para dos públicos distintos que comparten el mismo ADN.</p>
+        <span class="mcase-cta">Ver caso →</span>
+      </div>
+    </a>
+    <a href="casos/ediciones-castillo.html" class="mcase-card">
+      <img src="img/casos/ediciones-castillo-1.jpg" alt="Ediciones Castillo" />
+      <div class="mcase-overlay"></div>
+      <div class="mcase-rt">UI/UX · Plataforma Editorial</div>
+      <div class="mcase-body">
+        <h3>Ediciones Castillo</h3>
+        <p>Plataforma digital para una de las editoriales más importantes de México. Experiencia de usuario construida desde la identidad de marca.</p>
+        <span class="mcase-cta">Ver caso →</span>
+      </div>
     </a>
   </div>
 </section>

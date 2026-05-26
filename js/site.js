@@ -55,6 +55,7 @@
             <li><a href="${rootPath}casos/berger-rolex.html">Berger × Rolex</a></li>
             <li><a href="${rootPath}casos/pyl-studios.html">PYL Studios</a></li>
             <li><a href="${rootPath}casos/fertilidad-integral.html">Fertilidad Integral</a></li>
+            <li><a href="${rootPath}casos/moshi-moshi.html">Moshi Moshi</a></li>
           </ul>
         </div>
         <div class="footer-col">

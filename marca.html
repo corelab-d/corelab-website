@@ -100,27 +100,40 @@
     .met-step ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
 
     /* ── CORE BENEFIT ── */
-    #core-benefit { background: var(--dark); padding: 96px 48px; position: relative; overflow: hidden; }
+    #core-benefit {
+      background: var(--warm);
+      padding: 112px 48px;
+      position: relative; overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
     #core-benefit::before {
-      content: 'CORE BENEFIT';
-      position: absolute; bottom: -20px; left: 48px;
-      font-size: clamp(60px, 10vw, 140px); font-weight: 300;
-      color: rgba(255,255,255,0.025); letter-spacing: 0.04em; white-space: nowrap; pointer-events: none;
+      content: 'CORE';
+      position: absolute; right: -24px; top: 50%; transform: translateY(-50%);
+      font-size: clamp(120px, 18vw, 260px); font-weight: 700; font-style: italic;
+      color: rgba(235,178,44,0.055); letter-spacing: -0.04em; white-space: nowrap; pointer-events: none; line-height: 1;
     }
-    .cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; position: relative; z-index: 1; }
-    #core-benefit h2 { font-size: clamp(26px, 3.5vw, 46px); font-weight: 300; color: #FFF; line-height: 1.2; margin-bottom: 24px; }
-    #core-benefit h2 em { color: var(--gold); font-style: normal; }
-    #core-benefit p { font-size: 15px; font-weight: 300; color: #999; line-height: 1.85; }
-    #core-benefit p + p { margin-top: 16px; }
-    .cb-pillars { display: flex; flex-direction: column; gap: 2px; }
+    .cb-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 96px; align-items: start; position: relative; z-index: 1; }
+    .cb-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 10px;
+    }
+    .cb-label::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: block; }
+    #core-benefit h2 { font-size: clamp(30px, 4vw, 54px); font-weight: 300; color: var(--text); line-height: 1.15; margin-bottom: 28px; }
+    #core-benefit h2 em { color: var(--gold); font-style: italic; }
+    #core-benefit .cb-body { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.85; }
+    #core-benefit .cb-body + .cb-body { margin-top: 18px; }
+    .cb-pillars { display: flex; flex-direction: column; }
     .cb-pillar {
-      background: #0D0D0D; padding: 28px 32px;
-      border-left: 2px solid #1A1A1A;
-      transition: border-color 0.2s, background 0.2s;
+      padding: 24px 0 24px 24px;
+      border-left: 2px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: border-left-color 0.2s, padding-left 0.2s;
     }
-    .cb-pillar:hover { border-left-color: var(--gold); background: #111; }
-    .cb-pillar h4 { font-size: 13px; font-weight: 400; color: #CCC; margin-bottom: 6px; }
-    .cb-pillar p { font-size: 12px; font-weight: 300; color: #888; line-height: 1.7; margin: 0; }
+    .cb-pillar:first-child { border-top: 1px solid var(--border); }
+    .cb-pillar:hover { border-left-color: var(--gold); padding-left: 32px; }
+    .cb-pillar h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 6px; }
+    .cb-pillar p { font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.7; margin: 0; }
 
     /* ── SERVICIOS ── */
     #mservicios { background: var(--surface); padding: 96px 48px; }
@@ -305,10 +318,11 @@
 <section id="core-benefit">
   <div class="cb-grid">
     <div>
+      <div class="cb-label">Core Benefit</div>
       <h2>La diferencia entre una marca que <em>se ve bien</em> y una que <em>vende bien</em>.</h2>
-      <p>El Core Benefit no lo inventamos nosotros — lo descubrimos junto con tu equipo. Está en la intersección de tres preguntas: qué es lo que tu empresa hace mejor que nadie, qué es lo que tus usuarios realmente necesitan (no lo que dicen que necesitan), y qué espacio dejó libre la competencia.</p>
-      <p>Cuando esas tres respuestas convergen, encontramos el núcleo. Desde ahí se construye todo lo demás.</p>
-      <div style="margin-top:36px;">
+      <p class="cb-body">El Core Benefit no lo inventamos nosotros — lo descubrimos junto con tu equipo. Está en la intersección de tres preguntas: qué es lo que tu empresa hace mejor que nadie, qué es lo que tus usuarios realmente necesitan (no lo que dicen que necesitan), y qué espacio dejó libre la competencia.</p>
+      <p class="cb-body">Cuando esas tres respuestas convergen, encontramos el núcleo. Desde ahí se construye todo lo demás.</p>
+      <div style="margin-top:40px;">
         <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico de marca</a>
       </div>
     </div>

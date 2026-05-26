@@ -28,7 +28,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "¿Trabajan con empresas de cualquier tamaño?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajamos con startups en etapa temprana, empresas en crecimiento y organizaciones consolidadas. El tamaño importa menos que la disposición a construir bien." } },
         { "@type": "Question", "name": "¿Cuánto dura un proyecto de branding con CoreLab?", "acceptedAnswer": { "@type": "Answer", "text": "Un proyecto de branding completo toma entre 6 y 12 semanas. Una estrategia digital con implementación puede extenderse varios meses." } },
-        { "@type": "Question", "name": "¿CoreLab tiene experiencia en marketing inmobiliario?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Somos especialistas en estrategia de medios y adquisición de leads para el sector inmobiliario en México. Más de 8 años construyendo ecosistemas digitales de venta para desarrollos residenciales y comerciales." } },
+        { "@type": "Question", "name": "¿CoreLab tiene experiencia en marketing inmobiliario?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Somos especialistas en estrategia de medios y adquisición de leads para el sector inmobiliario en México. Más de 9 años construyendo ecosistemas digitales de venta para desarrollos residenciales y comerciales." } },
         { "@type": "Question", "name": "¿Qué hace diferente a CoreLab de otras agencias digitales?", "acceptedAnswer": { "@type": "Answer", "text": "Integramos estrategia de marca, marketing digital y desarrollo tecnológico en un solo equipo. Sin fricción entre agencias, coherencia total en cada punto de contacto." } }
       ]
     }
@@ -420,7 +420,12 @@
       .esp-ia-grid { grid-template-columns: 1fr; gap: 48px; }
       .servicios-intro { grid-template-columns: 1fr; gap: 32px; }
       .servicios-grid { grid-template-columns: 1fr; }
+      .servicio-card:last-child { grid-column: auto !important; }
       .casos-grid { grid-template-columns: 1fr; }
+      .caso-row { grid-template-columns: 40px 1fr; }
+      .caso-row-right { display: none; }
+      .casos-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
+      .casos-inner { padding: 72px 24px; }
       .nosotros-grid { grid-template-columns: 1fr; }
       .nos-left { padding: 56px 28px; border-right: none; border-bottom: 1px solid var(--warm-mid); }
       .nos-right { padding: 56px 28px; }
@@ -637,7 +642,7 @@
       <h2 class="section-title">Expertos en <em>marketing de performance</em> para el sector inmobiliario.</h2>
     </div>
     <div>
-      <p class="section-body">Más de 8 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México. Desde la estrategia de medios hasta el cierre.</p>
+      <p class="section-body">Más de 9 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México. Desde la estrategia de medios hasta el cierre.</p>
       <div class="esp-cta">
         <a href="inmobiliaria.html" class="btn-primary">Ver especialidad</a>
         <a href="#casos" class="btn-ghost">Ver casos →</a>

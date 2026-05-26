@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fertilidad Integral — CoreLab</title>
+  <meta name="description" content="Diseño UI/UX, ecommerce, estrategia de medios y lead acquisition para la clínica de fertilidad más importante de México. Tres ciudades, un ecosistema." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    body { padding-top: 64px; }
+    .site-scroll-window {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      background: #F0EEF5;
+      cursor: crosshair;
+    }
+    .site-scroll-window img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateY(0);
+      transition: transform 14s cubic-bezier(0.25, 0.05, 0.1, 1);
+      will-change: transform;
+    }
+    .site-scroll-window:hover img {
+      transform: translateY(calc(-100% + 540px));
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 48px 28px 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.45));
+      display: flex; align-items: center; justify-content: space-between;
+      transition: opacity 0.4s; pointer-events: none;
+    }
+    .scroll-hint .sh-label {
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+    .scroll-hint .sh-cta {
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+    }
+    .site-scroll-window:hover .scroll-hint { opacity: 0; }
+
+    /* Ciudades grid */
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 16px;
+    }
+    .city-card {
+      background: var(--surface);
+      padding: 32px 28px;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .city-card:hover { border-left-color: var(--gold); }
+    .city-card .ct {
+      font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .city-card .cn {
+      font-size: 16px; font-weight: 300; color: var(--text); margin-bottom: 4px;
+    }
+    .city-card .cd {
+      font-size: 11px; font-weight: 300; color: var(--hint); line-height: 1.5;
+    }
+  </style>
+  <script>window.__LOGO_SRC__='../logos/corelab.png'; window.__ROOT__='../';</script>
+</head>
+<body>
+
+<div class="cs-hero">
+  <div class="breadcrumb">
+    <a href="../index.html#casos">← Proyectos</a>
+    <span>·</span> Fertilidad Integral
+  </div>
+  <div class="cs-hero-grid">
+    <div>
+      <h1>El ecosistema digital que llevó a Fertilidad Integral a tres ciudades.</h1>
+      <p class="cs-tagline">Estrategia, interfaz y adquisición de pacientes — construidos desde cero para escalar.</p>
+      <div class="cs-tags">
+        <span class="cs-tag">UI/UX & Diseño Web</span>
+        <span class="cs-tag">Ecommerce</span>
+        <span class="cs-tag">Estrategia de Medios</span>
+        <span class="cs-tag">Lead Acquisition</span>
+        <span class="cs-tag">Marketing Digital</span>
+      </div>
+    </div>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><div class="label">Cliente</div><div class="value">Fertilidad Integral</div></div>
+      <div class="cs-meta-item"><div class="label">Industria</div><div class="value">Salud — Medicina Reproductiva</div></div>
+      <div class="cs-meta-item"><div class="label">Duración</div><div class="value gold">2 años</div></div>
+      <div class="cs-meta-item"><div class="label">Ciudades</div><div class="value gold">CDMX · Metepec · Guadalajara</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-featured" style="background:#F0EEF5;">
+  <img src="../img/casos/fertilidad-integral-1.jpg" alt="Fertilidad Integral" />
+</div>
+
+<div class="cs-body">
+  <div class="cs-intro">
+    <p class="cs-lead">Fertilidad Integral es una de las clínicas de medicina reproductiva más reconocidas de México. El reto: relanzar la presencia digital en CDMX y construir desde cero el ecosistema de adquisición de pacientes para dos nuevas ciudades — Metepec y Guadalajara — con estrategias distintas para cada mercado.</p>
+    <div class="cs-stats">
+      <div class="cs-stat"><div class="num"><span>3</span></div><div class="lbl">Ciudades lanzadas</div></div>
+      <div class="cs-stat"><div class="num">2<span>+</span></div><div class="lbl">Años de trabajo</div></div>
+      <div class="cs-stat"><div class="num">360<span>°</span></div><div class="lbl">Ecosistema digital</div></div>
+    </div>
+  </div>
+
+  <div class="cs-blocks">
+    <div class="cs-block">
+      <div class="cs-block-label">El reto</div>
+      <h2>Tres mercados distintos. Un modelo de adquisición que funcione en todos.</h2>
+      <p>Fertilidad Integral no solo necesitaba una presencia digital actualizada — necesitaba un modelo replicable que le permitiera entrar a nuevos mercados con velocidad y eficiencia. Cada ciudad tiene un perfil de paciente distinto, distintos competidores y distintos canales de búsqueda.</p>
+      <p>El punto de partida fue un rediseño completo de la interfaz y la plataforma web, incluyendo ecommerce para la venta de medicamentos y servicios. Sobre esa base construimos el ecosistema de adquisición: estrategia de medios, configuración de campañas, optimización continua de leads y el modelo que después guiaría cada nuevo lanzamiento.</p>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block-label">La solución</div>
+      <h2>Rediseño completo de interfaz y un ecosistema de adquisición por ciudad.</h2>
+      <p>Comenzamos con el rediseño total de la plataforma digital: nueva arquitectura de información, UI/UX orientado a conversión, integración de ecommerce para medicamentos y servicios de la clínica. Una plataforma pensada para el paciente, pero construida para el negocio.</p>
+      <p>Después diseñamos e implementamos la estrategia de medios para cada ciudad: buyer persona, segmentación en Google Ads y Meta Ads, landing pages de alta conversión y flujos de seguimiento de leads. El modelo creado durante el relanzamiento de CDMX se convirtió en el blueprint para Metepec y Guadalajara.</p>
+    </div>
+  </div>
+
+  <!-- Ciudades -->
+  <div style="margin-top:80px;">
+    <div class="cs-block-label">Presencia por ciudad</div>
+    <div class="city-grid">
+      <div class="city-card">
+        <div class="ct">Relanzamiento</div>
+        <div class="cn">Ciudad de México</div>
+        <div class="cd">Rediseño de plataforma, ecommerce y estrategia de adquisición de pacientes.</div>
+      </div>
+      <div class="city-card">
+        <div class="ct">Lanzamiento</div>
+        <div class="cn">Metepec</div>
+        <div class="cd">Apertura de nueva sede con ecosistema digital construido desde el modelo CDMX.</div>
+      </div>
+      <div class="city-card">
+        <div class="ct">Lanzamiento</div>
+        <div class="cn">Guadalajara</div>
+        <div class="cd">Expansión al mercado tapatío con estrategia de medios adaptada al perfil local.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galería -->
+  <div style="margin-top:80px;">
+    <div class="cs-block-label">La plataforma — Recorre la interfaz</div>
+    <p style="font-size:13px;font-weight:300;color:var(--hint);margin-top:8px;margin-bottom:24px;letter-spacing:0.02em;">Pasa el cursor sobre cada pantalla para explorarla.</p>
+
+    <div class="site-scroll-window">
+      <img src="../img/casos/fertilidad-integral-2.jpg" alt="Fertilidad Integral — Plataforma" />
+      <div class="scroll-hint"><span class="sh-label">Pasa el cursor para recorrer</span><span class="sh-cta">↓ Scroll</span></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:2px;">
+      <div class="site-scroll-window">
+        <img src="../img/casos/fertilidad-integral-3.jpg" alt="Fertilidad Integral — UI" />
+        <div class="scroll-hint"><span class="sh-label">Pasa el cursor para recorrer</span><span class="sh-cta">↓ Scroll</span></div>
+      </div>
+      <div class="site-scroll-window">
+        <img src="../img/casos/fertilidad-integral-4.jpg" alt="Fertilidad Integral — Ecommerce" />
+        <div class="scroll-hint"><span class="sh-label">Pasa el cursor para recorrer</span><span class="sh-cta">↓ Scroll</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:2px;">
+      <div class="site-scroll-window">
+        <img src="../img/casos/fertilidad-integral-5.jpg" alt="Fertilidad Integral — Mobile" />
+        <div class="scroll-hint"><span class="sh-label">Pasa el cursor para recorrer</span><span class="sh-cta">↓ Scroll</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Servicios -->
+  <div style="margin-top:64px;">
+    <div class="cs-block-label">Servicios aplicados</div>
+    <div class="cs-services-grid">
+      <div class="cs-svc"><div class="sn">01</div><div class="sv">UI/UX — Diseño de Experiencia</div></div>
+      <div class="cs-svc"><div class="sn">02</div><div class="sv">Desarrollo Web & Programación</div></div>
+      <div class="cs-svc"><div class="sn">03</div><div class="sv">Ecommerce — Medicamentos & Servicios</div></div>
+      <div class="cs-svc"><div class="sn">04</div><div class="sv">Estrategia de Medios Digitales</div></div>
+      <div class="cs-svc"><div class="sn">05</div><div class="sv">Lead Acquisition & Optimización</div></div>
+      <div class="cs-svc"><div class="sn">06</div><div class="sv">Google Ads & Meta Ads</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-related">
+  <div class="rel-label">Más proyectos</div>
+  <div class="cs-related-grid">
+    <a href="arquitectoma.html" class="cs-rel-card"><div class="rt">Real Estate · Media Strategy</div><h3>Arquitectoma — Ecosistema inmobiliario</h3></a>
+    <a href="berger.html" class="cs-rel-card"><div class="rt">Brand Strategy · Web · Media</div><h3>Berger Joyeros</h3></a>
+    <a href="acha.html" class="cs-rel-card"><div class="rt">Real Estate · Digital Identity</div><h3>ACHA — Rehabilitación patrimonial</h3></a>
+  </div>
+</div>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

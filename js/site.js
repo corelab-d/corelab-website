@@ -54,6 +54,7 @@
             <li><a href="${rootPath}casos/ediciones-castillo.html">Ediciones Castillo</a></li>
             <li><a href="${rootPath}casos/berger-rolex.html">Berger × Rolex</a></li>
             <li><a href="${rootPath}casos/pyl-studios.html">PYL Studios</a></li>
+            <li><a href="${rootPath}casos/fertilidad-integral.html">Fertilidad Integral</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -110,7 +111,7 @@
     // ── DYNAMIC SCROLL WINDOW SPEED ──
     // Duration scales with actual rendered image height so every page
     // scrolls at a comfortable reading pace (~320 px/sec).
-    const SCROLL_SPEED  = 320;  // px per second
+    const SCROLL_SPEED  = 180;  // px per second
     const MIN_DURATION  = 4;    // seconds  (very short pages)
     const MAX_DURATION  = 42;   // seconds  (very tall pages like acha-4)
     const WINDOW_HEIGHT = 540;  // matches .site-scroll-window height

@@ -97,17 +97,6 @@
       });
     });
 
-    // Contact form
-    const form = document.querySelector('form.contact-form');
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const s = document.getElementById('form-success');
-        if (s) s.style.display = 'block';
-        this.reset();
-      });
-    }
-
     // ── DYNAMIC SCROLL WINDOW SPEED ──
     // Duration scales with actual rendered image height so every page
     // scrolls at a comfortable reading pace (~320 px/sec).

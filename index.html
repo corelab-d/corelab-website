@@ -829,14 +829,18 @@
       </div>
     </div>
     <form onsubmit="handleForm(event)">
+      <input type="hidden" name="access_key" value="7423e4da-0ff3-4190-b3f5-e81319509838" />
+      <input type="hidden" name="subject" value="Nuevo contacto — CoreLab" />
+      <input type="hidden" name="from_name" value="CoreLab Website" />
+      <input type="checkbox" name="botcheck" style="display:none" />
       <div class="form-row">
-        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
-        <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nombre de tu empresa" /></div>
+        <div class="form-group"><label>Nombre</label><input type="text" name="name" placeholder="Tu nombre" required /></div>
+        <div class="form-group"><label>Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa" /></div>
       </div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="correo@empresa.com" /></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="correo@empresa.com" required /></div>
       <div class="form-group">
         <label>¿En qué podemos ayudarte?</label>
-        <select>
+        <select name="servicio">
           <option value="" disabled selected>Selecciona un servicio</option>
           <option>Consultoría de Marca</option>
           <option>Estrategia & Marketing Digital</option>
@@ -846,7 +850,7 @@
           <option>No sé todavía, quiero platicar</option>
         </select>
       </div>
-      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea placeholder="¿Qué estás construyendo? ¿Qué problema quieres resolver?"></textarea></div>
+      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Qué estás construyendo? ¿Qué problema quieres resolver?"></textarea></div>
       <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar mensaje</button>
       <p id="form-success">¡Listo! Te contactamos en menos de 24 horas.</p>
     </form>
@@ -866,11 +870,30 @@
 
 
 <script>
-function handleForm(e) {
+async function handleForm(e) {
   e.preventDefault();
-  var s = document.getElementById('form-success');
-  if (s) s.style.display = 'block';
-  e.target.reset();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    });
+    const result = await res.json();
+    if (result.success) {
+      document.getElementById('form-success').style.display = 'block';
+      form.reset();
+    } else {
+      alert('Hubo un error. Por favor escríbenos a hola@corelab.mx');
+    }
+  } catch (err) {
+    alert('Hubo un error. Por favor escríbenos a hola@corelab.mx');
+  }
+  btn.disabled = false;
+  btn.textContent = 'Enviar mensaje';
 }
 
 // ── CASOS FLOOD HOVER ──

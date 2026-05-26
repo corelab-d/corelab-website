@@ -321,16 +321,20 @@
         </div>
       </div>
     </div>
-    <form class="contact-form">
+    <form class="contact-form" onsubmit="handleInmoForm(event)">
+      <input type="hidden" name="access_key" value="7423e4da-0ff3-4190-b3f5-e81319509838" />
+      <input type="hidden" name="subject" value="Nuevo contacto Inmobiliaria — CoreLab" />
+      <input type="hidden" name="from_name" value="CoreLab Website" />
+      <input type="checkbox" name="botcheck" style="display:none" />
       <div class="form-row">
-        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
-        <div class="form-group"><label>Empresa / Desarrolladora</label><input type="text" placeholder="Nombre" /></div>
+        <div class="form-group"><label>Nombre</label><input type="text" name="name" placeholder="Tu nombre" required /></div>
+        <div class="form-group"><label>Empresa / Desarrolladora</label><input type="text" name="empresa" placeholder="Nombre" /></div>
       </div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="correo@empresa.com" /></div>
-      <div class="form-group"><label>Nombre del desarrollo</label><input type="text" placeholder="¿Cómo se llama tu proyecto?" /></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="correo@empresa.com" required /></div>
+      <div class="form-group"><label>Nombre del desarrollo</label><input type="text" name="desarrollo" placeholder="¿Cómo se llama tu proyecto?" /></div>
       <div class="form-group">
         <label>Etapa del proyecto</label>
-        <select>
+        <select name="etapa">
           <option value="" disabled selected>Selecciona la etapa</option>
           <option>Pre-lanzamiento (planeando campaña)</option>
           <option>En preventa activa</option>
@@ -338,7 +342,7 @@
           <option>Aún en exploración</option>
         </select>
       </div>
-      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea placeholder="¿Cuántas unidades? ¿En qué ciudad? ¿Cuál es el ticket promedio?"></textarea></div>
+      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Cuántas unidades? ¿En qué ciudad? ¿Cuál es el ticket promedio?"></textarea></div>
       <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar</button>
       <p id="inmo-success">¡Listo! Te contactamos en menos de 24 horas.</p>
     </form>
@@ -347,11 +351,31 @@
 
 <script src="js/site.js"></script>
 <script>
-  document.querySelector('form.contact-form').addEventListener('submit', function(e) {
+  async function handleInmoForm(e) {
     e.preventDefault();
-    document.getElementById('inmo-success').style.display = 'block';
-    this.reset();
-  });
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const result = await res.json();
+      if (result.success) {
+        document.getElementById('inmo-success').style.display = 'block';
+        form.reset();
+      } else {
+        alert('Hubo un error. Por favor escríbenos a hola@corelab.mx');
+      }
+    } catch (err) {
+      alert('Hubo un error. Por favor escríbenos a hola@corelab.mx');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Enviar';
+  }
 </script>
 </body>
 </html>

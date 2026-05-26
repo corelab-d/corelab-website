@@ -851,6 +851,12 @@
         </select>
       </div>
       <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Qué estás construyendo? ¿Qué problema quieres resolver?"></textarea></div>
+      <div class="form-group" style="display:flex;align-items:flex-start;gap:12px;margin-bottom:28px;">
+        <input type="checkbox" name="privacidad" id="privacidad-home" required style="margin-top:3px;accent-color:var(--gold);flex-shrink:0;" />
+        <label for="privacidad-home" style="font-size:12px;font-weight:300;color:var(--hint);line-height:1.6;cursor:pointer;">
+          He leído y acepto el <a href="aviso-de-privacidad.html" target="_blank" style="color:var(--text);text-decoration:underline;text-underline-offset:3px;">Aviso de Privacidad</a> y consiento el tratamiento de mis datos personales conforme a la LFPDPPP.
+        </label>
+      </div>
       <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar mensaje</button>
       <p id="form-success">¡Listo! Te contactamos en menos de 24 horas.</p>
     </form>

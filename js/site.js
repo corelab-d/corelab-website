@@ -69,6 +69,7 @@
     </div>
     <div class="footer-bottom">
       <p>CoreLab 2026 ©</p>
+      <a href="${rootPath}aviso-de-privacidad.html">Aviso de Privacidad</a>
       <a href="mailto:hola@corelab.mx">hola@corelab.mx</a>
     </div>
   </footer>`;

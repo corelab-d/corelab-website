@@ -126,7 +126,7 @@
       font-size: clamp(120px, 18vw, 260px); font-weight: 700; font-style: italic;
       color: rgba(235,178,44,0.055); letter-spacing: -0.04em; white-space: nowrap; pointer-events: none; line-height: 1;
     }
-    .cb-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 96px; align-items: start; position: relative; z-index: 1; }
+    .cb-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 96px; align-items: stretch; position: relative; z-index: 1; }
     .cb-label {
       font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 10px;
@@ -136,15 +136,16 @@
     #core-benefit h2 em { color: var(--gold); font-style: italic; }
     #core-benefit .cb-body { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.85; }
     #core-benefit .cb-body + .cb-body { margin-top: 18px; }
-    .cb-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .cb-pillars { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; align-self: stretch; }
     .cb-pillar {
       background: var(--bg);
-      padding: 28px 24px;
+      padding: 36px 28px;
       border-top: 2px solid var(--border);
       transition: border-top-color 0.2s, background 0.2s;
+      display: flex; flex-direction: column; justify-content: center;
     }
     .cb-pillar:hover { border-top-color: var(--gold); background: var(--warm); }
-    .cb-pillar h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 8px; }
+    .cb-pillar h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 10px; }
     .cb-pillar p { font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.7; margin: 0; }
 
     /* ── SERVICIOS ── */

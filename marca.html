@@ -31,6 +31,17 @@
       background: radial-gradient(ellipse at 70% 40%, rgba(235,178,44,0.04) 0%, transparent 60%);
       pointer-events: none;
     }
+    #mhero::after {
+      content: 'BRAND';
+      white-space: nowrap;
+      position: absolute;
+      right: -20px; top: 50%; transform: translateY(-50%);
+      font-size: clamp(100px, 16vw, 200px);
+      font-weight: 700; font-style: italic; letter-spacing: -0.03em;
+      color: rgba(255,255,255,0.025);
+      line-height: 0.9;
+      pointer-events: none;
+    }
     .mhero-inner {
       display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px;
       align-items: end; position: relative; z-index: 1;

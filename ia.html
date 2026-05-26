@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA & Automatización — CoreLab</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ia-bg:      #181B20;
+      --ia-surface: #1F2329;
+      --ia-card:    #252A32;
+      --ia-border:  rgba(255,255,255,0.09);
+      --ia-muted:   #7A8190;
+      --ia-hint:    #3A4050;
+      --gold:       #EBB22C;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+    }
+    body { padding-top: 64px; background: var(--ia-bg); color: #E8ECF0; }
+
+    /* ─ utilidades ─ */
+    .mono { font-family: var(--mono); }
+    .tag {
+      font-family: var(--mono);
+      font-size: 9px; letter-spacing: 0.08em;
+      color: var(--gold); text-transform: uppercase;
+      border: 1px solid rgba(235,178,44,0.25);
+      padding: 4px 10px; display: inline-block;
+    }
+
+    /* ── HERO ── */
+    #ia-hero {
+      background: var(--ia-bg);
+      padding: 108px 48px 96px;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--ia-border);
+    }
+    /* dot grid */
+    #ia-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 70% 50%, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 70% 50%, black 0%, transparent 70%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px; letter-spacing: 0.06em;
+      color: var(--gold); margin-bottom: 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow .line { width: 24px; height: 1px; background: var(--gold); }
+    #ia-hero h1 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 300; color: #FFF;
+      letter-spacing: -0.025em; line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    #ia-hero h1 em { font-style: italic; color: var(--gold); }
+    #ia-hero .hero-body {
+      font-size: 14px; font-weight: 300; color: #666;
+      line-height: 1.85; max-width: 500px; margin-bottom: 48px;
+    }
+    .hero-cta { display: flex; align-items: center; gap: 24px; }
+
+    /* terminal card */
+    .hero-terminal {
+      background: var(--ia-surface);
+      border: 1px solid var(--ia-border);
+      font-family: var(--mono);
+      font-size: 12px;
+      overflow: hidden;
+    }
+    .terminal-bar {
+      background: #2A2F38;
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .terminal-bar .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+    }
+    .terminal-bar .title {
+      font-family: var(--mono); font-size: 9px;
+      color: rgba(255,255,255,0.3); letter-spacing: 0.08em;
+      margin-left: 8px;
+    }
+    .terminal-body { padding: 24px 20px; }
+    .terminal-line {
+      padding: 4px 0;
+      display: flex; gap: 10px; align-items: baseline;
+    }
+    .t-prompt { color: var(--gold); flex-shrink: 0; }
+    .t-cmd { color: rgba(255,255,255,0.8); }
+    .t-out { color: #6A7080; padding-left: 18px; font-size: 11px; }
+    .t-success { color: #4CAF50; padding-left: 18px; font-size: 11px; }
+    .t-cursor {
+      display: inline-block; width: 7px; height: 13px;
+      background: var(--gold); opacity: 0.8;
+      animation: blink-cursor 1.1s step-end infinite;
+      vertical-align: middle; margin-left: 2px;
+    }
+    @keyframes blink-cursor { 0%,100%{opacity:0.8} 50%{opacity:0} }
+
+    /* ── STATS ── */
+    .ia-stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid var(--ia-border);
+      border-bottom: 1px solid var(--ia-border);
+    }
+    .ia-stat {
+      padding: 36px 40px;
+      border-right: 1px solid var(--ia-border);
+      position: relative;
+    }
+    .ia-stat:last-child { border-right: none; }
+    .ia-stat .n {
+      font-size: 42px; font-weight: 300; color: #FFF;
+      letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
+    }
+    .ia-stat .n span { color: var(--gold); }
+    .ia-stat .l {
+      font-family: var(--mono);
+      font-size: 10px; color: var(--ia-muted);
+      letter-spacing: 0.04em; line-height: 1.5;
+    }
+
+    /* ── SERVICIOS ── */
+    #ia-servicios {
+      background: var(--ia-bg);
+      padding: 96px 48px;
+    }
+    .ia-svc-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: end;
+      margin-bottom: 64px;
+    }
+    .ia-svc-header h2 {
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 300; color: #FFF;
+      letter-spacing: -0.02em; line-height: 1.15;
+    }
+    .ia-svc-header h2 em { font-style: italic; color: var(--gold); }
+    .ia-svc-header p {
+      font-size: 13px; font-weight: 300; color: var(--ia-muted);
+      line-height: 1.85;
+    }
+    .ia-svc-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1px;
+      background: var(--ia-border);
+    }
+    .ia-svc-card {
+      background: var(--ia-bg);
+      padding: 48px 44px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.25s, background 0.25s;
+      position: relative;
+    }
+    .ia-svc-card:hover {
+      border-left-color: var(--gold);
+      background: var(--ia-surface);
+    }
+    .svc-index {
+      font-family: var(--mono);
+      font-size: 10px; color: var(--gold);
+      letter-spacing: 0.08em; margin-bottom: 20px;
+    }
+    .ia-svc-card h3 {
+      font-size: 19px; font-weight: 300; color: #FFF;
+      letter-spacing: -0.01em; margin-bottom: 14px; line-height: 1.3;
+    }
+    .ia-svc-card h3 em { font-style: italic; color: var(--gold); }
+    .ia-svc-card p {
+      font-size: 13px; font-weight: 300; color: var(--ia-muted);
+      line-height: 1.85; margin-bottom: 28px;
+    }
+    .svc-list {
+      display: flex; flex-direction: column; gap: 9px;
+    }
+    .svc-list span {
+      font-family: var(--mono);
+      font-size: 10px; color: #6A7080;
+      letter-spacing: 0.04em; padding-left: 16px; position: relative;
+    }
+    .svc-list span::before {
+      content: '›'; position: absolute; left: 0;
+      color: var(--gold); font-family: var(--mono);
+    }
+
+    /* ── LEADLAB ── */
+    #leadlab {
+      background: var(--ia-surface);
+      padding: 96px 48px;
+      border-top: 1px solid var(--ia-border);
+      border-bottom: 1px solid var(--ia-border);
+      position: relative; overflow: hidden;
+    }
+    #leadlab::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--ia-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--ia-border) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 60% 100% at 100% 50%, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 100% at 100% 50%, black 0%, transparent 70%);
+    }
+    .ll-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+      position: relative; z-index: 1;
+    }
+    .ll-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 24px;
+    }
+    .ll-badge .pulse {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
+    .ll-badge .txt {
+      font-family: var(--mono);
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    #leadlab h2 {
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 300; color: #FFF;
+      letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px;
+    }
+    #leadlab h2 em { font-style: italic; color: var(--gold); }
+    #leadlab .ll-body {
+      font-size: 13px; font-weight: 300; color: var(--ia-muted);
+      line-height: 1.85; margin-bottom: 40px;
+    }
+    .ll-steps { display: flex; flex-direction: column; }
+    .ll-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--ia-border);
+      transition: background 0.2s;
+    }
+    .ll-step:first-child { border-top: 1px solid var(--ia-border); }
+    .ll-step-num {
+      font-family: var(--mono);
+      font-size: 10px; color: var(--gold);
+      letter-spacing: 0.08em; padding-top: 3px;
+    }
+    .ll-step h4 {
+      font-size: 13px; font-weight: 400; color: #CCC;
+      margin-bottom: 5px; letter-spacing: 0;
+    }
+    .ll-step p {
+      font-size: 12px; font-weight: 300; color: var(--ia-muted); line-height: 1.6;
+    }
+
+    /* ── TOOLS ── */
+    #ia-tools {
+      background: var(--ia-bg);
+      padding: 96px 48px;
+    }
+    .tools-header {
+      margin-bottom: 56px;
+    }
+    .tools-group { margin-bottom: 48px; }
+    .tools-group:last-child { margin-bottom: 0; }
+    .tools-group-label {
+      font-family: var(--mono);
+      font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ia-muted); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .tools-group-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--ia-border);
+    }
+    .tools-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      font-family: var(--mono);
+      font-size: 10px; letter-spacing: 0.04em;
+      color: var(--ia-muted);
+      border: 1px solid var(--ia-border);
+      padding: 6px 14px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: default;
+    }
+    .chip:hover { border-color: var(--gold); color: #CCC; }
+    .chip.ai {
+      border-color: rgba(235,178,44,0.2);
+      color: #666;
+    }
+    .chip.ai:hover {
+      border-color: var(--gold);
+      background: rgba(235,178,44,0.05);
+      color: #FFF;
+    }
+
+    /* ── CTA FINAL ── */
+    #ia-cta {
+      background: var(--ia-surface);
+      padding: 96px 48px;
+      text-align: center;
+      border-top: 1px solid var(--ia-border);
+      position: relative; overflow: hidden;
+    }
+    #ia-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(235,178,44,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #ia-cta .tag { margin-bottom: 24px; }
+    #ia-cta h2 {
+      font-size: clamp(26px, 3.5vw, 48px);
+      font-weight: 300; color: #FFF;
+      letter-spacing: -0.02em; line-height: 1.2;
+      max-width: 560px; margin: 0 auto 20px;
+    }
+    #ia-cta p {
+      font-size: 13px; font-weight: 300; color: var(--ia-muted);
+      max-width: 400px; margin: 0 auto 40px; line-height: 1.8;
+    }
+
+    /* ── PRODUCTOS ── */
+    #ia-productos {
+      background: var(--ia-surface);
+      padding: 96px 48px;
+      border-top: 1px solid var(--ia-border);
+    }
+    .prod-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: end;
+      margin-bottom: 56px;
+    }
+    .prod-header h2 {
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 300; color: #E8ECF0;
+      letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .prod-header h2 em { font-style: italic; color: var(--gold); }
+    .prod-header p {
+      font-size: 13px; font-weight: 300; color: var(--ia-muted); line-height: 1.85;
+    }
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--ia-border);
+    }
+    .prod-card {
+      background: var(--ia-card);
+      padding: 36px 32px 40px;
+      border-top: 2px solid transparent;
+      transition: border-color 0.25s, background 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .prod-card:hover {
+      border-top-color: var(--gold);
+      background: var(--ia-surface);
+    }
+    .prod-tag {
+      font-family: var(--mono);
+      font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .prod-card h3 {
+      font-size: 17px; font-weight: 300; color: #E8ECF0;
+      letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 14px;
+    }
+    .prod-card p {
+      font-size: 12px; font-weight: 300; color: var(--ia-muted);
+      line-height: 1.75; flex: 1;
+    }
+    .prod-status {
+      margin-top: 24px;
+      font-family: var(--mono);
+      font-size: 9px; letter-spacing: 0.1em;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .prod-status .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+    }
+    .dot-live { background: #4CAF50; }
+    .dot-beta { background: var(--gold); }
+    .prod-status span { color: var(--ia-muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #ia-hero { padding: 72px 24px 64px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-terminal { display: none; }
+      .ia-stats { grid-template-columns: 1fr 1fr; }
+      #ia-servicios, #ia-productos, #leadlab, #ia-tools, #ia-cta { padding: 64px 24px; }
+      .prod-header { grid-template-columns: 1fr; gap: 24px; }
+      .prod-grid { grid-template-columns: 1fr 1fr; }
+      .ia-svc-header { grid-template-columns: 1fr; gap: 24px; }
+      .ia-svc-grid { grid-template-columns: 1fr; }
+      .ll-grid { grid-template-columns: 1fr; gap: 48px; }
+      .ia-stat { padding: 24px 20px; }
+    }
+  </style>
+  <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="ia-hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="line"></span>
+        CoreLab · IA &amp; Automatización
+      </div>
+      <h1>IA que fortalece<br/>el criterio humano.<br/><em>No lo reemplaza.</em></h1>
+      <p class="hero-body">Integramos inteligencia artificial en cada capa de tu negocio. Automatizamos procesos, construimos agentes de venta y desarrollamos productos de IA a la medida. La tecnología acelera — las decisiones siguen siendo tuyas.</p>
+      <div class="hero-cta">
+        <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico</a>
+        <a href="#leadlab" class="btn-ghost" style="color:#444;">Ver LeadLab →</a>
+      </div>
+    </div>
+
+    <!-- Terminal decorativa -->
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span class="title">corelab · leadlab.agent</span>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-line"><span class="t-prompt">›</span><span class="t-cmd">init lead_pipeline</span></div>
+        <div class="terminal-line"><span class="t-out">connecting crm...</span></div>
+        <div class="terminal-line"><span class="t-success">✓ pipeline active</span></div>
+        <div class="terminal-line" style="margin-top:8px;"><span class="t-prompt">›</span><span class="t-cmd">qualify --profile=premium</span></div>
+        <div class="terminal-line"><span class="t-out">scoring lead_0847...</span></div>
+        <div class="terminal-line"><span class="t-success">✓ score: 94 · routing to sales</span></div>
+        <div class="terminal-line" style="margin-top:8px;"><span class="t-prompt">›</span><span class="t-cmd">run nurture_sequence</span></div>
+        <div class="terminal-line"><span class="t-out">3 touchpoints scheduled</span></div>
+        <div class="terminal-line"><span class="t-success">✓ whatsapp · email · sms</span></div>
+        <div class="terminal-line" style="margin-top:8px;"><span class="t-prompt">›</span><span class="t-cmd"><span class="t-cursor"></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="ia-stats">
+  <div class="ia-stat">
+    <div class="n">4</div>
+    <div class="l">áreas de<br/>aplicación</div>
+  </div>
+  <div class="ia-stat">
+    <div class="n">+20</div>
+    <div class="l">herramientas<br/>integradas</div>
+  </div>
+  <div class="ia-stat">
+    <div class="n">01</div>
+    <div class="l">producto<br/>propio · leadlab</div>
+  </div>
+  <div class="ia-stat">
+    <div class="n">100<span>%</span></div>
+    <div class="l">soluciones<br/>a la medida</div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="ia-servicios">
+  <div class="ia-svc-header">
+    <div>
+      <div class="tag" style="margin-bottom:20px;">// servicios</div>
+      <h2>Aplicaciones concretas,<br/><em>resultados medibles.</em></h2>
+    </div>
+    <p>No vendemos IA como concepto. Construimos soluciones específicas que resuelven problemas reales de negocio — con tecnología que ya existe y metodología que hemos probado.</p>
+  </div>
+
+  <div class="ia-svc-grid">
+    <div class="ia-svc-card">
+      <div class="svc-index">01 · automatización</div>
+      <h3>Automatización <em>de Procesos</em></h3>
+      <p>Conectamos tus herramientas y flujos de trabajo para que operen solos. Menos trabajo manual, menos errores, más velocidad de ejecución.</p>
+      <div class="svc-list">
+        <span>Flujos con Zapier & Make</span>
+        <span>Automatización de CRM</span>
+        <span>Reportería automática</span>
+        <span>Integraciones entre plataformas</span>
+      </div>
+    </div>
+    <div class="ia-svc-card">
+      <div class="svc-index">02 · agentes</div>
+      <h3>Chatbots & <em>Agentes de Venta</em></h3>
+      <p>Construimos agentes conversacionales que califican leads, responden preguntas y acompañan al prospecto hasta el cierre — las 24 horas.</p>
+      <div class="svc-list">
+        <span>Chatbots de calificación</span>
+        <span>Agentes de venta automatizados</span>
+        <span>Atención al cliente IA</span>
+        <span>Integración WhatsApp & web</span>
+      </div>
+    </div>
+    <div class="ia-svc-card">
+      <div class="svc-index">03 · contenido</div>
+      <h3>Generación de <em>Contenido IA</em></h3>
+      <p>Producimos contenido a escala sin perder criterio editorial. Texto, imagen y video con IA — supervisados por estrategia humana.</p>
+      <div class="svc-list">
+        <span>Copy y creativos para campañas</span>
+        <span>Imágenes generativas</span>
+        <span>Video con Runway & Gen AI</span>
+        <span>Estrategia de contenido asistida</span>
+      </div>
+    </div>
+    <div class="ia-svc-card">
+      <div class="svc-index">04 · análisis</div>
+      <h3>Análisis & <em>Consultoría IA</em></h3>
+      <p>Convertimos datos en decisiones. Analizamos tu negocio con IA y acompañamos la implementación de sistemas que eficienten tu operación.</p>
+      <div class="svc-list">
+        <span>Dashboards e inteligencia de negocio</span>
+        <span>Análisis de audiencias</span>
+        <span>Consultoría de implementación</span>
+        <span>Stack tecnológico a la medida</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADLAB -->
+<section id="leadlab">
+  <div class="ll-grid">
+    <div>
+      <div class="ll-badge">
+        <div class="pulse"></div>
+        <span class="txt">Producto propio · CoreLab</span>
+      </div>
+      <h2>LeadLab — <em>de la captación<br/>al cierre,</em> automático.</h2>
+      <p class="ll-body">Nuestra herramienta propia de adquisición y tratamiento automatizado de leads. Capta prospectos, los califica con IA, los nutre y los entrega al equipo de ventas en el momento exacto — con contexto completo.</p>
+      <a href="index.html#contacto" class="btn-primary">Conocer LeadLab</a>
+    </div>
+    <div class="ll-steps">
+      <div class="ll-step">
+        <div class="ll-step-num">01</div>
+        <div>
+          <h4>Captación</h4>
+          <p>Formularios, landings y anuncios conectados que captan el lead en el canal correcto.</p>
+        </div>
+      </div>
+      <div class="ll-step">
+        <div class="ll-step-num">02</div>
+        <div>
+          <h4>Calificación automática</h4>
+          <p>El agente evalúa al prospecto y lo segmenta según perfil, intención y momento de compra.</p>
+        </div>
+      </div>
+      <div class="ll-step">
+        <div class="ll-step-num">03</div>
+        <div>
+          <h4>Nutrición inteligente</h4>
+          <p>Secuencias de mensajes personalizados por WhatsApp, email o SMS según el comportamiento del lead.</p>
+        </div>
+      </div>
+      <div class="ll-step">
+        <div class="ll-step-num">04</div>
+        <div>
+          <h4>Entrega al cierre</h4>
+          <p>El lead calificado llega al equipo de ventas con contexto completo, en el momento óptimo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="ia-productos">
+  <div class="prod-header">
+    <div>
+      <div class="tag" style="margin-bottom:20px;">// productos CoreLab</div>
+      <h2>Herramientas que <em>construimos</em><br/>para nuestros clientes.</h2>
+    </div>
+    <p>Además de los servicios que operamos, desarrollamos productos de IA propios — disponibles para clientes de CoreLab. Cada uno resuelve un problema específico de negocio con IA aplicada.</p>
+  </div>
+  <div class="prod-grid">
+
+    <div class="prod-card">
+      <div class="prod-tag">leadlab</div>
+      <h3>Automatización de leads de principio a cierre</h3>
+      <p>Capta prospectos, los califica con IA, los nutre con secuencias automáticas y los entrega al equipo de ventas en el momento exacto.</p>
+      <div class="prod-status">
+        <div class="dot dot-live"></div>
+        <span>disponible</span>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-tag">landing generator</div>
+      <h3>Landing pages de venta con contenidos específicos</h3>
+      <p>Genera landing pages enfocadas a conversión, con copy, estructura y llamadas a la acción adaptadas al producto, audiencia y objetivo de cada campaña.</p>
+      <div class="prod-status">
+        <div class="dot dot-beta"></div>
+        <span>beta</span>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-tag">strategy builder</div>
+      <h3>Estrategias de medios digitales especializadas</h3>
+      <p>Construye estrategias de medios digitales completas a partir de los datos del negocio: audiencias, canales, presupuestos, KPIs y calendario de ejecución.</p>
+      <div class="prod-status">
+        <div class="dot dot-beta"></div>
+        <span>beta</span>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-tag">brand search</div>
+      <h3>Estudios de mercado y análisis de competencia</h3>
+      <p>Genera estudios de mercado detallados y comparativos de competencia especializados — con datos actualizados, insights accionables y recomendaciones estratégicas.</p>
+      <div class="prod-status">
+        <div class="dot dot-beta"></div>
+        <span>beta</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section id="ia-tools">
+  <div class="tools-header">
+    <div class="tag">// nuestro stack</div>
+  </div>
+
+  <div class="tools-group">
+    <div class="tools-group-label">inteligencia artificial</div>
+    <div class="tools-chips">
+      <span class="chip ai">Claude</span>
+      <span class="chip ai">ChatGPT / OpenAI</span>
+      <span class="chip ai">Gemini</span>
+      <span class="chip ai">Grok</span>
+      <span class="chip ai">Perplexity</span>
+      <span class="chip ai">Copilot</span>
+      <span class="chip ai">Midjourney</span>
+      <span class="chip ai">Runway</span>
+      <span class="chip ai">InVideo AI</span>
+      <span class="chip ai">Canva AI</span>
+    </div>
+  </div>
+
+  <div class="tools-group">
+    <div class="tools-group-label">automatización & datos</div>
+    <div class="tools-chips">
+      <span class="chip">Zapier</span>
+      <span class="chip">Make</span>
+      <span class="chip">Airtable</span>
+      <span class="chip">Pipedrive</span>
+      <span class="chip">Zoho</span>
+      <span class="chip">Dashthis</span>
+      <span class="chip">Looker Studio</span>
+    </div>
+  </div>
+
+  <div class="tools-group">
+    <div class="tools-group-label">plataformas & desarrollo</div>
+    <div class="tools-chips">
+      <span class="chip">Webflow</span>
+      <span class="chip">WordPress</span>
+      <span class="chip">Shopify</span>
+      <span class="chip">Replit</span>
+      <span class="chip">Google Ads</span>
+      <span class="chip">Meta Ads</span>
+      <span class="chip">TikTok Ads</span>
+      <span class="chip">LinkedIn Ads</span>
+      <span class="chip">YouTube Ads</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="ia-cta">
+  <div class="tag">// siguiente paso</div>
+  <h2>Cuéntanos qué necesitas.<br/>Nosotros diseñamos el camino.</h2>
+  <p>Desde una automatización sencilla hasta un agente de ventas completo. Empezamos con un diagnóstico sin costo.</p>
+  <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico gratuito</a>
+</section>
+
+<script src="js/site.js"></script>
+</body>
+</html>

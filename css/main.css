@@ -89,7 +89,7 @@ section { padding: 104px 48px; }
 }
 .section-title {
   font-size: clamp(32px, 4vw, 58px);
-  font-weight: 700;
+  font-weight: 300;
   color: var(--text);
   letter-spacing: -0.02em;
   line-height: 1.08;
@@ -97,7 +97,7 @@ section { padding: 104px 48px; }
 }
 .section-title em {
   font-style: italic;
-  font-weight: 700;
+  font-weight: 300;
   color: var(--gold);
 }
 .section-title .light {
@@ -116,8 +116,8 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 0 48px; 
 /* editorial decorative number */
 .ed-num {
   font-size: clamp(140px, 22vw, 280px);
-  font-weight: 700;
-  color: rgba(0,0,0,0.04);
+  font-weight: 300;
+  color: rgba(0,0,0,0.06);
   line-height: 1;
   letter-spacing: -0.04em;
   pointer-events: none;

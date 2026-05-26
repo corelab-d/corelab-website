@@ -61,7 +61,7 @@
     }
     #hero h1 {
       font-size: clamp(40px, 6vw, 84px);
-      font-weight: 700; color: #FFF;
+      font-weight: 300; color: #FFF;
       letter-spacing: -0.025em; line-height: 1.04;
       max-width: 900px; margin-bottom: 28px;
     }
@@ -115,8 +115,8 @@
       display: flex; align-items: center; gap: 24px;
     }
     .nos-footer .nos-year {
-      font-size: clamp(42px, 5vw, 64px); font-weight: 700;
-      color: rgba(0,0,0,0.07); letter-spacing: -0.04em; line-height: 1;
+      font-size: clamp(42px, 5vw, 64px); font-weight: 300;
+      color: rgba(0,0,0,0.12); letter-spacing: -0.04em; line-height: 1;
     }
     .nos-footer .nos-detail {
       font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
@@ -131,8 +131,8 @@
       display: flex; flex-direction: column; justify-content: center;
     }
     .nos-right-num {
-      font-size: clamp(100px, 14vw, 180px); font-weight: 700;
-      color: rgba(0,0,0,0.04); letter-spacing: -0.05em; line-height: 0.85;
+      font-size: clamp(100px, 14vw, 180px); font-weight: 300;
+      color: rgba(0,0,0,0.06); letter-spacing: -0.05em; line-height: 0.85;
       position: absolute; right: -10px; top: 24px;
       pointer-events: none; user-select: none;
     }
@@ -168,47 +168,117 @@
     .servicios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: -1px; }
     .servicio-card { background: var(--warm); padding: 48px 44px; border: 1px solid var(--border); border-left: 3px solid transparent; transition: border-color 0.2s, background 0.2s; position: relative; overflow: hidden; }
     .servicio-card:hover { border-color: var(--border); border-left-color: var(--gold); background: var(--warm-mid); }
-    .svc-num { font-size: clamp(64px,8vw,100px); font-weight: 700; color: rgba(0,0,0,0.05); letter-spacing: -0.04em; line-height: 1; margin-bottom: 24px; }
-    .servicio-card h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 14px; letter-spacing: -0.01em; }
+    .svc-num { font-size: clamp(64px,8vw,100px); font-weight: 300; color: rgba(0,0,0,0.08); letter-spacing: -0.04em; line-height: 1; margin-bottom: 24px; }
+    .servicio-card h3 { font-size: 20px; font-weight: 300; color: var(--text); margin-bottom: 14px; letter-spacing: -0.01em; }
     .servicio-card p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
     .svc-items { display: flex; flex-direction: column; gap: 8px; }
     .svc-items span { font-size: 11px; font-weight: 300; color: var(--hint); letter-spacing: 0.04em; padding-left: 16px; position: relative; }
     .svc-items span::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
 
-    /* ── ESPECIALIDADES (INMO + MARCA) ── */
-    .esp-band {
-      background: var(--dark);
-      padding: 104px 48px;
-      position: relative; overflow: hidden;
-    }
-    .esp-band + .esp-band { border-top: 1px solid #111; }
-    .esp-band::before {
-      content: attr(data-bg);
-      position: absolute;
-      right: -20px; top: 50%; transform: translateY(-50%);
-      font-size: clamp(90px, 14vw, 180px);
-      font-weight: 700; letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.025);
-      pointer-events: none; white-space: nowrap;
-    }
-    .esp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .esp-grid .section-label { color: var(--gold); }
-    .esp-grid .section-label::before { background: rgba(255,255,255,0.15); }
-    .esp-grid .section-title { color: #FFF; }
-    .esp-grid .section-title em { color: var(--gold); }
-    .esp-grid .section-body { color: #999; max-width: 480px; }
-    .esp-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .esp-stat {
-      background: #111; padding: 40px 36px;
-      border-left: 3px solid transparent;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .esp-stat:hover { border-left-color: var(--gold); background: #141414; }
-    .esp-stat .n { font-size: 52px; font-weight: 700; color: #FFF; line-height: 1; margin-bottom: 10px; letter-spacing: -0.03em; }
-    .esp-stat .n span { color: var(--gold); }
-    .esp-stat .l { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #777; }
+    /* ── ESPECIALIDADES ── */
+    .esp-band { border-top: 1px solid var(--border); }
     .esp-cta { margin-top: 44px; display: flex; gap: 24px; align-items: center; }
-    .btn-outline-gold { border: 1px solid var(--gold); color: var(--gold); padding: 13px 28px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+
+    /* ── 01 MARCA — editorial, número único a la derecha ── */
+    #marca-highlight {
+      background: var(--surface);
+      padding: 96px 48px;
+    }
+    .esp-marca-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px; align-items: center;
+    }
+    .esp-marca-right {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 0;
+      border-right: 3px solid var(--gold);
+      padding-right: 40px; text-align: right;
+    }
+    .esp-marca-right .big-n {
+      font-size: clamp(80px, 12vw, 160px);
+      font-weight: 700; font-style: italic; color: #F2F0EC;
+      letter-spacing: -0.04em; line-height: 0.9;
+    }
+    .esp-marca-right .big-n span { color: #F2F0EC; }
+    .esp-marca-right .big-l {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--hint); margin-top: 16px;
+    }
+    .esp-marca-right .sub-stats {
+      margin-top: 32px; display: flex; flex-direction: column; gap: 12px; width: 100%;
+    }
+    .esp-marca-right .sub-stat {
+      display: flex; justify-content: flex-end; align-items: baseline; gap: 12px;
+      padding-top: 12px; border-top: 1px solid var(--border);
+    }
+    .esp-marca-right .sub-stat .sn {
+      font-size: 22px; font-weight: 300; color: var(--text); letter-spacing: -0.02em;
+    }
+    .esp-marca-right .sub-stat .sn span { color: var(--gold); }
+    .esp-marca-right .sub-stat .sl {
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hint);
+    }
+
+    /* ── 02 INMOBILIARIA — franja de stats arriba, texto abajo ── */
+    #inmobiliaria-highlight {
+      background: var(--warm);
+      padding: 0 0 80px;
+    }
+    .esp-inmo-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 64px;
+    }
+    .esp-inmo-stat {
+      padding: 48px 48px 40px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .esp-inmo-stat:last-child { border-right: none; }
+    .esp-inmo-stat .n {
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 300; color: var(--text);
+      letter-spacing: -0.04em; line-height: 1; margin-bottom: 10px;
+    }
+    .esp-inmo-stat .n span { color: var(--gold); }
+    .esp-inmo-stat .l {
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hint);
+    }
+    .esp-inmo-body {
+      padding: 0 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+    }
+
+    /* ── 03 IA — lista vertical de servicios a la derecha ── */
+    #ia-highlight {
+      background: var(--surface);
+      padding: 96px 48px;
+    }
+    .esp-ia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .esp-ia-list { display: flex; flex-direction: column; }
+    .esp-ia-item {
+      display: grid; grid-template-columns: 40px 1fr;
+      gap: 16px; align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      border-left: 2px solid transparent;
+      padding-left: 8px;
+      transition: border-left-color 0.2s, padding-left 0.2s;
+    }
+    .esp-ia-item:first-child { border-top: 1px solid var(--border); }
+    .esp-ia-item:hover { border-left-color: var(--gold); padding-left: 14px; }
+    .esp-ia-item .idx {
+      font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); padding-top: 3px;
+    }
+    .esp-ia-item h4 { font-size: 14px; font-weight: 300; color: var(--text); margin-bottom: 3px; }
+    .esp-ia-item p { font-size: 11px; font-weight: 300; color: var(--hint); line-height: 1.5; }
     .btn-outline-gold:hover { background: var(--gold); color: #000; }
 
     /* ── LOGOS ── */
@@ -377,8 +447,13 @@
       .logo-grid { grid-template-columns: repeat(3, 1fr); }
       .logo-cell:nth-child(5n) { border-right: 1px solid var(--border); }
       .logo-cell:nth-child(3n) { border-right: none; }
-      .esp-grid { grid-template-columns: 1fr; gap: 48px; }
-      .esp-stats { grid-template-columns: 1fr 1fr; }
+      .esp-marca-grid { grid-template-columns: 1fr; gap: 48px; }
+      .esp-marca-right { align-items: flex-start; border-right: none; border-left: 3px solid var(--gold); padding-right: 0; padding-left: 24px; text-align: left; }
+      .esp-marca-right .sub-stat { justify-content: flex-start; }
+      .esp-inmo-stats { grid-template-columns: 1fr; }
+      .esp-inmo-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 24px; }
+      .esp-inmo-body { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
+      .esp-ia-grid { grid-template-columns: 1fr; gap: 48px; }
       .servicios-intro { grid-template-columns: 1fr; gap: 32px; }
       .servicios-grid { grid-template-columns: 1fr; }
       .casos-grid { grid-template-columns: 1fr; }
@@ -422,7 +497,7 @@
   <p class="hero-sub">Soluciones a la medida en estrategia de marca, crecimiento digital, marketing y desarrollo.</p>
   <div class="hero-actions">
     <a href="#servicios" class="btn-primary">Conocer servicios</a>
-    <a href="#casos" class="btn-ghost" style="color:#888;">Ver casos de éxito →</a>
+    <a href="#casos" class="btn-ghost">Ver casos de éxito →</a>
   </div>
   <div class="hero-scroll"><span>Scroll</span><div class="line"></div></div>
 </section>
@@ -539,50 +614,133 @@
         <span>Front-end / Back-end</span>
       </div>
     </div>
+    <div class="servicio-card" style="grid-column: span 2;">
+      <div class="svc-num">05</div>
+      <h3>IA Aplicada <em style="font-style:italic;color:var(--gold);">& Automatización</em></h3>
+      <p>Integramos inteligencia artificial como herramienta para fortalecer el criterio humano — no para reemplazarlo. Automatizamos procesos, construimos agentes y desarrollamos productos de IA a la medida.</p>
+      <div class="svc-items" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px 24px;">
+        <span>Automatización de Procesos</span>
+        <span>Chatbots & Agentes de Venta</span>
+        <span>Generación de Contenido IA</span>
+        <span>Análisis de Datos</span>
+        <span>Consultoría de Implementación IA</span>
+        <span>Productos IA a la Medida</span>
+      </div>
+    </div>
   </div>
 </section>
 
 
 <!-- ESPECIALIDADES -->
-<section id="marca-highlight" class="esp-band" data-bg="BRAND">
-  <div class="esp-grid">
+
+<!-- 01 MARCA — editorial: texto izquierda, número grande a la derecha -->
+<section id="marca-highlight" class="esp-band">
+  <div class="esp-marca-grid">
     <div>
       <p class="section-label">Especialidad — Estrategia de Marca</p>
-      <h2 class="section-title" style="color:#FFF;">Marcas que duran empiezan con un <em>diagnóstico riguroso.</em></h2>
+      <h2 class="section-title">Marcas que duran empiezan con un <em>diagnóstico riguroso.</em></h2>
       <p class="section-body">Investigamos tu mercado, entendemos a tus usuarios y encontramos el Core Benefit — el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
       <div class="esp-cta">
         <a href="marca.html" class="btn-primary">Ver metodología</a>
-        <a href="index.html#contacto" class="btn-ghost" style="color:#555;">Agendar diagnóstico →</a>
+        <a href="#contacto" class="btn-ghost">Agendar diagnóstico →</a>
       </div>
     </div>
-    <div class="esp-stats">
-      <div class="esp-stat"><div class="n"><span>+</span>20</div><div class="l">Marcas construidas</div></div>
-      <div class="esp-stat"><div class="n"><span>4</span></div><div class="l">Fases de metodología</div></div>
-      <div class="esp-stat"><div class="n">8<span>+</span></div><div class="l">Años de experiencia</div></div>
-      <div class="esp-stat"><div class="n">100<span>%</span></div><div class="l">A la medida</div></div>
+    <div class="esp-marca-right">
+      <div class="big-n"><span>+</span>20</div>
+      <div class="big-l">Marcas construidas</div>
+      <div class="sub-stats">
+        <div class="sub-stat">
+          <span class="sl">Creando marcas desde</span>
+          <span class="sn">2016</span>
+        </div>
+        <div class="sub-stat">
+          <span class="sl">Fases de metodología</span>
+          <span class="sn"><span>4</span></span>
+        </div>
+        <div class="sub-stat">
+          <span class="sl">A la medida</span>
+          <span class="sn">100<span>%</span></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="inmobiliaria-highlight" class="esp-band" data-bg="REAL ESTATE">
-  <div class="esp-grid">
+<!-- 02 INMOBILIARIA — franja de stats arriba, texto + CTA abajo -->
+<section id="inmobiliaria-highlight" class="esp-band">
+  <div class="esp-inmo-stats">
+    <div class="esp-inmo-stat">
+      <div class="n"><span>+</span>20</div>
+      <div class="l">Desarrollos en México</div>
+    </div>
+    <div class="esp-inmo-stat">
+      <div class="n">8<span>+</span></div>
+      <div class="l">Años en el sector</div>
+    </div>
+    <div class="esp-inmo-stat">
+      <div class="n">360<span>°</span></div>
+      <div class="l">Ecosistema digital de ventas</div>
+    </div>
+  </div>
+  <div class="esp-inmo-body">
     <div>
       <p class="section-label">Especialidad — Real Estate</p>
-      <h2 class="section-title" style="color:#FFF;">Expertos en <em>marketing de performance</em> para el sector inmobiliario.</h2>
-      <p class="section-body">Más de 8 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México.</p>
+      <h2 class="section-title">Expertos en <em>marketing de performance</em> para el sector inmobiliario.</h2>
+    </div>
+    <div>
+      <p class="section-body">Más de 8 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México. Desde la estrategia de medios hasta el cierre.</p>
       <div class="esp-cta">
         <a href="inmobiliaria.html" class="btn-primary">Ver especialidad</a>
-        <a href="#casos" class="btn-ghost" style="color:#888;">Ver casos →</a>
+        <a href="#casos" class="btn-ghost">Ver casos →</a>
       </div>
-    </div>
-    <div class="esp-stats">
-      <div class="esp-stat"><div class="n"><span>+</span>20</div><div class="l">Desarrollos</div></div>
-      <div class="esp-stat"><div class="n"><span>+</span>8</div><div class="l">Años en el sector</div></div>
-      <div class="esp-stat"><div class="n">360<span>°</span></div><div class="l">Ecosistema digital</div></div>
     </div>
   </div>
 </section>
 
+<!-- 03 IA — texto izquierda, lista de servicios a la derecha -->
+<section id="ia-highlight" class="esp-band">
+  <div class="esp-ia-grid">
+    <div>
+      <p class="section-label">Especialidad — IA & Automatización</p>
+      <h2 class="section-title">IA que fortalece el criterio humano. <em>No lo reemplaza.</em></h2>
+      <p class="section-body">Automatizamos procesos, construimos agentes de venta y desarrollamos productos de IA a la medida de cada negocio.</p>
+      <div class="esp-cta">
+        <a href="ia.html" class="btn-primary">Ver servicios IA</a>
+        <a href="#contacto" class="btn-ghost">Agendar consultoría →</a>
+      </div>
+    </div>
+    <div class="esp-ia-list">
+      <div class="esp-ia-item">
+        <span class="idx">01</span>
+        <div>
+          <h4>Automatización de Procesos</h4>
+          <p>Eliminamos tareas repetitivas con flujos inteligentes que escalan sin fricción.</p>
+        </div>
+      </div>
+      <div class="esp-ia-item">
+        <span class="idx">02</span>
+        <div>
+          <h4>Agentes & Chatbots de Venta</h4>
+          <p>Desde calificación de leads hasta cierre — agentes que trabajan 24/7.</p>
+        </div>
+      </div>
+      <div class="esp-ia-item">
+        <span class="idx">03</span>
+        <div>
+          <h4>Generación de Contenido IA</h4>
+          <p>Producción de contenido a escala con criterio editorial y voz de marca.</p>
+        </div>
+      </div>
+      <div class="esp-ia-item">
+        <span class="idx">04</span>
+        <div>
+          <h4>Análisis de Datos</h4>
+          <p>Dashboards, reportes y modelos predictivos conectados a tus KPIs reales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CLIENTES -->
 <section id="clientes">
@@ -606,10 +764,10 @@
     <div class="logo-cell"><img src="logos/XoloPlastics.jpeg" alt="Xolo Plastics" /></div>
     <div class="logo-cell"><img src="logos/Moshi Moshi.jpeg" alt="Moshi Moshi" /></div>
     <div class="logo-cell"><img src="logos/Avast.jpeg" alt="Avast" /></div>
-    <div class="logo-cell"><span class="logo-txt">TANE</span></div>
-    <div class="logo-cell"><span class="logo-txt">Terral</span></div>
-    <div class="logo-cell"><span class="logo-txt">PYL Studios</span></div>
-    <div class="logo-cell"><span class="logo-txt">Sucroliq</span></div>
+    <div class="logo-cell"><img src="logos/Tane.jpeg" alt="TANE" /></div>
+    <div class="logo-cell"><img src="logos/Terral.jpeg" alt="Terral" /></div>
+    <div class="logo-cell"><img src="logos/Pedro y el lobo.jpeg" alt="Pedro y el Lobo" /></div>
+    <div class="logo-cell"><img src="logos/Sucroliq.jpeg" alt="Sucroliq" /></div>
   </div>
 </section>
 
@@ -620,7 +778,7 @@
   <div class="casos-header">
     <div>
       <p class="section-label">Trabajo seleccionado</p>
-      <h2 class="section-title">Casos de éxito</h2>
+      <h2 class="section-title">Algunos proyectos</h2>
     </div>
     <a href="#contacto" class="btn-ghost">Iniciar un proyecto →</a>
   </div>
@@ -832,6 +990,127 @@ function handleForm(e) {
   if (s) s.style.display = 'block';
   e.target.reset();
 }
+
+// ── DRAG-TO-SCROLL CAROUSEL ──
+(function () {
+  const outer = document.querySelector('.casos-carousel-outer');
+  const track = document.querySelector('.casos-carousel-track');
+  if (!outer || !track) return;
+
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let dragOffset = 0;
+  let animOffset = 0;  // accumulated offset from drags
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let rafId = null;
+
+  // Pause CSS animation and switch to JS-driven transform
+  function pauseAnim() {
+    const computed = getComputedStyle(track);
+    const matrix = new DOMMatrix(computed.transform);
+    animOffset = matrix.m41; // current translateX from CSS animation
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${animOffset}px)`;
+    outer.style.cursor = 'grabbing';
+  }
+
+  function resumeAnim() {
+    track.style.animation = '';
+    track.style.transform = '';
+    outer.style.cursor = '';
+  }
+
+  function applyTranslate(x) {
+    // Loop: half the track is duplicate, so loop after half width
+    const halfW = track.scrollWidth / 2;
+    x = ((x % halfW) - halfW) % halfW; // keep negative, looping
+    track.style.transform = `translateX(${x}px)`;
+    animOffset = x;
+  }
+
+  // Momentum decay
+  function momentum() {
+    velocity *= 0.94;
+    if (Math.abs(velocity) < 0.3) {
+      // Hand back to CSS animation — resume from current position
+      // Recalculate animation-delay so it continues seamlessly
+      const halfW = track.scrollWidth / 2;
+      const duration = 60; // seconds — matches CSS
+      const progress = Math.abs(animOffset % halfW) / halfW;
+      const delay = -progress * duration;
+      track.style.transform = '';
+      track.style.animationDelay = `${delay}s`;
+      track.style.animation = `casos-scroll ${duration}s ${delay}s linear infinite`;
+      outer.style.cursor = '';
+      return;
+    }
+    applyTranslate(animOffset + velocity);
+    rafId = requestAnimationFrame(momentum);
+  }
+
+  outer.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    startX = e.clientX;
+    lastX = e.clientX;
+    lastTime = Date.now();
+    dragOffset = animOffset;
+    velocity = 0;
+    cancelAnimationFrame(rafId);
+    pauseAnim();
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', function (e) {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    const now = Date.now();
+    velocity = (e.clientX - lastX) / Math.max(1, now - lastTime) * 16;
+    lastX = e.clientX;
+    lastTime = now;
+    applyTranslate(dragOffset + dx);
+  });
+
+  window.addEventListener('mouseup', function (e) {
+    if (!isDragging) return;
+    isDragging = false;
+    // If barely moved, treat as click — links will fire normally
+    if (Math.abs(e.clientX - startX) < 6) return;
+    rafId = requestAnimationFrame(momentum);
+  });
+
+  // Touch support
+  outer.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    lastX = startX;
+    lastTime = Date.now();
+    dragOffset = animOffset;
+    velocity = 0;
+    cancelAnimationFrame(rafId);
+    pauseAnim();
+  }, { passive: true });
+
+  outer.addEventListener('touchmove', function (e) {
+    const dx = e.touches[0].clientX - startX;
+    const now = Date.now();
+    velocity = (e.touches[0].clientX - lastX) / Math.max(1, now - lastTime) * 16;
+    lastX = e.touches[0].clientX;
+    lastTime = now;
+    applyTranslate(dragOffset + dx);
+  }, { passive: true });
+
+  outer.addEventListener('touchend', function (e) {
+    if (Math.abs(e.changedTouches[0].clientX - startX) < 6) return;
+    rafId = requestAnimationFrame(momentum);
+  });
+
+  // Prevent links from firing when user was dragging
+  outer.addEventListener('click', function (e) {
+    if (Math.abs(startX - e.clientX) > 6) e.preventDefault();
+  }, true);
+})();
 </script>
 <script src="js/site.js"></script>
 </body>

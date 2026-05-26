@@ -2,6 +2,11 @@
 video/hero.mp4
 img/casos/pyl-studios-2.mov
 
+# PNGs originales sin comprimir (ya existen versiones JPG)
+img/casos/acha-3.png
+img/casos/berger-rolex-3.png
+img/casos/berger-rolex-1.png
+
 # Mac
 .DS_Store
 **/.DS_Store

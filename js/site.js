@@ -18,6 +18,7 @@
       <li><a href="${rootPath}index.html#casos">Casos</a></li>
       <li><a href="${rootPath}inmobiliaria.html">Inmobiliaria</a></li>
       <li><a href="${rootPath}marca.html">Marca</a></li>
+      <li><a href="${rootPath}ia.html">IA</a></li>
       <li><a href="${rootPath}index.html#nosotros">Nosotros</a></li>
     </ul>
     <a href="${rootPath}index.html#contacto" class="nav-cta">Escríbenos</a>
@@ -41,6 +42,7 @@
             <li><a href="${rootPath}index.html#servicios">Diseño Web & Software</a></li>
             <li><a href="${rootPath}inmobiliaria.html">Marketing Inmobiliario</a></li>
             <li><a href="${rootPath}marca.html">Estrategia de Marca</a></li>
+            <li><a href="${rootPath}ia.html">IA & Automatización</a></li>
           </ul>
         </div>
         <div class="footer-col">

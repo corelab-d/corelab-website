@@ -63,21 +63,23 @@
     .mintro-lead strong { font-weight: 400; }
     .mintro-right { padding-top: 8px; }
     .core-box {
-      background: var(--dark); padding: 40px 36px; position: relative; overflow: hidden;
+      background: var(--warm); padding: 40px 36px; position: relative; overflow: hidden;
+      border: 1px solid var(--border); border-left: 3px solid var(--gold);
     }
     .core-box::before {
       content: 'CORE';
       position: absolute; bottom: -10px; right: -8px;
-      font-size: 80px; font-weight: 300; color: rgba(255,255,255,0.03);
-      letter-spacing: 0.06em; line-height: 1;
+      font-size: 90px; font-weight: 700; font-style: italic;
+      color: rgba(235,178,44,0.07);
+      letter-spacing: -0.02em; line-height: 1;
     }
     .core-box-label {
       font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
     }
     .core-box p {
-      font-size: 14px; font-weight: 300; color: #888; line-height: 1.85;
+      font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85;
     }
-    .core-box strong { color: #BBB; font-weight: 400; }
+    .core-box strong { color: var(--text); font-weight: 400; }
 
     /* ── METODOLOGÍA ── */
     #metodologia { background: var(--bg); padding: 96px 48px; }
@@ -247,7 +249,7 @@
       <div class="core-box">
         <div class="core-box-label">Core Benefit</div>
         <p>El <strong>Core Benefit</strong> es el beneficio central, profundo y diferencial que solo tu marca puede ofrecer. No es un slogan. No es un atributo de producto. Es la razón de fondo por la que alguien elige tu marca sobre cualquier alternativa — y la razón por la que vuelve.</p>
-        <p style="margin-top:16px;color:#888;">Encontrarlo requiere investigación, no intuición.</p>
+        <p style="margin-top:16px;">Encontrarlo requiere investigación, no intuición.</p>
       </div>
     </div>
   </div>

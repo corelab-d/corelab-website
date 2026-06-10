@@ -417,6 +417,7 @@
       .ia-stat { padding: 24px 20px; }
     }
   </style>
+  <script src="js/i18n.js"></script>
   <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
 </head>
 <body>
@@ -427,13 +428,13 @@
     <div>
       <div class="hero-eyebrow">
         <span class="line"></span>
-        CoreLab · IA &amp; Automatización
+        <span data-i18n="ia.hero.eyebrow">IA &amp; Automatización</span>
       </div>
-      <h1>IA para negocios,<br/>no para demos.<br/><em>Resultados reales, desde el día uno.</em></h1>
-      <p class="hero-body">Diseñamos e implementamos soluciones de IA que impactan directamente tu operación, tus ventas y tu equipo.</p>
+      <h1 data-i18n-html="ia.hero.h1">IA para negocios,<br/>no para demos.<br/><em>Resultados reales, desde el día uno.</em></h1>
+      <p class="hero-body" data-i18n="ia.hero.body">Diseñamos e implementamos soluciones de IA que impactan directamente tu operación, tus ventas y tu equipo.</p>
       <div class="hero-cta">
-        <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico</a>
-        <a href="#leadlab" class="btn-ghost" style="color:#444;">Ver LeadLab →</a>
+        <a href="index.html#contacto" class="btn-primary" data-i18n="ia.hero.cta1">Agendar diagnóstico</a>
+        <a href="#leadlab" class="btn-ghost" style="color:#444;" data-i18n="ia.hero.cta2">Ver LeadLab →</a>
       </div>
     </div>
 
@@ -463,19 +464,19 @@
 <div class="ia-stats">
   <div class="ia-stat">
     <div class="n">4</div>
-    <div class="l">áreas de<br/>aplicación</div>
+    <div class="l" data-i18n-html="ia.stat1">áreas de<br/>aplicación</div>
   </div>
   <div class="ia-stat">
     <div class="n">+20</div>
-    <div class="l">herramientas<br/>integradas</div>
+    <div class="l" data-i18n-html="ia.stat2">herramientas<br/>integradas</div>
   </div>
   <div class="ia-stat">
     <div class="n">01</div>
-    <div class="l">producto<br/>propio · leadlab</div>
+    <div class="l" data-i18n-html="ia.stat3">producto<br/>propio · leadlab</div>
   </div>
   <div class="ia-stat">
     <div class="n">100<span>%</span></div>
-    <div class="l">soluciones<br/>a la medida</div>
+    <div class="l" data-i18n-html="ia.stat4">soluciones<br/>a la medida</div>
   </div>
 </div>
 
@@ -484,16 +485,16 @@
   <div class="ia-svc-header">
     <div>
       <div class="tag" style="margin-bottom:20px;">// servicios</div>
-      <h2>Aplicaciones concretas,<br/><em>resultados medibles.</em></h2>
+      <h2 data-i18n-html="ia.svc.h2">Aplicaciones concretas,<br/><em>resultados medibles.</em></h2>
     </div>
-    <p>No vendemos IA como concepto. Construimos soluciones específicas que resuelven problemas reales de negocio — con tecnología que ya existe y metodología que hemos probado.</p>
+    <p data-i18n="ia.svc.p">No vendemos IA como concepto. Construimos soluciones específicas que resuelven problemas reales de negocio — con tecnología que ya existe y metodología que hemos probado.</p>
   </div>
 
   <div class="ia-svc-grid">
     <div class="ia-svc-card">
       <div class="svc-index">01 · automatización</div>
-      <h3>Automatización <em>de Procesos</em></h3>
-      <p>Conectamos tus herramientas y flujos de trabajo para que operen solos. Menos trabajo manual, menos errores, más velocidad de ejecución.</p>
+      <h3 data-i18n-html="ia.svc1.h3">Automatización <em>de Procesos</em></h3>
+      <p data-i18n="ia.svc1.p">Conectamos tus herramientas y flujos de trabajo para que operen solos. Menos trabajo manual, menos errores, más velocidad de ejecución.</p>
       <div class="svc-list">
         <span>Flujos con Zapier & Make</span>
         <span>Automatización de CRM</span>
@@ -503,8 +504,8 @@
     </div>
     <div class="ia-svc-card">
       <div class="svc-index">02 · agentes</div>
-      <h3>Chatbots & <em>Agentes de Venta</em></h3>
-      <p>Construimos agentes conversacionales que califican leads, responden preguntas y acompañan al prospecto hasta el cierre — las 24 horas.</p>
+      <h3 data-i18n-html="ia.svc2.h3">Chatbots & <em>Agentes de Venta</em></h3>
+      <p data-i18n="ia.svc2.p">Construimos agentes conversacionales que califican leads, responden preguntas y acompañan al prospecto hasta el cierre — las 24 horas.</p>
       <div class="svc-list">
         <span>Chatbots de calificación</span>
         <span>Agentes de venta automatizados</span>
@@ -514,8 +515,8 @@
     </div>
     <div class="ia-svc-card">
       <div class="svc-index">03 · contenido</div>
-      <h3>Generación de <em>Contenido IA</em></h3>
-      <p>Producimos contenido a escala sin perder criterio editorial. Texto, imagen y video con IA — supervisados por estrategia humana.</p>
+      <h3 data-i18n-html="ia.svc3.h3">Generación de <em>Contenido IA</em></h3>
+      <p data-i18n="ia.svc3.p">Producimos contenido a escala sin perder criterio editorial. Texto, imagen y video con IA — supervisados por estrategia humana.</p>
       <div class="svc-list">
         <span>Copy y creativos para campañas</span>
         <span>Imágenes generativas</span>
@@ -525,8 +526,8 @@
     </div>
     <div class="ia-svc-card">
       <div class="svc-index">04 · análisis</div>
-      <h3>Análisis & <em>Consultoría IA</em></h3>
-      <p>Convertimos datos en decisiones. Analizamos tu negocio con IA y acompañamos la implementación de sistemas que eficienten tu operación.</p>
+      <h3 data-i18n-html="ia.svc4.h3">Análisis & <em>Consultoría IA</em></h3>
+      <p data-i18n="ia.svc4.p">Convertimos datos en decisiones. Analizamos tu negocio con IA y acompañamos la implementación de sistemas que eficienten tu operación.</p>
       <div class="svc-list">
         <span>Dashboards e inteligencia de negocio</span>
         <span>Análisis de audiencias</span>
@@ -543,39 +544,39 @@
     <div>
       <div class="ll-badge">
         <div class="pulse"></div>
-        <span class="txt">Producto propio · CoreLab</span>
+        <span class="txt" data-i18n="ia.leadlab.badge">Producto propio · CoreLab</span>
       </div>
-      <h2>LeadLab — <em>de la captación<br/>al cierre,</em> automático.</h2>
-      <p class="ll-body">Nuestra herramienta propia de adquisición y tratamiento automatizado de leads. Capta prospectos, los califica con IA, los nutre y los entrega al equipo de ventas en el momento exacto — con contexto completo.</p>
-      <a href="index.html#contacto" class="btn-primary">Conocer LeadLab</a>
+      <h2 data-i18n-html="ia.leadlab.h2">LeadLab — <em>de la captación<br/>al cierre,</em> automático.</h2>
+      <p class="ll-body" data-i18n="ia.leadlab.body">Nuestra herramienta propia de adquisición y tratamiento automatizado de leads. Capta prospectos, los califica con IA, los nutre y los entrega al equipo de ventas en el momento exacto — con contexto completo.</p>
+      <a href="index.html#contacto" class="btn-primary" data-i18n="ia.leadlab.cta">Conocer LeadLab</a>
     </div>
     <div class="ll-steps">
       <div class="ll-step">
         <div class="ll-step-num">01</div>
         <div>
-          <h4>Captación</h4>
-          <p>Formularios, landings y anuncios conectados que captan el lead en el canal correcto.</p>
+          <h4 data-i18n="ia.ll.step1.h4">Captación</h4>
+          <p data-i18n="ia.ll.step1.p">Formularios, landings y anuncios conectados que captan el lead en el canal correcto.</p>
         </div>
       </div>
       <div class="ll-step">
         <div class="ll-step-num">02</div>
         <div>
-          <h4>Calificación automática</h4>
-          <p>El agente evalúa al prospecto y lo segmenta según perfil, intención y momento de compra.</p>
+          <h4 data-i18n="ia.ll.step2.h4">Calificación automática</h4>
+          <p data-i18n="ia.ll.step2.p">El agente evalúa al prospecto y lo segmenta según perfil, intención y momento de compra.</p>
         </div>
       </div>
       <div class="ll-step">
         <div class="ll-step-num">03</div>
         <div>
-          <h4>Nutrición inteligente</h4>
-          <p>Secuencias de mensajes personalizados por WhatsApp, email o SMS según el comportamiento del lead.</p>
+          <h4 data-i18n="ia.ll.step3.h4">Nutrición inteligente</h4>
+          <p data-i18n="ia.ll.step3.p">Secuencias de mensajes personalizados por WhatsApp, email o SMS según el comportamiento del lead.</p>
         </div>
       </div>
       <div class="ll-step">
         <div class="ll-step-num">04</div>
         <div>
-          <h4>Entrega al cierre</h4>
-          <p>El lead calificado llega al equipo de ventas con contexto completo, en el momento óptimo.</p>
+          <h4 data-i18n="ia.ll.step4.h4">Entrega al cierre</h4>
+          <p data-i18n="ia.ll.step4.p">El lead calificado llega al equipo de ventas con contexto completo, en el momento óptimo.</p>
         </div>
       </div>
     </div>
@@ -587,49 +588,49 @@
   <div class="prod-header">
     <div>
       <div class="tag" style="margin-bottom:20px;">// productos CoreLab</div>
-      <h2>Herramientas que <em>construimos</em><br/>para nuestros clientes.</h2>
+      <h2 data-i18n-html="ia.prod.h2">Herramientas que <em>construimos</em><br/>para nuestros clientes.</h2>
     </div>
-    <p>Además de los servicios que operamos, desarrollamos productos de IA propios — disponibles para clientes de CoreLab. Cada uno resuelve un problema específico de negocio con IA aplicada.</p>
+    <p data-i18n="ia.prod.p">Además de los servicios que operamos, desarrollamos productos de IA propios — disponibles para clientes de CoreLab. Cada uno resuelve un problema específico de negocio con IA aplicada.</p>
   </div>
   <div class="prod-grid">
 
     <div class="prod-card">
       <div class="prod-tag">leadlab</div>
-      <h3>Automatización de leads de principio a cierre</h3>
-      <p>Capta prospectos, los califica con IA, los nutre con secuencias automáticas y los entrega al equipo de ventas en el momento exacto.</p>
+      <h3 data-i18n="ia.prod1.h3">Automatización de leads de principio a cierre</h3>
+      <p data-i18n="ia.prod1.p">Capta prospectos, los califica con IA, los nutre con secuencias automáticas y los entrega al equipo de ventas en el momento exacto.</p>
       <div class="prod-status">
         <div class="dot dot-live"></div>
-        <span>disponible</span>
+        <span data-i18n="ia.prod1.status">disponible</span>
       </div>
     </div>
 
     <div class="prod-card">
       <div class="prod-tag">landing generator</div>
-      <h3>Landing pages de venta con contenidos específicos</h3>
-      <p>Genera landing pages enfocadas a conversión, con copy, estructura y llamadas a la acción adaptadas al producto, audiencia y objetivo de cada campaña.</p>
+      <h3 data-i18n="ia.prod2.h3">Landing pages de venta con contenidos específicos</h3>
+      <p data-i18n="ia.prod2.p">Genera landing pages enfocadas a conversión, con copy, estructura y llamadas a la acción adaptadas al producto, audiencia y objetivo de cada campaña.</p>
       <div class="prod-status">
         <div class="dot dot-beta"></div>
-        <span>beta</span>
+        <span data-i18n="ia.prod2.status">beta</span>
       </div>
     </div>
 
     <div class="prod-card">
       <div class="prod-tag">strategy builder</div>
-      <h3>Estrategias de medios digitales especializadas</h3>
-      <p>Construye estrategias de medios digitales completas a partir de los datos del negocio: audiencias, canales, presupuestos, KPIs y calendario de ejecución.</p>
+      <h3 data-i18n="ia.prod3.h3">Estrategias de medios digitales especializadas</h3>
+      <p data-i18n="ia.prod3.p">Construye estrategias de medios digitales completas a partir de los datos del negocio: audiencias, canales, presupuestos, KPIs y calendario de ejecución.</p>
       <div class="prod-status">
         <div class="dot dot-beta"></div>
-        <span>beta</span>
+        <span data-i18n="ia.prod3.status">beta</span>
       </div>
     </div>
 
     <div class="prod-card">
       <div class="prod-tag">brand search</div>
-      <h3>Estudios de mercado y análisis de competencia</h3>
-      <p>Genera estudios de mercado detallados y comparativos de competencia especializados — con datos actualizados, insights accionables y recomendaciones estratégicas.</p>
+      <h3 data-i18n="ia.prod4.h3">Estudios de mercado y análisis de competencia</h3>
+      <p data-i18n="ia.prod4.p">Genera estudios de mercado detallados y comparativos de competencia especializados — con datos actualizados, insights accionables y recomendaciones estratégicas.</p>
       <div class="prod-status">
         <div class="dot dot-beta"></div>
-        <span>beta</span>
+        <span data-i18n="ia.prod4.status">beta</span>
       </div>
     </div>
 
@@ -690,9 +691,9 @@
 <!-- CTA -->
 <section id="ia-cta">
   <div class="tag">// siguiente paso</div>
-  <h2>Cuéntanos qué necesitas.<br/>Nosotros diseñamos el camino.</h2>
-  <p>Desde una automatización sencilla hasta un agente de ventas completo. Empezamos con un diagnóstico sin costo.</p>
-  <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico gratuito</a>
+  <h2 data-i18n-html="ia.cta.h2">Cuéntanos qué necesitas.<br/>Nosotros diseñamos el camino.</h2>
+  <p data-i18n="ia.cta.p">Desde una automatización sencilla hasta un agente de ventas completo. Empezamos con un diagnóstico sin costo.</p>
+  <a href="index.html#contacto" class="btn-primary" data-i18n="ia.cta.btn">Agendar diagnóstico gratuito</a>
 </section>
 
 <script src="js/site.js"></script>

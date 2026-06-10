@@ -224,34 +224,35 @@
       .metodologia, .proyectos, .inmo-servicios, .inmo-contacto { padding: 64px 24px; }
     }
   </style>
+  <script src="js/i18n.js"></script>
   <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="inmo-hero">
-  <p class="eyebrow">Especialidad CoreLab — Real Estate</p>
-  <h1>El ecosistema digital que vende tu desarrollo.</h1>
-  <p>Llevamos más de 9 años construyendo estrategias de medios y adquisición de leads para los desarrollos inmobiliarios más importantes de México. No hacemos publicidad — construimos la máquina de ventas digital de tu proyecto.</p>
+  <p class="eyebrow" data-i18n="inmo.hero.eyebrow">Especialidad CoreLab — Real Estate</p>
+  <h1 data-i18n="inmo.hero.h1">El ecosistema digital que vende tu desarrollo.</h1>
+  <p data-i18n="inmo.hero.p">Llevamos más de 9 años construyendo estrategias de medios y adquisición de leads para los desarrollos inmobiliarios más importantes de México. No hacemos publicidad — construimos la máquina de ventas digital de tu proyecto.</p>
   <div class="hero-actions">
-    <a href="#inmo-contacto" class="btn-primary">Iniciar proyecto</a>
-    <a href="#proyectos" class="btn-ghost" style="color:#888;">Ver desarrollos →</a>
+    <a href="#inmo-contacto" class="btn-primary" data-i18n="inmo.hero.cta1">Iniciar proyecto</a>
+    <a href="#proyectos" class="btn-ghost" style="color:#888;" data-i18n="inmo.hero.cta2">Ver desarrollos →</a>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat-cell"><div class="n"><span>+</span>20</div><div class="l">Desarrollos</div></div>
-  <div class="stat-cell"><div class="n"><span>+</span>8</div><div class="l">Años en el sector</div></div>
-  <div class="stat-cell"><div class="n">360<span>°</span></div><div class="l">Ecosistema digital de ventas</div></div>
+  <div class="stat-cell"><div class="n"><span>+</span>20</div><div class="l" data-i18n="inmo.stat1">Desarrollos</div></div>
+  <div class="stat-cell"><div class="n"><span>+</span>8</div><div class="l" data-i18n="inmo.stat2">Años en el sector</div></div>
+  <div class="stat-cell"><div class="n">360<span>°</span></div><div class="l" data-i18n="inmo.stat3">Ecosistema digital de ventas</div></div>
 </div>
 
 <hr class="divider" />
 
 <!-- METODOLOGÍA -->
 <section class="metodologia">
-  <p class="section-label">Cómo trabajamos</p>
-  <h2 class="section-title">Un ecosistema de ventas construido<br/>para traer leads calificados.</h2>
+  <p class="section-label" data-i18n="inmo.met.label">Cómo trabajamos</p>
+  <h2 class="section-title" data-i18n-html="inmo.met.h2">Un ecosistema de ventas construido<br/>para traer leads calificados.</h2>
   <div class="met-grid">
     <div class="met-step">
       <div class="step-n">01 — Diagnóstico</div>
@@ -275,7 +276,7 @@
 
 <!-- PROYECTOS -->
 <section class="proyectos" id="proyectos">
-  <p class="section-label">Desarrollos con los que hemos trabajado</p>
+  <p class="section-label" data-i18n="inmo.proy.label">Desarrollos con los que hemos trabajado</p>
   <div class="proy-grid">
     <div class="proy-card">
       <div class="loc">CDMX · Av. Reforma</div>
@@ -374,8 +375,8 @@
 
 <!-- CASOS REAL ESTATE -->
 <section class="inmo-casos" id="inmo-casos">
-  <p class="section-label">Casos de éxito — Real Estate</p>
-  <h2 class="section-title" style="margin-bottom:48px;">Algunos proyectos inmobiliarios.</h2>
+  <p class="section-label" data-i18n="inmo.casos.label">Casos de éxito — Real Estate</p>
+  <h2 class="section-title" style="margin-bottom:48px;" data-i18n="inmo.casos.h2">Algunos proyectos inmobiliarios.</h2>
 
   <div class="inmo-carousel">
     <!-- Card 1: Arquitectoma -->
@@ -416,38 +417,38 @@
 
 <!-- SERVICIOS -->
 <section class="inmo-servicios">
-  <p class="section-label">Servicios inmobiliarios</p>
-  <h2 class="section-title">Agencia digital para desarrollos inmobiliarios.</h2>
+  <p class="section-label" data-i18n="inmo.svc.label">Servicios inmobiliarios</p>
+  <h2 class="section-title" data-i18n="inmo.svc.h2">Agencia digital para desarrollos inmobiliarios.</h2>
   <div class="isvc-grid">
     <div class="isvc-card">
       <div class="sn">01</div>
-      <h3>Ecosistema Digital de Ventas</h3>
-      <p>Diagnóstico completo, definición de buyer persona, arquitectura de la estrategia digital y plan de medios. El mapa completo antes de activar cualquier campaña.</p>
+      <h3 data-i18n="inmo.svc1.h3">Ecosistema Digital de Ventas</h3>
+      <p data-i18n="inmo.svc1.p">Diagnóstico completo, definición de buyer persona, arquitectura de la estrategia digital y plan de medios. El mapa completo antes de activar cualquier campaña.</p>
     </div>
     <div class="isvc-card">
       <div class="sn">02</div>
-      <h3>Google Ads & Meta Ads</h3>
-      <p>Campañas de Search, Display, Performance Max en Google. Facebook e Instagram Ads con segmentación por comportamiento, intereses y audiencias similares a tus compradores actuales.</p>
+      <h3 data-i18n="inmo.svc2.h3">Google Ads & Meta Ads</h3>
+      <p data-i18n="inmo.svc2.p">Campañas de Search, Display, Performance Max en Google. Facebook e Instagram Ads con segmentación por comportamiento, intereses y audiencias similares a tus compradores actuales.</p>
     </div>
     <div class="isvc-card">
       <div class="sn">03</div>
-      <h3>Landing Pages de Alta Conversión</h3>
-      <p>Diseño y desarrollo de micrositios del desarrollo: renders, planos, tabla de precios, formulario de contacto y configuración completa de eventos de conversión.</p>
+      <h3 data-i18n="inmo.svc3.h3">Landing Pages de Alta Conversión</h3>
+      <p data-i18n="inmo.svc3.p">Diseño y desarrollo de micrositios del desarrollo: renders, planos, tabla de precios, formulario de contacto y configuración completa de eventos de conversión.</p>
     </div>
     <div class="isvc-card">
       <div class="sn">04</div>
-      <h3>Lead Acquisition & CRM</h3>
-      <p>Flujos de nutrición de leads, scoring automático y alertas para el equipo de ventas. Cada lead calificado en el momento correcto. Menos leads perdidos, más cierres.</p>
+      <h3 data-i18n="inmo.svc4.h3">Lead Acquisition & CRM</h3>
+      <p data-i18n="inmo.svc4.p">Flujos de nutrición de leads, scoring automático y alertas para el equipo de ventas. Cada lead calificado en el momento correcto. Menos leads perdidos, más cierres.</p>
     </div>
     <div class="isvc-card">
       <div class="sn">05</div>
-      <h3>Tracking & Pixel Setup</h3>
-      <p>Configuración técnica de Pixel de Meta, Google Tag Manager, eventos personalizados y verificación de conversiones. La base de datos de todo lo que sigue.</p>
+      <h3 data-i18n="inmo.svc5.h3">Tracking & Pixel Setup</h3>
+      <p data-i18n="inmo.svc5.p">Configuración técnica de Pixel de Meta, Google Tag Manager, eventos personalizados y verificación de conversiones. La base de datos de todo lo que sigue.</p>
     </div>
     <div class="isvc-card">
       <div class="sn">06</div>
-      <h3>Optimización Mensual</h3>
-      <p>Auditoría mensual de campañas, ajuste de audiencias, rotación de creativos y reporte ejecutivo en Looker Studio. Tu equipo de ventas siempre tiene el contexto completo.</p>
+      <h3 data-i18n="inmo.svc6.h3">Optimización Mensual</h3>
+      <p data-i18n="inmo.svc6.p">Auditoría mensual de campañas, ajuste de audiencias, rotación de creativos y reporte ejecutivo en Looker Studio. Tu equipo de ventas siempre tiene el contexto completo.</p>
     </div>
   </div>
 </section>
@@ -458,9 +459,9 @@
 <section class="inmo-contacto" id="inmo-contacto">
   <div class="ic-grid">
     <div>
-      <p class="section-label">Hablemos de tu desarrollo</p>
-      <h2 class="section-title">¿Cuándo lanzas?<br/>Escríbenos ahora.</h2>
-      <p class="section-body">Entre más pronto iniciemos la estrategia, más datos tendremos antes del lanzamiento. Respondemos en menos de 24 horas.</p>
+      <p class="section-label" data-i18n="inmo.contacto.label">Hablemos de tu desarrollo</p>
+      <h2 class="section-title" data-i18n-html="inmo.contacto.h2">¿Cuándo lanzas?<br/>Escríbenos ahora.</h2>
+      <p class="section-body" data-i18n="inmo.contacto.body">Entre más pronto iniciemos la estrategia, más datos tendremos antes del lanzamiento. Respondemos en menos de 24 horas.</p>
       <div style="margin-top:40px;display:flex;flex-direction:column;gap:20px;">
         <div style="display:flex;align-items:flex-start;gap:16px;">
           <div style="width:1px;height:36px;background:var(--gold);flex-shrink:0;margin-top:4px;"></div>
@@ -484,30 +485,30 @@
       <input type="hidden" name="from_name" value="CoreLab Website" />
       <input type="checkbox" name="botcheck" style="display:none" />
       <div class="form-row">
-        <div class="form-group"><label>Nombre</label><input type="text" name="name" placeholder="Tu nombre" required /></div>
-        <div class="form-group"><label>Empresa / Desarrolladora</label><input type="text" name="empresa" placeholder="Nombre" /></div>
+        <div class="form-group"><label data-i18n="form.nombre.label">Nombre</label><input type="text" name="name" placeholder="Tu nombre" data-i18n-placeholder="form.nombre.placeholder" required /></div>
+        <div class="form-group"><label data-i18n="inmo.form.empresa_label">Empresa / Desarrolladora</label><input type="text" name="empresa" placeholder="Nombre" /></div>
       </div>
-      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="correo@empresa.com" required /></div>
-      <div class="form-group"><label>Nombre del desarrollo</label><input type="text" name="desarrollo" placeholder="¿Cómo se llama tu proyecto?" /></div>
+      <div class="form-group"><label data-i18n="form.email.label">Email</label><input type="email" name="email" placeholder="correo@empresa.com" required /></div>
+      <div class="form-group"><label data-i18n="inmo.form.desarrollo_label">Nombre del desarrollo</label><input type="text" name="desarrollo" placeholder="¿Cómo se llama tu proyecto?" data-i18n-placeholder="inmo.form.desarrollo_placeholder" /></div>
       <div class="form-group">
-        <label>Etapa del proyecto</label>
+        <label data-i18n="inmo.form.etapa_label">Etapa del proyecto</label>
         <select name="etapa">
-          <option value="" disabled selected>Selecciona la etapa</option>
-          <option>Pre-lanzamiento (planeando campaña)</option>
-          <option>En preventa activa</option>
-          <option>Lanzado, quiero mejorar resultados</option>
-          <option>Aún en exploración</option>
+          <option value="" disabled selected data-i18n="inmo.form.etapa_placeholder">Selecciona la etapa</option>
+          <option data-i18n="inmo.form.etapa_opt1">Pre-lanzamiento (planeando campaña)</option>
+          <option data-i18n="inmo.form.etapa_opt2">En preventa activa</option>
+          <option data-i18n="inmo.form.etapa_opt3">Lanzado, quiero mejorar resultados</option>
+          <option data-i18n="inmo.form.etapa_opt4">Aún en exploración</option>
         </select>
       </div>
-      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Cuántas unidades? ¿En qué ciudad? ¿Cuál es el ticket promedio?"></textarea></div>
+      <div class="form-group"><label data-i18n="form.message.label">Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Cuántas unidades? ¿En qué ciudad? ¿Cuál es el ticket promedio?" data-i18n-placeholder="inmo.form.message_placeholder"></textarea></div>
       <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:28px;">
         <input type="checkbox" name="privacidad" id="privacidad-inmo" required style="width:auto;margin-top:3px;accent-color:var(--gold);flex-shrink:0;cursor:pointer;" />
-        <label for="privacidad-inmo" style="display:inline;font-size:12px;font-weight:300;color:var(--hint);line-height:1.6;letter-spacing:0;text-transform:none;cursor:pointer;">
+        <label for="privacidad-inmo" data-i18n-html="inmo.form.privacy" style="display:inline;font-size:12px;font-weight:300;color:var(--hint);line-height:1.6;letter-spacing:0;text-transform:none;cursor:pointer;">
           He leído y acepto el <a href="aviso-de-privacidad.html" target="_blank" style="color:var(--text);text-decoration:underline;text-underline-offset:3px;">Aviso de Privacidad</a> y consiento el tratamiento de mis datos personales conforme a la LFPDPPP.
         </label>
       </div>
-      <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar</button>
-      <p id="inmo-success">¡Listo! Te contactamos en menos de 24 horas.</p>
+      <button type="submit" class="btn-primary" data-i18n="inmo.form.submit" style="width:100%;text-align:center;padding:15px;">Enviar</button>
+      <p id="inmo-success" data-i18n="inmo.form.success">¡Listo! Te contactamos en menos de 24 horas.</p>
     </form>
   </div>
 </section>

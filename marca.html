@@ -256,6 +256,7 @@
       #mhero, #mintro, #metodologia, #core-benefit, #mservicios, #diferenciadores, #mcasos, #mcta { padding-left: 24px; padding-right: 24px; }
     }
   </style>
+  <script src="js/i18n.js"></script>
   <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
 </head>
 <body>
@@ -264,26 +265,26 @@
 <section id="mhero">
   <div class="mhero-inner">
     <div>
-      <p class="mhero-eyebrow">CoreLab — Consultoría de Marca</p>
-      <h1>Las marcas que usas no te gustan por casualidad, <em>tienen una estrategia detrás.</em></h1>
-      <p class="mhero-sub">Investigamos tu mercado, entendemos a tus usuarios y encontramos el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
+      <p class="mhero-eyebrow" data-i18n="marca.hero.eyebrow">CoreLab — Consultoría de Marca</p>
+      <h1 data-i18n-html="marca.hero.h1">Las marcas que usas no te gustan por casualidad, <em>tienen una estrategia detrás.</em></h1>
+      <p class="mhero-sub" data-i18n="marca.hero.sub">Investigamos tu mercado, entendemos a tus usuarios y encontramos el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
       <div style="display:flex;gap:20px;flex-wrap:wrap;">
-        <a href="#metodologia" class="btn-primary">Ver metodología</a>
-        <a href="index.html#contacto" class="btn-ghost" style="color:#888;">Agendar diagnóstico →</a>
+        <a href="#metodologia" class="btn-primary" data-i18n="marca.hero.cta1">Ver metodología</a>
+        <a href="index.html#contacto" class="btn-ghost" style="color:#888;" data-i18n="marca.hero.cta2">Agendar diagnóstico →</a>
       </div>
     </div>
     <div class="mhero-meta">
       <div class="mhero-stat">
         <div class="n">+25<span>.</span></div>
-        <div class="l">Marcas construidas</div>
+        <div class="l" data-i18n="marca.hero.stat1">Marcas construidas</div>
       </div>
       <div class="mhero-stat">
         <div class="n">4</div>
-        <div class="l">Fases de metodología</div>
+        <div class="l" data-i18n="marca.hero.stat2">Fases de metodología</div>
       </div>
       <div class="mhero-stat">
         <div class="n">100<span>%</span></div>
-        <div class="l">A la medida</div>
+        <div class="l" data-i18n="marca.hero.stat3">A la medida</div>
       </div>
     </div>
   </div>
@@ -294,16 +295,16 @@
 <section id="mintro">
   <div class="mintro-grid">
     <div>
-      <p class="section-label">El problema con el branding tradicional</p>
-      <p class="mintro-lead">La mayoría de los proyectos de marca fallan porque empiezan por lo visual. <strong>El logo es lo último que se diseña</strong> — no lo primero.</p>
-      <p class="section-body" style="margin-top:24px;">Una identidad construida sin estrategia es solo estética. Puede verse bien y no vender nada. En CoreLab partimos del análisis: quién es tu usuario, qué espacio existe en el mercado y cuál es el beneficio único que tu marca puede reclamar. A eso le llamamos el <strong>Core Benefit</strong>.</p>
-      <p class="section-body" style="margin-top:16px;">Todo lo que viene después — nombre, tono de voz, identidad visual, arquitectura de contenido — se construye sobre esa base. Así es como se crean marcas que perduran.</p>
+      <p class="section-label" data-i18n="marca.intro.label">El problema con el branding tradicional</p>
+      <p class="mintro-lead" data-i18n-html="marca.intro.lead">La mayoría de los proyectos de marca fallan porque empiezan por lo visual. <strong>El logo es lo último que se diseña</strong> — no lo primero.</p>
+      <p class="section-body" style="margin-top:24px;" data-i18n-html="marca.intro.body1">Una identidad construida sin estrategia es solo estética. Puede verse bien y no vender nada. En CoreLab partimos del análisis: quién es tu usuario, qué espacio existe en el mercado y cuál es el beneficio único que tu marca puede reclamar. A eso le llamamos el <strong>Core Benefit</strong>.</p>
+      <p class="section-body" style="margin-top:16px;" data-i18n="marca.intro.body2">Todo lo que viene después — nombre, tono de voz, identidad visual, arquitectura de contenido — se construye sobre esa base. Así es como se crean marcas que perduran.</p>
     </div>
     <div class="mintro-right">
       <div class="core-box">
-        <div class="core-box-label">Core Benefit</div>
-        <p>El <strong>Core Benefit</strong> es el beneficio central, profundo y diferencial que solo tu marca puede ofrecer. No es un slogan. No es un atributo de producto. Es la razón de fondo por la que alguien elige tu marca sobre cualquier alternativa — y la razón por la que vuelve.</p>
-        <p style="margin-top:16px;">Encontrarlo requiere investigación, no intuición.</p>
+        <div class="core-box-label" data-i18n="marca.corebox.label">Core Benefit</div>
+        <p data-i18n-html="marca.corebox.p">El <strong>Core Benefit</strong> es el beneficio central, profundo y diferencial que solo tu marca puede ofrecer. No es un slogan. No es un atributo de producto. Es la razón de fondo por la que alguien elige tu marca sobre cualquier alternativa — y la razón por la que vuelve.</p>
+        <p style="margin-top:16px;" data-i18n="marca.corebox.p2">Encontrarlo requiere investigación, no intuición.</p>
       </div>
     </div>
   </div>
@@ -313,9 +314,9 @@
 <!-- METODOLOGÍA -->
 <section id="metodologia">
   <div class="met-header">
-    <p class="section-label">Metodología</p>
-    <h2 class="section-title">Cuatro fases para construir una marca con raíces.</h2>
-    <p class="section-body">Un proceso estructurado que va del diagnóstico profundo a la identidad ejecutable. Cada fase alimenta a la siguiente.</p>
+    <p class="section-label" data-i18n="marca.met.label">Metodología</p>
+    <h2 class="section-title" data-i18n="marca.met.h2">Cuatro fases para construir una marca con raíces.</h2>
+    <p class="section-body" data-i18n="marca.met.body">Un proceso estructurado que va del diagnóstico profundo a la identidad ejecutable. Cada fase alimenta a la siguiente.</p>
   </div>
   <div class="met-steps">
     <div class="met-step">
@@ -374,30 +375,30 @@
 <section id="core-benefit">
   <div class="cb-grid">
     <div>
-      <div class="cb-label">Estrategia de Marca</div>
-      <h2>La diferencia entre una marca que <em>se ve bien</em> y una que <em>vende bien</em>.</h2>
-      <p class="cb-body">El Core Benefit no lo inventamos nosotros — lo descubrimos junto con tu equipo. Está en la intersección de tres preguntas: qué es lo que tu empresa hace mejor que nadie, qué es lo que tus usuarios realmente necesitan (no lo que dicen que necesitan), y qué espacio dejó libre la competencia.</p>
-      <p class="cb-body">Cuando esas tres respuestas convergen, encontramos el núcleo. Desde ahí se construye todo lo demás.</p>
+      <div class="cb-label" data-i18n="marca.cb.label">Estrategia de Marca</div>
+      <h2 data-i18n-html="marca.cb.h2">La diferencia entre una marca que <em>se ve bien</em> y una que <em>vende bien</em>.</h2>
+      <p class="cb-body" data-i18n="marca.cb.body1">El Core Benefit no lo inventamos nosotros — lo descubrimos junto con tu equipo. Está en la intersección de tres preguntas: qué es lo que tu empresa hace mejor que nadie, qué es lo que tus usuarios realmente necesitan (no lo que dicen que necesitan), y qué espacio dejó libre la competencia.</p>
+      <p class="cb-body" data-i18n="marca.cb.body2">Cuando esas tres respuestas convergen, encontramos el núcleo. Desde ahí se construye todo lo demás.</p>
       <div style="margin-top:40px;">
-        <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico de marca</a>
+        <a href="index.html#contacto" class="btn-primary" data-i18n="marca.cb.cta">Agendar diagnóstico de marca</a>
       </div>
     </div>
     <div class="cb-pillars">
       <div class="cb-pillar">
-        <h4>Ventaja competitiva real</h4>
-        <p>Identificamos qué hace tu empresa mejor que cualquier alternativa en tu mercado.</p>
+        <h4 data-i18n="marca.cb.p1.h4">Ventaja competitiva real</h4>
+        <p data-i18n="marca.cb.p1.p">Identificamos qué hace tu empresa mejor que cualquier alternativa en tu mercado.</p>
       </div>
       <div class="cb-pillar">
-        <h4>Necesidad del usuario</h4>
-        <p>Lo que los usuarios realmente quieren rara vez es lo que dicen querer. Lo encontramos con metodología.</p>
+        <h4 data-i18n="marca.cb.p2.h4">Necesidad del usuario</h4>
+        <p data-i18n="marca.cb.p2.p">Lo que los usuarios realmente quieren rara vez es lo que dicen querer. Lo encontramos con metodología.</p>
       </div>
       <div class="cb-pillar">
-        <h4>Espacio en el mercado</h4>
-        <p>Mapeamos la competencia para encontrar el territorio que nadie ha reclamado todavía.</p>
+        <h4 data-i18n="marca.cb.p3.h4">Espacio en el mercado</h4>
+        <p data-i18n="marca.cb.p3.p">Mapeamos la competencia para encontrar el territorio que nadie ha reclamado todavía.</p>
       </div>
       <div class="cb-pillar">
-        <h4>Core Benefit statement</h4>
-        <p>Una declaración clara, interna y poderosa que guía cada decisión de marca.</p>
+        <h4 data-i18n="marca.cb.p4.h4">Core Benefit statement</h4>
+        <p data-i18n="marca.cb.p4.p">Una declaración clara, interna y poderosa que guía cada decisión de marca.</p>
       </div>
     </div>
   </div>
@@ -406,39 +407,39 @@
 
 <!-- SERVICIOS -->
 <section id="mservicios">
-  <p class="section-label">Servicios de consultoría</p>
-  <h2 class="section-title">Lo que construimos juntos.</h2>
-  <p class="section-body">Cada proyecto es a la medida. Podemos acompañarte en una fase específica o en el proceso completo, desde el diagnóstico hasta la activación.</p>
+  <p class="section-label" data-i18n="marca.svc.label">Servicios de consultoría</p>
+  <h2 class="section-title" data-i18n="marca.svc.h2">Lo que construimos juntos.</h2>
+  <p class="section-body" data-i18n="marca.svc.body">Cada proyecto es a la medida. Podemos acompañarte en una fase específica o en el proceso completo, desde el diagnóstico hasta la activación.</p>
   <div class="msvc-grid">
     <div class="msvc-card">
       <div class="msvc-n">01</div>
-      <h3>Consultoría de Posicionamiento</h3>
-      <p>Diagnóstico estratégico, análisis de mercado y definición del Core Benefit. Para marcas que quieren entender dónde están y a dónde pueden ir.</p>
+      <h3 data-i18n="marca.svc1.h3">Consultoría de Posicionamiento</h3>
+      <p data-i18n="marca.svc1.p">Diagnóstico estratégico, análisis de mercado y definición del Core Benefit. Para marcas que quieren entender dónde están y a dónde pueden ir.</p>
     </div>
     <div class="msvc-card">
       <div class="msvc-n">02</div>
-      <h3>Arquitectura de Marca Completa</h3>
-      <p>Construcción del sistema de marca desde cero: propósito, promesa, personalidad, tono de voz, mensajes y guía de uso.</p>
+      <h3 data-i18n="marca.svc2.h3">Arquitectura de Marca Completa</h3>
+      <p data-i18n="marca.svc2.p">Construcción del sistema de marca desde cero: propósito, promesa, personalidad, tono de voz, mensajes y guía de uso.</p>
     </div>
     <div class="msvc-card">
       <div class="msvc-n">03</div>
-      <h3>Identidad Visual & Sistema</h3>
-      <p>Diseño del sistema visual completo: logo, tipografía, paleta, iconografía y brand guidelines ejecutables.</p>
+      <h3 data-i18n="marca.svc3.h3">Identidad Visual & Sistema</h3>
+      <p data-i18n="marca.svc3.p">Diseño del sistema visual completo: logo, tipografía, paleta, iconografía y brand guidelines ejecutables.</p>
     </div>
     <div class="msvc-card">
       <div class="msvc-n">04</div>
-      <h3>Investigación de Usuarios</h3>
-      <p>Entrevistas en profundidad, encuestas, análisis de comportamiento y customer journey mapping para entender a tu audiencia real.</p>
+      <h3 data-i18n="marca.svc4.h3">Investigación de Usuarios</h3>
+      <p data-i18n="marca.svc4.p">Entrevistas en profundidad, encuestas, análisis de comportamiento y customer journey mapping para entender a tu audiencia real.</p>
     </div>
     <div class="msvc-card">
       <div class="msvc-n">05</div>
-      <h3>Naming & Conceptualización</h3>
-      <p>Desarrollo de nombre de marca, tagline y concepto creativo. Desde la exploración estratégica hasta la ejecución verbal.</p>
+      <h3 data-i18n="marca.svc5.h3">Naming & Conceptualización</h3>
+      <p data-i18n="marca.svc5.p">Desarrollo de nombre de marca, tagline y concepto creativo. Desde la exploración estratégica hasta la ejecución verbal.</p>
     </div>
     <div class="msvc-card">
       <div class="msvc-n">06</div>
-      <h3>Activación Digital de Marca</h3>
-      <p>Una vez construida la marca, la llevamos al ecosistema digital: sitio web, estrategia de contenido y presencia en canales clave.</p>
+      <h3 data-i18n="marca.svc6.h3">Activación Digital de Marca</h3>
+      <p data-i18n="marca.svc6.p">Una vez construida la marca, la llevamos al ecosistema digital: sitio web, estrategia de contenido y presencia en canales clave.</p>
     </div>
   </div>
 </section>
@@ -446,8 +447,8 @@
 
 <!-- CASOS RELACIONADOS -->
 <section id="mcasos">
-  <p class="section-label">Trabajo relevante</p>
-  <p style="font-size:15px;font-weight:300;color:var(--hint);margin-top:8px;letter-spacing:0.01em;">Algunas marcas que hemos construido.</p>
+  <p class="section-label" data-i18n="marca.casos.label">Trabajo relevante</p>
+  <p style="font-size:15px;font-weight:300;color:var(--hint);margin-top:8px;letter-spacing:0.01em;" data-i18n="marca.casos.sub">Algunas marcas que hemos construido.</p>
   <div class="mcase-grid">
     <a href="casos/berger.html" class="mcase-card">
       <img src="img/casos/berger-1.jpg" alt="Berger Joyeros" />
@@ -488,11 +489,11 @@
 
 <!-- CTA -->
 <section id="mcta">
-  <h2>¿Listo para construir tu marca desde el núcleo?</h2>
-  <p>La primera consulta es sin costo. Platicamos de tu proyecto y evaluamos honestamente si podemos ayudarte.</p>
+  <h2 data-i18n="marca.cta.h2">¿Listo para construir tu marca desde el núcleo?</h2>
+  <p data-i18n="marca.cta.p">La primera consulta es sin costo. Platicamos de tu proyecto y evaluamos honestamente si podemos ayudarte.</p>
   <div class="cta-actions">
-    <a href="index.html#contacto" class="btn-primary">Agendar diagnóstico</a>
-    <a href="index.html#casos" class="btn-ghost" style="color:#777;">Ver casos de éxito →</a>
+    <a href="index.html#contacto" class="btn-primary" data-i18n="marca.cta.btn1">Agendar diagnóstico</a>
+    <a href="index.html#casos" class="btn-ghost" style="color:#777;" data-i18n="marca.cta.btn2">Ver casos de éxito →</a>
   </div>
 </section>
 

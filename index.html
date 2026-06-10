@@ -6,6 +6,8 @@
   <title>CoreLab — Ayudamos a las empresas a crear mejores marcas</title>
   <meta name="description" content="Consultora de marca y crecimiento digital. Estrategia, branding, marketing digital y desarrollo web desde CDMX." />
   <link rel="stylesheet" href="css/main.css" />
+  <script>window.__LOGO_SRC__='logos/corelab.png'; window.__ROOT__='./';</script>
+  <script src="js/i18n.js"></script>
   <script type="application/ld+json">
   [
     {
@@ -439,34 +441,18 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="logo">
-    <a href="index.html"><img src="logos/corelab.png" alt="CoreLab" style="height:34px;display:block;" /></a>
-  </div>
-  <ul>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#casos">Casos</a></li>
-    <li><a href="inmobiliaria.html">Inmobiliaria</a></li>
-    <li><a href="marca.html">Marca</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-  </ul>
-  <a href="#contacto" class="nav-cta">Escríbenos</a>
-</nav>
-
-
 <!-- HERO -->
 <section id="hero">
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="https://pub-f6cf765a3dc745a5b6201199d9562f84.r2.dev/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
-  <p class="hero-eyebrow">CoreLab — Ciudad de México · Desde 2016</p>
-  <h1>Ayudamos a las empresas<br/>a crear <em>mejores marcas.</em></h1>
-  <p class="hero-sub">Soluciones a la medida en estrategia de marca, crecimiento digital, marketing y desarrollo.</p>
+  <p class="hero-eyebrow" data-i18n="home.hero.eyebrow">CoreLab — Ciudad de México · Desde 2016</p>
+  <h1 data-i18n-html="home.hero.h1">Ayudamos a las empresas<br/>a crear <em>mejores marcas.</em></h1>
+  <p class="hero-sub" data-i18n="home.hero.sub">Soluciones a la medida en estrategia de marca, crecimiento digital, marketing y desarrollo.</p>
   <div class="hero-actions">
-    <a href="#servicios" class="btn-primary">Conocer servicios</a>
-    <a href="#casos" class="btn-ghost">Ver casos de éxito →</a>
+    <a href="#servicios" class="btn-primary" data-i18n="home.hero.cta1">Conocer servicios</a>
+    <a href="#casos" class="btn-ghost" data-i18n="home.hero.cta2">Ver casos de éxito →</a>
   </div>
 </section>
 
@@ -478,15 +464,15 @@
     <!-- Panel izquierdo — manifiesto -->
     <div class="nos-left">
       <div>
-        <p class="section-label">Quiénes somos</p>
-        <h2 class="nos-manifesto">Construimos marcas que duran<br/>y negocios que <em>crecen.</em></h2>
-        <p class="nos-body">CoreLab es una consultora de marca y crecimiento digital con base en CDMX. Trabajamos con empresas que entienden que una buena marca no es un gasto — es la ventaja competitiva más duradera que existe.</p>
+        <p class="section-label" data-i18n="home.nos.label">Quiénes somos</p>
+        <h2 class="nos-manifesto" data-i18n-html="home.nos.manifesto">Construimos marcas que duran<br/>y negocios que <em>crecen.</em></h2>
+        <p class="nos-body" data-i18n="home.nos.body">CoreLab es una consultora de marca y crecimiento digital con base en CDMX. Trabajamos con empresas que entienden que una buena marca no es un gasto — es la ventaja competitiva más duradera que existe.</p>
       </div>
       <div class="nos-footer">
         <div class="nos-year">2016</div>
         <div class="nos-detail">
           <span>CoreLab</span>
-          Ciudad de México<br/>Desde 2016
+          <span data-i18n-html="home.nos.detail">Ciudad de México<br/>Desde 2016</span>
         </div>
       </div>
     </div>
@@ -494,27 +480,27 @@
     <!-- Panel derecho — valores -->
     <div class="nos-right">
       <div class="nos-right-num">CL</div>
-      <p class="section-label">Nuestra forma</p>
+      <p class="section-label" data-i18n="home.nos.right_label">Nuestra forma</p>
       <div class="valores">
         <div class="valor-item">
           <div class="valor-num">01</div>
-          <h4>Primero ESTRATEGIA</h4>
-          <p>Analizamos el estado actual y diseñamos los siguientes pasos de tu marca.</p>
+          <h4 data-i18n="home.v1.title">Primero ESTRATEGIA</h4>
+          <p data-i18n="home.v1.body">Analizamos el estado actual y diseñamos los siguientes pasos de tu marca.</p>
         </div>
         <div class="valor-item">
           <div class="valor-num">02</div>
-          <h4>Soluciones a la medida</h4>
-          <p>No hay plantillas. Cada proyecto empieza desde cero.</p>
+          <h4 data-i18n="home.v2.title">Soluciones a la medida</h4>
+          <p data-i18n="home.v2.body">No hay plantillas. Cada proyecto empieza desde cero.</p>
         </div>
         <div class="valor-item">
           <div class="valor-num">03</div>
-          <h4>Resultados medibles</h4>
-          <p>Cada decisión tiene un propósito y un indicador.</p>
+          <h4 data-i18n="home.v3.title">Resultados medibles</h4>
+          <p data-i18n="home.v3.body">Cada decisión tiene un propósito y un indicador.</p>
         </div>
         <div class="valor-item">
           <div class="valor-num">04</div>
-          <h4>Relaciones de largo plazo</h4>
-          <p>Crecemos con nuestros clientes, no solo por proyecto.</p>
+          <h4 data-i18n="home.v4.title">Relaciones de largo plazo</h4>
+          <p data-i18n="home.v4.body">Crecemos con nuestros clientes, no solo por proyecto.</p>
         </div>
       </div>
     </div>
@@ -527,13 +513,13 @@
 <!-- SERVICIOS -->
 <section id="servicios">
   <div style="margin-bottom:48px;">
-    <p class="section-label">Lo que hacemos</p>
+    <p class="section-label" data-i18n="home.svc.label">Lo que hacemos</p>
   </div>
   <div class="servicios-grid">
     <div class="servicio-card">
       <div class="svc-num">01</div>
-      <h3>Consultoría <em style="font-style:italic;color:var(--gold);">de Marca</em></h3>
-      <p>Definimos y articulamos quién eres, a dónde vas y cómo te diferencias. Desde la arquitectura hasta el posicionamiento competitivo.</p>
+      <h3 data-i18n-html="home.svc1.h3">Consultoría <em style="font-style:italic;color:var(--gold);">de Marca</em></h3>
+      <p data-i18n="home.svc1.p">Definimos y articulamos quién eres, a dónde vas y cómo te diferencias. Desde la arquitectura hasta el posicionamiento competitivo.</p>
       <div class="svc-items">
         <span>Arquitectura de Marca</span>
         <span>Core Benefit Discovery</span>
@@ -545,8 +531,8 @@
     </div>
     <div class="servicio-card">
       <div class="svc-num">02</div>
-      <h3>Estrategia & <em style="font-style:italic;color:var(--gold);">Marketing Digital</em></h3>
-      <p>Construimos y operamos ecosistemas de marketing orientados a resultados. Performance medible, audiencias calificadas, KPIs claros.</p>
+      <h3 data-i18n-html="home.svc2.h3">Estrategia & <em style="font-style:italic;color:var(--gold);">Marketing Digital</em></h3>
+      <p data-i18n="home.svc2.p">Construimos y operamos ecosistemas de marketing orientados a resultados. Performance medible, audiencias calificadas, KPIs claros.</p>
       <div class="svc-items">
         <span>Estrategia de Medios</span>
         <span>Creación de Concepto y Campaña</span>
@@ -558,8 +544,8 @@
     </div>
     <div class="servicio-card">
       <div class="svc-num">03</div>
-      <h3>Branding & <em style="font-style:italic;color:var(--gold);">Diseño de Marca</em></h3>
-      <p>Traducimos la estrategia en identidad visual. Sistemas de diseño coherentes que funcionan en todos los puntos de contacto.</p>
+      <h3 data-i18n-html="home.svc3.h3">Branding & <em style="font-style:italic;color:var(--gold);">Diseño de Marca</em></h3>
+      <p data-i18n="home.svc3.p">Traducimos la estrategia en identidad visual. Sistemas de diseño coherentes que funcionan en todos los puntos de contacto.</p>
       <div class="svc-items">
         <span>Workshop Naming y Creatividad</span>
         <span>Concepto de Marca</span>
@@ -571,8 +557,8 @@
     </div>
     <div class="servicio-card">
       <div class="svc-num">04</div>
-      <h3>Diseño Web <em style="font-style:italic;color:var(--gold);">& Software</em></h3>
-      <p>Desarrollamos productos digitales que convierten. Desde la experiencia de usuario hasta el código — todo en un solo equipo.</p>
+      <h3 data-i18n-html="home.svc4.h3">Diseño Web <em style="font-style:italic;color:var(--gold);">& Software</em></h3>
+      <p data-i18n="home.svc4.p">Desarrollamos productos digitales que convierten. Desde la experiencia de usuario hasta el código — todo en un solo equipo.</p>
       <div class="svc-items">
         <span>UI/UX — Diseño de Experiencia</span>
         <span>SEO / AIO</span>
@@ -584,8 +570,8 @@
     </div>
     <div class="servicio-card" style="grid-column: span 2;">
       <div class="svc-num">05</div>
-      <h3>IA Aplicada <em style="font-style:italic;color:var(--gold);">& Automatización</em></h3>
-      <p>Diseñamos e implementamos soluciones de IA que impactan directamente tu operación, tus ventas y tu equipo.</p>
+      <h3 data-i18n-html="home.svc5.h3">IA Aplicada <em style="font-style:italic;color:var(--gold);">& Automatización</em></h3>
+      <p data-i18n="home.svc5.p">Diseñamos e implementamos soluciones de IA que impactan directamente tu operación, tus ventas y tu equipo.</p>
       <div class="svc-items" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px 24px;">
         <span>Automatización de Procesos</span>
         <span>Chatbots & Agentes de Venta</span>
@@ -605,28 +591,28 @@
 <section id="marca-highlight" class="esp-band">
   <div class="esp-marca-grid">
     <div>
-      <p class="section-label">Especialidad — Estrategia de Marca</p>
-      <h2 class="section-title">Las marcas que usas no te gustan por casualidad, <em>tienen una estrategia detrás.</em></h2>
-      <p class="section-body">Investigamos tu mercado, entendemos a tus usuarios y encontramos el Core Benefit — el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
+      <p class="section-label" data-i18n="home.marca.label">Especialidad — Estrategia de Marca</p>
+      <h2 class="section-title" data-i18n-html="home.marca.h2">Las marcas que usas no te gustan por casualidad, <em>tienen una estrategia detrás.</em></h2>
+      <p class="section-body" data-i18n="home.marca.body">Investigamos tu mercado, entendemos a tus usuarios y encontramos el Core Benefit — el beneficio central que solo tu marca puede dar. Después lo construimos de adentro hacia afuera.</p>
       <div class="esp-cta">
-        <a href="marca.html" class="btn-primary">Ver metodología</a>
-        <a href="#contacto" class="btn-ghost">Agendar diagnóstico →</a>
+        <a href="marca.html" class="btn-primary" data-i18n="home.marca.cta1">Ver metodología</a>
+        <a href="#contacto" class="btn-ghost" data-i18n="home.marca.cta2">Agendar diagnóstico →</a>
       </div>
     </div>
     <div class="esp-marca-right">
       <div class="big-n"><span>+</span>25</div>
-      <div class="big-l">Marcas construidas</div>
+      <div class="big-l" data-i18n="home.marca.stat1">Marcas construidas</div>
       <div class="sub-stats">
         <div class="sub-stat">
-          <span class="sl">Creando marcas desde</span>
+          <span class="sl" data-i18n="home.marca.stat2">Creando marcas desde</span>
           <span class="sn">2016</span>
         </div>
         <div class="sub-stat">
-          <span class="sl">Fases de metodología</span>
+          <span class="sl" data-i18n="home.marca.stat3">Fases de metodología</span>
           <span class="sn"><span>4</span></span>
         </div>
         <div class="sub-stat">
-          <span class="sl">A la medida</span>
+          <span class="sl" data-i18n="home.marca.stat4">A la medida</span>
           <span class="sn">100<span>%</span></span>
         </div>
       </div>
@@ -638,29 +624,29 @@
 <section id="inmobiliaria-highlight" class="esp-band">
   <div class="esp-inmo-body">
     <div>
-      <p class="section-label">Especialidad — Real Estate</p>
-      <h2 class="section-title">Expertos en <em>marketing de performance</em> para el sector inmobiliario.</h2>
+      <p class="section-label" data-i18n="home.inmo.label">Especialidad — Real Estate</p>
+      <h2 class="section-title" data-i18n-html="home.inmo.h2">Expertos en <em>marketing de performance</em> para el sector inmobiliario.</h2>
     </div>
     <div>
-      <p class="section-body">Más de 9 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México. Desde la estrategia de medios hasta el cierre.</p>
+      <p class="section-body" data-i18n="home.inmo.body">Más de 9 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México. Desde la estrategia de medios hasta el cierre.</p>
       <div class="esp-cta">
-        <a href="inmobiliaria.html" class="btn-primary">Ver especialidad</a>
-        <a href="#casos" class="btn-ghost">Ver casos →</a>
+        <a href="inmobiliaria.html" class="btn-primary" data-i18n="home.inmo.cta1">Ver especialidad</a>
+        <a href="#casos" class="btn-ghost" data-i18n="home.inmo.cta2">Ver casos →</a>
       </div>
     </div>
   </div>
   <div class="esp-inmo-stats">
     <div class="esp-inmo-stat">
       <div class="n"><span>+</span>20</div>
-      <div class="l">Desarrollos en México</div>
+      <div class="l" data-i18n="home.inmo.stat1">Desarrollos en México</div>
     </div>
     <div class="esp-inmo-stat">
       <div class="n">9<span>+</span></div>
-      <div class="l">Años en el sector</div>
+      <div class="l" data-i18n="home.inmo.stat2">Años en el sector</div>
     </div>
     <div class="esp-inmo-stat">
       <div class="n">360<span>°</span></div>
-      <div class="l">Ecosistema digital de ventas</div>
+      <div class="l" data-i18n="home.inmo.stat3">Ecosistema digital de ventas</div>
     </div>
   </div>
 </section>
@@ -669,41 +655,41 @@
 <section id="ia-highlight" class="esp-band">
   <div class="esp-ia-grid">
     <div>
-      <p class="section-label">Especialidad — IA & Automatización</p>
-      <h2 class="section-title">IA para negocios, no para demos. <em>Resultados reales, desde el día uno.</em></h2>
-      <p class="section-body">Diseñamos e implementamos soluciones de IA que impactan directamente tu operación, tus ventas y tu equipo.</p>
+      <p class="section-label" data-i18n="home.ia.label">Especialidad — IA & Automatización</p>
+      <h2 class="section-title" data-i18n-html="home.ia.h2">IA para negocios, no para demos. <em>Resultados reales, desde el día uno.</em></h2>
+      <p class="section-body" data-i18n="home.ia.body">Diseñamos e implementamos soluciones de IA que impactan directamente tu operación, tus ventas y tu equipo.</p>
       <div class="esp-cta">
-        <a href="ia.html" class="btn-primary">Ver servicios IA</a>
-        <a href="#contacto" class="btn-ghost">Agendar consultoría →</a>
+        <a href="ia.html" class="btn-primary" data-i18n="home.ia.cta1">Ver servicios IA</a>
+        <a href="#contacto" class="btn-ghost" data-i18n="home.ia.cta2">Agendar consultoría →</a>
       </div>
     </div>
     <div class="esp-ia-list">
       <div class="esp-ia-item">
         <span class="idx">01</span>
         <div>
-          <h4>Automatización de Procesos</h4>
-          <p>Eliminamos tareas repetitivas con flujos inteligentes que escalan sin fricción.</p>
+          <h4 data-i18n="home.ia.item1.h4">Automatización de Procesos</h4>
+          <p data-i18n="home.ia.item1.p">Eliminamos tareas repetitivas con flujos inteligentes que escalan sin fricción.</p>
         </div>
       </div>
       <div class="esp-ia-item">
         <span class="idx">02</span>
         <div>
-          <h4>Agentes & Chatbots de Venta</h4>
-          <p>Desde calificación de leads hasta cierre — agentes que trabajan 24/7.</p>
+          <h4 data-i18n="home.ia.item2.h4">Agentes & Chatbots de Venta</h4>
+          <p data-i18n="home.ia.item2.p">Desde calificación de leads hasta cierre — agentes que trabajan 24/7.</p>
         </div>
       </div>
       <div class="esp-ia-item">
         <span class="idx">03</span>
         <div>
-          <h4>Generación de Contenido IA</h4>
-          <p>Producción de contenido a escala con criterio editorial y voz de marca.</p>
+          <h4 data-i18n="home.ia.item3.h4">Generación de Contenido IA</h4>
+          <p data-i18n="home.ia.item3.p">Producción de contenido a escala con criterio editorial y voz de marca.</p>
         </div>
       </div>
       <div class="esp-ia-item">
         <span class="idx">04</span>
         <div>
-          <h4>Análisis de Datos</h4>
-          <p>Dashboards, reportes y modelos predictivos conectados a tus KPIs reales.</p>
+          <h4 data-i18n="home.ia.item4.h4">Análisis de Datos</h4>
+          <p data-i18n="home.ia.item4.p">Dashboards, reportes y modelos predictivos conectados a tus KPIs reales.</p>
         </div>
       </div>
     </div>
@@ -713,7 +699,7 @@
 <!-- CLIENTES -->
 <section id="clientes">
   <div class="cl-header">
-    <p class="section-label">Marcas que han confiado en nosotros</p>
+    <p class="section-label" data-i18n="home.clientes.label">Marcas que han confiado en nosotros</p>
   </div>
   <div class="logo-grid">
     <div class="logo-cell"><img src="logos/Arquitectoma.jpeg" alt="Arquitectoma" /></div>
@@ -747,10 +733,10 @@
   <div class="casos-inner">
     <div class="casos-header">
       <div>
-        <p class="section-label">Trabajo seleccionado</p>
-        <h2 class="section-title">Algunos proyectos</h2>
+        <p class="section-label" data-i18n="home.casos.label">Trabajo seleccionado</p>
+        <h2 class="section-title" data-i18n="home.casos.h2">Algunos proyectos</h2>
       </div>
-      <a href="#contacto" class="btn-ghost">Iniciar un proyecto →</a>
+      <a href="#contacto" class="btn-ghost" data-i18n="home.casos.cta">Iniciar un proyecto →</a>
     </div>
     <div class="casos-list">
       <a href="casos/acha.html" class="caso-row" data-img="img/casos/acha-1.jpg">
@@ -827,17 +813,17 @@
 <section id="contacto">
   <div class="contacto-inner">
     <div>
-      <p class="section-label">Hablemos</p>
-      <h2 class="section-title">¿Tienes un proyecto?<br/>Escríbenos.</h2>
-      <p class="section-body">Respondemos en menos de 24 horas. La primera consulta es sin costo — platicamos sobre tu proyecto y te decimos honestamente cómo podemos ayudarte.</p>
+      <p class="section-label" data-i18n="home.contacto.label">Hablemos</p>
+      <h2 class="section-title" data-i18n-html="home.contacto.h2">¿Tienes un proyecto?<br/>Escríbenos.</h2>
+      <p class="section-body" data-i18n="home.contacto.body">Respondemos en menos de 24 horas. La primera consulta es sin costo — platicamos sobre tu proyecto y te decimos honestamente cómo podemos ayudarte.</p>
       <div class="contact-items">
         <div class="contact-item">
           <div class="ln g"></div>
-          <div><div class="lbl">Email</div><a href="mailto:hola@corelab.mx">hola@corelab.mx</a></div>
+          <div><div class="lbl" data-i18n="home.contacto.email_lbl">Email</div><a href="mailto:hola@corelab.mx">hola@corelab.mx</a></div>
         </div>
         <div class="contact-item">
           <div class="ln"></div>
-          <div><div class="lbl">Dirección</div><span>Gob. Protasio Tagle 41<br/>San Miguel Chapultepec, CDMX</span></div>
+          <div><div class="lbl" data-i18n="home.contacto.addr_lbl">Dirección</div><span>Gob. Protasio Tagle 41<br/>San Miguel Chapultepec, CDMX</span></div>
         </div>
       </div>
     </div>
@@ -847,31 +833,31 @@
       <input type="hidden" name="from_name" value="CoreLab Website" />
       <input type="checkbox" name="botcheck" style="display:none" />
       <div class="form-row">
-        <div class="form-group"><label>Nombre</label><input type="text" name="name" placeholder="Tu nombre" required /></div>
-        <div class="form-group"><label>Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa" /></div>
+        <div class="form-group"><label data-i18n="form.nombre.label">Nombre</label><input type="text" name="name" placeholder="Tu nombre" data-i18n-placeholder="form.nombre.placeholder" required /></div>
+        <div class="form-group"><label data-i18n="form.empresa.label">Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa" data-i18n-placeholder="form.empresa.placeholder" /></div>
       </div>
-      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="correo@empresa.com" required /></div>
+      <div class="form-group"><label data-i18n="form.email.label">Email</label><input type="email" name="email" placeholder="correo@empresa.com" required /></div>
       <div class="form-group">
-        <label>¿En qué podemos ayudarte?</label>
+        <label data-i18n="form.service.label">¿En qué podemos ayudarte?</label>
         <select name="servicio">
-          <option value="" disabled selected>Selecciona un servicio</option>
-          <option>Consultoría de Marca</option>
-          <option>Estrategia & Marketing Digital</option>
-          <option>Branding & Diseño de Marca</option>
-          <option>Diseño Web & Software</option>
-          <option>Marketing Inmobiliario</option>
-          <option>No sé todavía, quiero platicar</option>
+          <option value="" disabled selected data-i18n="form.service.placeholder">Selecciona un servicio</option>
+          <option data-i18n="form.opt1">Consultoría de Marca</option>
+          <option data-i18n="form.opt2">Estrategia & Marketing Digital</option>
+          <option data-i18n="form.opt3">Branding & Diseño de Marca</option>
+          <option data-i18n="form.opt4">Diseño Web & Software</option>
+          <option data-i18n="form.opt5">Marketing Inmobiliario</option>
+          <option data-i18n="form.opt6">No sé todavía, quiero platicar</option>
         </select>
       </div>
-      <div class="form-group"><label>Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Qué estás construyendo? ¿Qué problema quieres resolver?"></textarea></div>
+      <div class="form-group"><label data-i18n="form.message.label">Cuéntanos tu proyecto</label><textarea name="message" placeholder="¿Qué estás construyendo? ¿Qué problema quieres resolver?" data-i18n-placeholder="form.message.placeholder"></textarea></div>
       <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:28px;">
         <input type="checkbox" name="privacidad" id="privacidad-home" required style="width:auto;margin-top:3px;accent-color:var(--gold);flex-shrink:0;cursor:pointer;" />
-        <label for="privacidad-home" style="display:inline;font-size:12px;font-weight:300;color:var(--hint);line-height:1.6;letter-spacing:0;text-transform:none;cursor:pointer;">
+        <label for="privacidad-home" data-i18n-html="form.privacy" style="display:inline;font-size:12px;font-weight:300;color:var(--hint);line-height:1.6;letter-spacing:0;text-transform:none;cursor:pointer;">
           He leído y acepto el <a href="aviso-de-privacidad.html" target="_blank" style="color:var(--text);text-decoration:underline;text-underline-offset:3px;">Aviso de Privacidad</a> y consiento el tratamiento de mis datos personales conforme a la LFPDPPP.
         </label>
       </div>
-      <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:15px;">Enviar mensaje</button>
-      <p id="form-success">¡Listo! Te contactamos en menos de 24 horas.</p>
+      <button type="submit" class="btn-primary" data-i18n="form.submit" style="width:100%;text-align:center;padding:15px;">Enviar mensaje</button>
+      <p id="form-success" data-i18n="form.success">¡Listo! Te contactamos en menos de 24 horas.</p>
     </form>
   </div>
 </section>

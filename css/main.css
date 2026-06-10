@@ -66,6 +66,20 @@ nav ul a:hover { color: var(--gold); }
   display: inline-block;
 }
 .nav-cta:hover { border-color: var(--gold); color: var(--gold); }
+.lang-toggle {
+  background: transparent;
+  border: 1px solid #333;
+  color: #666;
+  padding: 5px 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.lang-toggle:hover { border-color: #666; color: #AAA; }
 
 /* ── SECTION COMMONS ── */
 section { padding: 104px 48px; }

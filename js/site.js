@@ -14,14 +14,17 @@
       </a>
     </div>
     <ul>
-      <li><a href="${rootPath}index.html#servicios">Servicios</a></li>
-      <li><a href="${rootPath}index.html#casos">Casos</a></li>
-      <li><a href="${rootPath}inmobiliaria.html">Inmobiliaria</a></li>
-      <li><a href="${rootPath}marca.html">Marca</a></li>
-      <li><a href="${rootPath}ia.html">IA</a></li>
-      <li><a href="${rootPath}index.html#nosotros">Nosotros</a></li>
+      <li><a href="${rootPath}index.html#servicios" data-i18n="nav.servicios">Servicios</a></li>
+      <li><a href="${rootPath}index.html#casos" data-i18n="nav.casos">Casos</a></li>
+      <li><a href="${rootPath}inmobiliaria.html" data-i18n="nav.inmobiliaria">Inmobiliaria</a></li>
+      <li><a href="${rootPath}marca.html" data-i18n="nav.marca">Marca</a></li>
+      <li><a href="${rootPath}ia.html" data-i18n="nav.ia">IA</a></li>
+      <li><a href="${rootPath}index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
     </ul>
-    <a href="${rootPath}index.html#contacto" class="nav-cta">Escríbenos</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <button id="lang-toggle" onclick="window.__setLang && window.__setLang(window.__lang==='es'?'en':'es')" class="lang-toggle">EN</button>
+      <a href="${rootPath}index.html#contacto" class="nav-cta" data-i18n="nav.cta">Escríbenos</a>
+    </div>
   </nav>`;
 
   // FOOTER
@@ -30,23 +33,23 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="${logoSrc}" alt="CoreLab" style="height:24px;opacity:0.85;" />
-        <p>Ayudamos a las empresas a crear mejores marcas. Estrategia, diseño y tecnología en un solo equipo.</p>
+        <p data-i18n="footer.tagline">Ayudamos a las empresas a crear mejores marcas. Estrategia, diseño y tecnología en un solo equipo.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h5>Servicios</h5>
+          <h5 data-i18n="footer.col1">Servicios</h5>
           <ul>
-            <li><a href="${rootPath}index.html#servicios">Consultoría de Marca</a></li>
-            <li><a href="${rootPath}index.html#servicios">Estrategia Digital</a></li>
-            <li><a href="${rootPath}index.html#servicios">Branding & Diseño</a></li>
-            <li><a href="${rootPath}index.html#servicios">Diseño Web & Software</a></li>
-            <li><a href="${rootPath}inmobiliaria.html">Marketing Inmobiliario</a></li>
-            <li><a href="${rootPath}marca.html">Estrategia de Marca</a></li>
-            <li><a href="${rootPath}ia.html">IA & Automatización</a></li>
+            <li><a href="${rootPath}index.html#servicios" data-i18n="footer.col1.l1">Consultoría de Marca</a></li>
+            <li><a href="${rootPath}index.html#servicios" data-i18n="footer.col1.l2">Estrategia Digital</a></li>
+            <li><a href="${rootPath}index.html#servicios" data-i18n="footer.col1.l3">Branding & Diseño</a></li>
+            <li><a href="${rootPath}index.html#servicios" data-i18n="footer.col1.l4">Diseño Web & Software</a></li>
+            <li><a href="${rootPath}inmobiliaria.html" data-i18n="footer.col1.l5">Marketing Inmobiliario</a></li>
+            <li><a href="${rootPath}marca.html" data-i18n="footer.col1.l6">Estrategia de Marca</a></li>
+            <li><a href="${rootPath}ia.html" data-i18n="footer.col1.l7">IA & Automatización</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Casos</h5>
+          <h5 data-i18n="footer.col2">Casos</h5>
           <ul>
             <li><a href="${rootPath}casos/arquitectoma.html">Arquitectoma</a></li>
             <li><a href="${rootPath}casos/berger.html">Berger Joyeros</a></li>
@@ -59,10 +62,10 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Empresa</h5>
+          <h5 data-i18n="footer.col3">Empresa</h5>
           <ul>
-            <li><a href="${rootPath}index.html#nosotros">Nosotros</a></li>
-            <li><a href="${rootPath}marca.html">Estrategia de Marca</a></li>
+            <li><a href="${rootPath}index.html#nosotros" data-i18n="footer.col3.l1">Nosotros</a></li>
+            <li><a href="${rootPath}marca.html" data-i18n="footer.col3.l2">Estrategia de Marca</a></li>
             <li><a href="mailto:hola@corelab.mx">hola@corelab.mx</a></li>
           </ul>
         </div>
@@ -70,7 +73,7 @@
     </div>
     <div class="footer-bottom">
       <p>CoreLab 2026 ©</p>
-      <a href="${rootPath}aviso-de-privacidad.html">Aviso de Privacidad</a>
+      <a href="${rootPath}aviso-de-privacidad.html" data-i18n="footer.privacy">Aviso de Privacidad</a>
       <a href="mailto:hola@corelab.mx">hola@corelab.mx</a>
     </div>
   </footer>`;
@@ -80,6 +83,9 @@
     document.body.insertAdjacentHTML('afterbegin', navHTML);
     // Inject footer at end
     document.body.insertAdjacentHTML('beforeend', footerHTML);
+
+    // Apply translations after injection
+    if (window.__applyTranslations) window.__applyTranslations();
 
     // Scroll nav border
     const nav = document.getElementById('navbar');

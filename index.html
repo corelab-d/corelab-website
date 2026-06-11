@@ -413,9 +413,11 @@
     @media (max-width: 900px) {
       #hero { padding: 0 24px 72px; }
       .hero-scroll { display: none; }
-      .logo-grid { grid-template-columns: repeat(3, 1fr); }
+      .logo-grid { grid-template-columns: repeat(2, 1fr); }
+      .logo-cell { height: 120px; }
+      .logo-cell img { max-height: 40px; max-width: 100px; }
       .logo-cell:nth-child(5n) { border-right: 1px solid var(--border); }
-      .logo-cell:nth-child(3n) { border-right: none; }
+      .logo-cell:nth-child(2n) { border-right: none; }
       .esp-marca-grid { grid-template-columns: 1fr; gap: 48px; }
       .esp-marca-right { align-items: flex-start; border-right: none; border-left: 3px solid var(--gold); padding-right: 0; padding-left: 24px; text-align: left; }
       .esp-marca-right .sub-stat { justify-content: flex-start; }

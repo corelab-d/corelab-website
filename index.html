@@ -892,10 +892,10 @@ async function handleForm(e) {
       document.getElementById('form-success').style.display = 'block';
       form.reset();
     } else {
-      alert('Hubo un error. Por favor escríbenos a hola@corelab.mx');
+      alert('Error: ' + (result.message || JSON.stringify(result)));
     }
   } catch (err) {
-    alert('Hubo un error. Por favor escríbenos a hola@corelab.mx');
+    alert('Catch error: ' + err.message);
   }
   btn.disabled = false;
   btn.textContent = 'Enviar mensaje';

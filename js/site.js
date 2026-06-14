@@ -72,7 +72,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>CoreLab 2026 ©</p>
+      <p>CoreLab — Proyecto Core SA de CV 2026 ©</p>
       <a href="${rootPath}aviso-de-privacidad.html" data-i18n="footer.privacy">Aviso de Privacidad</a>
       <a href="mailto:hola@corelab.mx">hola@corelab.mx</a>
     </div>

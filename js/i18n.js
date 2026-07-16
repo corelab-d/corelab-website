@@ -97,6 +97,16 @@
       'home.ia.item4.h4':   'Análisis de Datos',
       'home.ia.item4.p':    'Dashboards, reportes y modelos predictivos conectados a tus KPIs reales.',
 
+      // HOME — LAVA
+      'home.lava.label': 'Desarrollo IA · Producto propio',
+      'home.lava.h2':    'Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em>',
+      'home.lava.body':  'LAVA conecta todos tus canales de captación — Meta Ads, Google Ads, landings, formularios, LinkedIn y más — y filtra, califica y valida cada lead automáticamente. Tu equipo solo habla con quienes tienen intención real de compra.',
+      'home.lava.cta1':  'Conocer LAVA',
+      'home.lava.cta2':  'Ver demo →',
+      'home.lava.stat1': 'Siempre disponible',
+      'home.lava.stat2': 'Primera respuesta',
+      'home.lava.stat3': 'Leads pre-calificados',
+
       // HOME — CLIENTES / CASOS / CONTACTO
       'home.clientes.label': 'Marcas que han confiado en nosotros',
       'home.casos.label':    'Trabajo seleccionado',
@@ -373,6 +383,16 @@
       'home.ia.item3.p':    'Content production at scale with editorial standards and brand voice.',
       'home.ia.item4.h4':   'Data Analysis',
       'home.ia.item4.p':    'Dashboards, reports and predictive models connected to your real KPIs.',
+
+      // HOME — LAVA
+      'home.lava.label': 'AI Development · Own product',
+      'home.lava.h2':    'Focus your team<br/>on the leads that <em>will<br/>actually buy.</em>',
+      'home.lava.body':  'LAVA connects all your acquisition channels — Meta Ads, Google Ads, landing pages, forms, LinkedIn and more — and automatically filters, qualifies and validates every lead. Your team only talks to prospects with real purchase intent.',
+      'home.lava.cta1':  'Discover LAVA',
+      'home.lava.cta2':  'See demo →',
+      'home.lava.stat1': 'Always on',
+      'home.lava.stat2': 'First response',
+      'home.lava.stat3': 'Pre-qualified leads',
 
       // HOME — CLIENTES / CASOS / CONTACTO
       'home.clientes.label': 'Brands that have trusted us',

@@ -296,45 +296,71 @@
     /* ── 04 LAVA ── */
     #lava-highlight {
       background: var(--surface);
-      padding: 80px 0;
+      padding: 96px 48px;
       border-top: 1px solid var(--border);
+      position: relative; overflow: hidden;
     }
-    .esp-lava-body {
-      padding: 0 48px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+    #lava-highlight::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 60% 100% at 100% 50%, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 100% at 100% 50%, black 0%, transparent 70%);
     }
-    .esp-lava-logo {
-      margin-bottom: 32px;
-      max-width: 260px;
-      width: 100%;
-      display: block;
-      opacity: 0.88;
+    .lava-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+      position: relative; z-index: 1;
     }
-    .lava-mini-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 44px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
+    .lava-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 24px;
     }
-    .lava-mini-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .lava-badge .pulse {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+      animation: lava-pulse 2s ease-in-out infinite;
     }
-    .lms-n {
-      font-size: 30px;
-      font-weight: 300;
-      color: var(--text);
-      letter-spacing: -0.03em;
-      line-height: 1;
+    @keyframes lava-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
+    .lava-badge .txt {
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
     }
-    .lms-n span { color: var(--gold); }
-    .lms-l {
-      font-size: 10px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--hint);
+    #lava-highlight h2 {
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 300; color: var(--text);
+      letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px;
+    }
+    #lava-highlight h2 em { font-style: italic; color: var(--gold); }
+    #lava-highlight .lava-body {
+      font-size: 13px; font-weight: 300; color: var(--muted);
+      line-height: 1.85; margin-bottom: 40px;
+    }
+    .lava-steps { display: flex; flex-direction: column; }
+    .lava-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .lava-step:first-child { border-top: 1px solid var(--border); }
+    .lava-step-num {
+      font-size: 10px; color: var(--gold);
+      letter-spacing: 0.08em; padding-top: 3px; font-weight: 400;
+    }
+    .lava-step h4 {
+      font-size: 13px; font-weight: 400; color: var(--text);
+      margin-bottom: 5px;
+    }
+    .lava-step p {
+      font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.6;
     }
 
     /* ── LOGOS ── */
@@ -745,33 +771,43 @@
 </section>
 
 <!-- 04 LAVA -->
-<section id="lava-highlight" class="esp-band">
-  <div class="esp-lava-body">
+<section id="lava-highlight">
+  <div class="lava-grid">
     <div>
-      <p class="section-label" data-i18n="home.lava.label">Desarrollo IA · Producto propio</p>
-      <h2 class="section-title" data-i18n-html="home.lava.h2">Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em></h2>
-      <div class="lava-mini-stats">
-        <div class="lava-mini-stat">
-          <span class="lms-n">24<span>/7</span></span>
-          <span class="lms-l" data-i18n="home.lava.stat1">Siempre disponible</span>
-        </div>
-        <div class="lava-mini-stat">
-          <span class="lms-n">&lt;1<span> min</span></span>
-          <span class="lms-l" data-i18n="home.lava.stat2">Primera respuesta</span>
-        </div>
-        <div class="lava-mini-stat">
-          <span class="lms-n">100<span>%</span></span>
-          <span class="lms-l" data-i18n="home.lava.stat3">Leads pre-calificados</span>
-        </div>
+      <div class="lava-badge">
+        <div class="pulse"></div>
+        <span class="txt" data-i18n-html="home.lava.badge">Desarrollo IA &nbsp;·&nbsp; LAVA — Lead Automation &amp; Validation Assistant</span>
       </div>
-    </div>
-    <div>
-      <img src="logos/lava-light.png" alt="LAVA" class="esp-lava-logo" />
-      <p class="section-body" data-i18n="home.lava.body">LAVA conecta todos tus canales de captación — Meta Ads, Google Ads, landings, formularios, LinkedIn y más — y filtra, califica y valida cada lead automáticamente. Tu equipo solo habla con quienes tienen intención real de compra.</p>
-      <div class="esp-cta">
+      <h2 data-i18n-html="home.lava.h2">Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em></h2>
+      <p class="lava-body" data-i18n="home.lava.body">LAVA conecta todos tus canales de captación — Meta Ads, Google Ads, landings, formularios, LinkedIn y más — y filtra, califica y valida cada lead automáticamente. Tu equipo solo habla con quienes tienen intención real de compra.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
         <a href="https://lava.corelab.mx" target="_blank" class="btn-primary" data-i18n="home.lava.cta1">Conocer LAVA</a>
         <a href="https://lava.corelab.mx" target="_blank" class="btn-ghost" data-i18n="home.lava.cta2">Ver demo →</a>
       </div>
+    </div>
+    <div class="lava-steps">
+      <div class="lava-step">
+        <div class="lava-step-num">24/7</div>
+        <div>
+          <h4 data-i18n="home.lava.step1.h4">Siempre disponible</h4>
+          <p data-i18n="home.lava.step1.p">El agente opera sin descanso. Ningún lead queda sin atender, a cualquier hora.</p>
+        </div>
+      </div>
+      <div class="lava-step">
+        <div class="lava-step-num">&lt;1 min</div>
+        <div>
+          <h4 data-i18n="home.lava.step2.h4">Primera respuesta</h4>
+          <p data-i18n="home.lava.step2.p">Tiempo de contacto desde que llega el lead. La velocidad define la conversión.</p>
+        </div>
+      </div>
+      <div class="lava-step">
+        <div class="lava-step-num">100%</div>
+        <div>
+          <h4 data-i18n="home.lava.step3.h4">Leads pre-calificados</h4>
+          <p data-i18n="home.lava.step3.p">Tu equipo recibe solo prospectos con intención real de compra, con contexto completo.</p>
+        </div>
+      </div>
+      <img src="logos/lava-light.png" alt="LAVA" style="max-width:280px;width:100%;display:block;margin:40px auto 0;opacity:0.9;" />
     </div>
   </div>
 </section>

@@ -98,14 +98,17 @@
       'home.ia.item4.p':    'Dashboards, reportes y modelos predictivos conectados a tus KPIs reales.',
 
       // HOME — LAVA
-      'home.lava.label': 'Desarrollo IA · Producto propio',
-      'home.lava.h2':    'Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em>',
-      'home.lava.body':  'LAVA conecta todos tus canales de captación — Meta Ads, Google Ads, landings, formularios, LinkedIn y más — y filtra, califica y valida cada lead automáticamente. Tu equipo solo habla con quienes tienen intención real de compra.',
-      'home.lava.cta1':  'Conocer LAVA',
-      'home.lava.cta2':  'Ver demo →',
-      'home.lava.stat1': 'Siempre disponible',
-      'home.lava.stat2': 'Primera respuesta',
-      'home.lava.stat3': 'Leads pre-calificados',
+      'home.lava.badge':    'Desarrollo IA &nbsp;·&nbsp; LAVA — Lead Automation &amp; Validation Assistant',
+      'home.lava.h2':       'Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em>',
+      'home.lava.body':     'LAVA conecta todos tus canales de captación — Meta Ads, Google Ads, landings, formularios, LinkedIn y más — y filtra, califica y valida cada lead automáticamente. Tu equipo solo habla con quienes tienen intención real de compra.',
+      'home.lava.cta1':     'Conocer LAVA',
+      'home.lava.cta2':     'Ver demo →',
+      'home.lava.step1.h4': 'Siempre disponible',
+      'home.lava.step1.p':  'El agente opera sin descanso. Ningún lead queda sin atender, a cualquier hora.',
+      'home.lava.step2.h4': 'Primera respuesta',
+      'home.lava.step2.p':  'Tiempo de contacto desde que llega el lead. La velocidad define la conversión.',
+      'home.lava.step3.h4': 'Leads pre-calificados',
+      'home.lava.step3.p':  'Tu equipo recibe solo prospectos con intención real de compra, con contexto completo.',
 
       // HOME — CLIENTES / CASOS / CONTACTO
       'home.clientes.label': 'Marcas que han confiado en nosotros',
@@ -385,14 +388,17 @@
       'home.ia.item4.p':    'Dashboards, reports and predictive models connected to your real KPIs.',
 
       // HOME — LAVA
-      'home.lava.label': 'AI Development · Own product',
-      'home.lava.h2':    'Focus your team<br/>on the leads that <em>will<br/>actually buy.</em>',
-      'home.lava.body':  'LAVA connects all your acquisition channels — Meta Ads, Google Ads, landing pages, forms, LinkedIn and more — and automatically filters, qualifies and validates every lead. Your team only talks to prospects with real purchase intent.',
-      'home.lava.cta1':  'Discover LAVA',
-      'home.lava.cta2':  'See demo →',
-      'home.lava.stat1': 'Always on',
-      'home.lava.stat2': 'First response',
-      'home.lava.stat3': 'Pre-qualified leads',
+      'home.lava.badge':    'AI Development &nbsp;·&nbsp; LAVA — Lead Automation &amp; Validation Assistant',
+      'home.lava.h2':       'Focus your team<br/>on the leads that <em>will<br/>actually buy.</em>',
+      'home.lava.body':     'LAVA connects all your acquisition channels — Meta Ads, Google Ads, landing pages, forms, LinkedIn and more — and automatically filters, qualifies and validates every lead. Your team only talks to prospects with real purchase intent.',
+      'home.lava.cta1':     'Discover LAVA',
+      'home.lava.cta2':     'See demo →',
+      'home.lava.step1.h4': 'Always on',
+      'home.lava.step1.p':  'The agent never stops. No lead goes unattended, at any hour.',
+      'home.lava.step2.h4': 'First response',
+      'home.lava.step2.p':  'Contact time from the moment the lead arrives. Speed defines conversion.',
+      'home.lava.step3.h4': 'Pre-qualified leads',
+      'home.lava.step3.p':  'Your team receives only prospects with real purchase intent, with full context.',
 
       // HOME — CLIENTES / CASOS / CONTACTO
       'home.clientes.label': 'Brands that have trusted us',

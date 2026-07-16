@@ -310,6 +310,32 @@
       display: block;
       opacity: 0.88;
     }
+    .lava-mini-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 44px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .lava-mini-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .lms-n {
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .lms-n span { color: var(--gold); }
+    .lms-l {
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--hint);
+    }
 
     /* ── LOGOS ── */
     #clientes { background: var(--surface); padding: 80px 0 0; }
@@ -724,6 +750,20 @@
     <div>
       <p class="section-label" data-i18n="home.lava.label">Desarrollo IA · Producto propio</p>
       <h2 class="section-title" data-i18n-html="home.lava.h2">Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em></h2>
+      <div class="lava-mini-stats">
+        <div class="lava-mini-stat">
+          <span class="lms-n">24<span>/7</span></span>
+          <span class="lms-l" data-i18n="home.lava.stat1">Siempre disponible</span>
+        </div>
+        <div class="lava-mini-stat">
+          <span class="lms-n">&lt;1<span> min</span></span>
+          <span class="lms-l" data-i18n="home.lava.stat2">Primera respuesta</span>
+        </div>
+        <div class="lava-mini-stat">
+          <span class="lms-n">100<span>%</span></span>
+          <span class="lms-l" data-i18n="home.lava.stat3">Leads pre-calificados</span>
+        </div>
+      </div>
     </div>
     <div>
       <img src="logos/lava-light.png" alt="LAVA" class="esp-lava-logo" />
@@ -732,20 +772,6 @@
         <a href="https://lava.corelab.mx" target="_blank" class="btn-primary" data-i18n="home.lava.cta1">Conocer LAVA</a>
         <a href="https://lava.corelab.mx" target="_blank" class="btn-ghost" data-i18n="home.lava.cta2">Ver demo →</a>
       </div>
-    </div>
-  </div>
-  <div class="esp-inmo-stats">
-    <div class="esp-inmo-stat">
-      <div class="n">24<span>/7</span></div>
-      <div class="l" data-i18n="home.lava.stat1">Siempre disponible</div>
-    </div>
-    <div class="esp-inmo-stat">
-      <div class="n">&lt;1<span> min</span></div>
-      <div class="l" data-i18n="home.lava.stat2">Primera respuesta</div>
-    </div>
-    <div class="esp-inmo-stat">
-      <div class="n">100<span>%</span></div>
-      <div class="l" data-i18n="home.lava.stat3">Leads pre-calificados</div>
     </div>
   </div>
 </section>

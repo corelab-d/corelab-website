@@ -570,44 +570,52 @@ function pagosHTML(){
 }
 
 /* ============ VISTA PROMOTORA ============ */
-function vistaPromotoraHTML(){
-  var selectedClient = getSelectedClient();
-  var assignedCities = state.selectedCities.filter(function(c){return state.assignments[c];});
-  var city = assignedCities[0];
-  var promo = city ? PROMOTORAS.find(function(p){return p.id===state.assignments[city];}) : null;
+function phoneCardHTML(city, promo, selectedClient){
+  var tasksHTML = state.taskTypes.map(function(t){
+    return '<div style="border:1px solid #E7E9EF;border-radius:8px;padding:9px 11px;background:#FAFBFC;">'+
+      '<div style="font-weight:700;font-size:12.5px;margin-bottom:3px;">'+esc(t)+'</div>'+
+      '<div style="font-size:11.5px;color:'+MUTED+';line-height:1.5;">'+TASK_DESCRIPTIONS[t]+'</div>'+
+    '</div>';
+  }).join('');
 
-  var inner;
-  if(promo){
-    var tasksHTML = state.taskTypes.map(function(t){
-      return '<div style="border:1px solid #E7E9EF;border-radius:8px;padding:9px 11px;background:#FAFBFC;">'+
-        '<div style="font-weight:700;font-size:12.5px;margin-bottom:3px;">'+esc(t)+'</div>'+
-        '<div style="font-size:11.5px;color:'+MUTED+';line-height:1.5;">'+TASK_DESCRIPTIONS[t]+'</div>'+
-      '</div>';
-    }).join('');
+  var testigoBlock = state.testigos[city]
+    ? '<div style="border:1px solid rgba(22,163,74,0.25);background:rgba(22,163,74,0.06);border-radius:6px;padding:12px;text-align:center;">'+icon('check',16,GREEN)+'<div class="mono" style="font-size:12px;font-weight:500;color:'+GREEN+';margin-top:3px;">testigo subido</div></div>'
+    : '<button class="btn-primary" data-action="uploadTestigo" data-city="'+esc(city)+'" style="width:100%;display:flex;justify-content:center;align-items:center;gap:6px;">'+icon('upload',13)+' Subir testigo del día</button>';
 
-    var testigoBlock = state.testigos[city]
-      ? '<div style="border:1px solid rgba(22,163,74,0.25);background:rgba(22,163,74,0.06);border-radius:6px;padding:12px;text-align:center;">'+icon('check',16,GREEN)+'<div class="mono" style="font-size:12px;font-weight:500;color:'+GREEN+';margin-top:3px;">testigo subido</div></div>'
-      : '<button class="btn-primary" data-action="uploadTestigo" data-city="'+esc(city)+'" style="width:100%;display:flex;justify-content:center;align-items:center;gap:6px;">'+icon('upload',13)+' Subir testigo del día</button>';
+  var inner = '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:4px;">CLIENTE</div><div style="font-weight:600;margin-bottom:14px;font-size:13.5px;">'+esc(selectedClient?selectedClient.name:'')+'</div>'+
+    '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:4px;">UBICACIÓN</div><div style="font-weight:600;margin-bottom:14px;font-size:13.5px;">'+esc(city)+'</div>'+
+    '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:4px;">UNIFORME</div><div style="font-weight:600;margin-bottom:14px;font-size:13.5px;">'+esc(selectedClient?selectedClient.uniforme:'')+'</div>'+
+    '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:6px;">QUÉ DEBES HACER</div>'+
+    '<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">'+tasksHTML+'</div>'+
+    testigoBlock;
 
-    inner = '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:4px;">CLIENTE</div><div style="font-weight:600;margin-bottom:14px;font-size:13.5px;">'+esc(selectedClient?selectedClient.name:'')+'</div>'+
-      '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:4px;">UBICACIÓN</div><div style="font-weight:600;margin-bottom:14px;font-size:13.5px;">'+esc(city)+'</div>'+
-      '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:4px;">UNIFORME</div><div style="font-weight:600;margin-bottom:14px;font-size:13.5px;">'+esc(selectedClient?selectedClient.uniforme:'')+'</div>'+
-      '<div class="eyebrow" style="color:'+MUTED+';margin-bottom:6px;">QUÉ DEBES HACER</div>'+
-      '<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">'+tasksHTML+'</div>'+
-      testigoBlock;
-  } else {
-    inner = '<div style="font-size:12.5px;color:'+MUTED+';text-align:center;margin-top:40px;">Asigna una promotora en la pestaña "Asignación" para activar esta vista.</div>';
-  }
-
-  return headerHTML("PASO 04 / 04","Vista de la Promotora","Lo que ve la promotora en su celular el día del evento.")+
-    '<div style="width:290px;margin:0 auto;border:1px solid #D6DAE3;border-radius:20px;overflow:hidden;background:white;box-shadow:0 12px 30px rgba(18,20,28,0.08);">'+
+  return '<div style="width:290px;border:1px solid #D6DAE3;border-radius:20px;overflow:hidden;background:white;box-shadow:0 12px 30px rgba(18,20,28,0.08);">'+
       '<div style="padding:18px 18px 14px;border-bottom:1px solid #E7E9EF;position:relative;">'+
         '<div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(135deg,'+BLUE+','+PINK+');"></div>'+
         '<div class="mono" style="font-size:11px;color:'+MUTED+';margin-bottom:4px;">HOY · SÁBADO</div>'+
-        '<div class="display" style="font-size:16px;font-weight:800;color:'+INK+';">'+esc(promo?promo.name:'Sin activación asignada')+'</div>'+
+        '<div class="display" style="font-size:16px;font-weight:800;color:'+INK+';">'+esc(promo.name)+'</div>'+
       '</div>'+
       '<div style="padding:18px;min-height:260px;">'+inner+'</div>'+
     '</div>';
+}
+
+function vistaPromotoraHTML(){
+  var selectedClient = getSelectedClient();
+  var assignedCities = state.selectedCities.filter(function(c){return state.assignments[c];});
+
+  var body;
+  if(assignedCities.length === 0){
+    body = '<div class="card" style="padding:40px;text-align:center;font-size:12.5px;color:'+MUTED+';">Asigna una promotora en la pestaña "Asignación" para activar esta vista.</div>';
+  } else {
+    var cards = assignedCities.map(function(city){
+      var promo = PROMOTORAS.find(function(p){return p.id===state.assignments[city];});
+      return phoneCardHTML(city, promo, selectedClient);
+    }).join('');
+    body = '<div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">'+cards+'</div>';
+  }
+
+  return headerHTML("PASO 04 / 04","Vista de la Promotora","Lo que ve cada promotora en su celular el día del evento — "+assignedCities.length+" asignada(s).")+
+    body;
 }
 
 /* ============ REPORTES ============ */

@@ -4,7 +4,7 @@
       // NAV
       'nav.servicios':    'Servicios',
       'nav.casos':        'Casos',
-      'nav.inmobiliaria': 'Inmobiliaria',
+      'nav.inmobiliaria': 'Real Estate',
       'nav.marca':        'Marca',
       'nav.ia':           'IA',
       'nav.nosotros':     'Nosotros',

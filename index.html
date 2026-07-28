@@ -390,6 +390,9 @@
       font-size: 13px; font-weight: 400; color: var(--text);
       margin-bottom: 5px;
     }
+    .lava-cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .lava-mobile-logo { display: none; }
+
     .lava-step p {
       font-size: 12px; font-weight: 300; color: var(--hint); line-height: 1.6;
     }
@@ -545,6 +548,9 @@
       #lava-highlight { padding: 64px 24px; }
       .lava-grid { grid-template-columns: 1fr; gap: 48px; }
       #lava-highlight h2 { font-size: clamp(28px, 7vw, 40px); }
+      .lava-demo-btn { display: none; }
+      .lava-desktop-logo { display: none !important; }
+      .lava-mobile-logo { display: block; width: 90px; opacity: 0.9; margin-left: auto; }
       /* LAVA banner inside Real Estate */
       .inmo-lava-banner { margin: 32px 0 0; flex-direction: column; align-items: flex-start; gap: 16px; }
     }
@@ -830,9 +836,10 @@
       </div>
       <h2 data-i18n-html="home.lava.h2">Enfoca tu equipo<br/>en los leads que <em>sí van<br/>a comprar.</em></h2>
       <p class="lava-body" data-i18n="home.lava.body">LAVA conecta todos tus canales de captación — Meta Ads, Google Ads, landings, formularios, LinkedIn y más — y filtra, califica y valida cada lead automáticamente. Tu equipo solo habla con quienes tienen intención real de compra.</p>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+      <div class="lava-cta-row">
         <a href="https://lava.corelab.mx" target="_blank" class="btn-primary" data-i18n="home.lava.cta1">Conocer LAVA</a>
-        <a href="https://lava.corelab.mx" target="_blank" class="btn-ghost" data-i18n="home.lava.cta2">Ver demo →</a>
+        <a href="https://lava.corelab.mx" target="_blank" class="btn-ghost lava-demo-btn" data-i18n="home.lava.cta2">Ver demo →</a>
+        <img src="logos/lava-light.png" alt="LAVA" class="lava-mobile-logo" />
       </div>
     </div>
     <div class="lava-steps">
@@ -857,7 +864,7 @@
           <p data-i18n="home.lava.step3.p">Tu equipo recibe solo prospectos con intención real de compra, con contexto completo.</p>
         </div>
       </div>
-      <img src="logos/lava-light.png" alt="LAVA" style="max-width:280px;width:100%;display:block;margin:40px auto 0;opacity:0.9;" />
+      <img src="logos/lava-light.png" alt="LAVA" class="lava-desktop-logo" style="max-width:280px;width:100%;display:block;margin:40px auto 0;opacity:0.9;" />
     </div>
   </div>
 </section>

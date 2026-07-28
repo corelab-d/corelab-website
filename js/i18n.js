@@ -74,7 +74,7 @@
 
       // HOME — INMOBILIARIA HIGHLIGHT
       'home.inmo.label': 'Especialidad — Real Estate',
-      'home.inmo.h2':    'Expertos en <em>marketing de performance</em> para el sector inmobiliario.',
+      'home.inmo.h2':    'Expertos en <em>marketing de performance</em> para Real Estate.',
       'home.inmo.body':  'Más de 9 años construyendo ecosistemas digitales de venta para los desarrollos más importantes de México. Desde la estrategia de medios hasta el cierre.',
       'home.inmo.cta1':  'Ver especialidad',
       'home.inmo.cta2':  'Ver casos →',
@@ -366,7 +366,7 @@
 
       // HOME — INMOBILIARIA HIGHLIGHT
       'home.inmo.label': 'Specialty — Real Estate',
-      'home.inmo.h2':    'Experts in <em>performance marketing</em> for the real estate sector.',
+      'home.inmo.h2':    'Experts in <em>performance marketing</em> for Real Estate.',
       'home.inmo.body':  "Over 9 years building digital sales ecosystems for Mexico's most important real estate developments. From media strategy to closing.",
       'home.inmo.cta1':  'See specialty',
       'home.inmo.cta2':  'See cases →',

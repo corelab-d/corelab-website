@@ -342,6 +342,36 @@ footer .footer-bottom a:hover { color: var(--gold); }
 .cs-rel-card h3 { font-size: 15px; font-weight: 300; color: #888; transition: color 0.2s; }
 .cs-rel-card:hover h3 { color: #CCC; }
 
+/* ── LAVA BANNER (Real Estate home + interna) ── */
+.inmo-lava-banner {
+  margin: 48px 48px 0;
+  padding: 20px 28px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.inmo-lava-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.inmo-lava-pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  animation: lava-pulse 2s ease-in-out infinite;
+}
+@keyframes lava-pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
+.inmo-lava-text { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.5; }
+.inmo-lava-text strong { font-weight: 400; color: var(--text); }
+.inmo-lava-cta { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+
 /* ── NAV RIGHT GROUP ── */
 .nav-right {
   display: flex;
@@ -427,6 +457,7 @@ footer .footer-bottom a:hover { color: var(--gold); }
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   nav ul { display: none; }
+  .inmo-lava-banner { margin: 32px 0 0; flex-direction: column; align-items: flex-start; gap: 16px; }
   .nav-cta { display: none; }
   .nav-ham { display: flex; }
   .nav-mobile-menu { display: flex; }

@@ -81,6 +81,8 @@
       'home.inmo.stat1': 'Desarrollos en México',
       'home.inmo.stat2': 'Años en el sector',
       'home.inmo.stat3': 'Ecosistema digital de ventas',
+      'home.inmo.lava.text': 'Automatiza la calificación de leads de tus desarrollos. Tu equipo solo habla con prospectos con intención real de compra.',
+      'home.inmo.lava.cta':  'Conocer LAVA',
 
       // HOME — IA HIGHLIGHT
       'home.ia.label':      'Especialidad — IA & Automatización',
@@ -371,6 +373,8 @@
       'home.inmo.stat1': 'Developments in Mexico',
       'home.inmo.stat2': 'Years in the sector',
       'home.inmo.stat3': 'Digital sales ecosystem',
+      'home.inmo.lava.text': 'Automate lead qualification for your real estate developments. Your team only speaks with prospects who have real purchase intent.',
+      'home.inmo.lava.cta':  'Discover LAVA',
 
       // HOME — IA HIGHLIGHT
       'home.ia.label':      'Specialty — AI & Automation',

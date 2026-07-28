@@ -256,6 +256,37 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
     }
 
+    /* ── LAVA banner dentro de Real Estate ── */
+    .inmo-lava-banner {
+      margin: 48px 48px 0;
+      padding: 20px 28px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .inmo-lava-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .inmo-lava-pulse {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      animation: lava-pulse 2s ease-in-out infinite;
+    }
+    .inmo-lava-text { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.5; }
+    .inmo-lava-text strong { font-weight: 400; color: var(--text); }
+    .inmo-lava-cta {
+      display: flex; gap: 12px; align-items: center; flex-shrink: 0;
+    }
+
     /* ── 03 IA — lista vertical de servicios a la derecha ── */
     #ia-highlight {
       background: #181B20;
@@ -709,6 +740,19 @@
       </div>
     </div>
   </div>
+  <!-- LAVA banner -->
+  <div class="inmo-lava-banner">
+    <div class="inmo-lava-left">
+      <div class="inmo-lava-pulse"></div>
+      <div class="inmo-lava-text">
+        <strong>LAVA</strong> &nbsp;·&nbsp; <span data-i18n="home.inmo.lava.text">Automatiza la calificación de leads de tus desarrollos. Tu equipo solo habla con prospectos con intención real de compra.</span>
+      </div>
+    </div>
+    <div class="inmo-lava-cta">
+      <a href="https://lava.corelab.mx" target="_blank" class="btn-primary" data-i18n="home.inmo.lava.cta">Conocer LAVA</a>
+    </div>
+  </div>
+
   <div class="esp-inmo-stats">
     <div class="esp-inmo-stat">
       <div class="n"><span>+</span>20</div>

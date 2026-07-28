@@ -342,10 +342,94 @@ footer .footer-bottom a:hover { color: var(--gold); }
 .cs-rel-card h3 { font-size: 15px; font-weight: 300; color: #888; transition: color 0.2s; }
 .cs-rel-card:hover h3 { color: #CCC; }
 
+/* ── NAV RIGHT GROUP ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── HAMBURGER BUTTON ── */
+.nav-ham {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-ham span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #AAA;
+  transform-origin: center;
+  transition: transform 0.22s ease, opacity 0.22s ease, width 0.22s ease;
+}
+.nav-ham.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: #EEE; }
+.nav-ham.is-open span:nth-child(2) { opacity: 0; width: 0; }
+.nav-ham.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: #EEE; }
+
+/* ── MOBILE MENU OVERLAY ── */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0; right: 0;
+  height: calc(100dvh - 64px);
+  background: #111;
+  z-index: 99;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 32px 48px;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.nav-mobile-menu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav-mobile-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.nav-mobile-links li {
+  border-bottom: 1px solid #1E1E1E;
+}
+.nav-mobile-links a {
+  display: block;
+  padding: 20px 0;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-mobile-links a:hover,
+.nav-mobile-links a:active { color: #EBB22C; }
+.nav-mobile-bottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
   nav ul { display: none; }
+  .nav-cta { display: none; }
+  .nav-ham { display: flex; }
+  .nav-mobile-menu { display: flex; }
   section { padding: 72px 24px; }
   hr.divider { margin: 0 24px; }
   .cs-hero { padding: 80px 24px 48px; }

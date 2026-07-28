@@ -21,11 +21,28 @@
       <li><a href="${rootPath}ia.html" data-i18n="nav.ia">IA</a></li>
       <li><a href="${rootPath}index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:16px;">
+    <div class="nav-right">
       <button id="lang-toggle" onclick="window.__setLang && window.__setLang(window.__lang==='es'?'en':'es')" class="lang-toggle">EN</button>
       <a href="${rootPath}index.html#contacto" class="nav-cta" data-i18n="nav.cta">Escríbenos</a>
+      <button class="nav-ham" id="nav-ham" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </nav>`;
+  </nav>
+  <div class="nav-mobile-menu" id="nav-mobile-menu" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      <li><a href="${rootPath}index.html#servicios" data-i18n="nav.servicios">Servicios</a></li>
+      <li><a href="${rootPath}index.html#casos" data-i18n="nav.casos">Casos</a></li>
+      <li><a href="${rootPath}inmobiliaria.html" data-i18n="nav.inmobiliaria">Inmobiliaria</a></li>
+      <li><a href="${rootPath}marca.html" data-i18n="nav.marca">Marca</a></li>
+      <li><a href="${rootPath}ia.html" data-i18n="nav.ia">IA</a></li>
+      <li><a href="${rootPath}index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+    </ul>
+    <div class="nav-mobile-bottom">
+      <button onclick="window.__setLang && window.__setLang(window.__lang==='es'?'en':'es')" class="lang-toggle">EN</button>
+      <a href="${rootPath}index.html#contacto" class="nav-cta" data-i18n="nav.cta">Escríbenos</a>
+    </div>
+  </div>`;
 
   // FOOTER
   const footerHTML = `
@@ -90,6 +107,47 @@
 
     // Apply translations after injection
     if (window.__applyTranslations) window.__applyTranslations();
+
+    // Hamburger menu
+    const ham = document.getElementById('nav-ham');
+    const mobileMenu = document.getElementById('nav-mobile-menu');
+    if (ham && mobileMenu) {
+      function openMenu() {
+        ham.classList.add('is-open');
+        ham.setAttribute('aria-expanded', 'true');
+        mobileMenu.classList.add('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu() {
+        ham.classList.remove('is-open');
+        ham.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+      ham.addEventListener('click', () => {
+        ham.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+      // Close on any link click inside the menu
+      mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', closeMenu);
+      });
+      // Close on resize back to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeMenu();
+      });
+    }
+
+    // Sync lang button text in mobile menu
+    const origLang = document.getElementById('lang-toggle');
+    const mobileLangBtns = document.querySelectorAll('.nav-mobile-bottom .lang-toggle');
+    if (origLang && mobileLangBtns.length) {
+      const obs = new MutationObserver(() => {
+        mobileLangBtns.forEach(b => b.textContent = origLang.textContent);
+      });
+      obs.observe(origLang, { childList: true, characterData: true, subtree: true });
+    }
 
     // Scroll nav border
     const nav = document.getElementById('navbar');

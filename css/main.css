@@ -509,6 +509,22 @@ footer .footer-bottom a:hover { color: var(--gold); }
   gap: 16px;
 }
 
+/* ── LINKEDIN FEED ── */
+#linkedin-feed { padding: 96px 48px; border-top: 1px solid var(--border); }
+.linkedin-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; color: var(--text); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 48px; }
+.linkedin-title em { font-style: italic; color: var(--gold); }
+.juicer-wrap { position: relative; }
+
+/* Juicer overrides */
+.juicer-feed { padding: 0 !important; }
+.juicer-feed li.feed-item { background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: 2px !important; box-shadow: none !important; transition: border-color 0.15s ease !important; }
+.juicer-feed li.feed-item:hover { border-color: var(--gold) !important; }
+.juicer-feed li.feed-item .j-text { font-family: inherit !important; font-size: 13px !important; font-weight: 300 !important; color: var(--muted) !important; line-height: 1.7 !important; }
+.juicer-feed li.feed-item .j-date { font-family: inherit !important; font-size: 11px !important; font-weight: 300 !important; color: var(--hint) !important; letter-spacing: 0.05em !important; }
+.juicer-feed li.feed-item .j-name { font-family: inherit !important; font-size: 12px !important; font-weight: 400 !important; color: var(--text) !important; }
+.juicer-feed li.feed-item .j-read-more { color: var(--gold) !important; font-size: 12px !important; font-family: inherit !important; }
+.j-paginate, .j-powered { display: none !important; }
+
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }

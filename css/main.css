@@ -510,20 +510,26 @@ footer .footer-bottom a:hover { color: var(--gold); }
 }
 
 /* ── LINKEDIN FEED ── */
-#linkedin-feed { padding: 96px 48px; border-top: 1px solid var(--border); }
-.linkedin-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; color: var(--text); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 48px; }
+#linkedin-feed { padding: 72px 0 72px 48px; border-top: 1px solid var(--border); overflow: hidden; }
+.linkedin-feed-header { padding-right: 48px; margin-bottom: 36px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.linkedin-title { font-size: clamp(22px, 2.5vw, 36px); font-weight: 300; color: var(--text); letter-spacing: -0.02em; line-height: 1.2; margin: 0; }
 .linkedin-title em { font-style: italic; color: var(--gold); }
-.juicer-wrap { position: relative; }
+.linkedin-arrow-hint { font-size: 11px; font-weight: 300; color: var(--hint); letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0; }
 
-/* Juicer overrides */
-.juicer-feed { padding: 0 !important; }
-.juicer-feed li.feed-item { background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: 2px !important; box-shadow: none !important; transition: border-color 0.15s ease !important; }
+/* Juicer carousel overrides — horizontal scroll */
+.juicer-wrap { position: relative; }
+.juicer-feed { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; overflow-x: auto !important; overflow-y: hidden !important; padding: 4px 48px 24px 4px !important; gap: 16px !important; margin: 0 !important; list-style: none !important; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.juicer-feed::-webkit-scrollbar { display: none; }
+.juicer-feed li.feed-item { flex: 0 0 300px !important; width: 300px !important; min-height: 0 !important; height: auto !important; max-height: 340px !important; overflow: hidden !important; background: var(--surface) !important; border: 1px solid var(--border) !important; border-radius: 2px !important; box-shadow: none !important; padding: 20px !important; margin: 0 !important; scroll-snap-align: start; transition: border-color 0.15s ease !important; display: flex !important; flex-direction: column !important; }
 .juicer-feed li.feed-item:hover { border-color: var(--gold) !important; }
-.juicer-feed li.feed-item .j-text { font-family: inherit !important; font-size: 13px !important; font-weight: 300 !important; color: var(--muted) !important; line-height: 1.7 !important; }
-.juicer-feed li.feed-item .j-date { font-family: inherit !important; font-size: 11px !important; font-weight: 300 !important; color: var(--hint) !important; letter-spacing: 0.05em !important; }
-.juicer-feed li.feed-item .j-name { font-family: inherit !important; font-size: 12px !important; font-weight: 400 !important; color: var(--text) !important; }
-.juicer-feed li.feed-item .j-read-more { color: var(--gold) !important; font-size: 12px !important; font-family: inherit !important; }
-.j-paginate, .j-powered { display: none !important; }
+.juicer-feed li.feed-item .j-image { width: 100% !important; height: 160px !important; object-fit: cover !important; margin: 0 0 14px !important; border-radius: 1px; flex-shrink: 0; }
+.juicer-feed li.feed-item .juicer-feed-item-inner { display: flex !important; flex-direction: column !important; flex: 1 !important; min-height: 0 !important; }
+.juicer-feed li.feed-item .j-meta { margin-bottom: 8px !important; flex-shrink: 0; }
+.juicer-feed li.feed-item .j-text { font-family: inherit !important; font-size: 12px !important; font-weight: 300 !important; color: var(--muted) !important; line-height: 1.65 !important; overflow: hidden !important; display: -webkit-box !important; -webkit-line-clamp: 5 !important; -webkit-box-orient: vertical !important; flex: 1; }
+.juicer-feed li.feed-item .j-date { font-family: inherit !important; font-size: 10px !important; font-weight: 300 !important; color: var(--hint) !important; letter-spacing: 0.05em !important; }
+.juicer-feed li.feed-item .j-name { font-family: inherit !important; font-size: 11px !important; font-weight: 400 !important; color: var(--text) !important; }
+.juicer-feed li.feed-item .j-read-more { color: var(--gold) !important; font-size: 11px !important; font-family: inherit !important; margin-top: 10px !important; display: block !important; flex-shrink: 0; }
+.j-paginate, .j-powered, .j-overlay, .juicer-feed-load-more-section { display: none !important; }
 
 /* ── MOBILE ── */
 @media (max-width: 900px) {
@@ -550,6 +556,10 @@ footer .footer-bottom a:hover { color: var(--gold); }
   .cs-screen:first-child { grid-column: auto; aspect-ratio: 16/10; }
   .cs-related { padding: 48px 24px; }
   .cs-related-grid { grid-template-columns: 1fr; }
+  #linkedin-feed { padding: 56px 0 56px 24px; }
+  .linkedin-feed-header { padding-right: 24px; }
+  .juicer-feed { padding-right: 24px !important; }
+  .juicer-feed li.feed-item { flex: 0 0 260px !important; width: 260px !important; }
   footer .footer-top { flex-direction: column; gap: 40px; }
   footer .footer-links { flex-wrap: wrap; gap: 32px; }
   footer .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }

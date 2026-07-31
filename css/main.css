@@ -510,7 +510,8 @@ footer .footer-bottom a:hover { color: var(--gold); }
 }
 
 /* ── LINKEDIN FEED ── */
-#linkedin-feed { padding: 72px 0 72px 48px; border-top: 1px solid var(--border); overflow: hidden; }
+#linkedin-feed { padding: 72px 0 72px 48px; border-top: 1px solid var(--border); }
+.jcr-feed-container { overflow: visible !important; }
 .linkedin-feed-header { padding-right: 48px; margin-bottom: 36px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
 .linkedin-title { font-size: clamp(22px, 2.5vw, 36px); font-weight: 300; color: var(--text); letter-spacing: -0.02em; line-height: 1.2; margin: 0; }
 .linkedin-title em { font-style: italic; color: var(--gold); }

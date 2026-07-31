@@ -876,6 +876,32 @@
   <div class="juicer-wrap">
     <ul class="juicer-feed" data-feed-id="corelabmx" data-per="12"></ul>
     <script type="text/javascript" src="https://www.juicer.io/embed/corelabmx/embed-code.js" async defer></script>
+    <script>
+    (function(){
+      function applyCarousel(){
+        var grid = document.querySelector('.jcr-masonry-grid, .jcr-grid');
+        if(!grid || grid.__cl_carousel) return;
+        var posts = grid.querySelectorAll('.jcr-post');
+        if(!posts.length) return;
+        grid.__cl_carousel = true;
+        // Force horizontal flex on the grid
+        grid.style.cssText = 'display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:16px!important;padding:4px 48px 20px 4px!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;width:auto!important;max-width:none!important;';
+        // Style each card
+        posts.forEach(function(p){
+          p.style.cssText = 'flex:0 0 300px!important;width:300px!important;min-width:0!important;height:320px!important;overflow:hidden!important;border-radius:2px!important;scroll-snap-align:start;margin:0!important;';
+        });
+        // Hide footer chrome injected by Juicer
+        grid.querySelectorAll('.jcr-post-footer,.jcr-post-actions,.jcr-powered-by,.j-powered').forEach(function(el){ el.style.display='none'; });
+      }
+      // Poll until Juicer has rendered posts
+      var t = setInterval(function(){
+        var posts = document.querySelectorAll('.jcr-post');
+        if(posts.length){ applyCarousel(); clearInterval(t); }
+      }, 200);
+      // Also fire on load just in case
+      window.addEventListener('load', function(){ setTimeout(applyCarousel, 500); });
+    })();
+    </script>
   </div>
 </section>
 

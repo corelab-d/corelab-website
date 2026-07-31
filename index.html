@@ -883,14 +883,17 @@
       if(!items.length){ track.style.display='none'; return; }
       var html = '';
       items.forEach(function(p){
-        var img = p.image ? '<img src="'+p.image+'" alt="" onerror="this.parentNode.removeChild(this)" />' : '';
-        var txt = (p.message||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        var hasImg = !!p.image;
+        var imgEl = hasImg ? '<img src="'+p.image+'" alt="" onerror="this.style.display=\'none\'" />' : '';
+        // Strip HTML tags from message
+        var tmp = document.createElement('div');
+        tmp.innerHTML = p.message || '';
+        var txt = (tmp.textContent || tmp.innerText || '').trim();
         var url = p.full_url || '#';
-        html += '<a class="cl-li-card" href="'+url+'" target="_blank" rel="noopener">'
-              +   img
-              +   '<div class="cl-li-body">'
-              +     '<p class="cl-li-text">'+txt+'</p>'
-              +   '</div>'
+        var cardClass = 'cl-li-card' + (hasImg ? ' cl-li-card--img' : ' cl-li-card--text');
+        html += '<a class="'+cardClass+'" href="'+url+'" target="_blank" rel="noopener">'
+              +   imgEl
+              +   '<div class="cl-li-body"><p class="cl-li-text">'+txt+'</p></div>'
               + '</a>';
       });
       track.innerHTML = html;

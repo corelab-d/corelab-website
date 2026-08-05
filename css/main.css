@@ -177,6 +177,7 @@ footer .footer-top {
   padding-bottom: 48px;
   border-bottom: 1px solid #1E1E1E;
 }
+footer .footer-brand { display: flex; flex-direction: column; }
 footer .footer-brand img { height: 24px; }
 footer .footer-brand p {
   font-size: 12px; font-weight: 300; color: #888;
@@ -203,7 +204,7 @@ footer .footer-bottom a {
   font-size: 11px; color: #666; text-decoration: none; transition: color 0.2s;
 }
 footer .footer-bottom a:hover { color: var(--gold); }
-.footer-social { display: flex; align-items: center; gap: 16px; }
+.footer-social { display: flex; align-items: center; gap: 16px; margin-top: auto; padding-top: 40px; }
 .footer-social-link { color: #555; transition: color 0.2s; display: flex; }
 .footer-social-link:hover { color: var(--gold); }
 

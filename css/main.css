@@ -178,7 +178,8 @@ footer .footer-top {
   border-bottom: 1px solid #1E1E1E;
 }
 footer .footer-brand { display: flex; flex-direction: column; }
-footer .footer-brand img { height: 24px; }
+footer .footer-brand { align-items: flex-start; }
+footer .footer-brand img { height: 24px; width: auto; }
 footer .footer-brand p {
   font-size: 12px; font-weight: 300; color: #888;
   margin-top: 20px; max-width: 300px; line-height: 1.75;

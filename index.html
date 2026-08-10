@@ -873,39 +873,41 @@
     </div>
     <span class="linkedin-arrow-hint">scroll →</span>
   </div>
-  <div class="juicer-wrap">
-    <ul class="juicer-feed" data-feed-id="corelabmx" data-per="12"></ul>
-    <script type="text/javascript" src="https://www.juicer.io/embed/corelabmx/embed-code.js" async defer></script>
-    <script>
-    (function(){
-      function stylePost(p){
-        var hasImg = !!p.querySelector('img');
-        p.style.cssText = 'flex:0 0 300px!important;width:300px!important;min-width:0!important;height:300px!important;overflow:hidden!important;border-radius:2px!important;scroll-snap-align:start!important;margin:0!important;background:var(--surface)!important;border:1px solid var(--border)!important;transition:border-color .15s ease!important;display:flex!important;flex-direction:column!important;';
-        var img = p.querySelector('img');
-        if(img) img.style.cssText = 'width:100%!important;height:180px!important;object-fit:cover!important;display:block!important;flex-shrink:0!important;';
-        var msg = p.querySelector('.jcr-post-message,.j-text');
-        if(msg) msg.style.cssText = 'font-size:12px!important;font-weight:300!important;color:var(--muted)!important;line-height:1.6!important;overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:'+(hasImg?'3':'9')+'!important;-webkit-box-orient:vertical!important;padding:12px 14px!important;flex:1!important;';
-        p.querySelectorAll('.jcr-post-footer,.jcr-post-actions,.jcr-powered-by,.j-powered').forEach(function(el){ el.style.display='none'; });
-      }
-      function styleGrid(grid){
-        grid.style.cssText = 'display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:16px!important;padding:4px 48px 20px 4px!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important;scroll-snap-type:x mandatory!important;width:auto!important;max-width:none!important;';
-        var container = grid.closest('.jcr-feed-container');
-        if(container) container.style.cssText += 'overflow:visible!important;';
-      }
-      // MutationObserver fires the instant Juicer adds posts to the DOM
-      var observer = new MutationObserver(function(mutations){
-        var grid = document.querySelector('.jcr-masonry-grid,.jcr-grid');
-        if(!grid) return;
-        var posts = grid.querySelectorAll('.jcr-post');
-        if(!posts.length) return;
-        styleGrid(grid);
-        posts.forEach(stylePost);
-        observer.disconnect();
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
-    })();
-    </script>
-  </div>
+  <div id="cl-li-track" class="cl-li-carousel"></div>
+  <script>
+  (function(){
+    // Get the Juicer feed URL from their embed tag (set by their script),
+    // or fall back to the known versioned URL
+    var FEED_URL = 'https://www.juicer.io/api/feeds/corelabmx.html?origin=embed-code&per=12';
+    var track = document.getElementById('cl-li-track');
+    fetch(FEED_URL, {headers:{'Accept':'text/html'}})
+      .then(function(r){ return r.text(); })
+      .then(function(html){
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        var posts = tmp.querySelectorAll('.jcr-post');
+        if(!posts.length){ track.style.display='none'; return; }
+        var out = '';
+        posts.forEach(function(p){
+          var imgEl = p.querySelector('img');
+          var imgSrc = imgEl ? (imgEl.src || imgEl.dataset.src || imgEl.getAttribute('src')) : '';
+          var msgEl = p.querySelector('.jcr-post-message,.j-text');
+          var tmp2 = document.createElement('div');
+          tmp2.innerHTML = msgEl ? msgEl.innerHTML : '';
+          var txt = (tmp2.textContent || '').trim();
+          var linkEl = p.querySelector('a[href]');
+          var url = linkEl ? linkEl.href : 'https://www.linkedin.com/company/corelabmx';
+          var hasImg = !!imgSrc;
+          out += '<a class="cl-li-card'+(hasImg?' cl-li-card--img':' cl-li-card--text')+'" href="'+url+'" target="_blank" rel="noopener">'
+               + (hasImg ? '<img src="'+imgSrc+'" alt="" loading="lazy" onerror="this.style.display=\'none\'" />' : '')
+               + '<div class="cl-li-body"><p class="cl-li-text">'+txt+'</p></div>'
+               + '</a>';
+        });
+        track.innerHTML = out;
+      })
+      .catch(function(){ track.style.display='none'; });
+  })();
+  </script>
 </section>
 
 <hr class="divider" />

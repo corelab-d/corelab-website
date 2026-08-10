@@ -878,48 +878,31 @@
     <script type="text/javascript" src="https://www.juicer.io/embed/corelabmx/embed-code.js" async defer></script>
     <script>
     (function(){
-      function reshapeCarousel(){
-        var container = document.querySelector('.jcr-feed-container');
-        var grid = document.querySelector('.jcr-masonry-grid, .jcr-grid');
-        var posts = grid ? grid.querySelectorAll('.jcr-post') : [];
-        if(!grid || !posts.length) return false;
-        // Unlock all overflow-hidden ancestors
-        if(container) container.style.overflow = 'visible';
-        // Force horizontal scroll on the grid
-        grid.style.cssText = [
-          'display:flex','flex-direction:row','flex-wrap:nowrap',
-          'overflow-x:auto','overflow-y:hidden',
-          'gap:16px','padding:4px 48px 20px 4px',
-          'scrollbar-width:none','-webkit-overflow-scrolling:touch',
-          'scroll-snap-type:x mandatory','width:auto','max-width:none'
-        ].join('!important;') + '!important';
-        // Fixed-size cards
-        posts.forEach(function(p){
-          var hasImg = !!p.querySelector('img');
-          p.style.cssText = [
-            'flex:0 0 300px','width:300px','min-width:0',
-            'height:300px','overflow:hidden','border-radius:2px',
-            'scroll-snap-align:start','margin:0',
-            'background:var(--surface)','border:1px solid var(--border)',
-            'transition:border-color .15s ease','display:flex',
-            'flex-direction:column'
-          ].join('!important;') + '!important';
-          // Image fills top portion
-          var img = p.querySelector('img');
-          if(img) img.style.cssText = 'width:100%!important;height:180px!important;object-fit:cover!important;display:block!important;flex-shrink:0!important;';
-          // Clamp text
-          var msg = p.querySelector('.jcr-post-message, .j-text');
-          if(msg) msg.style.cssText = 'font-size:12px!important;font-weight:300!important;color:var(--muted)!important;line-height:1.6!important;overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:'+(hasImg?'3':'9')+'!important;-webkit-box-orient:vertical!important;padding:12px 14px!important;flex:1!important;';
-          // Hide footer chrome
-          p.querySelectorAll('.jcr-post-footer,.jcr-post-actions,.jcr-powered-by,.j-powered,.jcr-post-timestamp').forEach(function(el){ el.style.display='none'; });
-        });
-        return true;
+      function stylePost(p){
+        var hasImg = !!p.querySelector('img');
+        p.style.cssText = 'flex:0 0 300px!important;width:300px!important;min-width:0!important;height:300px!important;overflow:hidden!important;border-radius:2px!important;scroll-snap-align:start!important;margin:0!important;background:var(--surface)!important;border:1px solid var(--border)!important;transition:border-color .15s ease!important;display:flex!important;flex-direction:column!important;';
+        var img = p.querySelector('img');
+        if(img) img.style.cssText = 'width:100%!important;height:180px!important;object-fit:cover!important;display:block!important;flex-shrink:0!important;';
+        var msg = p.querySelector('.jcr-post-message,.j-text');
+        if(msg) msg.style.cssText = 'font-size:12px!important;font-weight:300!important;color:var(--muted)!important;line-height:1.6!important;overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:'+(hasImg?'3':'9')+'!important;-webkit-box-orient:vertical!important;padding:12px 14px!important;flex:1!important;';
+        p.querySelectorAll('.jcr-post-footer,.jcr-post-actions,.jcr-powered-by,.j-powered').forEach(function(el){ el.style.display='none'; });
       }
-      // Poll every 300ms until posts render, then reshape once
-      var attempts = 0;
-      var t = setInterval(function(){
-        if(reshapeCarousel() || ++attempts > 30) clearInterval(t);
-      }, 300);
+      function styleGrid(grid){
+        grid.style.cssText = 'display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;gap:16px!important;padding:4px 48px 20px 4px!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important;scroll-snap-type:x mandatory!important;width:auto!important;max-width:none!important;';
+        var container = grid.closest('.jcr-feed-container');
+        if(container) container.style.cssText += 'overflow:visible!important;';
+      }
+      // MutationObserver fires the instant Juicer adds posts to the DOM
+      var observer = new MutationObserver(function(mutations){
+        var grid = document.querySelector('.jcr-masonry-grid,.jcr-grid');
+        if(!grid) return;
+        var posts = grid.querySelectorAll('.jcr-post');
+        if(!posts.length) return;
+        styleGrid(grid);
+        posts.forEach(stylePost);
+        observer.disconnect();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
     })();
     </script>
   </div>

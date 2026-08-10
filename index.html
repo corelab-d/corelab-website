@@ -873,33 +873,56 @@
     </div>
     <span class="linkedin-arrow-hint">scroll →</span>
   </div>
-  <div id="cl-li-carousel" class="cl-li-carousel"></div>
-  <script>
-  (function(){
-    var API = 'https://www.juicer.io/api/feeds/corelabmx?per=12&page=1';
-    var track = document.getElementById('cl-li-carousel');
-    fetch(API).then(function(r){ return r.json(); }).then(function(data){
-      var items = (data.posts && data.posts.items) || [];
-      if(!items.length){ track.style.display='none'; return; }
-      var html = '';
-      items.forEach(function(p){
-        var hasImg = !!p.image;
-        var imgEl = hasImg ? '<img src="'+p.image+'" alt="" onerror="this.style.display=\'none\'" />' : '';
-        // Strip HTML tags from message
-        var tmp = document.createElement('div');
-        tmp.innerHTML = p.message || '';
-        var txt = (tmp.textContent || tmp.innerText || '').trim();
-        var url = p.full_url || '#';
-        var cardClass = 'cl-li-card' + (hasImg ? ' cl-li-card--img' : ' cl-li-card--text');
-        html += '<a class="'+cardClass+'" href="'+url+'" target="_blank" rel="noopener">'
-              +   imgEl
-              +   '<div class="cl-li-body"><p class="cl-li-text">'+txt+'</p></div>'
-              + '</a>';
-      });
-      track.innerHTML = html;
-    }).catch(function(){ track.style.display='none'; });
-  })();
-  </script>
+  <div class="juicer-wrap">
+    <ul class="juicer-feed" data-feed-id="corelabmx" data-per="12"></ul>
+    <script type="text/javascript" src="https://www.juicer.io/embed/corelabmx/embed-code.js" async defer></script>
+    <script>
+    (function(){
+      function reshapeCarousel(){
+        var container = document.querySelector('.jcr-feed-container');
+        var grid = document.querySelector('.jcr-masonry-grid, .jcr-grid');
+        var posts = grid ? grid.querySelectorAll('.jcr-post') : [];
+        if(!grid || !posts.length) return false;
+        // Unlock all overflow-hidden ancestors
+        if(container) container.style.overflow = 'visible';
+        // Force horizontal scroll on the grid
+        grid.style.cssText = [
+          'display:flex','flex-direction:row','flex-wrap:nowrap',
+          'overflow-x:auto','overflow-y:hidden',
+          'gap:16px','padding:4px 48px 20px 4px',
+          'scrollbar-width:none','-webkit-overflow-scrolling:touch',
+          'scroll-snap-type:x mandatory','width:auto','max-width:none'
+        ].join('!important;') + '!important';
+        // Fixed-size cards
+        posts.forEach(function(p){
+          var hasImg = !!p.querySelector('img');
+          p.style.cssText = [
+            'flex:0 0 300px','width:300px','min-width:0',
+            'height:300px','overflow:hidden','border-radius:2px',
+            'scroll-snap-align:start','margin:0',
+            'background:var(--surface)','border:1px solid var(--border)',
+            'transition:border-color .15s ease','display:flex',
+            'flex-direction:column'
+          ].join('!important;') + '!important';
+          // Image fills top portion
+          var img = p.querySelector('img');
+          if(img) img.style.cssText = 'width:100%!important;height:180px!important;object-fit:cover!important;display:block!important;flex-shrink:0!important;';
+          // Clamp text
+          var msg = p.querySelector('.jcr-post-message, .j-text');
+          if(msg) msg.style.cssText = 'font-size:12px!important;font-weight:300!important;color:var(--muted)!important;line-height:1.6!important;overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:'+(hasImg?'3':'9')+'!important;-webkit-box-orient:vertical!important;padding:12px 14px!important;flex:1!important;';
+          // Hide footer chrome
+          p.querySelectorAll('.jcr-post-footer,.jcr-post-actions,.jcr-powered-by,.j-powered,.jcr-post-timestamp').forEach(function(el){ el.style.display='none'; });
+        });
+        return true;
+      }
+      // Poll every 300ms until posts render, then reshape once
+      var attempts = 0;
+      var t = setInterval(function(){
+        if(reshapeCarousel() || ++attempts > 30) clearInterval(t);
+      }, 300);
+    })();
+    </script>
+  </div>
 </section>
 
 <hr class="divider" />

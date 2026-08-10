@@ -864,52 +864,6 @@
   </div>
 </section>
 
-<!-- LINKEDIN FEED -->
-<section id="linkedin-feed">
-  <div class="linkedin-feed-header">
-    <div>
-      <p class="section-label" data-i18n="home.linkedin.label">LinkedIn</p>
-      <h2 class="linkedin-title" data-i18n-html="home.linkedin.h2">Lo que estamos <em>pensando</em></h2>
-    </div>
-    <span class="linkedin-arrow-hint">scroll →</span>
-  </div>
-  <div id="cl-li-track" class="cl-li-carousel"></div>
-  <script>
-  (function(){
-    // Get the Juicer feed URL from their embed tag (set by their script),
-    // or fall back to the known versioned URL
-    var FEED_URL = 'https://www.juicer.io/api/feeds/corelabmx.html?origin=embed-code&per=12';
-    var track = document.getElementById('cl-li-track');
-    fetch(FEED_URL, {headers:{'Accept':'text/html'}})
-      .then(function(r){ return r.text(); })
-      .then(function(html){
-        var tmp = document.createElement('div');
-        tmp.innerHTML = html;
-        var posts = tmp.querySelectorAll('.jcr-post');
-        if(!posts.length){ track.style.display='none'; return; }
-        var out = '';
-        posts.forEach(function(p){
-          var imgEl = p.querySelector('img');
-          var imgSrc = imgEl ? (imgEl.src || imgEl.dataset.src || imgEl.getAttribute('src')) : '';
-          var msgEl = p.querySelector('.jcr-post-message,.j-text');
-          var tmp2 = document.createElement('div');
-          tmp2.innerHTML = msgEl ? msgEl.innerHTML : '';
-          var txt = (tmp2.textContent || '').trim();
-          var linkEl = p.querySelector('a[href]');
-          var url = linkEl ? linkEl.href : 'https://www.linkedin.com/company/corelabmx';
-          var hasImg = !!imgSrc;
-          out += '<a class="cl-li-card'+(hasImg?' cl-li-card--img':' cl-li-card--text')+'" href="'+url+'" target="_blank" rel="noopener">'
-               + (hasImg ? '<img src="'+imgSrc+'" alt="" loading="lazy" onerror="this.style.display=\'none\'" />' : '')
-               + '<div class="cl-li-body"><p class="cl-li-text">'+txt+'</p></div>'
-               + '</a>';
-        });
-        track.innerHTML = out;
-      })
-      .catch(function(){ track.style.display='none'; });
-  })();
-  </script>
-</section>
-
 <hr class="divider" />
 
 <!-- CONTACTO -->

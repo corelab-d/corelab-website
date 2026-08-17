@@ -756,24 +756,15 @@ var CASES = [
   { name: 'Arquitectoma', img: '../img/casos/arquitectoma-1.jpg', url: 'https://www.corelab.mx/casos/arquitectoma.html',
     cat_es: 'Real Estate · Estrategia de Medios', cat_en: 'Real Estate · Media Strategy',
     desc_es: 'Ecosistema digital completo para el desarrollador inmobiliario más activo de México: paid media, contenido y sitio web.', desc_en: 'Full digital ecosystem for one of Mexico\'s most active real estate developers: paid media, content and web.' },
-  { name: 'Arquitectoma', img: '../img/casos/arquitectoma-2.jpg', url: 'https://www.corelab.mx/casos/arquitectoma.html',
-    cat_es: 'Real Estate · Campañas Digitales', cat_en: 'Real Estate · Digital Campaigns',
-    desc_es: 'Campañas de Google, Meta y contenidos para proyectos residenciales en CDMX con resultados medibles.', desc_en: 'Google, Meta campaigns and content for residential projects in CDMX with measurable results.' },
   { name: 'Berger Joyeros', img: '../img/casos/berger-1.jpg', url: 'https://www.corelab.mx/casos/berger.html',
     cat_es: 'Marca · Web · Medios Digitales', cat_en: 'Brand · Web · Digital Media',
-    desc_es: 'Rediseño de identidad digital, sitio web y estrategia de contenidos para joyería de lujo.', desc_en: 'Digital identity redesign, website and content strategy for a luxury jewelry brand.' },
-  { name: 'Berger Joyeros', img: '../img/casos/berger-3.jpg', url: 'https://www.corelab.mx/casos/berger.html',
-    cat_es: 'Fotografía · Contenido · Paid Media', cat_en: 'Photography · Content · Paid Media',
-    desc_es: 'Producción de contenido editorial y campañas de performance para posicionamiento de lujo.', desc_en: 'Editorial content production and performance campaigns for luxury positioning.' },
+    desc_es: 'Rediseño de identidad digital, sitio web y estrategia de contenidos para joyería de lujo en México.', desc_en: 'Digital identity redesign, website and content strategy for a luxury jewelry brand in Mexico.' },
   { name: 'ACHA', img: '../img/casos/acha-1.jpg', url: 'https://www.corelab.mx/casos/acha.html',
     cat_es: 'Real Estate · Identidad Digital', cat_en: 'Real Estate · Digital Identity',
     desc_es: 'Branding, sitio web y medios digitales para el proyecto de uso mixto más emblemático de CDMX.', desc_en: 'Branding, website and digital media for one of CDMX\'s most iconic mixed-use developments.' },
   { name: 'Fertilidad Integral', img: '../img/casos/fertilidad-integral-1.webp', url: 'https://www.corelab.mx/casos/fertilidad-integral.html',
-    cat_es: 'UI/UX · Plataforma · Lead Acquisition', cat_en: 'UI/UX · Platform · Lead Acquisition',
-    desc_es: 'Plataforma de captación de leads, ecommerce y experiencia de usuario para clínica de salud reproductiva.', desc_en: 'Lead acquisition platform, ecommerce and UX for a reproductive health clinic.' },
-  { name: 'Moshi Moshi', img: '../img/casos/moshi-moshi-1.jpg', url: 'https://www.corelab.mx/',
-    cat_es: 'Medios Digitales · Branding', cat_en: 'Digital Media · Branding',
-    desc_es: 'Estrategia de contenidos y medios digitales para cadena de restaurantes japoneses en México.', desc_en: 'Content and digital media strategy for a Japanese restaurant chain in Mexico.' }
+    cat_es: 'UI/UX · Programación · Lead Acquisition', cat_en: 'UI/UX · Development · Lead Acquisition',
+    desc_es: 'Plataforma de captación de leads, ecommerce y experiencia de usuario para clínica de salud reproductiva.', desc_en: 'Lead acquisition platform, ecommerce and UX for a reproductive health clinic.' }
 ];
 
 function shuffle(arr) {
@@ -786,7 +777,7 @@ function shuffle(arr) {
 }
 
 function renderCases() {
-  var picked = shuffle(CASES).slice(0, 4);
+  var picked = shuffle(CASES).slice(0, 3);
   var html = '';
   picked.forEach(function(c, i) {
     var reverse = (i % 2 === 1) ? ' reverse' : '';

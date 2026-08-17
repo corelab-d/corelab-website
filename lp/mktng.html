@@ -210,25 +210,51 @@
     }
     .stat-l { font-size: 12px; font-weight: 300; color: #9B9A93; line-height: 1.4; }
 
-    /* ── CASES ── */
-    .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .case-card {
-      display: block; text-decoration: none;
-      border: 1px solid var(--border); border-radius: 2px; overflow: hidden;
-      background: var(--surface); transition: border-color .2s;
+    /* ── CASES EDITORIAL ── */
+    .cases-editorial { background: #161616; padding: 56px 0 !important; }
+    .cases-editorial .sec-label { padding: 0 56px; display: block; margin-bottom: 40px; }
+    .case-row {
+      display: flex; min-height: 320px;
+      border-top: 1px solid #2a2a2a;
+      text-decoration: none;
     }
-    .case-card:hover { border-color: var(--hint); }
-    .case-img { width: 100%; height: 180px; object-fit: cover; display: block; }
-    .case-body { padding: 20px 22px; }
-    .case-cat {
+    .case-row:last-child { border-bottom: 1px solid #2a2a2a; }
+    .case-row-img {
+      flex: 0 0 58%; overflow: hidden; position: relative;
+    }
+    .case-row-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .5s ease;
+    }
+    .case-row:hover .case-row-img img { transform: scale(1.04); }
+    .case-row-text {
+      flex: 1; display: flex; flex-direction: column;
+      justify-content: center; padding: 40px 48px; background: #161616;
+    }
+    .case-row.reverse { flex-direction: row-reverse; }
+    .case-row-num {
+      font-size: 10px; font-weight: 400; letter-spacing: .14em;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .case-row-cat {
       font-size: 10px; font-weight: 400; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--hint); margin-bottom: 6px;
+      text-transform: uppercase; color: #5a5a52; margin-bottom: 10px;
     }
-    .case-name {
-      font-size: 15px; font-weight: 400; color: var(--text);
-      display: flex; align-items: center; justify-content: space-between;
+    .case-row-name {
+      font-size: clamp(22px, 2vw, 32px); font-weight: 300;
+      color: #fff; line-height: 1.15; margin-bottom: 16px; letter-spacing: -.01em;
     }
-    .case-arrow { color: var(--hint); font-size: 14px; }
+    .case-row-desc {
+      font-size: 13px; font-weight: 300; color: #6b6b62;
+      line-height: 1.75; margin-bottom: 28px; max-width: 300px;
+    }
+    .case-row-link {
+      font-size: 11px; font-weight: 400; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: gap .2s;
+    }
+    .case-row:hover .case-row-link { gap: 14px; }
 
     /* ── FAQ ── */
     .faq-item { border-bottom: 1px solid var(--border); }
@@ -446,38 +472,9 @@
     </section>
 
     <!-- CASES -->
-    <section class="sec sec-white">
+    <section class="cases-editorial">
       <span class="sec-label" data-i18n="cases.label"></span>
-      <div class="cases-grid">
-        <a class="case-card" href="https://www.corelab.mx/casos/arquitectoma.html" target="_blank" rel="noopener">
-          <img class="case-img" src="../img/casos/arquitectoma-1.jpg" alt="Arquitectoma" loading="lazy">
-          <div class="case-body">
-            <div class="case-cat" data-i18n="case.1.cat"></div>
-            <div class="case-name">Arquitectoma <span class="case-arrow">↗</span></div>
-          </div>
-        </a>
-        <a class="case-card" href="https://www.corelab.mx/casos/berger.html" target="_blank" rel="noopener">
-          <img class="case-img" src="../img/casos/berger-1.jpg" alt="Berger Joyeros" loading="lazy">
-          <div class="case-body">
-            <div class="case-cat" data-i18n="case.2.cat"></div>
-            <div class="case-name">Berger Joyeros <span class="case-arrow">↗</span></div>
-          </div>
-        </a>
-        <a class="case-card" href="https://www.corelab.mx/casos/acha.html" target="_blank" rel="noopener">
-          <img class="case-img" src="../img/casos/acha-1.jpg" alt="ACHA" loading="lazy">
-          <div class="case-body">
-            <div class="case-cat" data-i18n="case.3.cat"></div>
-            <div class="case-name">ACHA <span class="case-arrow">↗</span></div>
-          </div>
-        </a>
-        <a class="case-card" href="https://www.corelab.mx/casos/fertilidad-integral.html" target="_blank" rel="noopener">
-          <img class="case-img" src="../img/casos/fertilidad-integral-1.webp" alt="Fertilidad Integral" loading="lazy">
-          <div class="case-body">
-            <div class="case-cat" data-i18n="case.4.cat"></div>
-            <div class="case-name">Fertilidad Integral <span class="case-arrow">↗</span></div>
-          </div>
-        </a>
-      </div>
+      <div id="cases-container"></div>
     </section>
 
     <!-- FAQ -->
@@ -755,7 +752,62 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   }).catch(function(){ btn.disabled = false; btn.textContent = T[lang]['form.btn']; });
 });
 
+var CASES = [
+  { name: 'Arquitectoma', img: '../img/casos/arquitectoma-1.jpg', url: 'https://www.corelab.mx/casos/arquitectoma.html',
+    cat_es: 'Real Estate · Estrategia de Medios', cat_en: 'Real Estate · Media Strategy',
+    desc_es: 'Ecosistema digital completo para el desarrollador inmobiliario más activo de México: paid media, contenido y sitio web.', desc_en: 'Full digital ecosystem for one of Mexico\'s most active real estate developers: paid media, content and web.' },
+  { name: 'Arquitectoma', img: '../img/casos/arquitectoma-2.jpg', url: 'https://www.corelab.mx/casos/arquitectoma.html',
+    cat_es: 'Real Estate · Campañas Digitales', cat_en: 'Real Estate · Digital Campaigns',
+    desc_es: 'Campañas de Google, Meta y contenidos para proyectos residenciales en CDMX con resultados medibles.', desc_en: 'Google, Meta campaigns and content for residential projects in CDMX with measurable results.' },
+  { name: 'Berger Joyeros', img: '../img/casos/berger-1.jpg', url: 'https://www.corelab.mx/casos/berger.html',
+    cat_es: 'Marca · Web · Medios Digitales', cat_en: 'Brand · Web · Digital Media',
+    desc_es: 'Rediseño de identidad digital, sitio web y estrategia de contenidos para joyería de lujo.', desc_en: 'Digital identity redesign, website and content strategy for a luxury jewelry brand.' },
+  { name: 'Berger Joyeros', img: '../img/casos/berger-3.jpg', url: 'https://www.corelab.mx/casos/berger.html',
+    cat_es: 'Fotografía · Contenido · Paid Media', cat_en: 'Photography · Content · Paid Media',
+    desc_es: 'Producción de contenido editorial y campañas de performance para posicionamiento de lujo.', desc_en: 'Editorial content production and performance campaigns for luxury positioning.' },
+  { name: 'ACHA', img: '../img/casos/acha-1.jpg', url: 'https://www.corelab.mx/casos/acha.html',
+    cat_es: 'Real Estate · Identidad Digital', cat_en: 'Real Estate · Digital Identity',
+    desc_es: 'Branding, sitio web y medios digitales para el proyecto de uso mixto más emblemático de CDMX.', desc_en: 'Branding, website and digital media for one of CDMX\'s most iconic mixed-use developments.' },
+  { name: 'Fertilidad Integral', img: '../img/casos/fertilidad-integral-1.webp', url: 'https://www.corelab.mx/casos/fertilidad-integral.html',
+    cat_es: 'UI/UX · Plataforma · Lead Acquisition', cat_en: 'UI/UX · Platform · Lead Acquisition',
+    desc_es: 'Plataforma de captación de leads, ecommerce y experiencia de usuario para clínica de salud reproductiva.', desc_en: 'Lead acquisition platform, ecommerce and UX for a reproductive health clinic.' },
+  { name: 'Moshi Moshi', img: '../img/casos/moshi-moshi-1.jpg', url: 'https://www.corelab.mx/',
+    cat_es: 'Medios Digitales · Branding', cat_en: 'Digital Media · Branding',
+    desc_es: 'Estrategia de contenidos y medios digitales para cadena de restaurantes japoneses en México.', desc_en: 'Content and digital media strategy for a Japanese restaurant chain in Mexico.' }
+];
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function renderCases() {
+  var picked = shuffle(CASES).slice(0, 4);
+  var html = '';
+  picked.forEach(function(c, i) {
+    var reverse = (i % 2 === 1) ? ' reverse' : '';
+    var cat = lang === 'es' ? c.cat_es : c.cat_en;
+    var desc = lang === 'es' ? c.desc_es : c.desc_en;
+    var cta = lang === 'es' ? 'Ver caso →' : 'View case →';
+    html += '<a class="case-row' + reverse + '" href="' + c.url + '" target="_blank" rel="noopener">'
+      + '<div class="case-row-img"><img src="' + c.img + '" alt="' + c.name + '" loading="lazy"></div>'
+      + '<div class="case-row-text">'
+      + '<div class="case-row-num">0' + (i + 1) + '</div>'
+      + '<div class="case-row-cat">' + cat + '</div>'
+      + '<div class="case-row-name">' + c.name + '</div>'
+      + '<div class="case-row-desc">' + desc + '</div>'
+      + '<span class="case-row-link">' + cta + '</span>'
+      + '</div></a>';
+  });
+  document.getElementById('cases-container').innerHTML = html;
+}
+
 applyTranslations();
+renderCases();
 </script>
 </body>
 </html>

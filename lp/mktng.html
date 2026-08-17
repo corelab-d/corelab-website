@@ -489,12 +489,6 @@
   }
 
   // ── FORM ──
-  // SETUP: Para que el formulario envíe a hola@corelab.mx:
-  // 1. Ve a https://formspree.io y crea una cuenta gratis con hola@corelab.mx
-  // 2. Crea un nuevo form (gratis = 50 envíos/mes)
-  // 3. Copia el Form ID y reemplaza "YOUR_FORM_ID" abajo
-  var FORMSPREE_ID = 'YOUR_FORM_ID';
-
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     var btn = this.querySelector('.submit-btn');
@@ -504,7 +498,11 @@
     var data = new FormData(this);
     data.append('_language', lang);
 
-    fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    // Add Web3Forms required fields
+    data.append('access_key', '7423e4da-0ff3-4190-b3f5-e81319509838');
+    data.append('subject', 'Nuevo contacto — CoreLab LP Medios & Sitios');
+    data.append('from_name', 'CoreLab LP');
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }

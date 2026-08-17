@@ -127,15 +127,26 @@
     /* ── LOGOS ── */
     .logos-track {
       display: flex; align-items: center;
-      flex-wrap: wrap; gap: 32px; row-gap: 24px;
+      flex-wrap: wrap; gap: 8px; row-gap: 8px;
     }
-    .logos-track img {
-      height: 40px; max-width: 130px; width: auto;
-      object-fit: contain; object-position: center;
-      filter: grayscale(15%); opacity: 0.78;
+    .logo-box {
+      width: 140px; height: 72px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px 18px;
+      transition: border-color .2s;
+    }
+    .logo-box:hover { border-color: var(--hint); }
+    .logo-box img {
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto;
+      object-fit: contain;
+      filter: grayscale(10%); opacity: 0.82;
       transition: opacity .2s, filter .2s;
     }
-    .logos-track img:hover { opacity: 1; filter: grayscale(0%); }
+    .logo-box:hover img { opacity: 1; filter: grayscale(0%); }
 
     /* ── WHY ── */
     .why-grid {
@@ -350,15 +361,15 @@
     <section class="sec sec-cream">
       <span class="sec-label-muted" data-i18n="logos.label"></span>
       <div class="logos-track">
-        <img src="../logos/Arquitectoma.jpeg" alt="Arquitectoma">
-        <img src="../logos/Berger.jpeg" alt="Berger Joyeros">
-        <img src="../logos/Somos ACHA.jpeg" alt="ACHA">
-        <img src="../logos/Avast.jpeg" alt="Avast">
-        <img src="../logos/Tane.jpeg" alt="Tane">
-        <img src="../logos/Papalote Museo del Niño.jpeg" alt="Papalote">
-        <img src="../logos/FertilidadIntegral.jpeg" alt="Fertilidad Integral">
-        <img src="../logos/Moshi Moshi.jpeg" alt="Moshi Moshi">
-        <img src="../logos/ExpoPublicitas.jpeg" alt="ExpoPublicitas">
+        <div class="logo-box"><img src="../logos/Arquitectoma.jpeg" alt="Arquitectoma"></div>
+        <div class="logo-box"><img src="../logos/Berger.jpeg" alt="Berger Joyeros"></div>
+        <div class="logo-box"><img src="../logos/Somos ACHA.jpeg" alt="ACHA"></div>
+        <div class="logo-box"><img src="../logos/Avast.jpeg" alt="Avast"></div>
+        <div class="logo-box"><img src="../logos/Tane.jpeg" alt="Tane"></div>
+        <div class="logo-box"><img src="../logos/Papalote Museo del Niño.jpeg" alt="Papalote"></div>
+        <div class="logo-box"><img src="../logos/FertilidadIntegral.jpeg" alt="Fertilidad Integral"></div>
+        <div class="logo-box"><img src="../logos/Moshi Moshi.jpeg" alt="Moshi Moshi"></div>
+        <div class="logo-box"><img src="../logos/ExpoPublicitas.jpeg" alt="ExpoPublicitas"></div>
       </div>
     </section>
 

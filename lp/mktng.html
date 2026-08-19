@@ -771,9 +771,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     method: 'POST', body: data, headers: { 'Accept': 'application/json' }
   }).then(function(r){ return r.json(); }).then(function(result) {
     if (result.success) {
-      document.getElementById('form-wrap').style.display = 'none';
-      var sm = document.getElementById('success-msg');
-      sm.style.display = 'flex';
+      window.location.href = '/lp/mktng-gracias.html';
     } else {
       btn.disabled = false; btn.textContent = T[lang]['form.btn'];
     }

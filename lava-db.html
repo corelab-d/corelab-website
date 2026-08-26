@@ -264,7 +264,20 @@ section { padding: 96px 56px; }
 .step-card {
   background: var(--bg);
   padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
 }
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--border);
+  transition: background 0.2s;
+}
+.step-card:hover { background: var(--surface); }
+.step-card:hover::before { background: var(--gold); }
 .step-num {
   font-size: 72px;
   font-weight: 300;
@@ -273,7 +286,9 @@ section { padding: 96px 56px; }
   margin-bottom: 28px;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
+  transition: color 0.2s;
 }
+.step-card:hover .step-num { color: var(--gold-dim); }
 .step-card h3 {
   font-size: 15px;
   font-weight: 400;
@@ -661,8 +676,7 @@ footer {
   <section id="como">
     <div class="container">
       <div class="intro">
-        <p class="section-label">La solución</p>
-        <h2 class="section-title">Cómo funciona LAVA DB</h2>
+        <h2 class="section-title">Cómo funciona <em class="gold">LAVA-DB</em></h2>
         <p class="section-body">Cuatro etapas automatizadas que convierten una base dormida en prospectos calificados, listos para que tu equipo cierre.</p>
       </div>
       <div class="steps-grid">

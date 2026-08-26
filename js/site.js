@@ -64,7 +64,7 @@
         <a id="nav-productos-btn">Productos</a>
         <div class="nav-dropdown">
           <a href="https://lava.corelab.mx" target="_blank">LAVA</a>
-          <a href="${rootPath}lava-db.html" target="_blank">LAVA DB</a>
+          <a href="https://lava-db.corelab.mx" target="_blank">LAVA DB</a>
         </div>
       </li>
     </ul>
@@ -82,7 +82,7 @@
       <li><a href="${rootPath}index.html#inmobiliaria-highlight">Real Estate</a></li>
       <li><a href="${rootPath}index.html#ia-highlight">IA</a></li>
       <li><a href="https://lava.corelab.mx" target="_blank">LAVA</a></li>
-      <li><a href="${rootPath}lava-db.html">LAVA DB</a></li>
+      <li><a href="https://lava-db.corelab.mx">LAVA DB</a></li>
     </ul>
     <div class="nav-mobile-bottom">
       <button onclick="window.__setLang && window.__setLang(window.__lang==='es'?'en':'es')" class="lang-toggle">EN</button>

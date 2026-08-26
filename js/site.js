@@ -8,7 +8,7 @@
   // NAV
   const navHTML = `
   <style>
-    li.has-dropdown { position: relative; align-self: stretch; display: flex; align-items: center; }
+    li.has-dropdown { position: static; }
     li.has-dropdown > a { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 5px; }
     li.has-dropdown > a::after {
       content: '';
@@ -23,10 +23,9 @@
     li.has-dropdown.open > a::after { transform: rotate(-135deg) translateY(1px); }
     .nav-dropdown {
       display: none;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
+      position: fixed;
+      top: 64px;
+      right: 48px;
       background: #1A1A1A;
       border: 1px solid rgba(255,255,255,0.1);
       min-width: 140px;

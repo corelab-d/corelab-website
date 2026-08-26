@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAVA DB — Reactiva tu cartera</title>
+<meta name="description" content="Reactivación automatizada con IA para bases de datos dormidas. Convierte lo que ya pagaste.">
+<link rel="icon" href="https://corelab.mx/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #F4F3F0;
+  --warm:    #FAF8F4;
+  --surface: #FFFFFF;
+  --border:  #E8E6E1;
+  --text:    #1A1A1A;
+  --muted:   #999999;
+  --hint:    #C4C2BC;
+  --gold:    #EBB22C;
+  --gold-hover: #F8B315;
+  --gold-dim: rgba(235,178,44,0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  background: rgba(244,243,240,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px;
+}
+
+.hdr-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.hdr-logo img {
+  height: 22px;
+  width: auto;
+}
+.hdr-logo-db {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 3px 8px;
+  border: 1px solid rgba(235,178,44,0.4);
+  line-height: 1;
+}
+
+.hdr-cta {
+  display: inline-block;
+  background: var(--text);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+.hdr-cta:hover { background: var(--gold); color: var(--text); }
+
+/* ── LAYOUT ── */
+main { padding-top: 64px; }
+section { padding: 96px 56px; }
+.container { max-width: 1080px; margin: 0 auto; }
+
+/* ── HERO ── */
+#hero {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 120px 56px 96px;
+}
+#hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.15;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-body {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+.hero-ctas {
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--text);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+.btn-primary:hover { background: var(--gold); color: var(--text); }
+.btn-ghost {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--hint);
+  padding-bottom: 2px;
+  transition: color 0.18s, border-color 0.18s;
+}
+.btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+/* ── STATS ── */
+#stats {
+  background: var(--warm);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 56px;
+}
+#stats .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.stat-item {
+  background: var(--warm);
+  padding: 36px 40px;
+}
+.stat-num {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.stat-num span { color: var(--gold); }
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── LABELS Y TÍTULOS ── */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--muted); }
+.section-title em.gold { color: var(--gold); }
+.section-body {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* ── EL RETO ── */
+#reto {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+#reto .reto-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+.reto-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+}
+.reto-card {
+  background: var(--surface);
+  padding: 32px 36px;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.reto-card:hover { border-left-color: var(--gold); }
+.reto-card-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--hint);
+  margin-bottom: 14px;
+}
+.reto-card h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.reto-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── CÓMO FUNCIONA ── */
+#como {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+#como .intro { margin-bottom: 64px; }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.step-card {
+  background: var(--bg);
+  padding: 40px 32px;
+}
+.step-num {
+  font-size: 72px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.step-card h3 {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.step-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── VERIFICACIÓN ── */
+#verificacion {
+  background: var(--warm);
+  border-bottom: 1px solid var(--border);
+}
+#verificacion .intro { margin-bottom: 64px; }
+#verificacion .verif-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Mockup conversación */
+.chat-mockup {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.chat-header {
+  background: #075E54;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chat-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1A1A;
+  flex-shrink: 0;
+}
+.chat-header-info { flex: 1; }
+.chat-name { font-size: 14px; font-weight: 400; color: #FFFFFF; }
+.chat-status { font-size: 11px; color: rgba(255,255,255,0.65); }
+.chat-body {
+  padding: 20px 16px;
+  background: #ECE5DD;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 280px;
+}
+.chat-msg {
+  max-width: 80%;
+  padding: 8px 12px 6px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  position: relative;
+}
+.chat-msg .chat-time {
+  font-size: 10px;
+  color: rgba(0,0,0,0.4);
+  text-align: right;
+  margin-top: 4px;
+}
+.chat-msg.out {
+  background: #DCF8C6;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+  color: #1A1A1A;
+}
+.chat-msg.in {
+  background: #FFFFFF;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  color: #1A1A1A;
+}
+.chat-tag {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.35);
+  text-align: center;
+  padding: 4px 0 2px;
+}
+
+/* Steps de verificación */
+.verif-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.verif-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.verif-step:last-child { border-bottom: none; }
+.verif-step-num {
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.verif-step-content {}
+.verif-step h3 {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.verif-step p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── FASES ── */
+#fases {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+#fases .intro { margin-bottom: 64px; }
+.fases-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+.fase-card {
+  background: var(--surface);
+  padding: 40px 32px 48px;
+}
+.fase-card:last-child { background: var(--bg); }
+.fase-tag {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-bottom: 24px;
+}
+.fase-num {
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.fase-num span { color: var(--gold); font-size: 0.6em; vertical-align: super; }
+.fase-label {
+  font-size: 12px;
+  color: var(--hint);
+  margin-bottom: 24px;
+}
+.fase-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.fase-features li {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 16px;
+  position: relative;
+}
+.fase-features li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--hint);
+}
+
+/* ── INVERSIÓN ── */
+#inversion {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+#inversion .inv-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.inv-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 48px 40px;
+}
+.inv-card-tag {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.inv-card-title {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+.inv-card-body {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+.inv-items {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 36px;
+}
+.inv-items li {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+.inv-items li::before {
+  content: '';
+  position: absolute; left: 0; top: 8px;
+  width: 6px; height: 1px;
+  background: var(--gold);
+}
+.setup-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 56px;
+}
+.setup-item {
+  background: var(--bg);
+  padding: 40px 36px 44px;
+}
+.setup-num {
+  font-size: 72px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.setup-item h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.setup-item p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ── CTA FINAL ── */
+#cta-final {
+  background: var(--warm);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+#cta-final .section-title { margin: 0 auto 16px; max-width: 600px; }
+#cta-final .section-body { margin: 0 auto 48px; max-width: 480px; text-align: center; }
+.cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  background: #1A1A1A;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.ftr-logo img { height: 18px; width: auto; }
+.ftr-text { font-size: 12px; color: #666; }
+.ftr-link { font-size: 12px; color: #888; text-decoration: none; transition: color 0.18s; }
+.ftr-link:hover { color: #EBB22C; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  section { padding: 72px 28px; }
+  #hero { padding: 100px 28px 72px; }
+  #hero .container { grid-template-columns: 1fr; gap: 48px; }
+  #stats .container { grid-template-columns: 1fr; }
+  #reto .reto-grid { grid-template-columns: 1fr; gap: 48px; }
+  .steps-grid, .fases-track { grid-template-columns: 1fr 1fr; }
+  #verificacion .verif-layout { grid-template-columns: 1fr; gap: 48px; }
+  .setup-items { grid-template-columns: 1fr; }
+  #inversion .inv-layout { grid-template-columns: 1fr; gap: 40px; }
+  header { padding: 0 28px; }
+  footer { padding: 32px 28px; }
+}
+@media (max-width: 600px) {
+  .steps-grid, .verif-grid, .fases-track { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://lavadb.corelab.mx" class="hdr-logo">
+    <img src="logos/logo lava db light.png" alt="LAVA DB" style="height:28px; width:auto;">
+  </a>
+  <a href="#cta-final" class="hdr-cta">Agendar diagnóstico</a>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div>
+        <p class="hero-eyebrow">LAVA DB · Reactivación de Cartera</p>
+        <h1 class="hero-title">Reactiva tu cartera.<br><em class="gold">Convierte lo que ya pagaste.</em></h1>
+      </div>
+      <div>
+        <p class="hero-body">Tu equipo de agentes de IA que hace el trabajo operativo de un call center — sin nómina, sin límite de leads. Activamos bases dormidas con inteligencia conversacional y te entregamos los prospectos listos para negociar.</p>
+        <div class="hero-ctas">
+          <a href="#cta-final" class="btn-primary">Agendar diagnóstico</a>
+          <a href="#como" class="btn-ghost">Ver cómo funciona →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="container">
+      <div class="stat-item">
+        <div class="stat-num">70<span>%</span></div>
+        <div class="stat-label">de los leads en una base nunca recibe un segundo contacto</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5<span>×</span></div>
+        <div class="stat-label">más caro generar un lead nuevo que reactivar uno dormido</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">operación continua sin ampliar el equipo de asesores</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL RETO -->
+  <section id="reto">
+    <div class="container">
+      <div class="reto-grid">
+        <div>
+          <p class="section-label">El reto</p>
+          <h2 class="section-title">Lo que bloquea<br><em class="gold">tu cartera hoy</em></h2>
+          <p class="section-body" style="margin-top:20px;">Cada lead que ya pagaste y no convirtiste sigue siendo una oportunidad real. El problema no es el lead — es la capacidad operativa para alcanzarlo a tiempo, con el mensaje correcto.</p>
+        </div>
+        <div class="reto-cards">
+          <div class="reto-card">
+            <div class="reto-card-num">01</div>
+            <h3>Leads que nunca se reactivan</h3>
+            <p>Las bases crecen, pero la capacidad de seguimiento no escala. Miles de prospectos quedaron sin un segundo contacto y se enfriaron.</p>
+          </div>
+          <div class="reto-card">
+            <div class="reto-card-num">02</div>
+            <h3>El costo de generar leads nuevos</h3>
+            <p>Invertir en captación cuando ya tienes una base grande es tirar dinero. El ROI está en activar lo que ya tienes, no en pagar más por nuevos.</p>
+          </div>
+          <div class="reto-card">
+            <div class="reto-card-num">03</div>
+            <h3>Capacidad limitada del equipo</h3>
+            <p>Tus asesores deberían cerrar, no hacer llamadas frías. El trabajo operativo de calificación consume tiempo que deberíamos proteger.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section id="como">
+    <div class="container">
+      <div class="intro">
+        <p class="section-label">La solución</p>
+        <h2 class="section-title">Cómo funciona LAVA DB</h2>
+        <p class="section-body">Cuatro etapas automatizadas que convierten una base dormida en prospectos calificados, listos para que tu equipo cierre.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Activación masiva</h3>
+          <p>El agente contacta toda la base de forma simultánea vía WhatsApp. Sin esperar, sin priorizar — todos reciben el primer mensaje a la vez.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Calificación conversacional</h3>
+          <p>Una conversación natural identifica intención real, condiciones actuales y nivel de interés. El agente pregunta lo que un asesor preguntaría.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Cumplimiento y tono</h3>
+          <p>Cada interacción respeta las regulaciones aplicables y mantiene el tono de marca definido en el onboarding. Sin improvisaciones.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>Entrega para negociar</h3>
+          <p>Tu equipo recibe solo los prospectos re-interesados, con el resumen de la conversación listo para el cierre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFICACIÓN -->
+  <section id="verificacion">
+    <div class="container">
+      <div class="intro">
+        <p class="section-label">El flujo real</p>
+        <h2 class="section-title">De lead dormido<br><em class="gold">a prospecto calificado</em></h2>
+        <p class="section-body">Así se ve el proceso desde el primer contacto hasta que el lead llega al escritorio de tu asesor.</p>
+      </div>
+      <div class="verif-layout">
+
+        <!-- Mockup de conversación -->
+        <div class="chat-mockup">
+          <div class="chat-header">
+            <div class="chat-avatar">L</div>
+            <div class="chat-header-info">
+              <div class="chat-name">Agente LAVA DB</div>
+              <div class="chat-status">en línea</div>
+            </div>
+          </div>
+          <div class="chat-body">
+            <div class="chat-tag">Hoy · 9:14 am</div>
+            <div class="chat-msg out">
+              Hola, ¿cómo estás? Te contactamos de [Empresa]. Hace algunos meses mostraste interés en nuestro producto y queremos saber si sigues evaluando opciones. ¿Tienes un momento?
+              <div class="chat-time">9:14 ✓✓</div>
+            </div>
+            <div class="chat-msg in">
+              Sí, la verdad sigo interesado pero en ese momento no tenía presupuesto.
+              <div class="chat-time">9:17</div>
+            </div>
+            <div class="chat-msg out">
+              Qué bueno saberlo. ¿Cuándo crees que podría ser un buen momento para retomarlo? Tenemos opciones de entrada más accesibles que podríamos revisar juntos.
+              <div class="chat-time">9:17 ✓✓</div>
+            </div>
+            <div class="chat-msg in">
+              En septiembre tengo más holgura. ¿Me pueden llamar?
+              <div class="chat-time">9:19</div>
+            </div>
+            <div class="chat-msg out" style="background: #EBB22C; color: #1A1A1A;">
+              Claro, le digo a un asesor que te contacte esta semana. ¡Gracias por tu tiempo!
+              <div class="chat-time" style="color: rgba(0,0,0,0.5);">9:19 ✓✓</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Steps -->
+        <div class="verif-steps">
+          <div class="verif-step">
+            <div class="verif-step-num">01</div>
+            <div class="verif-step-content">
+              <h3>LAVA activa el contacto</h3>
+              <p>El agente envía el primer mensaje personalizado vía WhatsApp con el contexto del lead y una propuesta de valor directa.</p>
+            </div>
+          </div>
+          <div class="verif-step">
+            <div class="verif-step-num">02</div>
+            <div class="verif-step-content">
+              <h3>Califica en conversación</h3>
+              <p>Si hay respuesta, el agente indaga situación actual: intención, capacidad de decisión y timing. Todo en lenguaje natural.</p>
+            </div>
+          </div>
+          <div class="verif-step">
+            <div class="verif-step-num">03</div>
+            <div class="verif-step-content">
+              <h3>Marca y entrega</h3>
+              <p>Los prospectos que califican se marcan como re-interesados con el resumen completo de la conversación adjunto.</p>
+            </div>
+          </div>
+          <div class="verif-step">
+            <div class="verif-step-num">04</div>
+            <div class="verif-step-content">
+              <h3>Tu equipo entra a cerrar</h3>
+              <p>El asesor retoma donde el agente dejó. Entra con contexto, sin fricción, directo a la negociación.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FASES -->
+  <section id="fases">
+    <div class="container">
+      <div class="intro">
+        <p class="section-label">Escalamiento por fases</p>
+        <h2 class="section-title">Empezamos pequeño.<br><em>Escalamos cuando funciona.</em></h2>
+        <p class="section-body">El proyecto se estructura en fases de volumen creciente. Validamos resultados antes de comprometer el siguiente nivel.</p>
+      </div>
+      <div class="fases-track">
+        <div class="fase-card">
+          <div class="fase-tag">Fase 1 — Piloto</div>
+          <div class="fase-num">5<span>K</span></div>
+          <div class="fase-label">leads</div>
+          <ul class="fase-features">
+            <li>Onboarding del agente</li>
+            <li>WhatsApp dedicado</li>
+            <li>Ajuste de tono y guión</li>
+            <li>Reporte de resultados</li>
+          </ul>
+        </div>
+        <div class="fase-card">
+          <div class="fase-tag">Fase 2</div>
+          <div class="fase-num">10<span>K</span></div>
+          <div class="fase-label">leads</div>
+          <ul class="fase-features">
+            <li>Optimización de mensajes</li>
+            <li>Segmentación por perfil</li>
+            <li>Integración CRM activa</li>
+            <li>Dashboard de seguimiento</li>
+          </ul>
+        </div>
+        <div class="fase-card">
+          <div class="fase-tag">Fase 3</div>
+          <div class="fase-num">20<span>K</span></div>
+          <div class="fase-label">leads</div>
+          <ul class="fase-features">
+            <li>Flujos de re-oferta</li>
+            <li>Multi-canal (WA + email)</li>
+            <li>Scoring automático</li>
+            <li>Análisis de objeciones</li>
+          </ul>
+        </div>
+        <div class="fase-card">
+          <div class="fase-tag">Fase 4 — Escala</div>
+          <div class="fase-num">30<span>K</span></div>
+          <div class="fase-label">leads</div>
+          <ul class="fase-features">
+            <li>Operación continua</li>
+            <li>Reportes ejecutivos</li>
+            <li>Expansión a nuevas bases</li>
+            <li>Soporte dedicado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVERSIÓN -->
+  <section id="inversion">
+    <div class="container">
+      <div class="inv-layout">
+        <div>
+          <p class="section-label">Modelo de inversión</p>
+          <h2 class="section-title">Proyectos<br><em>a la medida</em></h2>
+          <p class="section-body" style="margin-top:20px;">Cada base de datos tiene su propio perfil de riesgo y potencial de activación. Por eso no tenemos precios fijos: construimos la propuesta después del diagnóstico.</p>
+          <p class="section-body" style="margin-top:16px;">El modelo es fee fijo de operación + variable por resultado. Así nuestros incentivos están alineados con los tuyos.</p>
+        </div>
+        <div>
+          <div class="inv-card">
+            <div class="inv-card-tag">Setup inicial (una sola vez)</div>
+            <h3 class="inv-card-title">Todo lo que necesitas para arrancar</h3>
+            <p class="inv-card-body">El setup cubre la configuración completa del agente: personalización de tono, integración con tu CRM y el número de WhatsApp dedicado al proyecto.</p>
+            <ul class="inv-items">
+              <li>Onboarding y entrenamiento del agente de IA</li>
+              <li>Número de WhatsApp dedicado al proyecto</li>
+              <li>Integración con tu CRM o sistema actual</li>
+              <li>Configuración de reportes y dashboard</li>
+              <li>Prueba piloto con muestra de la base</li>
+            </ul>
+            <a href="#cta-final" class="btn-primary">Solicitar propuesta</a>
+          </div>
+        </div>
+      </div>
+      <div class="setup-items">
+        <div class="setup-item">
+          <div class="setup-num">01</div>
+          <h4>Diagnóstico sin costo</h4>
+          <p>Analizamos tu base, estimamos el potencial de reactivación y te mostramos qué esperamos lograr antes de comprometerte con nada.</p>
+        </div>
+        <div class="setup-item">
+          <div class="setup-num">02</div>
+          <h4>Propuesta en 48 horas</h4>
+          <p>Después del diagnóstico recibes una propuesta con volúmenes, fases, inversión y proyección de resultados.</p>
+        </div>
+        <div class="setup-item">
+          <div class="setup-num">03</div>
+          <h4>Arrancamos en 2 semanas</h4>
+          <p>Setup, onboarding del agente y primera activación en el menor tiempo posible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <div class="container">
+      <p class="section-label" style="text-align:center;">Siguiente paso</p>
+      <h2 class="section-title">¿Cuántos leads dormidos<br>tienes en tu base?</h2>
+      <p class="section-body">Agendamos un diagnóstico de 30 minutos. Sin costo, sin compromiso. Solo te contamos qué podemos activar con lo que ya tienes.</p>
+      <div class="cta-group">
+        <a href="mailto:omar@corelab.mx?subject=Diagnóstico LAVA DB" class="btn-primary">Agendar diagnóstico gratuito</a>
+        <a href="https://corelab.mx" class="btn-ghost">Conocer CoreLab →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://corelab.mx" class="ftr-logo">
+    <img src="logos/logo lava db dark.png" alt="LAVA DB">
+  </a>
+  <span class="ftr-text">Un producto de <a href="https://corelab.mx" class="ftr-link">CoreLab</a> · IA aplicada a negocios</span>
+  <a href="https://corelab.mx" class="ftr-link">corelab.mx</a>
+</footer>
+
+</body>
+</html>

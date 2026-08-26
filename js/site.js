@@ -64,7 +64,7 @@
         <a id="nav-productos-btn">Productos</a>
         <div class="nav-dropdown">
           <a href="https://lava.corelab.mx" target="_blank">LAVA</a>
-          <a href="${rootPath}lava-db.html">LAVA DB</a>
+          <a href="${rootPath}lava-db.html" target="_blank">LAVA DB</a>
         </div>
       </li>
     </ul>

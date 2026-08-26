@@ -14,12 +14,16 @@
       </a>
     </div>
     <ul>
-      <li><a href="${rootPath}index.html#servicios" data-i18n="nav.servicios">Servicios</a></li>
-      <li><a href="${rootPath}index.html#casos" data-i18n="nav.casos">Casos</a></li>
-      <li><a href="${rootPath}inmobiliaria.html" data-i18n="nav.inmobiliaria">Inmobiliaria</a></li>
-      <li><a href="${rootPath}marca.html" data-i18n="nav.marca">Marca</a></li>
-      <li><a href="${rootPath}ia.html" data-i18n="nav.ia">IA</a></li>
-      <li><a href="${rootPath}index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+      <li><a href="${rootPath}index.html#marca-highlight">Marca</a></li>
+      <li><a href="${rootPath}index.html#inmobiliaria-highlight">Real Estate</a></li>
+      <li><a href="${rootPath}index.html#ia-highlight">IA</a></li>
+      <li class="has-dropdown">
+        <a>Productos</a>
+        <div class="nav-dropdown">
+          <a href="https://lava.corelab.mx" target="_blank">LAVA</a>
+          <a href="${rootPath}lava-db.html">LAVA DB</a>
+        </div>
+      </li>
     </ul>
     <div class="nav-right">
       <button id="lang-toggle" onclick="window.__setLang && window.__setLang(window.__lang==='es'?'en':'es')" class="lang-toggle">EN</button>
@@ -31,12 +35,11 @@
   </nav>
   <div class="nav-mobile-menu" id="nav-mobile-menu" aria-hidden="true">
     <ul class="nav-mobile-links">
-      <li><a href="${rootPath}index.html#servicios" data-i18n="nav.servicios">Servicios</a></li>
-      <li><a href="${rootPath}index.html#casos" data-i18n="nav.casos">Casos</a></li>
-      <li><a href="${rootPath}inmobiliaria.html" data-i18n="nav.inmobiliaria">Inmobiliaria</a></li>
-      <li><a href="${rootPath}marca.html" data-i18n="nav.marca">Marca</a></li>
-      <li><a href="${rootPath}ia.html" data-i18n="nav.ia">IA</a></li>
-      <li><a href="${rootPath}index.html#nosotros" data-i18n="nav.nosotros">Nosotros</a></li>
+      <li><a href="${rootPath}index.html#marca-highlight">Marca</a></li>
+      <li><a href="${rootPath}index.html#inmobiliaria-highlight">Real Estate</a></li>
+      <li><a href="${rootPath}index.html#ia-highlight">IA</a></li>
+      <li><a href="https://lava.corelab.mx" target="_blank">LAVA</a></li>
+      <li><a href="${rootPath}lava-db.html">LAVA DB</a></li>
     </ul>
     <div class="nav-mobile-bottom">
       <button onclick="window.__setLang && window.__setLang(window.__lang==='es'?'en':'es')" class="lang-toggle">EN</button>

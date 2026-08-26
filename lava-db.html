@@ -312,7 +312,7 @@ section { padding: 96px 56px; }
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 80px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Mockup conversación */
@@ -343,13 +343,17 @@ section { padding: 96px 56px; }
 .chat-header-info { flex: 1; }
 .chat-name { font-size: 14px; font-weight: 400; color: #FFFFFF; }
 .chat-status { font-size: 11px; color: rgba(255,255,255,0.65); }
+.chat-mockup {
+  display: flex;
+  flex-direction: column;
+}
 .chat-body {
   padding: 20px 16px;
   background: #ECE5DD;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 280px;
+  flex: 1;
 }
 .chat-msg {
   max-width: 80%;
@@ -391,23 +395,26 @@ section { padding: 96px 56px; }
   display: flex;
   flex-direction: column;
   gap: 0;
+  justify-content: space-between;
+  height: 100%;
 }
 .verif-step {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 0;
-  padding: 28px 0;
+  padding: 24px 28px;
+  border-left: 2px solid var(--border);
+  margin-left: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
   border-bottom: 1px solid var(--border);
-  align-items: start;
 }
 .verif-step:last-child { border-bottom: none; }
-.verif-step-num {
-  font-size: 64px;
-  font-weight: 300;
-  color: var(--border);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+.verif-step:hover {
+  border-left-color: var(--gold);
+  background: rgba(235,178,44,0.04);
 }
+.verif-step-num { display: none; }
 .verif-step-content {}
 .verif-step h3 {
   font-size: 15px;

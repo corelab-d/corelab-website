@@ -40,7 +40,7 @@ nav {
   justify-content: space-between;
 }
 nav .logo img { height: 28px; display: block; }
-nav ul { list-style: none; display: flex; gap: 32px; }
+nav ul { list-style: none; display: flex; gap: 32px; align-self: stretch; align-items: center; }
 nav ul a {
   color: var(--hint);
   text-decoration: none;

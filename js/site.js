@@ -7,6 +7,48 @@
 
   // NAV
   const navHTML = `
+  <style>
+    li.has-dropdown { position: relative; }
+    li.has-dropdown > a { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 5px; }
+    li.has-dropdown > a::after {
+      content: '';
+      width: 4px; height: 4px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg) translateY(-1px);
+      display: inline-block;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    li.has-dropdown.open > a::after { transform: rotate(-135deg) translateY(1px); }
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1A1A1A;
+      border: 1px solid rgba(255,255,255,0.1);
+      min-width: 140px;
+      z-index: 500;
+      flex-direction: column;
+    }
+    li.has-dropdown.open .nav-dropdown { display: flex; }
+    .nav-dropdown a {
+      display: block !important;
+      padding: 12px 20px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      color: rgba(255,255,255,0.6) !important;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { color: #EBB22C !important; background: rgba(255,255,255,0.04); }
+  </style>
   <nav id="navbar">
     <div class="logo">
       <a href="${rootPath}index.html">
@@ -17,8 +59,8 @@
       <li><a href="${rootPath}index.html#marca-highlight">Marca</a></li>
       <li><a href="${rootPath}index.html#inmobiliaria-highlight">Real Estate</a></li>
       <li><a href="${rootPath}index.html#ia-highlight">IA</a></li>
-      <li class="has-dropdown">
-        <a>Productos</a>
+      <li class="has-dropdown" id="nav-productos">
+        <a id="nav-productos-btn">Productos</a>
         <div class="nav-dropdown">
           <a href="https://lava.corelab.mx" target="_blank">LAVA</a>
           <a href="${rootPath}lava-db.html">LAVA DB</a>
@@ -147,6 +189,20 @@
       // Close on resize back to desktop
       window.addEventListener('resize', () => {
         if (window.innerWidth > 900) closeMenu();
+      });
+    }
+
+    // Dropdown PRODUCTOS — click toggle
+    const prodBtn = document.getElementById('nav-productos-btn');
+    const prodLi  = document.getElementById('nav-productos');
+    if (prodBtn && prodLi) {
+      prodBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        prodLi.classList.toggle('open');
+      });
+      // Cerrar al click fuera
+      document.addEventListener('click', function () {
+        prodLi.classList.remove('open');
       });
     }
 

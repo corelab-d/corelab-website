@@ -51,44 +51,7 @@ nav ul a {
 }
 nav ul a:hover { color: var(--gold); }
 
-/* ── DROPDOWN PRODUCTOS ── */
-nav ul li.has-dropdown { position: relative; }
-nav ul li.has-dropdown > a { display: flex; align-items: center; gap: 5px; cursor: default; }
-nav ul li.has-dropdown > a::after {
-  content: '';
-  width: 5px; height: 5px;
-  border-right: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
-  display: inline-block;
-  transition: transform 0.2s;
-}
-nav ul li.has-dropdown:hover > a::after { transform: rotate(-135deg) translateY(-2px); }
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 16px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1A1A1A;
-  border: 1px solid rgba(255,255,255,0.08);
-  min-width: 160px;
-  padding: 8px 0;
-  z-index: 300;
-}
-nav ul li.has-dropdown:hover .nav-dropdown { display: block; }
-.nav-dropdown a {
-  display: block;
-  padding: 10px 20px;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6) !important;
-  text-decoration: none;
-  transition: color 0.15s, background 0.15s;
-  white-space: nowrap;
-}
-.nav-dropdown a:hover { color: var(--gold) !important; background: rgba(255,255,255,0.04); }
+/* dropdown handled via inline <style> in site.js */
 .nav-cta {
   background: transparent;
   border: 1px solid #444;

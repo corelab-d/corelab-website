@@ -88,39 +88,46 @@ section { padding: 96px 56px; }
 #hero {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  padding: 120px 56px 96px;
+  padding: 80px 56px 56px;
 }
 #hero .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 .hero-eyebrow {
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .hero-title {
   font-size: clamp(48px, 5.5vw, 82px);
   font-weight: 300;
   color: var(--text);
   line-height: 1.1;
+  margin-bottom: 36px;
 }
 .hero-title em {
   font-style: italic;
   color: var(--gold);
 }
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 .hero-body {
   font-size: 16px;
   color: var(--mid);
   line-height: 1.85;
-  margin-bottom: 40px;
+  max-width: 520px;
 }
 .hero-ctas {
-  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap; flex-shrink: 0;
 }
 .btn-primary {
   display: inline-block;
@@ -561,7 +568,7 @@ footer {
 @media (max-width: 900px) {
   section { padding: 72px 28px; }
   #hero { padding: 100px 28px 72px; }
-  #hero .container { grid-template-columns: 1fr; gap: 48px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
   #stats .container { grid-template-columns: 1fr; }
   #reto .reto-grid { grid-template-columns: 1fr; gap: 48px; }
   .steps-grid, .fases-track { grid-template-columns: 1fr 1fr; }
@@ -591,11 +598,9 @@ footer {
   <!-- HERO -->
   <section id="hero">
     <div class="container">
-      <div>
-        <p class="hero-eyebrow">LAVA DB · Reactivación de Cartera</p>
-        <h1 class="hero-title">Reactiva tu cartera.<br><em class="gold">Convierte lo que ya pagaste.</em></h1>
-      </div>
-      <div>
+      <p class="hero-eyebrow">LAVA DB · Reactivación de Cartera</p>
+      <h1 class="hero-title">Reactiva tu cartera.<br><em class="gold">Convierte lo que ya pagaste.</em></h1>
+      <div class="hero-bottom">
         <p class="hero-body">Tu equipo de agentes de IA que hace el trabajo operativo de un call center — sin nómina, sin límite de leads. Activamos bases dormidas con inteligencia conversacional y te entregamos los prospectos listos para negociar.</p>
         <div class="hero-ctas">
           <a href="#cta-final" class="btn-primary">Agendar diagnóstico</a>

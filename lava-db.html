@@ -515,14 +515,107 @@ section { padding: 96px 56px; }
 .setup-item p { font-size: 13px; color: var(--mid); line-height: 1.7; }
 
 /* ── CTA FINAL ── */
-#cta-final {
-  background: var(--warm);
+/* ── CONTACTO ── */
+#contacto {
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
-  text-align: center;
 }
-#cta-final .section-title { margin: 0 auto 16px; max-width: 600px; }
-#cta-final .section-body { margin: 0 auto 48px; max-width: 480px; text-align: center; }
-.cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+#contacto .contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-detail-block {
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+  margin-bottom: 28px;
+}
+.contact-detail-label {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-bottom: 6px;
+}
+.contact-detail {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.6;
+}
+.contact-detail a { color: var(--text); text-decoration: none; transition: opacity 0.2s; }
+.contact-detail a:hover { opacity: 0.6; }
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hint);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--warm);
+  border: none;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder { color: var(--hint); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { box-shadow: 0 0 0 2px var(--gold); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select { appearance: none; cursor: pointer; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0 24px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.6;
+}
+.form-privacy input[type="checkbox"] {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.form-privacy a { color: var(--text); text-decoration: underline; }
+.form-submit {
+  width: 100%;
+  padding: 16px 32px;
+  background: var(--gold);
+  color: #000;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: background 0.25s;
+}
+.form-submit:hover { background: var(--text); color: #fff; }
+.form-submit:disabled { opacity: 0.6; cursor: default; }
+.form-ok { display: none; margin-top: 16px; font-size: 13px; font-weight: 300; color: var(--gold); }
 
 /* ── FOOTER ── */
 footer {
@@ -532,10 +625,15 @@ footer {
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px; flex-wrap: wrap;
 }
-.ftr-logo img { height: 18px; width: auto; }
-.ftr-text { font-size: 12px; color: #666; }
-.ftr-link { font-size: 12px; color: #888; text-decoration: none; transition: color 0.18s; }
-.ftr-link:hover { color: #EBB22C; }
+.ftr-left { display: flex; align-items: center; gap: 20px; }
+.ftr-logo img { height: 20px; width: auto; filter: brightness(0) invert(1); opacity: 0.5; }
+.ftr-powered { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.ftr-powered span { font-size: 9px; font-weight: 300; color: #777; letter-spacing: 0.12em; text-transform: uppercase; }
+.ftr-powered img { height: 28px; opacity: 0.4; filter: brightness(0) invert(1); transition: opacity 0.2s; }
+.ftr-powered:hover img { opacity: 0.7; }
+.ftr-text { font-size: 11px; color: #777; letter-spacing: 0.04em; }
+.ftr-link { font-size: 11px; color: #777; text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+.ftr-link:hover { color: var(--gold); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -550,6 +648,8 @@ footer {
   #inversion .inv-layout { grid-template-columns: 1fr; gap: 40px; }
   header { padding: 0 28px; }
   footer { padding: 32px 28px; }
+  #contacto .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .steps-grid, .verif-grid { grid-template-columns: 1fr; }
@@ -563,7 +663,7 @@ footer {
   <a href="https://lava-db.corelab.mx" class="hdr-logo">
     <img src="logos/logo lava db light.png" alt="LAVA DB" style="height:28px; width:auto;">
   </a>
-  <a href="#cta-final" class="hdr-cta">Agendar diagnóstico</a>
+  <a href="#contacto" class="hdr-cta">Agendar diagnóstico</a>
 </header>
 
 <main>
@@ -576,7 +676,7 @@ footer {
       <div class="hero-bottom">
         <p class="hero-body">Activamos bases dormidas con inteligencia conversacional y te entregamos los prospectos listos para negociar. Tu equipo especializado de agentes de IA que hace el trabajo operativo de un call center sin límite de leads.</p>
         <div class="hero-ctas">
-          <a href="#cta-final" class="btn-primary">Agendar diagnóstico</a>
+          <a href="#contacto" class="btn-primary">Agendar diagnóstico</a>
           <a href="#como" class="btn-ghost">Ver cómo funciona →</a>
         </div>
       </div>
@@ -764,7 +864,7 @@ footer {
               <li>Configuración de reportes y dashboard</li>
               <li>Prueba piloto con muestra de la base</li>
             </ul>
-            <a href="#cta-final" class="btn-primary">Solicitar propuesta</a>
+            <a href="#contacto" class="btn-primary">Solicitar propuesta</a>
           </div>
         </div>
       </div>
@@ -788,15 +888,61 @@ footer {
     </div>
   </section>
 
-  <!-- CTA FINAL -->
-  <section id="cta-final">
+  <!-- CONTACTO -->
+  <section id="contacto">
     <div class="container">
-      <p class="section-label" style="text-align:center;">Siguiente paso</p>
-      <h2 class="section-title">¿Cuántos leads dormidos<br>tienes en tu base?</h2>
-      <p class="section-body">Agendamos un diagnóstico de 30 minutos. Sin costo, sin compromiso. Solo te contamos qué podemos activar con lo que ya tienes.</p>
-      <div class="cta-group">
-        <a href="mailto:omar@corelab.mx?subject=Diagnóstico LAVA DB" class="btn-primary">Agendar diagnóstico gratuito</a>
-        <a href="https://corelab.mx" class="btn-ghost">Conocer CoreLab →</a>
+      <div class="contact-inner">
+        <div>
+          <p class="section-label">Contacto</p>
+          <h2 class="section-title">Hablemos de<br><em class="gold">tu proyecto.</em></h2>
+          <p class="section-body" style="margin-top:20px;margin-bottom:36px;">Cuéntanos sobre tu empresa y tu base de leads. Te preparamos un diagnóstico personalizado sin compromiso.</p>
+          <div class="contact-detail-block">
+            <div class="contact-detail-label">Email</div>
+            <p class="contact-detail"><a href="mailto:hola@corelab.mx">hola@corelab.mx</a></p>
+          </div>
+          <div class="contact-detail-block">
+            <div class="contact-detail-label">Dirección</div>
+            <p class="contact-detail">Gob. Protasio Tagle 41<br>San Miguel Chapultepec, CDMX</p>
+          </div>
+        </div>
+        <div>
+          <form id="contact-form" onsubmit="submitForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre *</label>
+                <input type="text" name="name" required placeholder="Tu nombre">
+              </div>
+              <div class="form-group">
+                <label>Empresa</label>
+                <input type="text" name="empresa" placeholder="Nombre de tu empresa">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" name="email" required placeholder="correo@empresa.com">
+            </div>
+            <div class="form-group">
+              <label>¿Cuántos leads tiene tu base?</label>
+              <select name="industria">
+                <option value="">Selecciona un rango</option>
+                <option value="Menos de 5,000">Menos de 5,000</option>
+                <option value="5,000 – 20,000">5,000 – 20,000</option>
+                <option value="20,000 – 50,000">20,000 – 50,000</option>
+                <option value="Más de 50,000">Más de 50,000</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Cuéntanos tu proyecto</label>
+              <textarea name="mensaje" placeholder="¿De dónde vienen los leads? ¿Cuánto tiempo llevan sin contacto?"></textarea>
+            </div>
+            <div class="form-privacy">
+              <input type="checkbox" id="privacy" required>
+              <label for="privacy">He leído y acepto el <a href="https://corelab.mx/aviso-privacidad.html" target="_blank">Aviso de Privacidad</a> y consiento el tratamiento de mis datos personales conforme a la LFPDPPP.</label>
+            </div>
+            <button type="submit" class="form-submit">Enviar mensaje</button>
+            <p id="form-ok" class="form-ok">Recibido. Te contactamos en menos de 24 horas.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -805,12 +951,46 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <a href="https://corelab.mx" class="ftr-logo">
-    <img src="logos/logo lava db dark.png" alt="LAVA DB">
-  </a>
-  <span class="ftr-text">Un producto de <a href="https://corelab.mx" class="ftr-link">CoreLab</a> · IA aplicada a negocios</span>
-  <a href="https://corelab.mx" class="ftr-link">corelab.mx</a>
+  <div class="ftr-left">
+    <a href="https://lava-db.corelab.mx" class="ftr-logo">
+      <img src="logos/logo lava db dark.png" alt="LAVA DB">
+    </a>
+    <a href="https://corelab.mx" target="_blank" rel="noopener" class="ftr-powered">
+      <span>powered by</span>
+      <img src="logos/corelab.png" alt="CoreLab">
+    </a>
+  </div>
+  <p class="ftr-text">© 2026 CoreLab. All rights reserved.</p>
+  <a href="https://corelab.mx" class="ftr-link">corelab.mx →</a>
 </footer>
+
+<script>
+  async function submitForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form));
+    const btn = form.querySelector('.form-submit');
+    const orig = btn.textContent;
+    btn.textContent = '...'; btn.disabled = true;
+    try {
+      await fetch('https://corelab-backend-951255582389.us-central1.run.app/webhooks/landing-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre:    data.name      || '',
+          email:     data.email     || '',
+          empresa:   data.empresa   || '',
+          industria: data.industria || '',
+          mensaje:   data.mensaje   || '',
+          producto:  'LAVA DB',
+        }),
+      });
+    } catch(err) {}
+    form.reset();
+    document.getElementById('form-ok').style.display = 'block';
+    btn.textContent = orig; btn.disabled = false;
+  }
+</script>
 
 </body>
 </html>

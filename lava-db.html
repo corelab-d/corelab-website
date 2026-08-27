@@ -635,6 +635,28 @@ footer {
 .ftr-link { font-size: 11px; color: #777; text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
 .ftr-link:hover { color: var(--gold); }
 
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: none; }
+.delay-1 { transition-delay: .08s; }
+.delay-2 { transition-delay: .16s; }
+.delay-3 { transition-delay: .24s; }
+.delay-4 { transition-delay: .32s; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   section { padding: 72px 28px; }
@@ -686,15 +708,15 @@ footer {
   <!-- STATS -->
   <section id="stats">
     <div class="container">
-      <div class="stat-item">
+      <div class="stat-item reveal">
         <div class="stat-num">70<span>%</span></div>
         <div class="stat-label">de los leads en una base nunca recibe un segundo contacto</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal delay-1">
         <div class="stat-num">5<span>×</span></div>
         <div class="stat-label">más caro generar un lead nuevo que reactivar uno dormido</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item reveal delay-2">
         <div class="stat-num">24<span>/7</span></div>
         <div class="stat-label">operación continua sin ampliar el equipo de asesores</div>
       </div>
@@ -705,11 +727,11 @@ footer {
   <section id="reto">
     <div class="container">
       <div class="reto-grid">
-        <div>
+        <div class="reveal-left">
           <h2 class="section-title">Tu base de leads fríos es quizás<br><em class="gold">tu mejor oportunidad de negocio.</em></h2>
           <p class="section-body" style="margin-top:20px;">Cada lead que ya pagaste y no convirtiste sigue siendo una oportunidad real. El problema es la capacidad operativa para alcanzarlo de nuevo, a tiempo y con el mensaje correcto.</p>
         </div>
-        <div class="reto-cards">
+        <div class="reto-cards reveal-right">
           <div class="reto-card">
             <div class="reto-card-num">01</div>
             <h3>Leads que nunca se reactivan</h3>
@@ -733,27 +755,27 @@ footer {
   <!-- CÓMO FUNCIONA -->
   <section id="como">
     <div class="container">
-      <div class="intro">
+      <div class="intro reveal">
         <h2 class="section-title">Cómo funciona <em class="gold">LAVA-DB</em></h2>
         <p class="section-body">Cuatro etapas automatizadas que convierten una base dormida en prospectos calificados, listos para que tu equipo cierre.</p>
       </div>
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-card reveal">
           <div class="step-num">01</div>
           <h3>Activación masiva</h3>
           <p>Los agentes segmentan y contactan a toda la base vía WhatsApp. Toda la base recibe el primer mensaje.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card reveal delay-1">
           <div class="step-num">02</div>
           <h3>Calificación conversacional</h3>
           <p>Una conversación natural identifica intención real, condiciones actuales y nivel de interés. El agente pregunta lo que un asesor preguntaría.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card reveal delay-2">
           <div class="step-num">03</div>
           <h3>Cumplimiento y tono</h3>
           <p>Cada interacción respeta las regulaciones aplicables y mantiene el tono de marca definido en el onboarding.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card reveal delay-3">
           <div class="step-num">04</div>
           <h3>Entrega para cierre</h3>
           <p>Tu equipo recibe solo los prospectos re-interesados, con el resumen de la conversación listo para el cierre.</p>
@@ -765,7 +787,7 @@ footer {
   <!-- VERIFICACIÓN -->
   <section id="verificacion">
     <div class="container">
-      <div class="intro">
+      <div class="intro reveal">
         <p class="section-label">El flujo real</p>
         <h2 class="section-title">De lead dormido<br><em class="gold">a prospecto calificado</em></h2>
         <p class="section-body">Así se ve el proceso desde el primer contacto hasta que el lead llega al escritorio de tu asesor.</p>
@@ -773,7 +795,7 @@ footer {
       <div class="verif-layout">
 
         <!-- Mockup de conversación -->
-        <div class="chat-mockup">
+        <div class="chat-mockup reveal-left">
           <div class="chat-header">
             <div class="chat-avatar">L</div>
             <div class="chat-header-info">
@@ -807,7 +829,7 @@ footer {
         </div>
 
         <!-- Steps -->
-        <div class="verif-steps">
+        <div class="verif-steps reveal-right">
           <div class="verif-step">
             <div class="verif-step-num">01</div>
             <div class="verif-step-content">
@@ -846,13 +868,13 @@ footer {
   <section id="inversion">
     <div class="container">
       <div class="inv-layout">
-        <div>
+        <div class="reveal-left">
           <p class="section-label">Modelo de inversión</p>
           <h2 class="section-title">Proyectos<br><em class="gold">a la medida</em></h2>
           <p class="section-body" style="margin-top:20px;">Cada base de datos tiene su propio perfil de riesgo y potencial de activación. Por eso no tenemos precios fijos: construimos la propuesta después del diagnóstico.</p>
           <p class="section-body" style="margin-top:16px;">El modelo es fee fijo de operación + variable por resultado. Así nuestros incentivos están alineados con los tuyos.</p>
         </div>
-        <div>
+        <div class="reveal-right">
           <div class="inv-card">
             <div class="inv-card-tag" style="color:var(--mid);">Setup inicial</div>
             <h3 class="inv-card-title" style="color:var(--gold);">Todo lo que necesitas para arrancar</h3>
@@ -869,17 +891,17 @@ footer {
         </div>
       </div>
       <div class="setup-items">
-        <div class="setup-item">
+        <div class="setup-item reveal">
           <div class="setup-num">01</div>
           <h4>Diagnóstico sin costo</h4>
           <p>Analizamos tu base, estimamos el potencial de reactivación y te mostramos qué esperamos lograr antes de comprometerte con nada.</p>
         </div>
-        <div class="setup-item">
+        <div class="setup-item reveal delay-1">
           <div class="setup-num">02</div>
           <h4>Propuesta en 48 horas</h4>
           <p>Después del diagnóstico recibes una propuesta con volúmenes, fases, inversión y proyección de resultados.</p>
         </div>
-        <div class="setup-item">
+        <div class="setup-item reveal delay-2">
           <div class="setup-num">03</div>
           <h4>Arrancamos en 2 semanas</h4>
           <p>Setup, onboarding del agente y primera activación en el menor tiempo posible.</p>
@@ -892,7 +914,7 @@ footer {
   <section id="contacto">
     <div class="container">
       <div class="contact-inner">
-        <div>
+        <div class="reveal-left">
           <p class="section-label">Contacto</p>
           <h2 class="section-title">Hablemos de<br><em class="gold">tu proyecto.</em></h2>
           <p class="section-body" style="margin-top:20px;margin-bottom:36px;">Cuéntanos sobre tu empresa y tu base de leads. Te preparamos un diagnóstico personalizado sin compromiso.</p>
@@ -905,7 +927,7 @@ footer {
             <p class="contact-detail">Gob. Protasio Tagle 41<br>San Miguel Chapultepec, CDMX</p>
           </div>
         </div>
-        <div>
+        <div class="reveal-right">
           <form id="contact-form" onsubmit="submitForm(event)">
             <div class="form-row">
               <div class="form-group">
@@ -965,6 +987,13 @@ footer {
 </footer>
 
 <script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
   async function submitForm(e) {
     e.preventDefault();
     const form = e.target;

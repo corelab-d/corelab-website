@@ -433,59 +433,6 @@ section { padding: 96px 56px; }
   line-height: 1.6;
 }
 
-/* ── FASES ── */
-#fases {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-}
-#fases .intro { margin-bottom: 64px; }
-.fases-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-}
-.fase-card {
-  background: var(--surface);
-  padding: 40px 32px 48px;
-}
-.fase-card:last-child { background: var(--bg); }
-.fase-tag {
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--hint);
-  margin-bottom: 24px;
-}
-.fase-num {
-  font-size: clamp(40px, 4vw, 56px);
-  font-weight: 300;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.fase-num span { color: var(--gold); font-size: 0.6em; vertical-align: super; }
-.fase-label {
-  font-size: 12px;
-  color: var(--hint);
-  margin-bottom: 24px;
-}
-.fase-features {
-  list-style: none;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.fase-features li {
-  font-size: 13px;
-  color: var(--mid);
-  padding-left: 16px;
-  position: relative;
-}
-.fase-features li::before {
-  content: '—';
-  position: absolute; left: 0;
-  color: var(--hint);
-}
-
 /* ── INVERSIÓN ── */
 #inversion {
   background: var(--bg);
@@ -597,7 +544,7 @@ footer {
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
   #stats .container { grid-template-columns: 1fr; }
   #reto .reto-grid { grid-template-columns: 1fr; gap: 48px; }
-  .steps-grid, .fases-track { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
   #verificacion .verif-layout { grid-template-columns: 1fr; gap: 48px; }
   .setup-items { grid-template-columns: 1fr; }
   #inversion .inv-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -605,7 +552,7 @@ footer {
   footer { padding: 32px 28px; }
 }
 @media (max-width: 600px) {
-  .steps-grid, .verif-grid, .fases-track { grid-template-columns: 1fr; }
+  .steps-grid, .verif-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -791,63 +738,6 @@ footer {
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- FASES -->
-  <section id="fases">
-    <div class="container">
-      <div class="intro">
-        <p class="section-label">Escalamiento por fases</p>
-        <h2 class="section-title">Empezamos pequeño.<br><em>Escalamos cuando funciona.</em></h2>
-        <p class="section-body">El proyecto se estructura en fases de volumen creciente. Validamos resultados antes de comprometer el siguiente nivel.</p>
-      </div>
-      <div class="fases-track">
-        <div class="fase-card">
-          <div class="fase-tag">Fase 1 — Piloto</div>
-          <div class="fase-num">5<span>K</span></div>
-          <div class="fase-label">leads</div>
-          <ul class="fase-features">
-            <li>Onboarding del agente</li>
-            <li>WhatsApp dedicado</li>
-            <li>Ajuste de tono y guión</li>
-            <li>Reporte de resultados</li>
-          </ul>
-        </div>
-        <div class="fase-card">
-          <div class="fase-tag">Fase 2</div>
-          <div class="fase-num">10<span>K</span></div>
-          <div class="fase-label">leads</div>
-          <ul class="fase-features">
-            <li>Optimización de mensajes</li>
-            <li>Segmentación por perfil</li>
-            <li>Integración CRM activa</li>
-            <li>Dashboard de seguimiento</li>
-          </ul>
-        </div>
-        <div class="fase-card">
-          <div class="fase-tag">Fase 3</div>
-          <div class="fase-num">20<span>K</span></div>
-          <div class="fase-label">leads</div>
-          <ul class="fase-features">
-            <li>Flujos de re-oferta</li>
-            <li>Multi-canal (WA + email)</li>
-            <li>Scoring automático</li>
-            <li>Análisis de objeciones</li>
-          </ul>
-        </div>
-        <div class="fase-card">
-          <div class="fase-tag">Fase 4 — Escala</div>
-          <div class="fase-num">30<span>K</span></div>
-          <div class="fase-label">leads</div>
-          <ul class="fase-features">
-            <li>Operación continua</li>
-            <li>Reportes ejecutivos</li>
-            <li>Expansión a nuevas bases</li>
-            <li>Soporte dedicado</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>

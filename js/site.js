@@ -120,6 +120,13 @@
           </ul>
         </div>
         <div class="footer-col">
+          <h5>Productos</h5>
+          <ul>
+            <li><a href="https://lava.corelab.mx" target="_blank">LAVA</a></li>
+            <li><a href="https://lava-db.corelab.mx" target="_blank">LAVA DB</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
           <h5 data-i18n="footer.col2">Casos</h5>
           <ul>
             <li><a href="${rootPath}casos/arquitectoma.html">Arquitectoma</a></li>

@@ -24,3 +24,10 @@ img/casos/fertilidad-integral-3.png
 img/casos/fertilidad-integral-4.png
 img/casos/fertilidad-integral-5.png
 mockup-proyectos.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

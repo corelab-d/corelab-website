@@ -202,6 +202,15 @@
   .xp-ribbon a{ color:#141412 !important; font-weight:700; text-decoration:underline; text-underline-offset:3px; border:0 !important; padding:0 !important; }
   .site-top, .hero-top{ padding-top:calc(var(--xp-ribbon) + 24px) !important; }
   @media (max-width:700px){ .xp-ribbon .xp-rb-txt{ display:none; } .xp-ribbon{ gap:20px; font-size:12px; } }
+  /* Banda de donativos antes del footer */
+  .xp-dona{ background:#F4EFE2; padding:76px 5vw; display:flex; align-items:center; justify-content:space-between; gap:36px 64px; flex-wrap:wrap; font-family:"Helvetica Neue",Arial,sans-serif; }
+  .xp-dona-k{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#8C887C; font-weight:700; margin:0 0 12px; }
+  .xp-dona h2{ font-weight:800; letter-spacing:-.015em; font-size:clamp(24px,3vw,34px); line-height:1.15; margin:0 0 14px; max-width:24ch; text-wrap:balance; color:#141412; }
+  .xp-dona-sub{ font-size:15px; line-height:1.65; color:#5C594F; margin:0; max-width:54ch; }
+  .xp-dona-cta{ display:flex; align-items:center; flex-wrap:wrap; gap:18px 28px; }
+  .xp-dona-btn{ display:inline-block; font-size:14px; font-weight:700; color:#FAFAF7; background:#141412; padding:15px 30px; text-decoration:none; }
+  .xp-dona-link{ font-size:14px; font-weight:700; color:#1A1A18; text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:760px){ .xp-dona{ padding:56px 5vw; } }
   /* Scroll reveal — subtle fade+rise site-wide, minimal by design */
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }
@@ -439,6 +448,18 @@
   <div class="close">
     <h2>¿Tienes un espacio, un evento o una idea? Hablemos.</h2>
     <a href="xoloplastics_contacto.html" data-contact="Home · Cierre">Escríbenos →</a>
+  </div>
+
+  <div class="xp-dona reveal">
+    <div>
+      <p class="xp-dona-k">Donativos</p>
+      <h2>Ayúdanos a recuperar más plástico y a formar a más jóvenes.</h2>
+      <p class="xp-dona-sub">Puedes donar como persona o como institución. Cada aportación es trazable: kilos recuperados, horas de formación y piezas concretas.</p>
+    </div>
+    <div class="xp-dona-cta">
+      <a class="xp-dona-btn" href="xoloplastics_donativos.html" data-contact="Banda · Donativo (persona)" data-contact-title="Dona como persona">Dona como persona →</a>
+      <a class="xp-dona-link" href="xoloplastics_donativos.html" data-contact="Banda · Donativo (institución)" data-contact-title="Dona como institución">Dona como institución →</a>
+    </div>
   </div>
 
   <div class="p-footer">

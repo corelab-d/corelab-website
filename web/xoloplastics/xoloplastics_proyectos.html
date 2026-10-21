@@ -107,6 +107,37 @@
   /* Las fotos con reveal arrancan ampliadas: recortar cualquier desborde horizontal para que la página nunca scrollee de lado */
   html, body{ overflow-x:clip; max-width:100%; }
   @media (max-width:760px){ .site-top, .hero-top{ flex-wrap:wrap; row-gap:10px; } .h-nav{ flex-wrap:wrap; gap:8px 16px; font-size:12.5px; } .h-nav .lang{ display:none; } .h-nav .mini{ padding:7px 12px; } }
+  /* Modal de contacto (compartido por todas las páginas) */
+  .xpm[hidden]{ display:none; }
+  .xpm{ position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center; padding:24px 16px; }
+  .xpm-backdrop{ position:absolute; inset:0; background:rgba(20,20,18,.58); opacity:0; transition:opacity .25s ease; }
+  .xpm-dialog{ position:relative; width:100%; max-width:560px; max-height:calc(100vh - 48px); overflow-y:auto; background:#FCFCFA; color:#141412; padding:48px 48px 40px; box-shadow:0 28px 70px rgba(0,0,0,.28); opacity:0; transform:translateY(14px); transition:opacity .25s ease, transform .3s cubic-bezier(.2,.7,.2,1); font-family:"Helvetica Neue",Arial,sans-serif; }
+  .xpm.xpm-open .xpm-backdrop{ opacity:1; }
+  .xpm.xpm-open .xpm-dialog{ opacity:1; transform:none; }
+  .xpm-x{ position:absolute; top:14px; right:16px; width:40px; height:40px; border:0; background:none; font-size:28px; line-height:1; color:#8C887C; cursor:pointer; }
+  .xpm-x:hover{ color:#141412; }
+  .xpm-k{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#8C887C; font-weight:700; margin:0 0 10px; }
+  .xpm-title{ font-weight:800; letter-spacing:-.015em; font-size:clamp(24px,3vw,30px); line-height:1.15; margin:0 0 10px; }
+  .xpm-sub{ font-size:15px; line-height:1.6; color:#5C594F; margin:0 0 30px; }
+  .xpm-frow{ display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+  .xpm-field{ display:flex; flex-direction:column; margin-bottom:22px; }
+  .xpm-field label{ font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:#8C887C; font-weight:700; margin-bottom:8px; }
+  .xpm-field input, .xpm-field textarea{ font-family:inherit; font-size:16px; color:#141412; background:transparent; border:0; border-bottom:1px solid #C9C6BA; border-radius:0; padding:8px 0; outline:none; }
+  .xpm-field input:focus, .xpm-field textarea:focus{ border-bottom-color:#141412; }
+  .xpm-field textarea{ resize:vertical; min-height:96px; }
+  .xpm-hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; }
+  .xpm-err{ font-size:13.5px; line-height:1.55; color:#8A2B1F; margin:0 0 16px; }
+  .xpm-err a{ color:inherit; }
+  .xpm-submit{ font-family:inherit; font-size:14px; font-weight:700; color:#FAFAF7; background:#141412; padding:15px 32px; border:0; cursor:pointer; }
+  .xpm-submit[disabled]{ opacity:.6; cursor:default; }
+  .xpm-note{ font-size:12px; color:#8C887C; margin:18px 0 0; }
+  .xpm-done p{ font-size:15px; line-height:1.6; color:#5C594F; margin:0 0 26px; }
+  body.xpm-lock{ overflow:hidden; }
+  .xpm-inline{ font-size:14px; line-height:1.6; margin:16px 0 0; color:#5C594F; }
+  .xpm-inline.xpm-bad{ color:#8A2B1F; }
+  @media (max-width:560px){ .xpm-dialog{ padding:44px 22px 28px; } .xpm-frow{ grid-template-columns:1fr; } .xpm-submit{ width:100%; } }
+  @media (prefers-reduced-motion:reduce){ .xpm-backdrop, .xpm-dialog{ transition:none; } }
+
   /* Scroll reveal — subtle fade+rise site-wide, minimal by design */
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }
@@ -210,7 +241,7 @@
   <div class="close">
     <h2>¿Tu despacho tiene un proyecto que todavía no existe en ningún catálogo?</h2>
     <div class="close-cta">
-      <a class="primary" href="xoloplastics_contacto.html">Cuéntanos tu proyecto →</a>
+      <a class="primary" href="xoloplastics_contacto.html" data-contact="Proyectos a la medida · Cierre">Cuéntanos tu proyecto →</a>
       <a class="secondary" href="xoloplastics_empresas.html">O ve la página de Empresas</a>
     </div>
   </div>
@@ -262,5 +293,148 @@
 })();
 </script>
 
+  <div class="xpm" id="xpm" hidden>
+    <div class="xpm-backdrop" data-xpm-close></div>
+    <div class="xpm-dialog" role="dialog" aria-modal="true" aria-labelledby="xpm-title">
+      <button class="xpm-x" type="button" data-xpm-close aria-label="Cerrar">&times;</button>
+      <div id="xpm-form-view">
+        <p class="xpm-k">Escríbenos</p>
+        <h2 class="xpm-title" id="xpm-title">Cuéntanos tu proyecto</h2>
+        <p class="xpm-sub">Déjanos tus datos y te respondemos pronto.</p>
+        <form id="xpm-form" novalidate>
+          <div class="xpm-field"><label for="xpm-nombre">Nombre</label><input id="xpm-nombre" name="nombre" type="text" required autocomplete="name"></div>
+          <div class="xpm-frow">
+            <div class="xpm-field"><label for="xpm-email">Email</label><input id="xpm-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="xpm-field"><label for="xpm-tel">Teléfono (opcional)</label><input id="xpm-tel" name="telefono" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="xpm-field"><label for="xpm-msg">Mensaje</label><textarea id="xpm-msg" name="mensaje" rows="4" required></textarea></div>
+          <input class="xpm-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="xpm-err" id="xpm-err" role="alert" hidden></p>
+          <button class="xpm-submit" id="xpm-send" type="submit">Enviar →</button>
+          <p class="xpm-note">Usaremos tus datos solo para responderte.</p>
+        </form>
+      </div>
+      <div class="xpm-done" id="xpm-done" hidden>
+        <p class="xpm-k">Mensaje enviado</p>
+        <h2 class="xpm-title" id="xpm-done-title">Gracias.</h2>
+        <p id="xpm-done-text">Recibimos tu mensaje y te respondemos pronto.</p>
+        <button class="xpm-submit" type="button" data-xpm-close>Cerrar</button>
+      </div>
+    </div>
+  </div>
+<script src="xp-form-config.js"></script>
+<script>
+(function(){
+  var DEFAULT_TO=['xoloplastics@imaginalco.org','info@xoloplastics.com'];
+  function cfg(){ var c=window.XP_FORM||{}; return {enabled:!!c.enabled, to:(c.to&&c.to.length)?c.to:DEFAULT_TO}; }
+  var root=document.getElementById('xpm');
+  if(!root) return;
+  var formView=document.getElementById('xpm-form-view'), doneView=document.getElementById('xpm-done');
+  var form=document.getElementById('xpm-form'), err=document.getElementById('xpm-err'), btn=document.getElementById('xpm-send');
+  var title=document.getElementById('xpm-title'), doneTitle=document.getElementById('xpm-done-title'), doneText=document.getElementById('xpm-done-text');
+  var tag='', lastFocus=null;
+
+  function failMsg(){
+    var to=cfg().to;
+    return 'No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a '+to.map(function(a){ return '<a href="mailto:'+a+'">'+a+'</a>'; }).join(' o ')+'.';
+  }
+  function subjectFor(section){ return '['+section+'] Nuevo mensaje desde el sitio de Xoloplastics'; }
+
+  function openMail(section, x){
+    var c=cfg();
+    var body='Nombre: '+x.name+'\nEmail: '+x.email+'\nTeléfono: '+(x.phone||'—')+(x.interes?'\nInterés: '+x.interes:'')+'\n\nMensaje:\n'+x.message+'\n\n— Enviado desde '+location.href;
+    var a=document.createElement('a');
+    a.href='mailto:'+c.to.join(',')+'?subject='+encodeURIComponent(subjectFor(section))+'&body='+encodeURIComponent(body);
+    document.body.appendChild(a); a.click(); a.remove();
+    return Promise.resolve('mailto');
+  }
+
+  function send(section, x){
+    var c=cfg();
+    if(!c.enabled) return openMail(section, x);
+    var data={
+      'name': x.name, 'email': x.email, 'Teléfono': x.phone || '—', 'Mensaje': x.message,
+      'Sección': section, 'Página': location.href,
+      '_subject': subjectFor(section), '_template': 'table', '_captcha': 'false', '_honey': x.honey || ''
+    };
+    if(x.interes) data['Interés']=x.interes;
+    if(c.to.length>1) data['_cc']=c.to.slice(1).join(',');
+    return fetch('https://formsubmit.co/ajax/'+c.to[0],{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(j){ if(j && (j.success===true || j.success==='true')) return 'sent'; throw new Error('send'); });
+  }
+
+  function focusables(){ return root.querySelectorAll('button:not([disabled]), input:not(.xpm-hp), textarea, a[href]'); }
+  function open(trigger){
+    tag=trigger.getAttribute('data-contact')||'Sitio';
+    var t=trigger.getAttribute('data-contact-title') || (trigger.textContent||'').replace(/\s*→\s*$/,'').trim() || 'Escríbenos';
+    title.textContent=t;
+    err.hidden=true; formView.hidden=false; doneView.hidden=true;
+    btn.disabled=false; btn.textContent='Enviar →';
+    lastFocus=document.activeElement;
+    root.hidden=false; document.body.classList.add('xpm-lock');
+    requestAnimationFrame(function(){ root.classList.add('xpm-open'); });
+    setTimeout(function(){ var n=document.getElementById('xpm-nombre'); if(n) n.focus(); }, 60);
+  }
+  function close(){
+    root.classList.remove('xpm-open');
+    document.body.classList.remove('xpm-lock');
+    setTimeout(function(){ root.hidden=true; }, 230);
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener('click', function(e){
+    var t=e.target.closest && e.target.closest('[data-contact]');
+    if(t){ e.preventDefault(); open(t); return; }
+    if(e.target.closest && e.target.closest('[data-xpm-close]') && !root.hidden){ close(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(root.hidden) return;
+    if(e.key==='Escape'){ close(); return; }
+    if(e.key==='Tab'){
+      var f=focusables(); if(!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var v=function(n){ return (form.elements[n]||{}).value||''; };
+    var first=v('nombre').trim().split(' ')[0];
+    btn.disabled=true; btn.textContent='Enviando…'; err.hidden=true;
+    send(tag, {name:v('nombre').trim(), email:v('email').trim(), phone:v('telefono').trim(), message:v('mensaje').trim(), honey:v('_honey')})
+      .then(function(mode){
+        if(mode==='mailto'){ doneTitle.textContent='Casi listo.'; doneText.textContent='Abrimos tu correo con el mensaje ya redactado. Solo falta que lo envíes.'; }
+        else { doneTitle.textContent='Gracias'+(first?', '+first:'')+'.'; doneText.textContent='Recibimos tu mensaje y te respondemos pronto.'; }
+        form.reset(); formView.hidden=true; doneView.hidden=false;
+        var c=doneView.querySelector('button'); if(c) c.focus();
+      })
+      .catch(function(){ err.innerHTML=failMsg(); err.hidden=false; btn.disabled=false; btn.textContent='Enviar →'; });
+  });
+
+  document.querySelectorAll('form[data-xp-form]').forEach(function(pf){
+    var status=document.createElement('p'); status.className='xpm-inline'; status.hidden=true; pf.appendChild(status);
+    pf.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!pf.checkValidity()){ pf.reportValidity(); return; }
+      var g=function(n){ return (pf.elements[n]||{}).value||''; };
+      var sb=pf.querySelector('[type=submit]'); sb.disabled=true; status.hidden=true;
+      var full=(g('Nombre')+' '+g('Apellido')).trim();
+      var interes=g('Interes');
+      var first=(g('Nombre')||'').trim().split(' ')[0];
+      send(pf.getAttribute('data-xp-form')+(interes?' · '+interes:''), {name:full, email:g('Email'), phone:g('Telefono'), message:g('Mensaje'), honey:g('_honey'), interes:interes})
+        .then(function(mode){
+          pf.reset(); status.className='xpm-inline';
+          status.textContent = mode==='mailto' ? 'Abrimos tu correo con el mensaje ya redactado. Solo falta que lo envíes.' : 'Gracias'+(first?', '+first:'')+'. Recibimos tu mensaje y te respondemos pronto.';
+          status.hidden=false; sb.disabled=false;
+        })
+        .catch(function(){ status.className='xpm-inline xpm-bad'; status.innerHTML=failMsg(); status.hidden=false; sb.disabled=false; });
+    });
+  });
+})();
+</script>
 </body>
 </html>

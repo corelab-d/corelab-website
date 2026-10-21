@@ -141,6 +141,9 @@
   .site-top.nav-hidden{ transform:translateY(-100%); }
   .ehero{ padding-top:76px; }
 
+  /* Las fotos con reveal arrancan ampliadas: recortar cualquier desborde horizontal para que la página nunca scrollee de lado */
+  html, body{ overflow-x:clip; max-width:100%; }
+  @media (max-width:760px){ .site-top, .hero-top{ flex-wrap:wrap; row-gap:10px; } .h-nav{ flex-wrap:wrap; gap:8px 16px; font-size:12.5px; } .h-nav .lang{ display:none; } .h-nav .mini{ padding:7px 12px; } }
   /* Scroll reveal — subtle fade+rise site-wide, minimal by design */
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }

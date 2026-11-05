@@ -115,7 +115,7 @@
   .malinalco-copy a{ font-size:13.5px; font-weight:700; color:#FAFAF7; border-bottom:1px solid rgba(250,250,247,.6); text-decoration:none; padding-bottom:2px; }
 
   .productos{ padding:76px 0 84px; border-top:1px solid #E4E2DB; }
-  .productos .head{ padding:0 5vw; margin-bottom:36px; }
+  .productos .head{ padding:0 5vw; margin-bottom:36px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px 48px; flex-wrap:wrap; }
   .productos .k{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#8C887C; font-weight:700; margin:0 0 8px; }
   .productos h2{ font-family:"Helvetica Neue",Arial,sans-serif; font-weight:800; letter-spacing:-.01em; font-size:clamp(24px,2.6vw,30px); margin:0 0 10px; max-width:20ch; }
   .productos .sub{ font-size:13.5px; color:#8C887C; margin:0; max-width:56ch; line-height:1.6; }
@@ -211,6 +211,7 @@
   .xp-dona-btn{ display:inline-block; font-size:18px; font-weight:700; color:#FAFAF7; background:#141412; padding:22px 56px; text-decoration:none; }
   .xp-dona-link{ font-size:14px; font-weight:700; color:#1A1A18; text-decoration:underline; text-underline-offset:3px; }
   @media (max-width:760px){ .xp-dona{ padding:56px 5vw; } }
+  .btn-cat{ display:inline-block; margin:0; font-size:14px; font-weight:700; color:#FAFAF7; background:#141412; padding:14px 30px; text-decoration:none; }
   /* Scroll reveal — subtle fade+rise site-wide, minimal by design */
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
   .reveal.in{ opacity:1; transform:translateY(0); }
@@ -353,9 +354,12 @@
 
   <div class="productos">
     <div class="head">
-      <p class="k">Próximamente</p>
-      <h2>Piezas de diseño, pronto en tienda en línea.</h2>
-      <p class="sub">Un adelanto de las piezas de mobiliario y objetos que estamos preparando para la tienda — cada una hecha con plástico 100% reciclado.</p>
+      <div>
+        <p class="k">Próximamente</p>
+        <h2>Piezas de diseño, pronto en tienda en línea.</h2>
+        <p class="sub">Un adelanto de las piezas de mobiliario y objetos que estamos preparando para la tienda — cada una hecha con plástico 100% reciclado.</p>
+      </div>
+      <a class="btn-cat" href="xoloplastics_contacto.html" data-contact="Home · Catálogo de productos" data-contact-title="Pide nuestro catálogo de productos">Pide nuestro catálogo de productos →</a>
     </div>
     <div class="prod-scroll reveal-stag">
       <div class="prod-card">
